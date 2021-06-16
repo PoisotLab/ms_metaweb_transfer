@@ -4,3 +4,6 @@ dist/
 references.json
 affiliations.json
 .vscode
+
+#MacOS nonsense
+.DS_Store
