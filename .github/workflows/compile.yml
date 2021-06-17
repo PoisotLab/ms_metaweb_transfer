@@ -90,6 +90,16 @@ jobs:
         with:
           name: "manuscript"
           path: dist
+            steps:
+      - name: Add artifacts to PR
+        uses: tonyhallett/artifacts-url-comments@v1.1.0
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            prefix: Here are the artifacts 
+            suffix: Have a nice day.
+            format: name
+            addTo: pullandissues
   deploy:
     name: Deploy to gh-pages
     needs: [generate, build]
