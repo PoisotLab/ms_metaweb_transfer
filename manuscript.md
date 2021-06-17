@@ -19,15 +19,33 @@ one area and the idea of we want to take this someplace new.
 
 > Fig: conceptual
 
-# Data and Methods
+# Methods
 
 ## Data
 
-Longer data description and wrangling
+- network data
+- IUCN checklist for Canada
+- phylogeny from Upham et al.
+- GBIF name checking and synonyms replacement
 
-## Fancy maths
+## Learning the origin network representation
 
-Embedding & transfer
+- t-SVD / RDPG explanation
+- selection of the embedding depth
+- thresholding based on known data
+- extraction of the left/right subspace
+
+## Transfer learning through phylogenetic relatedness
+
+- Pagel's $\lambda$
+- brownian motion model for every trait
+- prediction: Uniform distribution between min/max
+
+## Probabilistic prediction of the destination network
+
+- random draws from the Uniform
+- 20k replicates
+- P(int) = success/trials
 
 # Results
 
