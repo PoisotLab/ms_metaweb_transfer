@@ -91,15 +91,20 @@ jobs:
           name: "manuscript"
           path: dist
             steps:
-      - name: Add artifacts to PR
-        uses: tonyhallett/artifacts-url-comments@v1.1.0
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Save preprint
+        if: always()
+        uses: actions/upload-artifact@master
         with:
-            prefix: Here are the artifacts 
-            suffix: Have a nice day.
-            format: name
-            addTo: pullandissues
+          name: "preprint.pdf"
+          path: dist/preprint.pdf
+            steps:
+      - name: Save draft
+        if: always()
+        uses: actions/upload-artifact@master
+        with:
+          name: "draft.pdf"
+          path: dist/draft.pdf
+            steps:
   deploy:
     name: Deploy to gh-pages
     needs: [generate, build]
