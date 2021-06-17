@@ -90,18 +90,6 @@ jobs:
         with:
           name: "manuscript"
           path: dist
-      - name: Save preprint
-        if: always()
-        uses: actions/upload-artifact@master
-        with:
-          name: "preprint.pdf"
-          path: dist/preprint.pdf
-      - name: Save draft
-        if: always()
-        uses: actions/upload-artifact@master
-        with:
-          name: "draft.pdf"
-          path: dist/draft.pdf
   deploy:
     name: Deploy to gh-pages
     needs: [generate, build]
