@@ -84,8 +84,13 @@ of ecological networks, which has recently been shown to both capture their
 complex, emerging properties [@Strydom2021SvdEnt], and to allow highly 
 accurate prediction of the interactions within a single network HAYSTACK. 
 Under tSVD, an adjacency matrix $\mathbf{A}$ is decomposed into three 
-components, so that $\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}'$, 
-where TK TANYA plz add some text.
+components, so that $\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}^*$, 
+for which $\mathbf{\Sigma}$ is an $r \times r$ diagonal matrix (where $r$ 
+is the rank of matrix $\mathbf{A}$) containing only non-zero singular 
+($\sigma$) values, $\mathbf{L}$ is an $m \times r$ matrix, and $\mathbf{R}$ 
+an $n \times r$ matrix. In using a tSVD we retain only 'informative' (non-zero) 
+$\sigma$ values - which translates to unique predation strategies 
+within the matrix.
 
 The latent variables used for the RDPG, called the left and right subspaces,
 are defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and
