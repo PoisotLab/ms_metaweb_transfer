@@ -126,15 +126,65 @@ we explain how we rely on phylogenetic similarity to do so.
 
 ## Transfer learning through phylogenetic relatedness
 
-- Pagel's $\lambda$
-- brownian motion model for every trait
-- prediction: Uniform distribution between min/max
+In order to transfer the knowledge from the European metaweb to the Canadian
+species pool, we performed ancestral character estimation using a Brownian
+motion model REF. We assumed that all traits (*i.e.* the feature vectors
+for the left and right subspaces) where independent, which is a reasonable
+assumption as every trait/dimension added to the tSVD has an *additive*
+effect to the one before it. The Brownian motion algorithm returns the
+*average* value of the trait, and its upper and lower bounds. Because we do
+not estimate other parameters of the traits distributions, we considered that
+every species trait is represented as a uniform distribution between these
+bounds. Therefore, the inferred left and right sub-spaces for the Canadian
+species pool ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries that
+are distributions, representing the range of values for a given species at
+a given dimension.
+
+These objects represent the transfered knowledge, which we can use for
+prediction of the Canadian metaweb.
 
 ## Probabilistic prediction of the destination network
 
-- random draws from the Uniform
-- 20k replicates
-- P(int) = success/trials
+The phylogenetic reconstruction of $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$
+has an associated uncertainty, represented by the breadth of the
+uniform distribution associated to each of their entries. Therefore,
+we can use this information to assemble a *probabilistic* metaweb
+REFPoisotProbaNet.
+
+Specifically, we have adopted the following approach. For every entry
+in $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from
+its distribution. This results in one instance of the possible left
+($\hat{\mathcal{l}}$) and right ($\hat{\mathcal{r}}$) subspaces for the
+Canadian metaweb. These can be multiplied, to produced one matrix of real
+values. Because the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$
+are in the same space where $\mathcal{L}$ and $\mathcal{R}$ were originally
+predicted, it follows that the threshold $\rho$ estimated for the European
+metaweb also applies. We use this information to produce one random Canadian
+metaweb, $N = \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$.
+
+Because the intervals around some trait values can be broad, we repeat the
+above process $2\times 10^5$ times, which results in a probabilistic metaweb
+$P$, where the probability of an interaction (here conveying our degree of
+trust that it exists given the inferred trait distributions) is given by the
+number of times where it appears across all random draws $N$, divided by the
+number of samples. An interaction with $P_{i,j} = 1$ means that these two
+species were predicted to interact in all $2\times 10^5$ random draws, etc..
+
+## Data cleanup, discovery, and validation
+
+- carry over the European metaweb subset as having either P=0 or P=1
+- search in GLOBI: found approx. 360 interactions we predicted, and 30 we didn't
+- addition of GLOBI data as having P=1
+
+## Implementation and code availability
+
+The entire pipeline was implemented in *Julia* 1.6 REF, and is available
+under the permissive MIT License at DOI. The taxonomic cleanup steps are
+done using `GBIF.jl`. The network embedding and analysis is done using
+`EcologicalNetworks.jl` REF. The phylogenetic simulations are done using
+`PhyloNetworks.jl` REF and `Phylo.jl` REF. Complete `Project.toml` and
+`Manifest.toml` files specifying the full tree of dependencies are available
+alongside the code. The entire pipeline runs comfortably on a laptop.
 
 # Results
 
