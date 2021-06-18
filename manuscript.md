@@ -27,13 +27,13 @@ so we need to move info across space -- let's end the intro on this
 
 ## Data
 
-We use data on the European metaweb assembled by {>>ref<<}. We use the
+We use data on the European metaweb assembled by @Maiorano2020TetEu. We use the
 definition of the metaweb first introduced by DUNNE, *i.e.* an inventory of
 all possible interactions within species from a spatially delimited pool.
 The metaweb is not a prediction of the food web at any specific locale
 within the frontiers of the species pool -- in fact, these local food webs
 are expected to have a subset of both the species and the interactions of
-their metaweb (POISOT BETADIV). This being said, as the metaweb represents
+their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
 the total of functional, phylogenetic, and macroecological processes
 (MORALLES CASTILLA), it is still worthy of ecological attention. We induced
 the subgraph corresponding to all mammals by matching species names in the
@@ -44,9 +44,9 @@ as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer;
 the support for transfer is here represented by the phylogenetic similarity
-of mammals. We used the mammalian consensus supertree by UPHAM, for which
-all approx. 6000 names have been similarly matched to their GBIF valid
-names. This step allows us to place each node of the mammalian European
+of mammals. We used the mammalian consensus supertree by @Upham2019InfMam, 
+for whichall approx. 6000 names have been similarly matched to their GBIF 
+valid names. This step allows us to place each node of the mammalian European
 metaweb in the phylogeny.
 
 The destination problem to which we want to transfer knowledge is the
@@ -74,17 +74,18 @@ metaweb representation is easily transferable. Specifically, we use Random
 Dot Product Graphs (RDPG) to create a number of latent variables that can be
 combined into an approximation of the network adjacency matrix. RDPG results
 are known to have strong phylogenetic signal, and to capture the evolutionary
-backbone of food webs GVDR&Stouffer. In addition, recent advances show that
+backbone of food webs [@DallaRiva2016ExpEvo]. In addition, recent advances show that
 the latent variables produced this way can be used to predict *de novo*
-interactions GVDRPreprint.
+interactions [@Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (tSVD) on the adjacency matrix. SVD is an appropriate embedding
 of ecological networks, which has recently been shown to both capture their
-complex, emerging properties STRYDOM, and to allow highly accurate prediction
-of the interactions within a single network HAYSTACK. Under tSVD, an adjacency
-matrix $\mathbf{A}$ is decomposed into three components, so that $\mathbf{A}
-= \mathbf{L}\mathbf{\Sigma}\mathbf{R}'$, where TK TANYA plz add some text.
+complex, emerging properties [@Strydom2021SvdEnt], and to allow highly 
+accurate prediction of the interactions within a single network HAYSTACK. 
+Under tSVD, an adjacency matrix $\mathbf{A}$ is decomposed into three 
+components, so that $\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}'$, 
+where TK TANYA plz add some text.
 
 The latent variables used for the RDPG, called the left and right subspaces,
 are defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and
