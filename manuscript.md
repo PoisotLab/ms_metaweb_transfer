@@ -241,3 +241,5 @@ because e.g. dietary shifts across range.
 
 @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
 probability: this method might be it
+
+# References
