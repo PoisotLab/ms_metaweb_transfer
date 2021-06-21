@@ -1,6 +1,7 @@
 ---
 bibliography: [references.bib]
 ---
+
 # Introduction
 
 _Justification & pertinence_
@@ -27,20 +28,20 @@ so we need to move info across space -- let's end the intro on this
 
 ## Data
 
-We use data on the European metaweb assembled by @Maiorano2020TetEu. We use the
-definition of the metaweb first introduced by DUNNE, *i.e.* an inventory of
-all possible interactions within species from a spatially delimited pool.
-The metaweb is not a prediction of the food web at any specific locale
-within the frontiers of the species pool -- in fact, these local food webs
-are expected to have a subset of both the species and the interactions of
-their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
-the total of functional, phylogenetic, and macroecological processes
-(MORALLES CASTILLA), it is still worthy of ecological attention. We induced
-the subgraph corresponding to all mammals by matching species names in the
-original network first to the GBIF taxonomic backbone (REF), and retaining
-all those who matched to mammals; all nodes had valid matches to GBIF at
-this step, and so this backbone is used for all name reconciliation steps
-as outlined below.
+We use data on the European metaweb assembled by @Maiorano2020TetEu. We use
+the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.*
+an inventory of all possible interactions within species from a spatially
+delimited pool.  The metaweb is not a prediction of the food web at any
+specific locale within the frontiers of the species pool -- in fact, these
+local food webs are expected to have a subset of both the species and the
+interactions of their metaweb [@Poisot2012DisSpe]. This being said, as the
+metaweb represents the total of functional, phylogenetic, and macroecological
+processes [@Morales-Castilla2015InfBioa], it is still worthy of ecological
+attention. We induced the subgraph corresponding to all mammals by matching
+species names in the original network first to the GBIF taxonomic backbone
+[@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
+all nodes had valid matches to GBIF at this step, and so this backbone is
+used for all name reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer;
 the support for transfer is here represented by the phylogenetic similarity
@@ -49,12 +50,12 @@ for whichall approx. 6000 names have been similarly matched to their GBIF
 valid names. This step allows us to place each node of the mammalian European
 metaweb in the phylogeny.
 
-The destination problem to which we want to transfer knowledge is the
-trophic interactions between mammals in Canada. We obtained the list
-of extant species from the IUCN checklist, and selected the terrestrial
-and semi-aquatic species (this corresponds to the same selection that was
-applied by REF in the European metaweb). The IUCN names were, as previously,
-reconciled against GBIF to have an exact match to the taxonomy.
+The destination problem to which we want to transfer knowledge is the trophic
+interactions between mammals in Canada. We obtained the list of extant species
+from the IUCN checklist, and selected the terrestrial and semi-aquatic species
+(this corresponds to the same selection that was applied by @Maiorano2020TetEu
+in the European metaweb). The IUCN names were, as previously, reconciled
+against GBIF to have an exact match to the taxonomy.
 
 The European metaweb had XXX species, and the Canadian species pool had
 YYY - of these, only 17 were shared, which highlights the need to rely
@@ -71,26 +72,25 @@ representational learning, where we learn a *representation* of the metaweb,
 rather than a list of interactions. This approach is conceptually different
 from other metaweb-scale predictions (*.e.g.* ALBOUY, others?), in that the
 metaweb representation is easily transferable. Specifically, we use Random
-Dot Product Graphs (RDPG) to create a number of latent variables that can be
-combined into an approximation of the network adjacency matrix. RDPG results
-are known to have strong phylogenetic signal, and to capture the evolutionary
-backbone of food webs [@DallaRiva2016ExpEvo]. In addition, recent advances show that
-the latent variables produced this way can be used to predict *de novo*
-interactions [@Runghen2021ExpNod].
+Dot Product Graphs [RDPG; @Young2007RanDot] to create a number of latent
+variables that can be combined into an approximation of the network adjacency
+matrix. RDPG results are known to have strong phylogenetic signal, and to
+capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]. In
+addition, recent advances show that the latent variables produced this way
+can be used to predict *de novo* network edges [@Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (tSVD) on the adjacency matrix. SVD is an appropriate embedding
 of ecological networks, which has recently been shown to both capture their
-complex, emerging properties [@Strydom2021SvdEnt], and to allow highly 
-accurate prediction of the interactions within a single network HAYSTACK. 
-Under tSVD, an adjacency matrix $\mathbf{A}$ is decomposed into three 
-components, so that $\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}^*$, 
-for which $\mathbf{\Sigma}$ is an $r \times r$ diagonal matrix (where $r$ 
-is the rank of matrix $\mathbf{A}$) containing only non-zero singular 
-($\sigma$) values, $\mathbf{L}$ is an $m \times r$ matrix, and $\mathbf{R}$ 
-an $n \times r$ matrix. In using a tSVD we retain only 'informative' (non-zero) 
-$\sigma$ values - which translates to unique predation strategies 
-within the matrix.
+complex, emerging properties [@Strydom2021SvdEnt], and to allow highly accurate
+prediction of the interactions within a single network [@Poisot2021ImpMam].
+Under tSVD, an adjacency matrix $\mathbf{A}$ is decomposed into three
+components, so that $\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}^*$,
+for which $\mathbf{\Sigma}$ is an $r \times r$ diagonal matrix (where $r$ is
+the rank of matrix $\mathbf{A}$) containing only non-zero singular ($\sigma$)
+values, $\mathbf{L}$ is an $m \times r$ matrix, and $\mathbf{R}$ an $n \times
+r$ matrix. In using a tSVD we retain only 'informative' (non-zero) $\sigma$
+values - which translates to unique predation strategies within the matrix.
 
 The latent variables used for the RDPG, called the left and right subspaces,
 are defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and
@@ -123,8 +123,8 @@ binary classification problem, specifically assuming that both 0 and 1 in
 the European metaweb are all true. Given the methodological given in REF,
 this seems like a reasonable assumption, although one that does not hold
 for all metawebs. We used the thresholding approach presented in HAYSTACK,
-and picked a cutoff that maximized Youden's J statistic; the resulting cutoff
-was 0.22, and gave an accuracy above 0.99.
+and picked a cutoff that maximized Youden's J statistic [@Youden1950IndRat];
+the resulting cutoff was 0.22, and gave an accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold, represent the knowledge we seek to transfer. In the next section,
@@ -134,7 +134,9 @@ we explain how we rely on phylogenetic similarity to do so.
 
 In order to transfer the knowledge from the European metaweb to the Canadian
 species pool, we performed ancestral character estimation using a Brownian
-motion model REF. We assumed that all traits (*i.e.* the feature vectors
+motion model, which is a conservative approach in the absence of strong
+hypotheses about the nature of phylogenetic signal in the network decomposition
+[@Litsios2012EffPhy]. We assumed that all traits (*i.e.* the feature vectors
 for the left and right subspaces) where independent, which is a reasonable
 assumption as every trait/dimension added to the tSVD has an *additive*
 effect to the one before it. The Brownian motion algorithm returns the
@@ -152,10 +154,11 @@ prediction of the Canadian metaweb.
 ## Probabilistic prediction of the destination network
 
 The phylogenetic reconstruction of $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$
-has an associated uncertainty, represented by the breadth of the
-uniform distribution associated to each of their entries. Therefore,
-we can use this information to assemble a *probabilistic* metaweb
-REFPoisotProbaNet.
+has an associated uncertainty, represented by the breadth of the uniform
+distribution associated to each of their entries. Therefore, we can use
+this information to assemble a *probabilistic* metaweb in the sense of
+@Poisot2016StrPro, *i.e.* in which every interaction is represented as a
+single, independent, Bernoulli event of probability $p$.
 
 Specifically, we have adopted the following approach. For every entry
 in $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from
@@ -168,19 +171,22 @@ predicted, it follows that the threshold $\rho$ estimated for the European
 metaweb also applies. We use this information to produce one random Canadian
 metaweb, $N = \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$.
 
-Because the intervals around some trait values can be broad, we repeat the
-above process $2\times 10^5$ times, which results in a probabilistic metaweb
-$P$, where the probability of an interaction (here conveying our degree of
-trust that it exists given the inferred trait distributions) is given by the
-number of times where it appears across all random draws $N$, divided by the
-number of samples. An interaction with $P_{i,j} = 1$ means that these two
-species were predicted to interact in all $2\times 10^5$ random draws, etc..
+Because the intervals around some trait values can be broad [in fact, probably
+broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
+repeat the above process $2\times 10^5$ times, which results in a probabilistic
+metaweb $P$, where the probability of an interaction (here conveying our
+degree of trust that it exists given the inferred trait distributions) is
+given by the number of times where it appears across all random draws $N$,
+divided by the number of samples. An interaction with $P_{i,j} = 1$ means
+that these two species were predicted to interact in all $2\times 10^5$
+random draws, etc..
 
-## Data cleanup, discovery, and validation
+## Data cleanup, discovery, validation, and thresholding
 
 - carry over the European metaweb subset as having either P=0 or P=1
 - search in GLOBI: found approx. 360 interactions we predicted, and 30 we didn't
 - addition of GLOBI data as having P=1
+- @Cirtwill2021BuiFoo, but the cutoffs resulted in some species being lost, we kept a lower threshold so that all species retained at least one non-zero interaction
 
 ## Implementation and code availability
 
@@ -232,3 +238,6 @@ A cautionary tale regarding validation. Interaction can
 never be a true negative. Cannot use a empirical subset 
 of a bigger (predicated) network for validation -> 
 because e.g. dietary shifts across range.
+
+@Cirtwill2019QuaFra -- we need an informative interaction-level prior on
+probability: this method might be it
