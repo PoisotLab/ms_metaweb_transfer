@@ -4,25 +4,64 @@ bibliography: [references.bib]
 
 # Introduction
 
-_Justification & pertinence_
+The way that species interact with one another acts as a
+'point of departure' from which to study or understand 
+biodiversity and the environment at a range of scales 
+[@Jordano2016ChaEco]. Ranging from understanding how 
+interactions can shape and drive population dynamics, 
+maintenance and functioning of ecosystems, as well 
+as long-term evolutionary dynamics [@Landi2018ComSta; @Albrecht2018PlaAni]. 
+Species interactions (and the resulting networks) are 
+constructed and viewed under the lens of graph theory 
+[@Dale2010GraSpa]. Providing us with a robust framework 
+built on a mathematical foundation from which to approach 
+working with ecological networks [@Delmas2019AnaEco]. 
 
-Something brief on why we want/need to predict networks.
+Species interactions are determined by ecological 
+and evolutionary mechanisms that have played out across 
+spatial and temporal scales [@Poisot2015SpeWhy]. Thus 
+when defining ecological networks we inadvertently 
+capture the processes that have played a role in 
+structuring them. Thus the properties of a network 
+are not only representative of its structure but also of 
+_how_ different processes have played a role in determining 
+it. For example @MacDonald2020RevLina provide a realistic 
+model that predicts the number of links in a network 
+at a given species richness. This emphasizes the idea that 
+networks contain information and it is a task of leveraging 
+the mathematical framework of networks to 'decode' the 
+ecological information they contain - which can then be 
+utilized in prediction pipeline.
 
-Something on the fact that networks contain information.
-_Sensu lato_ we can decode them
+<!-- TS We could potentially have the phylogenetic signal 
+paragraph is better than traits here? -->
 
-Something on the idea of phylogenetic signal and how this is better than
-using functional traits (check last bit of statement though) <!-- TP Marten
-Winter has a paper on that -->
+The extreme difficulty in documenting species interactions 
+and being able to build networks poses a considerable 
+challenge to understanding the emergent properties of 
+ecological communities [@Jordano2016SamNet; @Jordano2016ChaEco].
+However, having a robust methodology from which we can 
+confidently make predictions of networks could prove to 
+be a viable solution to addressing the network data 
+deficit and allow us to begin asking more pertinent 
+questions with regards to ecological communities and 
+networks [@McCann2007ProBio; @Seibold2018NecMul].
 
-Painting scenario of how sometimes we have good info for 
-one area and the idea of we want to take this someplace new.
-
-important point to make -- there is a lot of method to predict interactions
-within a network, but we also know that not all places HAVE networks -
-so we need to move info across space -- let's end the intro on this
-
-> Fig: conceptual
+Although there are a set of methodological approaches 
+to predicting interactions within a network <!-- TS 
+list some here --> we are lacking 
+a way in which to predict interactions when there is 
+no existing network. Which is problematic considering 
+that alongside the scarcity of empirical datasets those 
+that are available are geographically biased [@Poisot2021GloKno],
+meaning that there are regions (at least with the current 
+suite of methods) for which we have no means to predict how 
+species are interacting. Here we present a methodology to 
+reconstruct an interaction network for a location for 
+which we have no _a priori_ interaction data by 'learning'
+from the information contained in a known network and 
+'transferring' this to the target location by using 
+phylogenetic inference and network embedding. FIGWORKFLOW
 
 # Methods
 
@@ -46,7 +85,7 @@ used for all name reconciliation steps as outlined below.
 The European metaweb represents the knowledge we want to learn and transfer;
 the support for transfer is here represented by the phylogenetic similarity
 of mammals. We used the mammalian consensus supertree by @Upham2019InfMam, 
-for whichall approx. 6000 names have been similarly matched to their GBIF 
+for which all approx. 6000 names have been similarly matched to their GBIF 
 valid names. This step allows us to place each node of the mammalian European
 metaweb in the phylogeny.
 
@@ -148,7 +187,7 @@ species pool ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries that
 are distributions, representing the range of values for a given species at
 a given dimension.
 
-These objects represent the transfered knowledge, which we can use for
+These objects represent the transferred knowledge, which we can use for
 prediction of the Canadian metaweb.
 
 ## Probabilistic prediction of the destination network
