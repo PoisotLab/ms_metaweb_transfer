@@ -9,7 +9,7 @@ from which to study or understand biodiversity and the environment at
 a range of scales [@Jordano2016ChaEco]. Ranging from understanding how
 interactions can shape and drive population dynamics, maintenance and
 functioning of ecosystems, as well as long-term evolutionary dynamics
-[@Landi2018ComStaa; @Albrecht2018PlaAni].  Species interactions (and the
+[@Landi2018ComStaa; @Albrecht2018PlaAni]. Species interactions (and the
 resulting networks) are constructed and viewed under the lens of graph
 theory [@Dale2010GraSpa]. Providing us with a robust framework built on
 a mathematical foundation from which to approach working with ecological
@@ -58,7 +58,7 @@ by using phylogenetic inference and network embedding. FIGWORKFLOW
 We use data on the European metaweb assembled by @Maiorano2020TetEu. We use
 the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.*
 an inventory of all possible interactions within species from a spatially
-delimited pool.  The metaweb is not a prediction of the food web at any
+delimited pool. The metaweb is not a prediction of the food web at any
 specific locale within the frontiers of the species pool -- in fact, these
 local food webs are expected to have a subset of both the species and the
 interactions of their metaweb [@Poisot2012DisSpe]. This being said, as the
