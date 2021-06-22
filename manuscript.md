@@ -27,8 +27,15 @@ the idea that networks contain information and it is a task of leveraging
 the mathematical framework of networks to 'decode' the ecological information
 they contain - which can then be utilized in prediction pipeline.
 
-<!-- TS We could potentially have the phylogenetic signal paragraph is better
-than traits here? -->
+@Gerhold2015PhyPat - phylogenetic signal captures diversification of
+characters, not necessarily assembly [see also @Dormann2010EvoCli, same
+result]. [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom] - interactions
+have phylogenetic signal that encompasses a wide range of ecological and
+evolutionary mechanisms. Known that interactions at large spatial scales
+should have some phylo signal [@Price2003MacThe]. @DallaRiva2016ExpEvo - food
+webs have phylo signal. @Mora2018IdeComa - food webs have common backbone
+structure suggesting conservatism or constraints. CCL: phylo usable as a
+medium for trait transfers.
 
 The extreme difficulty in documenting species interactions and being able to
 build networks poses a considerable challenge to understanding the emergent
