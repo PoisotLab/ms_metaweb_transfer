@@ -4,64 +4,52 @@ bibliography: [references.bib]
 
 # Introduction
 
-The way that species interact with one another acts as a
-'point of departure' from which to study or understand 
-biodiversity and the environment at a range of scales 
-[@Jordano2016ChaEco]. Ranging from understanding how 
-interactions can shape and drive population dynamics, 
-maintenance and functioning of ecosystems, as well 
-as long-term evolutionary dynamics [@Landi2018ComStaa; @Albrecht2018PlaAni]. 
-Species interactions (and the resulting networks) are 
-constructed and viewed under the lens of graph theory 
-[@Dale2010GraSpa]. Providing us with a robust framework 
-built on a mathematical foundation from which to approach 
-working with ecological networks [@Delmas2019AnaEcoa]. 
+The way that species interact with one another acts as a 'point of departure'
+from which to study or understand biodiversity and the environment at
+a range of scales [@Jordano2016ChaEco]. Ranging from understanding how
+interactions can shape and drive population dynamics, maintenance and
+functioning of ecosystems, as well as long-term evolutionary dynamics
+[@Landi2018ComStaa; @Albrecht2018PlaAni].  Species interactions (and the
+resulting networks) are constructed and viewed under the lens of graph
+theory [@Dale2010GraSpa]. Providing us with a robust framework built on
+a mathematical foundation from which to approach working with ecological
+networks [@Delmas2019AnaEcoa].
 
-Species interactions are determined by ecological 
-and evolutionary mechanisms that have played out across 
-spatial and temporal scales [@Poisot2015SpeWhy]. Thus 
-when defining ecological networks we inadvertently 
-capture the processes that have played a role in 
-structuring them. Thus the properties of a network 
-are not only representative of its structure but also of 
-_how_ different processes have played a role in determining 
-it. For example @MacDonald2020RevLinb provide a realistic 
-model that predicts the number of links in a network 
-at a given species richness. This emphasizes the idea that 
-networks contain information and it is a task of leveraging 
-the mathematical framework of networks to 'decode' the 
-ecological information they contain - which can then be 
-utilized in prediction pipeline.
+Species interactions are determined by ecological and evolutionary
+mechanisms that have played out across spatial and temporal scales
+[@Poisot2015SpeWhy]. Thus when defining ecological networks we inadvertently
+capture the processes that have played a role in structuring them. Thus the
+properties of a network are not only representative of its structure but
+also of _how_ different processes have played a role in determining it. For
+example @MacDonald2020RevLinb provide a realistic model that predicts the
+number of links in a network at a given species richness. This emphasizes
+the idea that networks contain information and it is a task of leveraging
+the mathematical framework of networks to 'decode' the ecological information
+they contain - which can then be utilized in prediction pipeline.
 
-<!-- TS We could potentially have the phylogenetic signal 
-paragraph is better than traits here? -->
+<!-- TS We could potentially have the phylogenetic signal paragraph is better
+than traits here? -->
 
-The extreme difficulty in documenting species interactions 
-and being able to build networks poses a considerable 
-challenge to understanding the emergent properties of 
-ecological communities [@Jordano2016SamNet; @Jordano2016ChaEco].
-However, having a robust methodology from which we can 
-confidently make predictions of networks could prove to 
-be a viable solution to addressing the network data 
-deficit and allow us to begin asking more pertinent 
-questions with regards to ecological communities and 
-networks [@McCann2007ProBioa; @Seibold2018NecMula].
+The extreme difficulty in documenting species interactions and being able to
+build networks poses a considerable challenge to understanding the emergent
+properties of ecological communities [@Jordano2016SamNet; @Jordano2016ChaEco].
+However, having a robust methodology from which we can confidently make
+predictions of networks could prove to be a viable solution to addressing the
+network data deficit and allow us to begin asking more pertinent questions
+with regards to ecological communities and networks [@McCann2007ProBioa;
+@Seibold2018NecMula].
 
-Although there are a set of methodological approaches 
-to predicting interactions within a network <!-- TS 
-list some here --> we are lacking 
-a way in which to predict interactions when there is 
-no existing network. Which is problematic considering 
-that alongside the scarcity of empirical datasets those 
-that are available are geographically biased [@Poisot2021GloKno],
-meaning that there are regions (at least with the current 
-suite of methods) for which we have no means to predict how 
-species are interacting. Here we present a methodology to 
-reconstruct an interaction network for a location for 
-which we have no _a priori_ interaction data by 'learning'
-from the information contained in a known network and 
-'transferring' this to the target location by using 
-phylogenetic inference and network embedding. FIGWORKFLOW
+Although there are a set of methodological approaches to predicting
+interactions within a network <!-- TS list some here --> we are lacking a way
+in which to predict interactions when there is no existing network. Which is
+problematic considering that alongside the scarcity of empirical datasets
+those that are available are geographically biased [@Poisot2021GloKno],
+meaning that there are regions (at least with the current suite of methods)
+for which we have no means to predict how species are interacting. Here we
+present a methodology to reconstruct an interaction network for a location for
+which we have no _a priori_ interaction data by 'learning' from the information
+contained in a known network and 'transferring' this to the target location
+by using phylogenetic inference and network embedding. FIGWORKFLOW
 
 # Methods
 
@@ -239,7 +227,54 @@ alongside the code. The entire pipeline runs comfortably on a laptop.
 
 # Results
 
+<!-- TP this is a dump of the figures with very embryonic legends -->
+
+![Left: representation of the screeplot of the eigenvalues from the tSVD on the
+European metaweb. The screeplot shows no obvious drop in the eigenvalues that
+may be leveraged to automatically detect a minimal dimension for embedding,
+after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained
+by each dimensions up to the rank of the European metaweb. The grey lines
+represents cutoff at 40, 60, and 80% of variance explained. For the rest
+of the analysis, we reverted to an arbitrary threshold of 60% of variance
+explained, which represented a good tradeoff between accuracy and reduced
+number of features.](figures/_figure-screeplot.png){#fig:scree}
+
+![Visual representation of the right (top) and left (bottom) subspaces in
+the European (left) and infered Canadian (right) metawebs. This figures
+illustrates how much structure the left sub-space captures. As we show in
+@fig:degree, the species with a value of 0 in the left subspace are species
+without any preys.](figures/_figure-subspaces.png){#fig:subspaces}
+
+![Left: there is a linear relatiosnhip between the values on the first
+dimension of the left subspace and the generality, *i.e.* the relative
+number of preys, *sensu* @Schoener1989FooWeb. Species with a value of 0
+in this subspace are at the bottom-most trophic level. Right: there is,
+similarly, a linear relationship between the position of a species on the
+first dimension of the right subspace and its vulnerability, *i.e.* the
+relative number of predators. Taken together, these two figures show that
+the first-order representation of this network would capture its degree
+distribution.](figures/_figure-degree.png){#fig:degree}
+
+![TK TP](figures/_figure-adjacencymatrices.png){#fig:matrices}
+
+![Left: effect of varying the cutoff for probabilities to be considered
+non-zero on the number of number of unique links and on $\hat{L}$, the
+probabilistic estimate of the number of links assuming that all interactions
+are independant. Right: effect of varying the cutoff on the number of
+disconnected species, and on network connectance. In both panels, the grey
+line indicates the cutoff $\rho = TK$ that resulted in the first species
+losing all of its interactions.](figures/_figure-cutoffs.png){#fig:thresholds}
+
 ## Model results
+
+**TP** @fig:degree shows that a rank 1 approximation would be equivalent to
+the configuration model [@Park2004StaMec], which is used as the "Type II"
+model [@Bascompte2003NesAss] in networks NHST
+
+**TP** @fig:thresholds -- the cutoffs using maximum curvature of central
+difference approximation of the second order partial derivative result in
+respectively species being lost, or almost all links being kept -- we settled
+on the value that allowed all species to remained.
 
 We now have space to unpack the results a bit more
 
