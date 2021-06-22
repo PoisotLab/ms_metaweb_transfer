@@ -239,7 +239,27 @@ of the analysis, we reverted to an arbitrary threshold of 60% of variance
 explained, which represented a good tradeoff between accuracy and reduced
 number of features.](figures/_figure-screeplot.png){#fig:scree}
 
+![Visual representation of the right (top) and left (bottom) subspaces in
+the European (left) and infered Canadian (right) metawebs. This figures
+illustrates how much structure the left sub-space captures. As we show in
+@fig:degree, the species with a value of 0 in the left subspace are species
+without any preys.](figures/_figure-subspaces.png){#fig:subspaces}
+
+![Left: there is a linear relatiosnhip between the values on the first
+dimension of the left subspace and the generality, *i.e.* the relative
+number of preys, *sensu* @Schoener1989FooWeb. Species with a value of 0
+in this subspace are at the bottom-most trophic level. Right: there is,
+similarly, a linear relationship between the position of a species on the
+first dimension of the right subspace and its vulnerability, *i.e.* the
+relative number of predators. Taken together, these two figures show that
+the first-order representation of this network would capture its degree
+distribution.](figures/_figure-degree.png){#fig:degree}
+
 ## Model results
+
+**TP** @fig:degree shows that a rank 1 approximation would be equivalent to
+the configuration model [@Park2004StaMec], which is used as the "Type II"
+model [@Bascompte2003NesAss] in networks NHST
 
 We now have space to unpack the results a bit more
 
