@@ -255,11 +255,26 @@ relative number of predators. Taken together, these two figures show that
 the first-order representation of this network would capture its degree
 distribution.](figures/_figure-degree.png){#fig:degree}
 
+![TK TP](figures/_figure-adjacencymatrices.png){#fig:matrices}
+
+![Left: effect of varying the cutoff for probabilities to be considered
+non-zero on the number of number of unique links and on $\hat{L}$, the
+probabilistic estimate of the number of links assuming that all interactions
+are independant. Right: effect of varying the cutoff on the number of
+disconnected species, and on network connectance. In both panels, the grey
+line indicates the cutoff $\rho = TK$ that resulted in the first species
+losing all of its interactions.](figures/_figure-cutoffs.png){#fig:thresholds}
+
 ## Model results
 
 **TP** @fig:degree shows that a rank 1 approximation would be equivalent to
 the configuration model [@Park2004StaMec], which is used as the "Type II"
 model [@Bascompte2003NesAss] in networks NHST
+
+**TP** @fig:thresholds -- the cutoffs using maximum curvature of central
+difference approximation of the second order partial derivative result in
+respectively species being lost, or almost all links being kept -- we settled
+on the value that allowed all species to remained.
 
 We now have space to unpack the results a bit more
 
