@@ -274,13 +274,13 @@ by each dimensions up to the rank of the European metaweb. The grey lines
 represents cutoff at 40, 60, and 80% of variance explained. For the rest
 of the analysis, we reverted to an arbitrary threshold of 60% of variance
 explained, which represented a good tradeoff between accuracy and reduced
-number of features.](figures/_figure-screeplot.png){#fig:scree}
+number of features.](figures/figure-screeplot.png){#fig:scree}
 
 ![Visual representation of the right (top) and left (bottom) subspaces in
 the European (left) and infered Canadian (right) metawebs. This figures
 illustrates how much structure the left sub-space captures. As we show in
 @fig:degree, the species with a value of 0 in the left subspace are species
-without any preys.](figures/_figure-subspaces.png){#fig:subspaces}
+without any preys.](figures/figure-subspaces.png){#fig:subspaces}
 
 ![Left: there is a linear relatiosnhip between the values on the first
 dimension of the left subspace and the generality, *i.e.* the relative
@@ -290,9 +290,9 @@ similarly, a linear relationship between the position of a species on the
 first dimension of the right subspace and its vulnerability, *i.e.* the
 relative number of predators. Taken together, these two figures show that
 the first-order representation of this network would capture its degree
-distribution.](figures/_figure-degree.png){#fig:degree}
+distribution.](figures/figure-degree.png){#fig:degree}
 
-![TK TP](figures/_figure-adjacencymatrices.png){#fig:matrices}
+![TK TP](figures/figure-adjacencymatrices.png){#fig:matrices}
 
 ![Left: effect of varying the cutoff for probabilities to be considered
 non-zero on the number of number of unique links and on $\hat{L}$, the
@@ -300,7 +300,7 @@ probabilistic estimate of the number of links assuming that all interactions
 are independant. Right: effect of varying the cutoff on the number of
 disconnected species, and on network connectance. In both panels, the grey
 line indicates the cutoff $\rho = TK$ that resulted in the first species
-losing all of its interactions.](figures/_figure-cutoffs.png){#fig:thresholds}
+losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 ![GLOBI comparison REF TK/TP](figures/globi-comparison.png){#fig:globi}
 
