@@ -227,6 +227,18 @@ alongside the code. The entire pipeline runs comfortably on a laptop.
 
 # Results
 
+<!-- TP this is a dump of the figures with very embryonic legends -->
+
+![Left: representation of the screeplot of the eigenvalues from the tSVD on the
+European metaweb. The screeplot shows no obvious drop in the eigenvalues that
+may be leveraged to automatically detect a minimal dimension for embedding,
+after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained
+by each dimensions up to the rank of the European metaweb. The grey lines
+represents cutoff at 40, 60, and 80% of variance explained. For the rest
+of the analysis, we reverted to an arbitrary threshold of 60% of variance
+explained, which represented a good tradeoff between accuracy and reduced
+number of features.](figures/_figure-screeplot.png){#fig:scree}
+
 ## Model results
 
 We now have space to unpack the results a bit more
