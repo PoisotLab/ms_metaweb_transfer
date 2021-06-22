@@ -4,64 +4,52 @@ bibliography: [references.bib]
 
 # Introduction
 
-The way that species interact with one another acts as a
-'point of departure' from which to study or understand 
-biodiversity and the environment at a range of scales 
-[@Jordano2016ChaEco]. Ranging from understanding how 
-interactions can shape and drive population dynamics, 
-maintenance and functioning of ecosystems, as well 
-as long-term evolutionary dynamics [@Landi2018ComStaa; @Albrecht2018PlaAni]. 
-Species interactions (and the resulting networks) are 
-constructed and viewed under the lens of graph theory 
-[@Dale2010GraSpa]. Providing us with a robust framework 
-built on a mathematical foundation from which to approach 
-working with ecological networks [@Delmas2019AnaEcoa]. 
+The way that species interact with one another acts as a 'point of departure'
+from which to study or understand biodiversity and the environment at
+a range of scales [@Jordano2016ChaEco]. Ranging from understanding how
+interactions can shape and drive population dynamics, maintenance and
+functioning of ecosystems, as well as long-term evolutionary dynamics
+[@Landi2018ComStaa; @Albrecht2018PlaAni].  Species interactions (and the
+resulting networks) are constructed and viewed under the lens of graph
+theory [@Dale2010GraSpa]. Providing us with a robust framework built on
+a mathematical foundation from which to approach working with ecological
+networks [@Delmas2019AnaEcoa].
 
-Species interactions are determined by ecological 
-and evolutionary mechanisms that have played out across 
-spatial and temporal scales [@Poisot2015SpeWhy]. Thus 
-when defining ecological networks we inadvertently 
-capture the processes that have played a role in 
-structuring them. Thus the properties of a network 
-are not only representative of its structure but also of 
-_how_ different processes have played a role in determining 
-it. For example @MacDonald2020RevLinb provide a realistic 
-model that predicts the number of links in a network 
-at a given species richness. This emphasizes the idea that 
-networks contain information and it is a task of leveraging 
-the mathematical framework of networks to 'decode' the 
-ecological information they contain - which can then be 
-utilized in prediction pipeline.
+Species interactions are determined by ecological and evolutionary
+mechanisms that have played out across spatial and temporal scales
+[@Poisot2015SpeWhy]. Thus when defining ecological networks we inadvertently
+capture the processes that have played a role in structuring them. Thus the
+properties of a network are not only representative of its structure but
+also of _how_ different processes have played a role in determining it. For
+example @MacDonald2020RevLinb provide a realistic model that predicts the
+number of links in a network at a given species richness. This emphasizes
+the idea that networks contain information and it is a task of leveraging
+the mathematical framework of networks to 'decode' the ecological information
+they contain - which can then be utilized in prediction pipeline.
 
-<!-- TS We could potentially have the phylogenetic signal 
-paragraph is better than traits here? -->
+<!-- TS We could potentially have the phylogenetic signal paragraph is better
+than traits here? -->
 
-The extreme difficulty in documenting species interactions 
-and being able to build networks poses a considerable 
-challenge to understanding the emergent properties of 
-ecological communities [@Jordano2016SamNet; @Jordano2016ChaEco].
-However, having a robust methodology from which we can 
-confidently make predictions of networks could prove to 
-be a viable solution to addressing the network data 
-deficit and allow us to begin asking more pertinent 
-questions with regards to ecological communities and 
-networks [@McCann2007ProBioa; @Seibold2018NecMula].
+The extreme difficulty in documenting species interactions and being able to
+build networks poses a considerable challenge to understanding the emergent
+properties of ecological communities [@Jordano2016SamNet; @Jordano2016ChaEco].
+However, having a robust methodology from which we can confidently make
+predictions of networks could prove to be a viable solution to addressing the
+network data deficit and allow us to begin asking more pertinent questions
+with regards to ecological communities and networks [@McCann2007ProBioa;
+@Seibold2018NecMula].
 
-Although there are a set of methodological approaches 
-to predicting interactions within a network <!-- TS 
-list some here --> we are lacking 
-a way in which to predict interactions when there is 
-no existing network. Which is problematic considering 
-that alongside the scarcity of empirical datasets those 
-that are available are geographically biased [@Poisot2021GloKno],
-meaning that there are regions (at least with the current 
-suite of methods) for which we have no means to predict how 
-species are interacting. Here we present a methodology to 
-reconstruct an interaction network for a location for 
-which we have no _a priori_ interaction data by 'learning'
-from the information contained in a known network and 
-'transferring' this to the target location by using 
-phylogenetic inference and network embedding. FIGWORKFLOW
+Although there are a set of methodological approaches to predicting
+interactions within a network <!-- TS list some here --> we are lacking a way
+in which to predict interactions when there is no existing network. Which is
+problematic considering that alongside the scarcity of empirical datasets
+those that are available are geographically biased [@Poisot2021GloKno],
+meaning that there are regions (at least with the current suite of methods)
+for which we have no means to predict how species are interacting. Here we
+present a methodology to reconstruct an interaction network for a location for
+which we have no _a priori_ interaction data by 'learning' from the information
+contained in a known network and 'transferring' this to the target location
+by using phylogenetic inference and network embedding. FIGWORKFLOW
 
 # Methods
 
