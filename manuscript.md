@@ -217,20 +217,50 @@ random draws, etc..
 
 ## Data cleanup, discovery, validation, and thresholding
 
-- carry over the European metaweb subset as having either P=0 or P=1
-- search in GLOBI: found approx. 360 interactions we predicted, and 30 we didn't
-- addition of GLOBI data as having P=1
-- @Cirtwill2021BuiFoo, but the cutoffs resulted in some species being lost, we kept a lower threshold so that all species retained at least one non-zero interaction
+
+Once the probabilistic metaweb for Canada has been produced, we followed
+a number of data inflation steps to finalize it.
+
+First, we extracted the subgraph corresponding to the 17 species shared
+between the European and Canadian pools, and replaced these interactions with
+a probability of 0 (non-interaction) or 1 (interaction). This represents a
+minute modification of the infered network (about 0.8% of all species pairs
+from the Canadian web), but ensures that are directly re-using knowledge
+from Europe.
+
+Second, we looked for all species in the Canadian pool known to the Global
+Biotic Interactions (GLOBI) database **REF**, and extracted their known
+interactions. Because GLOBI functions as an aggregator of interactions, it
+is not a *networks* data source, and therefore the only information we can
+reliably extract from it is that a species pair *was reported to interact at
+least once*. This last statement should yet be taken with caution, as some
+sources in GLOBI (*e.g.* **TK**) are produced though text-mining, and therefore
+do not document direct evidence of the interaction. Nevertheless, should
+the predictive model work, we would expect that a majority of interactions
+known to GLOBI would also be predicted. After performing this check, we set
+the probability of all interactions known to GLOBI (**CHECK 350** total,
+**CHECK 36** novel) to 1.
+
+Because the confidence interval on the infered trait space are
+probably an over-estimate, we decided to apply a thresholding step to the
+interactions. @Cirtwill2021BuiFoo highlight a number of strategies to threshold
+probabilistic networks. We performed a full analysis of the effect of various
+cutoffs, and as they either resulted in removing to few interactions, or
+removing enough interactions that species started to be disconnected from
+the network, we set the threshold for a probability equivalent to 0 to the
+largest possible value that still allow all species to have at least one
+interaction with non-zero probability.
 
 ## Implementation and code availability
 
-The entire pipeline was implemented in *Julia* 1.6 REF, and is available
-under the permissive MIT License at DOI. The taxonomic cleanup steps are
-done using `GBIF.jl`. The network embedding and analysis is done using
-`EcologicalNetworks.jl` REF. The phylogenetic simulations are done using
-`PhyloNetworks.jl` REF and `Phylo.jl` REF. Complete `Project.toml` and
-`Manifest.toml` files specifying the full tree of dependencies are available
-alongside the code. The entire pipeline runs comfortably on a laptop.
+The entire pipeline was implemented in *Julia* 1.6 [@Bezanson2017JulFre],
+and is available under the permissive MIT License at DOI. The taxonomic
+cleanup steps are done using `GBIF.jl` [@Dansereau2021SimJl]. The
+network embedding and analysis is done using `EcologicalNetworks.jl`
+[@Banville2021ManJl; @Poisot2019EcoJl]. The phylogenetic simulations are
+done using `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl`
+[@Reeve2016HowPar]. Complete `Project.toml` and `Manifest.toml` files
+specifying the full tree of dependencies are available alongside the code.
 
 # Results
 
@@ -271,6 +301,8 @@ are independant. Right: effect of varying the cutoff on the number of
 disconnected species, and on network connectance. In both panels, the grey
 line indicates the cutoff $\rho = TK$ that resulted in the first species
 losing all of its interactions.](figures/_figure-cutoffs.png){#fig:thresholds}
+
+![GLOBI comparison REF TK/TP](figures/globi-comparison.png){#fig:globi}
 
 ## Model results
 
