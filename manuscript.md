@@ -25,7 +25,7 @@ capture the processes that have played a role in
 structuring them. Thus the properties of a network 
 are not only representative of its structure but also of 
 _how_ different processes have played a role in determining 
-it. For example @MacDonald2020RevLina provide a realistic 
+it. For example @MacDonald2020RevLinb provide a realistic 
 model that predicts the number of links in a network 
 at a given species richness. This emphasizes the idea that 
 networks contain information and it is a task of leveraging 
