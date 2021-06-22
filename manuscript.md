@@ -10,12 +10,12 @@ biodiversity and the environment at a range of scales
 [@Jordano2016ChaEco]. Ranging from understanding how 
 interactions can shape and drive population dynamics, 
 maintenance and functioning of ecosystems, as well 
-as long-term evolutionary dynamics [@Landi2018ComSta; @Albrecht2018PlaAni]. 
+as long-term evolutionary dynamics [@Landi2018ComStaa; @Albrecht2018PlaAni]. 
 Species interactions (and the resulting networks) are 
 constructed and viewed under the lens of graph theory 
 [@Dale2010GraSpa]. Providing us with a robust framework 
 built on a mathematical foundation from which to approach 
-working with ecological networks [@Delmas2019AnaEco]. 
+working with ecological networks [@Delmas2019AnaEcoa]. 
 
 Species interactions are determined by ecological 
 and evolutionary mechanisms that have played out across 
@@ -45,7 +45,7 @@ confidently make predictions of networks could prove to
 be a viable solution to addressing the network data 
 deficit and allow us to begin asking more pertinent 
 questions with regards to ecological communities and 
-networks [@McCann2007ProBio; @Seibold2018NecMul].
+networks [@McCann2007ProBioa; @Seibold2018NecMula].
 
 Although there are a set of methodological approaches 
 to predicting interactions within a network <!-- TS 
@@ -75,7 +75,7 @@ specific locale within the frontiers of the species pool -- in fact, these
 local food webs are expected to have a subset of both the species and the
 interactions of their metaweb [@Poisot2012DisSpe]. This being said, as the
 metaweb represents the total of functional, phylogenetic, and macroecological
-processes [@Morales-Castilla2015InfBioa], it is still worthy of ecological
+processes [@Morales-Castilla2015InfBio], it is still worthy of ecological
 attention. We induced the subgraph corresponding to all mammals by matching
 species names in the original network first to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
