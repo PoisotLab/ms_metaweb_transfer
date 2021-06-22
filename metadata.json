@@ -1,5 +1,5 @@
 {
-  "title": "Food web reconstruction using phylogenetic inference of latent variables on ecological interactions through network embedding",
+  "title": "Food web reconstruction through phylogenetic transfer of low-rank network representation",
   "license": "CC-BY",
   "language": "en",
   "creators": [
@@ -48,6 +48,8 @@
   "keywords": [
     "ecological networks",
     "network embedding",
-    "fancy maths"
+    "transfer learning",
+    "ancestral character estimation",
+    "biogeography"
   ]
 }
