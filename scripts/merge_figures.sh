@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-
 # Figure on the consequences of cutoff
 cd figures; convert cutoff-interactions.png cutoff-connectance.png +append _figure-cutoffs.png
 
