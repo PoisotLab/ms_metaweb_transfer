@@ -279,11 +279,13 @@ of the analysis, we reverted to an arbitrary threshold of 60% of variance
 explained, which represented a good tradeoff between accuracy and reduced
 number of features.](figures/figure-screeplot.png){#fig:scree}
 
-![Visual representation of the right (top) and left (bottom) subspaces in
-the European (left) and infered Canadian (right) metawebs. This figures
-illustrates how much structure the left sub-space captures. As we show in
-@fig:degree, the species with a value of 0 in the left subspace are species
-without any preys.](figures/figure-subspaces.png){#fig:subspaces}
+![Visual representation of the left (green/purple) and right (green/brown)
+subspaces, alongside the adjacency matrix of the food web they encode
+(greyscale). The European metaweb is on the left, and the imputed Canadian
+metaweb (before data inflation) on the right. This figures illustrates
+how much structure the left sub-space captures. As we show in @fig:degree,
+the species with a value of 0 in the left subspace are species without any
+preys.](figures/figure-subspaces.png){#fig:subspaces}
 
 ![Left: there is a linear relatiosnhip between the values on the first
 dimension of the left subspace and the generality, *i.e.* the relative
@@ -294,8 +296,6 @@ first dimension of the right subspace and its vulnerability, *i.e.* the
 relative number of predators. Taken together, these two figures show that
 the first-order representation of this network would capture its degree
 distribution.](figures/figure-degree.png){#fig:degree}
-
-![TK TP](figures/figure-adjacencymatrices.png){#fig:matrices}
 
 ![Left: effect of varying the cutoff for probabilities to be considered
 non-zero on the number of number of unique links and on $\hat{L}$, the
