@@ -235,11 +235,14 @@ is not a *networks* data source, and therefore the only information we can
 reliably extract from it is that a species pair *was reported to interact at
 least once*. This last statement should yet be taken with caution, as some
 sources in GLOBI (*e.g.* **TK**) are produced though text-mining, and therefore
-do not document direct evidence of the interaction. Nevertheless, should
-the predictive model work, we would expect that a majority of interactions
-known to GLOBI would also be predicted. After performing this check, we set
-the probability of all interactions known to GLOBI (**CHECK 350** total,
-**CHECK 36** novel) to 1.
+do not document direct evidence of the interaction. Nevertheless, should the
+predictive model work, we would expect that a majority of interactions known
+to GLOBI would also be predicted. After performing this check, we set the
+probability of all interactions known to GLOBI (366 in total, 33 of which
+were not predicted by the model, for a success rate of 91%) to 1.
+
+**TK/TP** @Strong2014ImpNona 2 additional interactions (25 total, 2 of which
+where not predicted by the model, for a success rate of 92%)
 
 Because the confidence interval on the infered trait space are
 probably an over-estimate, we decided to apply a thresholding step to the
@@ -302,7 +305,7 @@ disconnected species, and on network connectance. In both panels, the grey
 line indicates the cutoff $\rho = TK$ that resulted in the first species
 losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
-![GLOBI comparison REF TK/TP](figures/globi-comparison.png){#fig:globi}
+![GLOBI comparison REF TK/TP](figures/inflation-comparison.png){#fig:inflation}
 
 ## Model results
 

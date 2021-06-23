@@ -16,5 +16,8 @@ cp adjacencymatrices.png figure-adjacencymatrices.png
 # Figure on the biological meaning of left/right subspaces
 convert left-gen.png right-vuln.png +append figure-degree.png
 
+# Figure on inflation + degree distribution
+convert inflation-comparison.png final-degree.png +append figure-validation.png
+
 # Cleanup
 rm _tmp*.png
