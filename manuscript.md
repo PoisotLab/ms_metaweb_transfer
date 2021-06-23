@@ -305,7 +305,7 @@ disconnected species, and on network connectance. In both panels, the grey
 line indicates the cutoff $\rho = TK$ that resulted in the first species
 losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
-![GLOBI comparison REF TK/TP](figures/inflation-comparison.png){#fig:inflation}
+![GLOBI comparison REF TK/TP](figures/figure-validation.png){#fig:inflation}
 
 ## Model results
 
