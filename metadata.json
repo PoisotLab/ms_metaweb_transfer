@@ -1,55 +1,55 @@
 {
-  "title": "Food web reconstruction through phylogenetic transfer of low-rank network representation",
-  "license": "CC-BY",
-  "language": "en",
-  "creators": [
-    {
-      "affiliations": [
-        "Université de Montréal",
-        "Québec Centre for Biodiversity Sciences"
-      ],
-      "familyname": "Strydom",
-      "givennames": "Tanya",
-      "email": "tanya.strydom@umontreal.ca",
-      "orcid": "0000-0001-6067-1349",
-      "status": ["equal"]
-    },
-    {
-      "affiliations": [
-        "Université de Montréal",
-        "Québec Centre for Biodiversity Sciences"
-      ],
-      "familyname": "Bouskila",
-      "givennames": "Salomé",
-      "orcid": "0000-0003-0193-5441",
-      "status": ["equal"]
-    },
-    {
-      "affiliations": [
-        "School of Mathematics and Statistics, University of Canterbury"
-      ],
-      "familyname": "Dalla Riva",
-      "givennames": "Giulio V.",
-      "orcid": "0000-0002-3454-0633"
-    },
-    {
-      "affiliations": [
-        "Université de Montréal",
-        "Québec Centre for Biodiversity Sciences"
-      ],
-      "familyname": "Poisot",
-      "givennames": "Timothée",
-      "email": "timothee.poisot@umontreal.ca",
-      "orcid": "0000-0002-0735-5184",
-      "status": ["corresponding"]
-    }
-  ],
-  "description": "TODO",
-  "keywords": [
-    "ecological networks",
-    "network embedding",
-    "transfer learning",
-    "ancestral character estimation",
-    "biogeography"
-  ]
+    "title": "Food web reconstruction through phylogenetic transfer of low-rank network representation",
+    "license": "CC-BY",
+    "language": "en",
+    "creators": [
+        {
+            "affiliations": [
+                "Université de Montréal",
+                "Québec Centre for Biodiversity Sciences"
+            ],
+            "familyname": "Strydom",
+            "givennames": "Tanya",
+            "email": "tanya.strydom@umontreal.ca",
+            "orcid": "0000-0001-6067-1349",
+            "status": ["equal"]
+        },
+        {
+            "affiliations": [
+                "Université de Montréal",
+                "Québec Centre for Biodiversity Sciences"
+            ],
+            "familyname": "Bouskila",
+            "givennames": "Salomé",
+            "orcid": "0000-0003-0193-5441",
+            "status": ["equal"]
+        },
+        {
+            "affiliations": [
+                "School of Mathematics and Statistics, University of Canterbury"
+            ],
+            "familyname": "Dalla Riva",
+            "givennames": "Giulio V.",
+            "orcid": "0000-0002-3454-0633"
+        },
+        {
+            "affiliations": [
+                "Université de Montréal",
+                "Québec Centre for Biodiversity Sciences"
+            ],
+            "familyname": "Poisot",
+            "givennames": "Timothée",
+            "email": "timothee.poisot@umontreal.ca",
+            "orcid": "0000-0002-0735-5184",
+            "status": ["corresponding"]
+        }
+    ],
+    "description": "TODO",
+    "keywords": [
+        "ecological networks",
+        "network embedding",
+        "transfer learning",
+        "ancestral character estimation",
+        "biogeography"
+    ]
 }
