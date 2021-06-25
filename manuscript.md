@@ -281,8 +281,9 @@ cleanup steps are done using `GBIF.jl` [@Dansereau2021SimJl]. The
 network embedding and analysis is done using `EcologicalNetworks.jl`
 [@Banville2021ManJl; @Poisot2019EcoJl]. The phylogenetic simulations are
 done using `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl`
-[@Reeve2016HowPar]. A complete `Project.toml` file
-specifying the full tree of dependencies is available alongside the code, at [`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
+[@Reeve2016HowPar]. A complete `Project.toml` file specifying
+the full tree of dependencies is available alongside the code, at
+[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
 
 # Results
 
