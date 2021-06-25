@@ -74,21 +74,28 @@ Results/summary type paragraph
 
 # Methods
 
-The method is based on transferring knowledge from a known network to predict an unknown/unobserved one.
+The crux of the method is the transfer of knowledge of a known network,
+in order to predict interactions between species from another location. In
+@fig:concept, we give a high-level overview of the approach; in the example
+around which this manuscript is built (leveraging detailed knowledge about
+trophic interactions between Mammalia in Europe to predict the less known
+trophic interactions between closely phylogenetically related Mammalia in
+Canada), we use a series of specific steps for network embedding, trait
+inference, and network prediction and thresholding. This being said, the
+methods at each step may be substituted by others when the data support it.
 
-From the known network, we use a t-SVD to infer the latent traits driving species interactions and get an unbiased estimate of the node's position in the latent feature spaces. 
-Then, we relate/map these latent traits to phylogeny. 
-A random dot product graph (RDPG) model predicts the interaction between species through a function of the nodes' features. Thus from latent traits and nodes position, we can infer interactions.
-
-To predict an unobserved network, we infer its latent traits and nodes position from phylogenetic relatedness, then use the RDPG model to predict its interaction network.
-
-
-Method overview 
- 1) get the traits.
- 2) link traits to phylogeny
- 3) get the model
- 4) get the new trait from new phylogeny and use the model to predict the interaction of the predicted network
-
+Specifically, our approach can be summarized as follows: from the known
+network in Europe, we use a truncated Singular Values Decomposition (t-SVD)
+to generate latent traits representing a low-dimensional embedding of the
+network; these traits give an unbiased estimate of the node's position
+in the latent feature spaces.  Then, we map these latent traits onto a
+reference phylogeny (other distance-based measures of species proximity
+that allow for the inference of features in the latent space can be used,
+such as for example dissimilarity in functional traits). Based on the
+reconstructed latent traits for species in the destination species pool,
+a Random Dot Product Graph (RDPG) model predicts the interaction between
+species through a function of the nodes' features. Thus, from latent traits
+and nodes position, we can infer interactions.
 
 ## Data
 
