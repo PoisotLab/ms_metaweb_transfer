@@ -37,6 +37,17 @@ In this instance we used the latent information contained in the European metawe
 [@Maiorano2020TetEu] to predict the mammalian Canadian metaweb.
 <!-- TS Might make sense to have the conceptual figure referenced in this section-->
 
+![Overview of the phylogenetic transfer learning of species interactions
+networks. Starting from an initial network, we learn its representation
+through a graph embedding step (here, a truncated Singular Values
+Decomposition), yielding a series of latent traits; second, for the
+destination species pool, we perform ancestral character estimation using
+a phylogeny (here, using a Brownian model for the latent traits); we then
+sample from the reconstructed distribution of latent traits to generate
+a probabilistic metaweb at the destination (here, assuming a uniform
+distribution of traits), and threshold it to yield the final list of
+interactions.](figures/figure-concept.png){#fig:concept}
+
 @Gerhold2015PhyPat - phylogenetic signal captures diversification of
 characters, not necessarily assembly [see also @Dormann2010EvoCli, same
 result]. [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom] - interactions
