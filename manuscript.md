@@ -4,16 +4,48 @@ bibliography: [references.bib]
 
 # Introduction
 
-The way that species interact with one another acts as a 'point of departure'
-from which to study or understand biodiversity and the environment at
-a range of scales [@Jordano2016ChaEco]. Ranging from understanding how
-interactions can shape and drive population dynamics, maintenance and
-functioning of ecosystems, as well as long-term evolutionary dynamics
-[@Landi2018ComStaa; @Albrecht2018PlaAni]. Species interactions (and the
-resulting networks) are constructed and viewed under the lens of graph
-theory [@Dale2010GraSpa]. Providing us with a robust framework built on
-a mathematical foundation from which to approach working with ecological
-networks [@Delmas2019AnaEcoa].
+Although there are a set of methodological approaches to predicting
+interactions within *known* networks we lack ways to predict interactions 
+when interaction data are *absent* for that region, which is problematic 
+when considered alongside the fact that empirical datasets are scarce 
+and spatially and species <!-- type? --> biased [@Poisot2021GloKno]. This 
+patchwork of availability of interaction and network data is one of 
+the main, current challenges we are faced with when attempting to 
+understand networks at larger/macro scales. Having a robust methodology 
+from which we can confidently make predictions of networks could prove to 
+be a viable solution to addressing the data deficit and allow us to begin 
+asking more pertinent questions with regards to ecological communities and 
+networks [@McCann2007ProBioa; @Seibold2018NecMula]. Here, we present transfer 
+learning as a robust, easy to implement solution to predicting *de novo* 
+networks using the information contained in a *known* network.
+<!-- TS I've specifically kept this closing statement 'vague' to highlight 
+the generality of the approach - we could of course make it Canadian and 
+European webs... Also maybe the different location message could be stronger-->
+
+<!-- TS Vibes under 0.5 for this paragraph...-->
+Species that are closely related are likely to be morphologically similar REF 
+and will interact with other species in a similar (predictable?) manner REF. 
+Transfer learning leverages this by learning which latent traits determine 
+interactions for a known network and then transferring this information to a 
+different community (species pool?) using their phylogenetic relatedness to 
+the species in the known network to infer their latent traits. Once we have 
+the latent traits it is then possible to then predict species interactions 
+and to construct a network. This means that provided we have reliable 
+interaction data for a species pool we can use this to inform how other species, 
+for a different location, may interact based on their phylogenetic relatedness. 
+In this instance we used the latent information contained in the European metaweb 
+[@Maiorano2020TetEu] to predict the mammalian Canadian metaweb.
+<!-- TS Might make sense to have the conceptual figure referenced in this section-->
+
+@Gerhold2015PhyPat - phylogenetic signal captures diversification of
+characters, not necessarily assembly [see also @Dormann2010EvoCli, same
+result]. [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom] - interactions
+have phylogenetic signal that encompasses a wide range of ecological and
+evolutionary mechanisms. Known that interactions at large spatial scales
+should have some phylo signal [@Price2003MacThe]. @DallaRiva2016ExpEvo - food
+webs have phylo signal. @Mora2018IdeComa - food webs have common backbone
+structure suggesting conservatism or constraints. CCL: phylo usable as a
+medium for trait transfers.
 
 Species interactions are determined by ecological and evolutionary
 mechanisms that have played out across spatial and temporal scales
@@ -27,36 +59,7 @@ the idea that networks contain information and it is a task of leveraging
 the mathematical framework of networks to 'decode' the ecological information
 they contain - which can then be utilized in prediction pipeline.
 
-@Gerhold2015PhyPat - phylogenetic signal captures diversification of
-characters, not necessarily assembly [see also @Dormann2010EvoCli, same
-result]. [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom] - interactions
-have phylogenetic signal that encompasses a wide range of ecological and
-evolutionary mechanisms. Known that interactions at large spatial scales
-should have some phylo signal [@Price2003MacThe]. @DallaRiva2016ExpEvo - food
-webs have phylo signal. @Mora2018IdeComa - food webs have common backbone
-structure suggesting conservatism or constraints. CCL: phylo usable as a
-medium for trait transfers.
-
-The extreme difficulty in documenting species interactions and being able to
-build networks poses a considerable challenge to understanding the emergent
-properties of ecological communities [@Jordano2016SamNet; @Jordano2016ChaEco].
-However, having a robust methodology from which we can confidently make
-predictions of networks could prove to be a viable solution to addressing the
-network data deficit and allow us to begin asking more pertinent questions
-with regards to ecological communities and networks [@McCann2007ProBioa;
-@Seibold2018NecMula].
-
-Although there are a set of methodological approaches to predicting
-interactions within a network <!-- TS list some here --> we are lacking a way
-in which to predict interactions when there is no existing network. Which is
-problematic considering that alongside the scarcity of empirical datasets
-those that are available are geographically biased [@Poisot2021GloKno],
-meaning that there are regions (at least with the current suite of methods)
-for which we have no means to predict how species are interacting. Here we
-present a methodology to reconstruct an interaction network for a location for
-which we have no _a priori_ interaction data by 'learning' from the information
-contained in a known network and 'transferring' this to the target location
-by using phylogenetic inference and network embedding. FIGWORKFLOW
+Results/summary type paragraph
 
 # Methods
 
