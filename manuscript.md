@@ -5,35 +5,35 @@ bibliography: [references.bib]
 # Introduction
 
 Although there are a set of methodological approaches to predicting
-interactions within *known* networks we lack ways to predict interactions 
-when interaction data are *absent* for that region, which is problematic 
-when considered alongside the fact that empirical datasets are scarce 
-and spatially and species <!-- type? --> biased [@Poisot2021GloKno]. This 
-patchwork of availability of interaction and network data is one of 
-the main, current challenges we are faced with when attempting to 
-understand networks at larger/macro scales. Having a robust methodology 
-from which we can confidently make predictions of networks could prove to 
-be a viable solution to addressing the data deficit and allow us to begin 
-asking more pertinent questions with regards to ecological communities and 
-networks [@McCann2007ProBioa; @Seibold2018NecMula]. Here, we present transfer 
-learning as a robust, easy to implement solution to predicting *de novo* 
+interactions within *known* networks we lack ways to predict interactions
+when interaction data are *absent* for that region, which is problematic
+when considered alongside the fact that empirical datasets are scarce
+and spatially and species <!-- type? --> biased [@Poisot2021GloKno]. This
+patchwork of availability of interaction and network data is one of
+the main, current challenges we are faced with when attempting to
+understand networks at larger/macro scales. Having a robust methodology
+from which we can confidently make predictions of networks could prove to
+be a viable solution to addressing the data deficit and allow us to begin
+asking more pertinent questions with regards to ecological communities and
+networks [@McCann2007ProBioa; @Seibold2018NecMula]. Here, we present transfer
+learning as a robust, easy to implement solution to predicting *de novo*
 networks using the information contained in a *known* network.
 <!-- TS I've specifically kept this closing statement 'vague' to highlight 
 the generality of the approach - we could of course make it Canadian and 
 European webs... Also maybe the different location message could be stronger-->
 
 <!-- TS Vibes under 0.5 for this paragraph...-->
-Species that are closely related are likely to be morphologically similar REF 
-and will interact with other species in a similar (predictable?) manner REF. 
-Transfer learning leverages this by learning which latent traits determine 
-interactions for a known network and then transferring this information to a 
-different community (species pool?) using their phylogenetic relatedness to 
-the species in the known network to infer their latent traits. Once we have 
-the latent traits it is then possible to then predict species interactions 
-and to construct a network. This means that provided we have reliable 
-interaction data for a species pool we can use this to inform how other species, 
-for a different location, may interact based on their phylogenetic relatedness. 
-In this instance we used the latent information contained in the European metaweb 
+Species that are closely related are likely to be morphologically similar REF
+and will interact with other species in a similar (predictable?) manner REF.
+Transfer learning leverages this by learning which latent traits determine
+interactions for a known network and then transferring this information to a
+different community (species pool?) using their phylogenetic relatedness to
+the species in the known network to infer their latent traits. Once we have
+the latent traits it is then possible to then predict species interactions
+and to construct a network. This means that provided we have reliable
+interaction data for a species pool we can use this to inform how other species,
+for a different location, may interact based on their phylogenetic relatedness.
+In this instance we used the latent information contained in the European metaweb
 [@Maiorano2020TetEu] to predict the mammalian Canadian metaweb.
 <!-- TS Might make sense to have the conceptual figure referenced in this section-->
 
