@@ -254,42 +254,46 @@ random draws, etc..
 
 ## Data cleanup, discovery, validation, and thresholding
 
-
 Once the probabilistic metaweb for Canada has been produced, we followed
 a number of data inflation steps to finalize it.
 
 First, we extracted the subgraph corresponding to the 17 species shared
-between the European and Canadian pools, and replaced these interactions with
-a probability of 0 (non-interaction) or 1 (interaction). This represents a
-minute modification of the infered network (about 0.8% of all species pairs
-from the Canadian web), but ensures that are directly re-using knowledge
-from Europe.
+between the European and Canadian pools, and replaced these interactions with a
+probability of 0 (non-interaction) or 1 (interaction). This represents a minute
+modification of the infered network (about 0.8% of all species pairs from the
+Canadian web), but ensures that are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLOBI) database **REF**, and extracted their known
-interactions. Because GLOBI functions as an aggregator of interactions, it
-is not a *networks* data source, and therefore the only information we can
-reliably extract from it is that a species pair *was reported to interact at
-least once*. This last statement should yet be taken with caution, as some
-sources in GLOBI (*e.g.* **TK**) are produced though text-mining, and therefore
-do not document direct evidence of the interaction. Nevertheless, should the
+interactions. Because GLOBI aggregates observed interactions, it is not a
+*networks* data source, and therefore the only information we can reliably
+extract from it is that a species pair *was reported to interact at least
+once*. This last statement should yet be taken with caution, as some sources
+in GLOBI (*e.g.* **TK**) are produced though text-mining, and therefore do
+not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known
 to GLOBI would also be predicted. After performing this check, we set the
 probability of all interactions known to GLOBI (366 in total, 33 of which
 were not predicted by the model, for a success rate of 91%) to 1.
 
-**TK/TP** @Strong2014ImpNona 2 additional interactions (25 total, 2 of which
-where not predicted by the model, for a success rate of 92%)
+Finally, we downloaded the data from @Strong2014ImpNona, who mined various
+literature sources to identify trophic interactions in Newfoundland. This
+dataset had documented 25 interactions between mammals, only two of which
+were not part of our predictions, for a success rate of 92%. These two
+interactions were added to our predicted metaweb, with a probability of 1.
 
-Because the confidence interval on the infered trait space are
-probably an over-estimate, we decided to apply a thresholding step to the
-interactions. @Cirtwill2021BuiFoo highlight a number of strategies to threshold
-probabilistic networks. We performed a full analysis of the effect of various
-cutoffs, and as they either resulted in removing to few interactions, or
-removing enough interactions that species started to be disconnected from
-the network, we set the threshold for a probability equivalent to 0 to the
-largest possible value that still allow all species to have at least one
-interaction with non-zero probability.
+Because the confidence interval on the infered trait space are probably an
+over-estimate, we decided to apply a thresholding step to the interactions
+after the data inflation. @Cirtwill2021BuiFoo highlight a number of strategies
+to threshold probabilistic networks. Their methods assume the underlying data
+to be tag-based sequencing, which represents interactions as co-occurrences
+of predator and prey within the same tags; this is conceptually identical
+to our Bernoulli-trial based reconstruction of a probabilistic network. We
+performed a full analysis of the effect of various cutoffs, and as they either
+resulted in removing to few interactions, or removing enough interactions that
+species started to be disconnected from the network, we set the threshold
+for a probability equivalent to 0 to the largest possible value that still
+allow all species to have at least one interaction with non-zero probability.
 
 ## Implementation and code availability
 
