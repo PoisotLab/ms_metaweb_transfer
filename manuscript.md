@@ -63,20 +63,12 @@ Results/summary type paragraph
 
 # Methods
 
-The method is based on transferring knowledge from a known network to predict an unknown/unobserved one.
+The method is based on transferring knowledge from a known network to predict an unobserved one.
 
 From the known network, we use a t-SVD to infer the latent traits driving species interactions and get an unbiased estimate of the node's position in the latent feature spaces. 
-Then, we relate/map these latent traits to phylogeny. 
-A random dot product graph (RDPG) model predicts the interaction between species through a function of the nodes' features. Thus from latent traits and nodes position, we can infer interactions.
+Then, a random dot product graph (RDPG) model predicts the interaction between species through a function of the nodes' features. Thus from latent traits and nodes position, we can infer interactions.
 
 To predict an unobserved network, we infer its latent traits and nodes position from phylogenetic relatedness, then use the RDPG model to predict its interaction network.
-
-
-Method overview 
- 1) get the traits.
- 2) link traits to phylogeny
- 3) get the model
- 4) get the new trait from new phylogeny and use the model to predict the interaction of the predicted network
 
 
 ## Data
