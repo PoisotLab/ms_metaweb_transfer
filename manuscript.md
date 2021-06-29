@@ -178,11 +178,23 @@ can show a sharp drop at the rank where noise starts. Alternatively,
 REF showed that the profile likelihood (assuming a known distribution of
 $\mathbf{\Sigma}$, or a normal distribution otherwise) peaks at the rank
 maximizing the signal-to-noise ration. Because the European metaweb is almost
-entirely known, the amount of noise is low; this is reflected in FIGREF, where
-the scree plot shows no important drop, and in FIGREF where the proportion of
-variance explained increases smoothly at higher dimensions. For this reason,
-we default back to an arbitrary threshold that explain 60% of the variance
-in the underlying data, corresponding to 12 dimensions.
+entirely known, the amount of noise is low; this is reflected in @fig:scree
+(left), where the scree plot shows no important drop, and in @fig:scree
+(right) where the proportion of variance explained increases smoothly at
+higher dimensions. For this reason, we default back to an arbitrary threshold
+that explain 60% of the variance in the underlying data, corresponding to
+12 dimensions.
+
+![Left: representation of the screeplot of the eigenvalues from the tSVD on the
+European metaweb. The screeplot shows no obvious drop in the eigenvalues that
+may be leveraged to automatically detect a minimal dimension for embedding,
+after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained
+by each dimensions up to the rank of the European metaweb. The grey lines
+represents cutoff at 40, 60, and 80% of variance explained. For the rest
+of the analysis, we reverted to an arbitrary threshold of 60% of variance
+explained, which represented a good tradeoff between accuracy and reduced
+number of features.](figures/figure-screeplot.png){#fig:scree}
+
 
 Because RDPG relies on matrix multiplication, the higher dimensions essentially
 serve to make specific interactions converge towards 0 or 1; therefore,
@@ -310,16 +322,6 @@ the full tree of dependencies is available alongside the code, at
 # Results
 
 <!-- TP this is a dump of the figures with very embryonic legends -->
-
-![Left: representation of the screeplot of the eigenvalues from the tSVD on the
-European metaweb. The screeplot shows no obvious drop in the eigenvalues that
-may be leveraged to automatically detect a minimal dimension for embedding,
-after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained
-by each dimensions up to the rank of the European metaweb. The grey lines
-represents cutoff at 40, 60, and 80% of variance explained. For the rest
-of the analysis, we reverted to an arbitrary threshold of 60% of variance
-explained, which represented a good tradeoff between accuracy and reduced
-number of features.](figures/figure-screeplot.png){#fig:scree}
 
 ![Visual representation of the left (green/purple) and right (green/brown)
 subspaces, alongside the adjacency matrix of the food web they encode
