@@ -17,9 +17,10 @@ recent analyses based on collected data [@Poisot2021GloKno] or metadata
 in a biased subset of space and bioclimates, which impedes our ability to
 generalize any local understanding of network structure. Having a general
 solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa]
-even in situations where minimal knowledge about existing interactions within
-the species pool is known would represent a breakthrough in our ability to
-start thinking about species interactions networks over large spatial scales.
+even in situations where minimal knowledge about existing interactions
+within the species pool is known would catalyze significant breakthroughs
+in our ability to start thinking about species interactions networks over
+large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on similarities of species in a biologically relevant
@@ -63,7 +64,45 @@ used to transfer knowledge on species interactions.
 
 **TK** Results/summary type paragraph
 
-# Methods
+# Data used for the case study
+
+We use data on the European metaweb assembled by @Maiorano2020TetEu. We use
+the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.*
+an inventory of all possible interactions within species from a spatially
+delimited pool. The metaweb is not a prediction of the food web at any
+specific locale within the frontiers of the species pool -- in fact, these
+local food webs are expected to have a subset of both the species and the
+interactions of their metaweb [@Poisot2012DisSpea]. This being said, as the
+metaweb represents the total of functional, phylogenetic, and macroecological
+processes [@Morales-Castilla2015InfBioa], it is still worthy of ecological
+attention. We induced the subgraph corresponding to all mammals by matching
+species names in the original network first to the GBIF taxonomic backbone
+[@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
+all nodes had valid matches to GBIF at this step, and so this backbone is
+used for all name reconciliation steps as outlined below.
+
+The European metaweb represents the knowledge we want to learn and transfer;
+the support for transfer is here represented by the phylogenetic similarity
+of mammals. We used the mammalian consensus supertree by @Upham2019InfMam,
+for which all approx. 6000 names have been similarly matched to their GBIF
+valid names. This step allows us to place each node of the mammalian European
+metaweb in the phylogeny.
+
+The destination problem to which we want to transfer knowledge is the trophic
+interactions between mammals in Canada. We obtained the list of extant species
+from the IUCN checklist, and selected the terrestrial and semi-aquatic species
+(this corresponds to the same selection that was applied by @Maiorano2020TetEu
+in the European metaweb). The IUCN names were, as previously, reconciled
+against GBIF to have an exact match to the taxonomy.
+
+The European metaweb had XXX species, and the Canadian species pool had
+YYY - of these, only 17 were shared, which highlights the need to rely
+on a knowledge transfer approach. In the following sections, we describe
+the representational learning step applied to European data, the transfer
+step through phylogenetic similarity, and the generation of a probabilistic
+metaweb for the destination species pool.
+
+# Method description
 
 The crux of the method is the transfer of knowledge of a known network,
 in order to predict interactions between species from another location. In
@@ -87,44 +126,6 @@ reconstructed latent traits for species in the destination species pool,
 a Random Dot Product Graph (RDPG) model predicts the interaction between
 species through a function of the nodes' features. Thus, from latent traits
 and nodes position, we can infer interactions.
-
-## Data
-
-We use data on the European metaweb assembled by @Maiorano2020TetEu. We use
-the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.*
-an inventory of all possible interactions within species from a spatially
-delimited pool. The metaweb is not a prediction of the food web at any
-specific locale within the frontiers of the species pool -- in fact, these
-local food webs are expected to have a subset of both the species and the
-interactions of their metaweb [@Poisot2012DisSpea]. This being said, as the
-metaweb represents the total of functional, phylogenetic, and macroecological
-processes [@Morales-Castilla2015InfBioa], it is still worthy of ecological
-attention. We induced the subgraph corresponding to all mammals by matching
-species names in the original network first to the GBIF taxonomic backbone
-[@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
-all nodes had valid matches to GBIF at this step, and so this backbone is
-used for all name reconciliation steps as outlined below.
-
-The European metaweb represents the knowledge we want to learn and transfer;
-the support for transfer is here represented by the phylogenetic similarity
-of mammals. We used the mammalian consensus supertree by @Upham2019InfMam, 
-for which all approx. 6000 names have been similarly matched to their GBIF 
-valid names. This step allows us to place each node of the mammalian European
-metaweb in the phylogeny.
-
-The destination problem to which we want to transfer knowledge is the trophic
-interactions between mammals in Canada. We obtained the list of extant species
-from the IUCN checklist, and selected the terrestrial and semi-aquatic species
-(this corresponds to the same selection that was applied by @Maiorano2020TetEu
-in the European metaweb). The IUCN names were, as previously, reconciled
-against GBIF to have an exact match to the taxonomy.
-
-The European metaweb had XXX species, and the Canadian species pool had
-YYY - of these, only 17 were shared, which highlights the need to rely
-on a knowledge transfer approach. In the following sections, we describe
-the representational learning step applied to European data, the transfer
-step through phylogenetic similarity, and the generation of a probabilistic
-metaweb for the destination species pool.
 
 ## Learning the origin network representation
 
@@ -328,9 +329,12 @@ done using `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl`
 the full tree of dependencies is available alongside the code, at
 [`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
 
-# Results and discussion
+# Results and discussion of the case study
 
-<!-- TP this is a dump of the figures with very embryonic legends -->
+**TP** @fig:thresholds -- the cutoffs using maximum curvature of central
+difference approximation of the second order partial derivative result in
+respectively species being lost, or almost all links being kept -- we settled
+on the value that allowed all species to remained.
 
 ![Left: there is a linear relatiosnhip between the values on the first
 dimension of the left subspace and the generality, *i.e.* the relative
@@ -341,10 +345,6 @@ first dimension of the right subspace and its vulnerability, *i.e.* the
 relative number of predators. Taken together, these two figures show that
 the first-order representation of this network would capture its degree
 distribution.](figures/figure-degree.png){#fig:degree}
-
-
-
-## Model results
 
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
@@ -362,42 +362,7 @@ rank corresponds to the leading eigenvalue of the system, the results of
 @fig:degree have a straightforward interpretation: degree-based processes
 are the most important in structuring the mammalian food web.
 
-**TP** @fig:thresholds -- the cutoffs using maximum curvature of central
-difference approximation of the second order partial derivative result in
-respectively species being lost, or almost all links being kept -- we settled
-on the value that allowed all species to remained.
-
-We now have space to unpack the results a bit more
-
-Spend some time on the Brownian model stuff...
-
-> Fig: Adjacency matrix
-
-> Fig: Trophic vs omni
-
-
-> Table: Top-ranked interactions (based on 'probability')
-
-Idea here is to unpack these top results a bit more and look for supporting
-references in the literature.
-
-## Validation results
-
-potentially... I think it makes sense although I can see 
-a case where it makes sense to rather have the validation 
-stuff all together in the discussion section depending on 
-the 'tone' we take
-
-# Discussions
-
-_order TBD_
-
-I guess we need a phrase about how the approach is really 
-good and amazing - > this can then maybe link into use-case 
-scenarios probably
-
-Potential use-case scenarios -> bringing in space and 
-time potentially
+# Conclusions
 
 A cautionary tale regarding validation. Interaction can 
 never be a true negative. Cannot use a empirical subset 
