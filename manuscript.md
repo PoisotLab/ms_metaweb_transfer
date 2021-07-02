@@ -42,29 +42,26 @@ a probabilistic metaweb at the destination (here, assuming a uniform
 distribution of traits), and threshold it to yield the final list of
 interactions.](figures/figure-concept.png){#fig:concept}
 
-@Gerhold2015PhyPat - phylogenetic signal captures diversification of
-characters, not necessarily assembly [see also @Dormann2010EvoCli, same
-result]. [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom] - interactions
-have phylogenetic signal that encompasses a wide range of ecological and
-evolutionary mechanisms. Known that interactions at large spatial scales
-should have some phylo signal [@Price2003MacThe]. @DallaRiva2016ExpEvo - food
-webs have phylo signal. @Mora2018IdeComa - food webs have common backbone
-structure suggesting conservatism or constraints. CCL: phylo usable as a
-medium for trait transfers.
+There are a plurality of measures of species similarities that can be used for
+knowledge transfer [see *e.g.* @Morales-Castilla2015InfBioa]; nevertheless,
+phylogenetic proximity has a number of desirable properties when working
+at large scales. @Gerhold2015PhyPat make the point that phylogenetic
+signal captures diversification of characters (large macro-evolutionary
+process), but not necessarily community assembly (fine ecological process);
+@Dormann2010EvoCli previously gave very similar conclusions. Interactions tend
+to conserve phylogenetic signal that encompasses a wide range of ecological
+and evolutionary mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom],
+and most importantly, retain this signal even when it is not detectable at
+the community scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally,
+species interactions at macro-ecological scales seem to respond mostly to
+macro-evolutionary processes [@Price2003MacThe]; this is evidenced by the
+presence of conserved backbones in food webs [@DallaRiva2016ExpEvo], strong
+evolutionary signature on prey choice [@Stouffer2012EvoCona], and strong
+phylogenetic signature in food web intervality [@Eklof2016PhyCom]. Taken
+together, these consideration suggest that phylogenies can be reliably be
+used to transfer knowledge on species interactions.
 
-Species interactions are determined by ecological and evolutionary
-mechanisms that have played out across spatial and temporal scales
-[@Poisot2015SpeWhy]. Thus when defining ecological networks we inadvertently
-capture the processes that have played a role in structuring them. Thus the
-properties of a network are not only representative of its structure but
-also of _how_ different processes have played a role in determining it. For
-example @MacDonald2020RevLinb provide a realistic model that predicts the
-number of links in a network at a given species richness. This emphasizes
-the idea that networks contain information and it is a task of leveraging
-the mathematical framework of networks to 'decode' the ecological information
-they contain - which can then be utilized in prediction pipeline.
-
-Results/summary type paragraph
+**TK** Results/summary type paragraph
 
 # Methods
 
@@ -313,7 +310,7 @@ done using `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl`
 the full tree of dependencies is available alongside the code, at
 [`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
 
-# Results
+# Results and discussion
 
 <!-- TP this is a dump of the figures with very embryonic legends -->
 
@@ -379,8 +376,8 @@ Spend some time on the Brownian model stuff...
 
 > Table: Top-ranked interactions (based on 'probability')
 
-Idea here is to unpack these top results a bit more and look 
-for supporting references in the literature.
+Idea here is to unpack these top results a bit more and look for supporting
+references in the literature.
 
 ## Validation results
 
