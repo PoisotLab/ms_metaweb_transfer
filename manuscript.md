@@ -234,6 +234,14 @@ this information to assemble a *probabilistic* metaweb in the sense of
 @Poisot2016StrPro, *i.e.* in which every interaction is represented as a
 single, independent, Bernoulli event of probability $p$.
 
+![Visual representation of the left (green/purple) and right (green/brown)
+subspaces, alongside the adjacency matrix of the food web they encode
+(greyscale). The European metaweb is on the left, and the imputed Canadian
+metaweb (before data inflation) on the right. This figures illustrates
+how much structure the left sub-space captures. As we show in @fig:degree,
+the species with a value of 0 in the left subspace are species without any
+preys.](figures/figure-subspaces.png){#fig:subspaces}
+
 Specifically, we have adopted the following approach. For every entry
 in $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from
 its distribution. This results in one instance of the possible left
@@ -243,7 +251,7 @@ values. Because the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$
 are in the same space where $\mathcal{L}$ and $\mathcal{R}$ were originally
 predicted, it follows that the threshold $\rho$ estimated for the European
 metaweb also applies. We use this information to produce one random Canadian
-metaweb, $N = \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$.
+metaweb, $N = \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces].
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
@@ -313,14 +321,6 @@ the full tree of dependencies is available alongside the code, at
 # Results and discussion
 
 <!-- TP this is a dump of the figures with very embryonic legends -->
-
-![Visual representation of the left (green/purple) and right (green/brown)
-subspaces, alongside the adjacency matrix of the food web they encode
-(greyscale). The European metaweb is on the left, and the imputed Canadian
-metaweb (before data inflation) on the right. This figures illustrates
-how much structure the left sub-space captures. As we show in @fig:degree,
-the species with a value of 0 in the left subspace are species without any
-preys.](figures/figure-subspaces.png){#fig:subspaces}
 
 ![Left: there is a linear relatiosnhip between the values on the first
 dimension of the left subspace and the generality, *i.e.* the relative
