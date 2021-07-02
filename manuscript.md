@@ -1,4 +1,4 @@
----
+-witter.com/--
 bibliography: [references.bib]
 ---
 
@@ -25,7 +25,7 @@ Here, we present a general method for the transfer learning of network
 representations, relying on similarities of species in a biologically relevant
 proxy space. This method allows to the prediction of species interactions based
 on knowledge extracted from another species pool. Our method is outlined in
-@fig:conceptual; we provide an illustration based on learning an embedding of
+@fig:concept; we provide an illustration based on learning an embedding of
 a metaweb of trophic interactions for European mammals [@Maiorano2020TetEu;
 @Maiorano2020DatTet], and based on phylogenetic relationships between mammals
 globally [@Upham2019InfMam], transfer this representation to the pool of
@@ -96,9 +96,9 @@ an inventory of all possible interactions within species from a spatially
 delimited pool. The metaweb is not a prediction of the food web at any
 specific locale within the frontiers of the species pool -- in fact, these
 local food webs are expected to have a subset of both the species and the
-interactions of their metaweb [@Poisot2012DisSpe]. This being said, as the
+interactions of their metaweb [@Poisot2012DisSpea]. This being said, as the
 metaweb represents the total of functional, phylogenetic, and macroecological
-processes [@Morales-Castilla2015InfBio], it is still worthy of ecological
+processes [@Morales-Castilla2015InfBioa], it is still worthy of ecological
 attention. We induced the subgraph corresponding to all mammals by matching
 species names in the original network first to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
