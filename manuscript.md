@@ -186,7 +186,6 @@ of the analysis, we reverted to an arbitrary threshold of 60% of variance
 explained, which represented a good tradeoff between accuracy and reduced
 number of features.](figures/figure-screeplot.png){#fig:scree}
 
-
 Because RDPG relies on matrix multiplication, the higher dimensions essentially
 serve to make specific interactions converge towards 0 or 1; therefore,
 for reasonably low ranks, there is no guarantee that the values in the
@@ -268,6 +267,8 @@ random draws, etc..
 Once the probabilistic metaweb for Canada has been produced, we followed
 a number of data inflation steps to finalize it.
 
+![GLOBI comparison REF TK/TP](figures/figure-validation.png){#fig:inflation}
+
 First, we extracted the subgraph corresponding to the 17 species shared
 between the European and Canadian pools, and replaced these interactions with a
 probability of 0 (non-interaction) or 1 (interaction). This represents a minute
@@ -293,18 +294,27 @@ dataset had documented 25 interactions between mammals, only two of which
 were not part of our predictions, for a success rate of 92%. These two
 interactions were added to our predicted metaweb, with a probability of 1.
 
+![Left: effect of varying the cutoff for probabilities to be considered
+non-zero on the number of number of unique links and on $\hat{L}$, the
+probabilistic estimate of the number of links assuming that all interactions
+are independant. Right: effect of varying the cutoff on the number of
+disconnected species, and on network connectance. In both panels, the grey
+line indicates the cutoff $\rho = TK$ that resulted in the first species
+losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
+
 Because the confidence interval on the infered trait space are probably an
 over-estimate, we decided to apply a thresholding step to the interactions
-after the data inflation. @Cirtwill2021BuiFoo highlight a number of strategies
-to threshold probabilistic networks. Their methods assume the underlying data
-to be tag-based sequencing, which represents interactions as co-occurrences
-of predator and prey within the same tags; this is conceptually identical
-to our Bernoulli-trial based reconstruction of a probabilistic network. We
-performed a full analysis of the effect of various cutoffs, and as they either
-resulted in removing to few interactions, or removing enough interactions that
-species started to be disconnected from the network, we set the threshold
-for a probability equivalent to 0 to the largest possible value that still
-allow all species to have at least one interaction with non-zero probability.
+after the data inflation [@fig:thresholds]. @Cirtwill2021BuiFoo highlight
+a number of strategies to threshold probabilistic networks. Their methods
+assume the underlying data to be tag-based sequencing, which represents
+interactions as co-occurrences of predator and prey within the same tags;
+this is conceptually identical to our Bernoulli-trial based reconstruction
+of a probabilistic network. We performed a full analysis of the effect of
+various cutoffs, and as they either resulted in removing to few interactions,
+or removing enough interactions that species started to be disconnected from
+the network, we set the threshold for a probability equivalent to 0 to the
+largest possible value that still allow all species to have at least one
+interaction with non-zero probability.
 
 ## Implementation and code availability
 
@@ -332,15 +342,7 @@ relative number of predators. Taken together, these two figures show that
 the first-order representation of this network would capture its degree
 distribution.](figures/figure-degree.png){#fig:degree}
 
-![Left: effect of varying the cutoff for probabilities to be considered
-non-zero on the number of number of unique links and on $\hat{L}$, the
-probabilistic estimate of the number of links assuming that all interactions
-are independant. Right: effect of varying the cutoff on the number of
-disconnected species, and on network connectance. In both panels, the grey
-line indicates the cutoff $\rho = TK$ that resulted in the first species
-losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
-![GLOBI comparison REF TK/TP](figures/figure-validation.png){#fig:inflation}
 
 ## Model results
 
