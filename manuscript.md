@@ -4,23 +4,26 @@ bibliography: [references.bib]
 
 # Introduction
 
-Although there are a set of methodological approaches to predicting
-interactions within *known* networks we lack ways to predict interactions
-when interaction data are *absent* for that region, which is problematic
-when considered alongside the fact that empirical datasets are scarce
-and spatially and species <!-- type? --> biased [@Poisot2021GloKno]. This
-patchwork of availability of interaction and network data is one of
-the main, current challenges we are faced with when attempting to
-understand networks at larger/macro scales. Having a robust methodology
-from which we can confidently make predictions of networks could prove to
-be a viable solution to addressing the data deficit and allow us to begin
-asking more pertinent questions with regards to ecological communities and
-networks [@McCann2007ProBioa; @Seibold2018NecMula]. Here, we present transfer
-learning as a robust, easy to implement solution to predicting *de novo*
-networks using the information contained in a *known* network.
-<!-- TS I've specifically kept this closing statement 'vague' to highlight 
-the generality of the approach - we could of course make it Canadian and 
-European webs... Also maybe the different location message could be stronger-->
+There are two core challenges to our understanding of ecological networks
+in space, particularly at macro-ecologically relevant scales [*e.g.*
+@Trojelsgaard2016EcoNet]. First, networks within a location are difficult
+to sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta], and this
+results in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
+challenge (local incompleteness) has been in large part addressed by the
+recent multiplication of methods aiming to predict interactions within an
+existing network, a lot of which are reviewed in @Strydom2021RoaPre. Second,
+recent analyses based on collected data [@Poisot2021GloKno] or metadata
+[@Cameron2019UneGlo] highlight that ecological networks are currently studied
+in a biased subset of space and bioclimates, which impedes our ability to
+generalize any local understanding of network structure. Having a general
+solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa]
+even in situations where minimal knowledge about existing interactions within
+the species pool is known would represent a breakthrough in our ability to
+start thinking about species interactions networks over large spatial scales.
+
+Here, we present transfer learning as a robust, easy to implement solution
+to predicting *de novo* networks using the information contained in a *known*
+network.
 
 <!-- TS Vibes under 0.5 for this paragraph...-->
 Species that are closely related are likely to be morphologically similar REF
@@ -353,9 +356,21 @@ losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 ## Model results
 
-**TP** @fig:degree shows that a rank 1 approximation would be equivalent to
-the configuration model [@Park2004StaMec], which is used as the "Type II"
-model [@Bascompte2003NesAss] in networks NHST
+The t-SVD embedding is able to learn relevant ecological features for the
+network. @fig:degree shows that the first rank correlates linearly with
+generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of
+preys and predators. Importantly, this implies that a rank 1 approximation
+represents the configuration model [@Park2004StaMec] for the metaweb,
+or (accounting for the probabilistic nature of the degree) the soft
+configuration model [@vanderHoorn2018SpaMax], both of which are maximum
+entropy graph models [@Garlaschelli2018CovStr], with respectively sharp and
+soft local constraints. The configuration model is widely used by ecologists
+in the context of null hypothesis significance testing of network structure
+[*e.g.* @Bascompte2003NesAss], and it is noteworthy that for this metaweb,
+the relevant information was extracted at the first rank. Because the first
+rank corresponds to the leading eigenvalue of the system, the results of
+@fig:degree have a straightforward interpretation: degree-based processes
+are the most important in structuring the mammalian food web.
 
 **TP** @fig:thresholds -- the cutoffs using maximum curvature of central
 difference approximation of the second order partial derivative result in
