@@ -4,72 +4,89 @@ bibliography: [references.bib]
 
 # Introduction
 
-Although there are a set of methodological approaches to predicting
-interactions within *known* networks we lack ways to predict interactions
-when interaction data are *absent* for that region, which is problematic
-when considered alongside the fact that empirical datasets are scarce
-and spatially and species <!-- type? --> biased [@Poisot2021GloKno]. This
-patchwork of availability of interaction and network data is one of
-the main, current challenges we are faced with when attempting to
-understand networks at larger/macro scales. Having a robust methodology
-from which we can confidently make predictions of networks could prove to
-be a viable solution to addressing the data deficit and allow us to begin
-asking more pertinent questions with regards to ecological communities and
-networks [@McCann2007ProBioa; @Seibold2018NecMula]. Here, we present transfer
-learning as a robust, easy to implement solution to predicting *de novo*
-networks using the information contained in a *known* network.
-<!-- TS I've specifically kept this closing statement 'vague' to highlight 
-the generality of the approach - we could of course make it Canadian and 
-European webs... Also maybe the different location message could be stronger-->
+There are two core challenges to our understanding of ecological networks
+in space, particularly at macro-ecologically relevant scales [*e.g.*
+@Trojelsgaard2016EcoNet]. First, networks within a location are difficult
+to sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta], and this
+results in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
+challenge (local incompleteness) has been in large part addressed by the
+recent multiplication of methods aiming to predict interactions within an
+existing network, a lot of which are reviewed in @Strydom2021RoaPre. Second,
+recent analyses based on collected data [@Poisot2021GloKno] or metadata
+[@Cameron2019UneGlo] highlight that ecological networks are currently studied
+in a biased subset of space and bioclimates, which impedes our ability to
+generalize any local understanding of network structure. Having a general
+solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa]
+even in situations where minimal knowledge about existing interactions within
+the species pool is known would represent a breakthrough in our ability to
+start thinking about species interactions networks over large spatial scales.
 
-<!-- TS Vibes under 0.5 for this paragraph...-->
-Species that are closely related are likely to be morphologically similar REF
-and will interact with other species in a similar (predictable?) manner REF.
-Transfer learning leverages this by learning which latent traits determine
-interactions for a known network and then transferring this information to a
-different community (species pool?) using their phylogenetic relatedness to
-the species in the known network to infer their latent traits. Once we have
-the latent traits it is then possible to then predict species interactions
-and to construct a network. This means that provided we have reliable
-interaction data for a species pool we can use this to inform how other species,
-for a different location, may interact based on their phylogenetic relatedness.
-In this instance we used the latent information contained in the European metaweb
-[@Maiorano2020TetEu] to predict the mammalian Canadian metaweb.
-<!-- TS Might make sense to have the conceptual figure referenced in this section-->
+Here, we present a general method for the transfer learning of network
+representations, relying on similarities of species in a biologically relevant
+proxy space. This method allows to the prediction of species interactions based
+on knowledge extracted from another species pool. Our method is outlined in
+@fig:conceptual; we provide an illustration based on learning an embedding of
+a metaweb of trophic interactions for European mammals [@Maiorano2020TetEu;
+@Maiorano2020DatTet], and based on phylogenetic relationships between mammals
+globally [@Upham2019InfMam], transfer this representation to the pool of
+mammals in Canada.
 
-@Gerhold2015PhyPat - phylogenetic signal captures diversification of
-characters, not necessarily assembly [see also @Dormann2010EvoCli, same
-result]. [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom] - interactions
-have phylogenetic signal that encompasses a wide range of ecological and
-evolutionary mechanisms. Known that interactions at large spatial scales
-should have some phylo signal [@Price2003MacThe]. @DallaRiva2016ExpEvo - food
-webs have phylo signal. @Mora2018IdeComa - food webs have common backbone
-structure suggesting conservatism or constraints. CCL: phylo usable as a
-medium for trait transfers.
+![Overview of the phylogenetic transfer learning of species interactions
+networks. Starting from an initial network, we learn its representation
+through a graph embedding step (here, a truncated Singular Values
+Decomposition), yielding a series of latent traits; second, for the
+destination species pool, we perform ancestral character estimation using
+a phylogeny (here, using a Brownian model for the latent traits); we then
+sample from the reconstructed distribution of latent traits to generate
+a probabilistic metaweb at the destination (here, assuming a uniform
+distribution of traits), and threshold it to yield the final list of
+interactions.](figures/figure-concept.png){#fig:concept}
 
-Species interactions are determined by ecological and evolutionary
-mechanisms that have played out across spatial and temporal scales
-[@Poisot2015SpeWhy]. Thus when defining ecological networks we inadvertently
-capture the processes that have played a role in structuring them. Thus the
-properties of a network are not only representative of its structure but
-also of _how_ different processes have played a role in determining it. For
-example @MacDonald2020RevLinb provide a realistic model that predicts the
-number of links in a network at a given species richness. This emphasizes
-the idea that networks contain information and it is a task of leveraging
-the mathematical framework of networks to 'decode' the ecological information
-they contain - which can then be utilized in prediction pipeline.
+There are a plurality of measures of species similarities that can be used for
+knowledge transfer [see *e.g.* @Morales-Castilla2015InfBioa]; nevertheless,
+phylogenetic proximity has a number of desirable properties when working
+at large scales. @Gerhold2015PhyPat make the point that phylogenetic
+signal captures diversification of characters (large macro-evolutionary
+process), but not necessarily community assembly (fine ecological process);
+@Dormann2010EvoCli previously gave very similar conclusions. Interactions tend
+to conserve phylogenetic signal that encompasses a wide range of ecological
+and evolutionary mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom],
+and most importantly, retain this signal even when it is not detectable at
+the community scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally,
+species interactions at macro-ecological scales seem to respond mostly to
+macro-evolutionary processes [@Price2003MacThe]; this is evidenced by the
+presence of conserved backbones in food webs [@DallaRiva2016ExpEvo], strong
+evolutionary signature on prey choice [@Stouffer2012EvoCona], and strong
+phylogenetic signature in food web intervality [@Eklof2016PhyCom]. Taken
+together, these consideration suggest that phylogenies can be reliably be
+used to transfer knowledge on species interactions.
 
-Results/summary type paragraph
+**TK** Results/summary type paragraph
 
 # Methods
 
-The method is based on transferring knowledge from a known network to predict an unobserved one.
+The crux of the method is the transfer of knowledge of a known network,
+in order to predict interactions between species from another location. In
+@fig:concept, we give a high-level overview of the approach; in the example
+around which this manuscript is built (leveraging detailed knowledge about
+trophic interactions between Mammalia in Europe to predict the less known
+trophic interactions between closely phylogenetically related Mammalia in
+Canada), we use a series of specific steps for network embedding, trait
+inference, and network prediction and thresholding. This being said, the
+methods at each step may be substituted by others when the data support it.
 
-From the known network, we use a t-SVD to infer the latent traits driving species interactions and get an unbiased estimate of the node's position in the latent feature spaces. 
-Then, a random dot product graph (RDPG) model predicts the interaction between species through a function of the nodes' features. Thus from latent traits and nodes position, we can infer interactions.
-
-To predict an unobserved network, we infer its latent traits and nodes position from phylogenetic relatedness, then use the RDPG model to predict its interaction network.
-
+Specifically, our approach can be summarized as follows: from the known
+network in Europe, we use a truncated Singular Values Decomposition (t-SVD)
+to generate latent traits representing a low-dimensional embedding of the
+network; these traits give an unbiased estimate of the node's position
+in the latent feature spaces.  Then, we map these latent traits onto a
+reference phylogeny (other distance-based measures of species proximity
+that allow for the inference of features in the latent space can be used,
+such as for example dissimilarity in functional traits). Based on the
+reconstructed latent traits for species in the destination species pool,
+a Random Dot Product Graph (RDPG) model predicts the interaction between
+species through a function of the nodes' features. Thus, from latent traits
+and nodes position, we can infer interactions.
 
 ## Data
 
@@ -152,11 +169,22 @@ can show a sharp drop at the rank where noise starts. Alternatively,
 REF showed that the profile likelihood (assuming a known distribution of
 $\mathbf{\Sigma}$, or a normal distribution otherwise) peaks at the rank
 maximizing the signal-to-noise ration. Because the European metaweb is almost
-entirely known, the amount of noise is low; this is reflected in FIGREF, where
-the scree plot shows no important drop, and in FIGREF where the proportion of
-variance explained increases smoothly at higher dimensions. For this reason,
-we default back to an arbitrary threshold that explain 60% of the variance
-in the underlying data, corresponding to 12 dimensions.
+entirely known, the amount of noise is low; this is reflected in @fig:scree
+(left), where the scree plot shows no important drop, and in @fig:scree
+(right) where the proportion of variance explained increases smoothly at
+higher dimensions. For this reason, we default back to an arbitrary threshold
+that explain 60% of the variance in the underlying data, corresponding to
+12 dimensions.
+
+![Left: representation of the screeplot of the eigenvalues from the tSVD on the
+European metaweb. The screeplot shows no obvious drop in the eigenvalues that
+may be leveraged to automatically detect a minimal dimension for embedding,
+after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained
+by each dimensions up to the rank of the European metaweb. The grey lines
+represents cutoff at 40, 60, and 80% of variance explained. For the rest
+of the analysis, we reverted to an arbitrary threshold of 60% of variance
+explained, which represented a good tradeoff between accuracy and reduced
+number of features.](figures/figure-screeplot.png){#fig:scree}
 
 Because RDPG relies on matrix multiplication, the higher dimensions essentially
 serve to make specific interactions converge towards 0 or 1; therefore,
@@ -205,6 +233,14 @@ this information to assemble a *probabilistic* metaweb in the sense of
 @Poisot2016StrPro, *i.e.* in which every interaction is represented as a
 single, independent, Bernoulli event of probability $p$.
 
+![Visual representation of the left (green/purple) and right (green/brown)
+subspaces, alongside the adjacency matrix of the food web they encode
+(greyscale). The European metaweb is on the left, and the imputed Canadian
+metaweb (before data inflation) on the right. This figures illustrates
+how much structure the left sub-space captures. As we show in @fig:degree,
+the species with a value of 0 in the left subspace are species without any
+preys.](figures/figure-subspaces.png){#fig:subspaces}
+
 Specifically, we have adopted the following approach. For every entry
 in $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from
 its distribution. This results in one instance of the possible left
@@ -214,7 +250,7 @@ values. Because the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$
 are in the same space where $\mathcal{L}$ and $\mathcal{R}$ were originally
 predicted, it follows that the threshold $\rho$ estimated for the European
 metaweb also applies. We use this information to produce one random Canadian
-metaweb, $N = \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$.
+metaweb, $N = \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces].
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
@@ -228,39 +264,54 @@ random draws, etc..
 
 ## Data cleanup, discovery, validation, and thresholding
 
-
 Once the probabilistic metaweb for Canada has been produced, we followed
 a number of data inflation steps to finalize it.
 
+![GLOBI comparison REF TK/TP](figures/figure-validation.png){#fig:inflation}
+
 First, we extracted the subgraph corresponding to the 17 species shared
-between the European and Canadian pools, and replaced these interactions with
-a probability of 0 (non-interaction) or 1 (interaction). This represents a
-minute modification of the infered network (about 0.8% of all species pairs
-from the Canadian web), but ensures that are directly re-using knowledge
-from Europe.
+between the European and Canadian pools, and replaced these interactions with a
+probability of 0 (non-interaction) or 1 (interaction). This represents a minute
+modification of the infered network (about 0.8% of all species pairs from the
+Canadian web), but ensures that are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLOBI) database **REF**, and extracted their known
-interactions. Because GLOBI functions as an aggregator of interactions, it
-is not a *networks* data source, and therefore the only information we can
-reliably extract from it is that a species pair *was reported to interact at
-least once*. This last statement should yet be taken with caution, as some
-sources in GLOBI (*e.g.* **TK**) are produced though text-mining, and therefore
-do not document direct evidence of the interaction. Nevertheless, should the
+interactions. Because GLOBI aggregates observed interactions, it is not a
+*networks* data source, and therefore the only information we can reliably
+extract from it is that a species pair *was reported to interact at least
+once*. This last statement should yet be taken with caution, as some sources
+in GLOBI (*e.g.* **TK**) are produced though text-mining, and therefore do
+not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known
 to GLOBI would also be predicted. After performing this check, we set the
 probability of all interactions known to GLOBI (366 in total, 33 of which
 were not predicted by the model, for a success rate of 91%) to 1.
 
-**TK/TP** @Strong2014ImpNona 2 additional interactions (25 total, 2 of which
-where not predicted by the model, for a success rate of 92%)
+Finally, we downloaded the data from @Strong2014ImpNona, who mined various
+literature sources to identify trophic interactions in Newfoundland. This
+dataset had documented 25 interactions between mammals, only two of which
+were not part of our predictions, for a success rate of 92%. These two
+interactions were added to our predicted metaweb, with a probability of 1.
 
-Because the confidence interval on the infered trait space are
-probably an over-estimate, we decided to apply a thresholding step to the
-interactions. @Cirtwill2021BuiFoo highlight a number of strategies to threshold
-probabilistic networks. We performed a full analysis of the effect of various
-cutoffs, and as they either resulted in removing to few interactions, or
-removing enough interactions that species started to be disconnected from
+![Left: effect of varying the cutoff for probabilities to be considered
+non-zero on the number of number of unique links and on $\hat{L}$, the
+probabilistic estimate of the number of links assuming that all interactions
+are independant. Right: effect of varying the cutoff on the number of
+disconnected species, and on network connectance. In both panels, the grey
+line indicates the cutoff $\rho = TK$ that resulted in the first species
+losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
+
+Because the confidence interval on the infered trait space are probably an
+over-estimate, we decided to apply a thresholding step to the interactions
+after the data inflation [@fig:thresholds]. @Cirtwill2021BuiFoo highlight
+a number of strategies to threshold probabilistic networks. Their methods
+assume the underlying data to be tag-based sequencing, which represents
+interactions as co-occurrences of predator and prey within the same tags;
+this is conceptually identical to our Bernoulli-trial based reconstruction
+of a probabilistic network. We performed a full analysis of the effect of
+various cutoffs, and as they either resulted in removing to few interactions,
+or removing enough interactions that species started to be disconnected from
 the network, we set the threshold for a probability equivalent to 0 to the
 largest possible value that still allow all species to have at least one
 interaction with non-zero probability.
@@ -277,27 +328,9 @@ done using `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl`
 the full tree of dependencies is available alongside the code, at
 [`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
 
-# Results
+# Results and discussion
 
 <!-- TP this is a dump of the figures with very embryonic legends -->
-
-![Left: representation of the screeplot of the eigenvalues from the tSVD on the
-European metaweb. The screeplot shows no obvious drop in the eigenvalues that
-may be leveraged to automatically detect a minimal dimension for embedding,
-after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained
-by each dimensions up to the rank of the European metaweb. The grey lines
-represents cutoff at 40, 60, and 80% of variance explained. For the rest
-of the analysis, we reverted to an arbitrary threshold of 60% of variance
-explained, which represented a good tradeoff between accuracy and reduced
-number of features.](figures/figure-screeplot.png){#fig:scree}
-
-![Visual representation of the left (green/purple) and right (green/brown)
-subspaces, alongside the adjacency matrix of the food web they encode
-(greyscale). The European metaweb is on the left, and the imputed Canadian
-metaweb (before data inflation) on the right. This figures illustrates
-how much structure the left sub-space captures. As we show in @fig:degree,
-the species with a value of 0 in the left subspace are species without any
-preys.](figures/figure-subspaces.png){#fig:subspaces}
 
 ![Left: there is a linear relatiosnhip between the values on the first
 dimension of the left subspace and the generality, *i.e.* the relative
@@ -309,21 +342,25 @@ relative number of predators. Taken together, these two figures show that
 the first-order representation of this network would capture its degree
 distribution.](figures/figure-degree.png){#fig:degree}
 
-![Left: effect of varying the cutoff for probabilities to be considered
-non-zero on the number of number of unique links and on $\hat{L}$, the
-probabilistic estimate of the number of links assuming that all interactions
-are independant. Right: effect of varying the cutoff on the number of
-disconnected species, and on network connectance. In both panels, the grey
-line indicates the cutoff $\rho = TK$ that resulted in the first species
-losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
-![GLOBI comparison REF TK/TP](figures/figure-validation.png){#fig:inflation}
 
 ## Model results
 
-**TP** @fig:degree shows that a rank 1 approximation would be equivalent to
-the configuration model [@Park2004StaMec], which is used as the "Type II"
-model [@Bascompte2003NesAss] in networks NHST
+The t-SVD embedding is able to learn relevant ecological features for the
+network. @fig:degree shows that the first rank correlates linearly with
+generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of
+preys and predators. Importantly, this implies that a rank 1 approximation
+represents the configuration model [@Park2004StaMec] for the metaweb,
+or (accounting for the probabilistic nature of the degree) the soft
+configuration model [@vanderHoorn2018SpaMax], both of which are maximum
+entropy graph models [@Garlaschelli2018CovStr], with respectively sharp and
+soft local constraints. The configuration model is widely used by ecologists
+in the context of null hypothesis significance testing of network structure
+[*e.g.* @Bascompte2003NesAss], and it is noteworthy that for this metaweb,
+the relevant information was extracted at the first rank. Because the first
+rank corresponds to the leading eigenvalue of the system, the results of
+@fig:degree have a straightforward interpretation: degree-based processes
+are the most important in structuring the mammalian food web.
 
 **TP** @fig:thresholds -- the cutoffs using maximum curvature of central
 difference approximation of the second order partial derivative result in
@@ -341,8 +378,8 @@ Spend some time on the Brownian model stuff...
 
 > Table: Top-ranked interactions (based on 'probability')
 
-Idea here is to unpack these top results a bit more and look 
-for supporting references in the literature.
+Idea here is to unpack these top results a bit more and look for supporting
+references in the literature.
 
 ## Validation results
 
