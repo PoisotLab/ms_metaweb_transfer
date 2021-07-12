@@ -372,4 +372,8 @@ because e.g. dietary shifts across range.
 @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
 probability: this method might be it
 
+As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines
+around planet-wide problems"; in this regard, the delineation of a species
+pool is an interesting problem. TK tp
+
 # References
