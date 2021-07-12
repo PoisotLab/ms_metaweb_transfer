@@ -336,15 +336,19 @@ difference approximation of the second order partial derivative result in
 respectively species being lost, or almost all links being kept -- we settled
 on the value that allowed all species to remained.
 
-![Left: there is a linear relatiosnhip between the values on the first
-dimension of the left subspace and the generality, *i.e.* the relative
-number of preys, *sensu* @Schoener1989FooWeb. Species with a value of 0
-in this subspace are at the bottom-most trophic level. Right: there is,
-similarly, a linear relationship between the position of a species on the
-first dimension of the right subspace and its vulnerability, *i.e.* the
-relative number of predators. Taken together, these two figures show that
-the first-order representation of this network would capture its degree
-distribution.](figures/figure-degree.png){#fig:degree}
+![Top: biological significance of the first dimension. Left: there is a
+linear relatiosnhip between the values on the first dimension of the left
+subspace and the generality, *i.e.* the relative number of preys, *sensu*
+@Schoener1989FooWeb. Species with a value of 0 in this subspace are at the
+bottom-most trophic level. Right: there is, similarly, a linear relationship
+between the position of a species on the first dimension of the right subspace
+and its vulnerability, *i.e.* the relative number of predators. Taken together,
+these two figures show that the first-order representation of this network
+would capture its degree distribution. Bottom: topological consequences
+of the first dimension. Left: differences in the $z$-score of the actual
+configuration model for the reconstructed network, and the prediction based
+only on the first dimension. Right: distribution of the differences in the
+left panel.](figures/figure-degree.png){#fig:degree}
 
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
