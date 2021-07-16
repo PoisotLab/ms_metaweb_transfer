@@ -140,11 +140,11 @@ that the latent variables produced this way can be used to predict *de novo*
 network edges [@Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
-Decomposition (tSVD) on the adjacency matrix. SVD is an appropriate embedding of
+Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding of
 ecological networks, which has recently been shown to both capture their
 complex, emerging properties [@Strydom2021SvdEnt], and to allow highly accurate
 prediction of the interactions within a single network [@Poisot2021ImpMam].
-Under tSVD, an adjacency matrix $\mathbf{A}$ (where $\mathbf{A}_{m,n}
+Under t-SVD, an adjacency matrix $\mathbf{A}$ (where $\mathbf{A}_{m,n}
 \in\mathbb{B}$ where 1 indicates predation and 0 an absence thereof)
 <!-- might be a bit on the 'patronising' side to spell out as much -->
 is decomposed into three components, so that $\mathbf{A} =
@@ -159,7 +159,7 @@ The latent variables used for the RDPG, called the left and right subspaces, are
 defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
 \sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
 $\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank results in
-$\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the tSVD
+$\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
 provides a first-order approximation of the network, etc.
 
 The specific rank at which the SVD ought to be truncated is a difficult
@@ -176,7 +176,7 @@ explained increases smoothly at higher dimensions. For this reason, we default
 back to an arbitrary threshold that explain 60% of the variance in the
 underlying data, corresponding to 12 dimensions.
 
-![Left: representation of the screeplot of the eigenvalues from the tSVD on the
+![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
 European metaweb. The screeplot shows no obvious drop in the eigenvalues that
 may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
@@ -211,7 +211,7 @@ motion model, which is a conservative approach in the absence of strong
 hypotheses about the nature of phylogenetic signal in the network decomposition
 [@Litsios2012EffPhy]. We assumed that all traits (*i.e.* the feature vectors for
 the left and right subspaces) where independent, which is a reasonable
-assumption as every trait/dimension added to the tSVD has an *additive* effect
+assumption as every trait/dimension added to the t-SVD has an *additive* effect
 to the one before it. The Brownian motion algorithm returns the *average* value
 of the trait, and its upper and lower bounds. Because we do not estimate other
 parameters of the traits distributions, we considered that every species trait
