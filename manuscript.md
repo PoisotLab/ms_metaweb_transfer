@@ -33,7 +33,7 @@ in Canada.
 
 ![Overview of the phylogenetic transfer learning of species interactions
 networks. Starting from an initial network, we learn its representation through
-a graph embedding step (here, a truncated Singular Values Decomposition),
+a graph embedding step (here, a truncated Singular Value Decomposition),
 yielding a series of latent traits; second, for the destination species pool, we
 perform ancestral character estimation using a phylogeny (here, using a Brownian
 model for the latent traits); we then sample from the reconstructed distribution
