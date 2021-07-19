@@ -10,7 +10,9 @@ convert combined-empirical.png combined-prediction.png +append figure-subspaces.
 convert screeplot.png varexplained.png +append figure-screeplot.png
 
 # Figure on the biological meaning of left/right subspaces
-convert left-gen.png right-vuln.png +append figure-degree.png
+convert left-gen.png right-vuln.png +append toprow-degree.png
+convert heatmap-configuration.png distance-configuration.png +append bottomrow-degree.png
+convert toprow-degree.png bottomrow-degree.png -append figure-degree.png
 
 # Figure on inflation + degree distribution
 convert inflation-comparison.png final-degree.png +append figure-validation.png
