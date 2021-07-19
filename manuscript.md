@@ -194,7 +194,7 @@ reconstructed network will be within the unit range. In order to determine
 what constitutes an appropriate threshold, we performed the RDPG approach
 on the European metaweb, and evaluated the threshold by treating this as a
 binary classification problem, specifically assuming that both 0 and 1 in
-the European metaweb are all true. Given the methodological given in REF,
+the European metaweb are all true. Given the methodology given in REF,
 this seems like a reasonable assumption, although one that does not hold
 for all metawebs. We used the thresholding approach presented in HAYSTACK,
 and picked a cutoff that maximized Youden's J statistic [@Youden1950IndRat];
@@ -240,7 +240,7 @@ subspaces, alongside the adjacency matrix of the food web they encode
 metaweb (before data inflation) on the right. This figures illustrates
 how much structure the left sub-space captures. As we show in @fig:degree,
 the species with a value of 0 in the left subspace are species without any
-preys.](figures/figure-subspaces.png){#fig:subspaces}
+prey.](figures/figure-subspaces.png){#fig:subspaces}
 
 Specifically, we have adopted the following approach. For every entry
 in $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from
@@ -273,8 +273,8 @@ a number of data inflation steps to finalize it.
 First, we extracted the subgraph corresponding to the 17 species shared
 between the European and Canadian pools, and replaced these interactions with a
 probability of 0 (non-interaction) or 1 (interaction). This represents a minute
-modification of the infered network (about 0.8% of all species pairs from the
-Canadian web), but ensures that are directly re-using knowledge from Europe.
+modification of the inferred network (about 0.8% of all species pairs from the
+Canadian web), but ensures that (we?) are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLOBI) database **REF**, and extracted their known
@@ -291,27 +291,27 @@ were not predicted by the model, for a success rate of 91%) to 1.
 
 Finally, we downloaded the data from @Strong2014ImpNona, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
-dataset had documented 25 interactions between mammals, only two of which
-were not part of our predictions, for a success rate of 92%. These two
-interactions were added to our predicted metaweb, with a probability of 1.
+dataset documented 25 interactions between mammals, only two of which
+were not part of our predictions, resulting in a success rate of 92%. These two
+interactions were added to our predicted metaweb with a probability of 1.
 
 ![Left: effect of varying the cutoff for probabilities to be considered
 non-zero on the number of number of unique links and on $\hat{L}$, the
 probabilistic estimate of the number of links assuming that all interactions
-are independant. Right: effect of varying the cutoff on the number of
+are independent. Right: effect of varying the cutoff on the number of
 disconnected species, and on network connectance. In both panels, the grey
 line indicates the cutoff $\rho = TK$ that resulted in the first species
 losing all of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
-Because the confidence interval on the infered trait space are probably an
-over-estimate, we decided to apply a thresholding step to the interactions
+Because the confidence intervals on the inferred trait space are probably
+over-estimates, we decided to apply a thresholding step to the interactions
 after the data inflation [@fig:thresholds]. @Cirtwill2021BuiFoo highlight
 a number of strategies to threshold probabilistic networks. Their methods
 assume the underlying data to be tag-based sequencing, which represents
 interactions as co-occurrences of predator and prey within the same tags;
 this is conceptually identical to our Bernoulli-trial based reconstruction
 of a probabilistic network. We performed a full analysis of the effect of
-various cutoffs, and as they either resulted in removing to few interactions,
+various cutoffs, and as they either resulted in removing too few interactions,
 or removing enough interactions that species started to be disconnected from
 the network, we set the threshold for a probability equivalent to 0 to the
 largest possible value that still allow all species to have at least one
@@ -319,7 +319,7 @@ interaction with non-zero probability.
 
 ## Implementation and code availability
 
-The entire pipeline was implemented in *Julia* 1.6 [@Bezanson2017JulFre],
+The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre],
 and is available under the permissive MIT License at DOI. The taxonomic
 cleanup steps are done using `GBIF.jl` [@Dansereau2021SimJl]. The
 network embedding and analysis is done using `EcologicalNetworks.jl`
@@ -336,20 +336,21 @@ difference approximation of the second order partial derivative result in
 respectively species being lost, or almost all links being kept -- we settled
 on the value that allowed all species to remained.
 
-![Left: there is a linear relatiosnhip between the values on the first
-dimension of the left subspace and the generality, *i.e.* the relative
+![Left: there is a linear relationship between the values on the first
+dimension of the left subspace and generality, *i.e.* the relative
 number of preys, *sensu* @Schoener1989FooWeb. Species with a value of 0
 in this subspace are at the bottom-most trophic level. Right: there is,
 similarly, a linear relationship between the position of a species on the
 first dimension of the right subspace and its vulnerability, *i.e.* the
-relative number of predators. Taken together, these two figures show that
-the first-order representation of this network would capture its degree
+relative number of predators. Species with a value of 0
+in this subspace are at the highest trophic level. Taken together, these two figures show that
+the first-order representation of this network can capture its degree
 distribution.](figures/figure-degree.png){#fig:degree}
 
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of
-preys and predators. Importantly, this implies that a rank 1 approximation
+preys and predators of any given species. Importantly, this implies that a rank 1 approximation
 represents the configuration model [@Park2004StaMec] for the metaweb,
 or (accounting for the probabilistic nature of the degree) the soft
 configuration model [@vanderHoorn2018SpaMax], both of which are maximum
