@@ -363,6 +363,11 @@ rank corresponds to the leading eigenvalue of the system, the results of
 @fig:degree have a straightforward interpretation: degree-based processes
 are the most important in structuring the mammalian food web.
 
+
+
+Ceres: I am wondering about the consequences of inferring the Canadian metaweb (whose structure/realisation is possibly a result of a lower anthropogenic impact), based on the traits/phylogenetic structure of a (EU) metaweb whose structure is possibly the result of several centuries (millennia?) of anthropogenic presence. I believe this is something we could discuss and highlight, bringing in papers that have , e.g., analysed impacts of Homo sp. migrations on megafauna and more modern concequences of anthropogenic disturbance/presence on network strucure. Basically, I'm thinking that the "human signal" on the EU is going to potentially affect (or be implicit) on the traits/phylogeny structure that is used to infer the Canadian metaweb. Will the validation with GLOBI/Newfoundland data account for this? Can future work account for this?
+
+
 # Conclusions
 
 A cautionary tale regarding validation. Interaction can 
