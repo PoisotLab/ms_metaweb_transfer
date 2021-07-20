@@ -5,7 +5,7 @@
     "creators": [
         {
             "affiliations": [
-                "Université de Montréal",
+                "Département de Sciences Biologiques, Université de Montréal",
                 "Québec Centre for Biodiversity Sciences"
             ],
             "familyname": "Strydom",
@@ -16,7 +16,7 @@
         },
         {
             "affiliations": [
-                "Université de Montréal",
+                "Département de Sciences Biologiques, Université de Montréal",
                 "Québec Centre for Biodiversity Sciences"
             ],
             "familyname": "Bouskila",
@@ -26,7 +26,15 @@
         },
         {
             "affiliations": [
-                "Université de Montréal",
+                "Department of Forest Resources Management, University of British Columbia"
+            ],
+            "familyname": "Barros",
+            "givennames": "Ceeres",
+            "orcid": "0000-0003-4036-977X"
+        },
+        {
+            "affiliations": [
+                "Département de Sciences Biologiques, Université de Montréal",
                 "Québec Centre for Biodiversity Sciences"
             ],
             "familyname": "Poisot",
