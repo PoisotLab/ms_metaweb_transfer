@@ -7,3 +7,5 @@ affiliations.json
 
 #MacOS nonsense
 .DS_Store
+.Rproj.user
+*.Rproj
