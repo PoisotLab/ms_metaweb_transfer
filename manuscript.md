@@ -63,6 +63,8 @@ interactions.
 
 **TK** Results/summary type paragraph
 
+Add definitions of transfer learning [@Torrey2010TraLea]
+
 # Data used for the case study
 
 We use data on the European metaweb assembled by @Maiorano2020TetEu. We use the
