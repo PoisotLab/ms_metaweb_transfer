@@ -26,6 +26,17 @@
         },
         {
             "affiliations": [
+                "Département de Sciences Biologiques, Université de Montréal",
+                "Université de Sherbrooke",
+                "Québec Centre for Biodiversity Sciences"
+            ],
+            "familyname": "Banville",
+            "givennames": "Francis",
+            "email": "francis.banville@umontreal.ca",
+            "orcid": "0000-0001-9051-0597"
+        },
+        {
+            "affiliations": [
                 "Department of Forest Resources Management, University of British Columbia"
             ],
             "familyname": "Barros",
@@ -34,11 +45,38 @@
         },
         {
             "affiliations": [
+                "McGill University",
+                "Québec Centre for Biodiversity Sciences"
+            ],
+            "familyname": "Caron",
+            "givennames": "Dominique",
+            "email": "dominique.caron@mail.mcgill.ca",
+            "orcid": "0000-0002-2151-6693"
+        },
+        {
+            "affiliations": [
+                "Department of Ecology & Evolutionary Biology, University of Toronto"
+            ],
+            "familyname": "Farrel",
+            "givennames": "Maxwell J",
+            "email": "maxwell.farrell@utoronto.ca",
+            "orcid": "0000-0003-0452-6993"
+        },
+        {
+            "affiliations": [
                 "Department of Biology, McGill University"
             ],
             "familyname": "Pollock",
             "givennames": "Laura J.",
             "orcid": "0000-0002-6004-4027"
+        },
+        {
+          "affiliations": [
+                "School of Mathematics and Statistics, University of Canterbury"
+          ],
+          "familyname": "Dalla Riva",
+          "givennames": "Giulio V.",
+          "orcid": "0000-0002-3454-0633"
         },
         {
             "affiliations": [
