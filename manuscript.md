@@ -115,14 +115,14 @@ inference, and network prediction and thresholding. This being said, the
 methods at each step may be substituted by others when the data support it.
 
 Specifically, our approach can be summarized as follows: from the known
-network in Europe, we use a truncated Singular Values Decomposition (t-SVD)
-to generate latent traits representing a low-dimensional embedding of the
-network; these traits give an unbiased estimate of the node's position
-in the latent feature spaces.  Then, we map these latent traits onto a
-reference phylogeny (other distance-based measures of species proximity
-that allow for the inference of features in the latent space can be used,
-such as for example dissimilarity in functional traits). Based on the
-reconstructed latent traits for species in the destination species pool,
+network in Europe, we use a truncated Singular Values Decomposition [t-SVD;
+@Halko2011FinStr] to generate latent traits representing a low-dimensional
+embedding of the network; these traits give an unbiased estimate of the
+node's position in the latent feature spaces.  Then, we map these latent
+traits onto a reference phylogeny (other distance-based measures of species
+proximity that allow for the inference of features in the latent space can
+be used, such as for example dissimilarity in functional traits). Based on
+the reconstructed latent traits for species in the destination species pool,
 a Random Dot Product Graph (RDPG) model predicts the interaction between
 species through a function of the nodes' features. Thus, from latent traits
 and nodes position, we can infer interactions.
