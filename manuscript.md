@@ -138,7 +138,10 @@ analysis is done using `EcologicalNetworks.jl` [@Banville2021ManJl;
 `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl` [@Reeve2016HowPar]. A
 complete `Project.toml` file specifying the full tree of dependencies is
 available alongside the code, at
-[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
+[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/). This material also includes a
+fully annotated copy of the entire code required to run this project; the
+pipeline can be executed on a laptop in a matter of minutes, and therefore does
+not require extensive computational power.
 
 ## Learning the origin network representation
 
