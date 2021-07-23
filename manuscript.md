@@ -28,7 +28,7 @@ on knowledge extracted from another species pool. Our method is outlined in
 @fig:concept; we provide an illustration based on learning an embedding of a
 metaweb of trophic interactions for European mammals [@Maiorano2020TetEu;
 @Maiorano2020DatTet], and based on phylogenetic relationships between mammals
-globally [@Upham2019InfMam], transfer this representation to the pool of mammals
+globally [@Upham2019InfMam], transfer this representation to the pool of mammals
 in Canada.
 <!-- TS: I wonder if we can reword this the the phrasing more tightly marries the conceptual figure...--->
 
@@ -127,6 +127,18 @@ the reconstructed latent traits for species in the destination species pool,
 a Random Dot Product Graph (RDPG) model predicts the interaction between
 species through a function of the nodes' features. Thus, from latent traits
 and nodes position, we can infer interactions.
+
+## Implementation and code availability
+
+The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre], and is
+available under the permissive MIT License at DOI. The taxonomic cleanup steps
+are done using `GBIF.jl` [@Dansereau2021SimJl]. The network embedding and
+analysis is done using `EcologicalNetworks.jl` [@Banville2021ManJl;
+@Poisot2019EcoJl]. The phylogenetic simulations are done using
+`PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl` [@Reeve2016HowPar]. A
+complete `Project.toml` file specifying the full tree of dependencies is
+available alongside the code, at
+[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
 
 ## Learning the origin network representation
 
@@ -319,18 +331,6 @@ interactions that species started to be disconnected from the network, we set
 the threshold for a probability equivalent to 0 to the largest possible value
 that still allowed all species to have at least one interaction with a non-zero
 probability.
-
-## Implementation and code availability
-
-The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre], and is
-available under the permissive MIT License at DOI. The taxonomic cleanup steps
-are done using `GBIF.jl` [@Dansereau2021SimJl]. The network embedding and
-analysis is done using `EcologicalNetworks.jl` [@Banville2021ManJl;
-@Poisot2019EcoJl]. The phylogenetic simulations are done using
-`PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl` [@Reeve2016HowPar]. A
-complete `Project.toml` file specifying the full tree of dependencies is
-available alongside the code, at
-[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/).
 
 # Results and discussion of the case study
 
