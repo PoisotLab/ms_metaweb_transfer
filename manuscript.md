@@ -372,38 +372,50 @@ to the leading eigenvalue of the system, the results of @fig:degree have a
 straightforward interpretation: degree-based processes are the most important in
 structuring the mammalian food web.
 
-# Conclusions
+# Discussion
 
-A cautionary tale regarding validation. Interaction can never be a true
-negative. Cannot use a empirical subset of a bigger (predicated) network for
-validation -> because e.g. dietary shifts across range.
+As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
+planet-wide problems"; in this regard, our approach must contend with two
+interesting problems. The first is the limit of the metaweb to embed and
+transfer. If the initial metaweb is too narrow in scope, notably from a
+taxonomic point of view, the chances of finding another area with enough related
+species to make a reliable inference decreases. This is notably true if the
+metaweb is assembled in an area with mostly endemic species. Conversely, the
+metaweb should be reliably filled, which assumes that the $S^2$ interactions in
+a pool of $S$ species have been examined, either through literature surveys or
+expert elicitation. The second problem is to determine which area should be used
+to infer the new metaweb in, as this determines the species pool that must be
+used. In our application, we focused on the mammals of Canada. The upside of
+this approach is that information at the country level are likely to be required
+by policy makers and stakeholders for their biodiversity assessment; the
+downside of this approach is that Canada is a colonial construct with no
+relevance to ecological processes.
 
-**Anthropic effects**   
-- @Nenzen2014Imp850a - mammal food webs react to climate change and human
-  activity
-- @Pires2015PleMeg - human arrival led to greater fragility (megafauna)
-- @Yeakel2014ColEco - collapse in egypt 
-- @Marco2018ChaHum - human footprint - Xn risk
-- @Pedersen2017SigCol - collapse / recovery can nevertheless be very rapid
-
-<!-- Ceres: I am wondering about the consequences of inferring the Canadian
-metaweb (whose structure/realisation is possibly a result of a lower
-anthropogenic impact), based on the traits/phylogenetic structure of a
-(EU) metaweb whose structure is possibly the result of several centuries
-(millennia?) of anthropogenic presence. I believe this is something we
-could discuss and highlight, bringing in papers that have , e.g., analysed
-impacts of Homo sp. migrations on megafauna and more modern concequences
-of anthropogenic disturbance/presence on network strucure. Basically, I'm
-thinking that the "human signal" on the EU is going to potentially affect
-(or be implicit) on the traits/phylogeny structure that is used to infer the
-Canadian metaweb. Will the validation with GLOBI/Newfoundland data account
-for this? Can future work account for this?  -->
+One important aspect in which Europe and Canada differ is the legacy of human
+impacts, which have been much longer in Europe. @Nenzen2014Imp850a show that
+even at small scales (the Iberian peninsula), mammal food webs retain the signal
+of both climate change and human activity, even when this human activity was
+orders of magnitude less important than it is now. Similarly, @Yeakel2014ColEco
+show that changes in human occupation over several centuries can lead to food
+web collapse. Megafauna in particular seems to be very sensitive to human
+arrival [@Pires2015PleMeg]. In short, there is well-substantiated support for
+the idea that human footprint affects more than the risk of species extinction
+[@Marco2018ChaHum], and can lead to changes in interaction structure. Yet,
+interactions being inherently more plastic, there have been documented instances
+of food webs undergoing rapid collapse/recovery cycles over short periods of
+time [@Pedersen2017SigCol]. Embedding a network also, in a sense, embeds its
+evolutionary history, especially as RDPG captures ecological signal
+[@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
+is intended as a catalogue of all possible interactions, which should then be
+filtered [@Morales-Castilla2015InfBioa]. **TK** tp
 
 @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
 probability: this method might be it
 
-As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
-planet-wide problems"; in this regard, the delineation of a species pool is an
-interesting problem. TK tp
+<!-- 
+A cautionary tale regarding validation. Interaction can never be a true
+negative. Cannot use a empirical subset of a bigger (predicated) network for
+validation -> because e.g. dietary shifts across range.
+-->
 
 # References
