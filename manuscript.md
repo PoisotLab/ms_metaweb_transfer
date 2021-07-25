@@ -391,7 +391,7 @@ by policy makers and stakeholders for their biodiversity assessment; the
 downside of this approach is that Canada is a colonial construct with no
 relevance to ecological processes.
 
-One important aspect in which Europe and Canada differ is the legacy of human
+TK One important aspect in which Europe and Canada differ is the legacy of human
 impacts, which have been much longer in Europe. @Nenzen2014Imp850a show that
 even at small scales (the Iberian peninsula), mammal food webs retain the signal
 of both climate change and human activity, even when this human activity was
@@ -407,13 +407,13 @@ time [@Pedersen2017SigCol]. Embedding a network also, in a sense, embeds its
 evolutionary history, especially as RDPG captures ecological signal
 [@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
 is intended as a catalogue of all possible interactions, which should then be
-filtered [@Morales-Castilla2015InfBioa]. **TK** tp
+filtered [@Morales-Castilla2015InfBioa].
 
-@Cirtwill2019QuaFra -- we need an informative interaction-level prior on
+TK @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
 probability: this method might be it
 
 <!-- 
-A cautionary tale regarding validation. Interaction can never be a true
+TK A cautionary tale regarding validation. Interaction can never be a true
 negative. Cannot use a empirical subset of a bigger (predicated) network for
 validation -> because e.g. dietary shifts across range.
 -->
