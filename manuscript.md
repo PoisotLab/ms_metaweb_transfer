@@ -16,10 +16,11 @@ analyses based on collected data [@Poisot2021GloKno] or metadata
 [@Cameron2019UneGlo] highlight that ecological networks are currently studied in
 a biased subset of space and bioclimates, which impedes our ability to
 generalize any local understanding of network structure. Having a general
-solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa] even
-in situations where minimal knowledge about existing interactions within the
-species pool is known would catalyze significant breakthroughs in our ability to
-start thinking about species interactions networks over large spatial scales.
+solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa] that,
+despite situations where minimal knowledge about existing interactions within
+the species pool is known, produces a plausible metaweb could be the catalyst
+for significant breakthroughs in our ability to start thinking about species
+interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on similarities of species in a biologically relevant
@@ -171,8 +172,6 @@ for which $\mathbf{\Sigma}$ is an $r\times r$ diagonal matrix (where $r$ is the
 rank of matrix $\mathbf{A}$) containing only informative, non-zero singular
 ($\sigma$) values, $\mathbf{L}$ is an $m \times r$ matrix, and $\mathbf{R}'$ an
 $n \times r$ matrix.
-
-<!-- TS: These matrices are used to construct/define the left and right subspaces needed for the RDPG. They are defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} = \sqrt{\mathbf{\Sigma}}\mathbf{R}$ respectively. Using a full rank will compute the  $\mathbf{A}$ i.e., $\mathcal{L}\mathcal{R}' = \mathbf{A}$, whereas using a lower rank will only yield an approximation of  $\mathbf{A}$ i.e., $\mathcal{L}\mathcal{R}' \approx \mathbf{A}$ --->
 
 The latent variables used for the RDPG, called the left and right subspaces, are
 defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
