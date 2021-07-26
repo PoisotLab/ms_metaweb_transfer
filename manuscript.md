@@ -23,14 +23,14 @@ start thinking about species interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on similarities of species in a biologically relevant
-proxy space. This method allows to the prediction of species interactions based
-on knowledge extracted from another species pool. Our method is outlined in
-@fig:concept; we provide an illustration based on learning an embedding of a
-metaweb of trophic interactions for European mammals [@Maiorano2020TetEu;
-@Maiorano2020DatTet], and based on phylogenetic relationships between mammals
-globally [@Upham2019InfMam], transfer this representation to the pool of mammals
-in Canada.
-<!-- TS: I wonder if we can reword this the the phrasing more tightly marries the conceptual figure...--->
+proxy space. This method allows for the prediction of species interactions based
+on knowledge extracted from another species pool and, in short, allows as to
+construct a *probabilistic* metaweb for a community for which we may have no
+prior interaction data. Our method is outlined in @fig:concept; we provide an
+illustration based on learning an embedding of a metaweb of trophic interactions
+for European mammals [@Maiorano2020TetEu; @Maiorano2020DatTet], and based on
+phylogenetic relationships between mammals globally [@Upham2019InfMam], transfer
+this representation to the pool of mammals in Canada.
 
 ![Overview of the phylogenetic transfer learning of species interactions
 networks. Starting from an initial network, we learn its representation through
@@ -105,28 +105,28 @@ species pool.
 
 # Method description
 
-The crux of the method is the transfer of knowledge of a known network,
-in order to predict interactions between species from another location. In
-@fig:concept, we give a high-level overview of the approach; in the example
-around which this manuscript is built (leveraging detailed knowledge about
-trophic interactions between Mammalia in Europe to predict the less known
-trophic interactions between closely phylogenetically related Mammalia in
-Canada), we use a series of specific steps for network embedding, trait
-inference, and network prediction and thresholding. This being said, the
-methods at each step may be substituted by others when the data support it.
+The crux of the method is the transfer of knowledge of a known network, in order
+to predict interactions between species from another location. In @fig:concept,
+we give a high-level overview of the approach; in the example around which this
+manuscript is built (leveraging detailed knowledge about trophic interactions
+between Mammalia in Europe to predict the less known trophic interactions
+between closely phylogenetically related Mammalia in Canada), we use a series of
+specific steps for network embedding, trait inference, and network prediction
+and thresholding. This being said, the methods at each step may be substituted
+by others when the data support it.
 
-Specifically, our approach can be summarized as follows: from the known
-network in Europe, we use a truncated Singular Values Decomposition [t-SVD;
+Specifically, our approach can be summarized as follows: from the known network
+in Europe, we use a truncated Singular Values Decomposition [t-SVD;
 @Halko2011FinStr] to generate latent traits representing a low-dimensional
-embedding of the network; these traits give an unbiased estimate of the
-node's position in the latent feature spaces.  Then, we map these latent
-traits onto a reference phylogeny (other distance-based measures of species
-proximity that allow for the inference of features in the latent space can
-be used, such as for example dissimilarity in functional traits). Based on
-the reconstructed latent traits for species in the destination species pool,
-a Random Dot Product Graph (RDPG) model predicts the interaction between
-species through a function of the nodes' features. Thus, from latent traits
-and nodes position, we can infer interactions.
+embedding of the network; these traits give an unbiased estimate of the node's
+position in the latent feature spaces. Then, we map these latent traits onto a
+reference phylogeny (other distance-based measures of species proximity that
+allow for the inference of features in the latent space can be used, such as for
+example dissimilarity in functional traits). Based on the reconstructed latent
+traits for species in the destination species pool, a Random Dot Product Graph
+(RDPG) model predicts the interaction between species through a function of the
+nodes' features. Thus, from latent traits and nodes position, we can infer
+interactions.
 
 ## Implementation and code availability
 
