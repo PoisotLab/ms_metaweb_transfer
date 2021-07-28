@@ -170,16 +170,16 @@ complex, emerging properties [@Strydom2021SvdEnt], and to allow highly accurate
 prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
-thereof) is decomposed into three components, so that $\mathbf{A} =
-\mathbf{L}\mathbf{\Sigma}\mathbf{R}$, for which $\mathbf{\Sigma}$ is an $m
-\times n$ diagonal matrix and contains only the singular ($\sigma$) values,
+thereof) is decomposed into three components, so that
+$\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}$, for which $\mathbf{\Sigma}$ 
+is an $m \times n$ diagonal matrix and contains only the singular ($\sigma$) values,
 $\mathbf{L}$ is an $m \times m$ matrix, and $\mathbf{R}'$ an $n \times n$
 matrix. Truncating an SVD removes additional noise in the dataset by ommiting
 non-zero and/or smaller $σ$ values from $\mathbf{\Sigma}$ using the rank of the
 matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that $\mathbf{\Sigma}$
 is a square $r \times r$ diagonal matrix (where $r$ is the rank of $\mathbf{A}$)
-containing only non-zero $σ$ values. Additionally, $\mathbf{L}$ is now an $m ×
-r$ semi unitary matrix and $\mathbf{R}'$ an $n × r$ semi-unitary matrix.
+containing only non-zero $σ$ values. Additionally, $\mathbf{L}$ is now an
+$m × r$ semi unitary matrix and $\mathbf{R}'$ an $n × r$ semi-unitary matrix.
 
 The latent variables used for the RDPG, called the left and right subspaces, are
 defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
