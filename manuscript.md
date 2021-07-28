@@ -4,34 +4,38 @@ bibliography: [references.bib]
 
 # Introduction
 
-There are two core challenges to our understanding of ecological networks in
-space, particularly at macro-ecologically relevant scales [*e.g.*
-@Trojelsgaard2016EcoNet]. First, networks within a location are difficult to
-sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta], and this results in
-a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first challenge
-(local incompleteness) has been in large part addressed by the recent
-multiplication of methods aiming to predict interactions within an existing
+There are two core challenges we are faced with in our understanding of
+ecological networks across space, particularly at macro-ecologically relevant
+scales [*e.g.* @Trojelsgaard2016EcoNet]. First, networks within a location are
+difficult to sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta],
+resulting in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
+challenge (local incompleteness) has been in large part addressed by the recent
+multiplication of methods aiming to predict interactions within an *existing*
 network, a lot of which are reviewed in @Strydom2021RoaPre. Second, recent
 analyses based on collected data [@Poisot2021GloKno] or metadata
 [@Cameron2019UneGlo] highlight that ecological networks are currently studied in
 a biased subset of space and bioclimates, which impedes our ability to
-generalize any local understanding of network structure. Having a general
-solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa] that,
-despite situations where minimal knowledge about existing interactions within
-the species pool is known, produces a plausible metaweb could be the catalyst
-for significant breakthroughs in our ability to start thinking about species
-interactions networks over large spatial scales.
+generalize any local understanding of network structure. Meaning that although
+the framework to address local incompleteness exists there are still regions for
+which we currently have no feasible means to predict interactions due to a lack
+of *local* data. Having a general solution for the issue of metaweb inference
+[@Morales-Castilla2015InfBioa] that, despite situations where minimal knowledge
+about interactions within a species pool is known, can produce a plausible
+metaweb could be the catalyst for significant breakthroughs in our ability to
+start thinking about species interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
-representations, relying on similarities of species in a biologically relevant
-proxy space. This method allows for the prediction of species interactions based
-on knowledge extracted from another species pool and, in short, allows as to
-construct a *probabilistic* metaweb for a community for which we may have no
-prior interaction data. Our method is outlined in @fig:concept; we provide an
-illustration based on learning an embedding of a metaweb of trophic interactions
-for European mammals [@Maiorano2020TetEu; @Maiorano2020DatTet], and based on
-phylogenetic relationships between mammals globally [@Upham2019InfMam], transfer
-this representation to the pool of mammals in Canada.
+representations, relying on the similarities of species in a biologically
+relevant proxy space. This method allows for the prediction of species
+interactions based on knowledge extracted from another species pool for which
+interactions are known. This allows us to construct a *probabilistic* metaweb
+for a community for which we have *no* prior interaction data for that region.
+Our method is outlined in @fig:concept; where we provide an illustration based
+on learning an embedding of a metaweb of trophic interactions for European
+mammals [known interaction; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
+on phylogenetic relationships between mammals globally [@Upham2019InfMam],
+transfer this representation to the pool of mammals in Canada (no known
+interactions in this instance).
 
 ![Overview of the phylogenetic transfer learning of species interactions
 networks. Starting from an initial network, we learn its representation through
