@@ -171,10 +171,10 @@ prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
 thereof) is decomposed into three components, so that
-$\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}$, for which $\mathbf{\Sigma}$ 
+$\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}$, for which $\mathbf{\Sigma}$
 is an $m \times n$ diagonal matrix and contains only the singular ($\sigma$) values,
 $\mathbf{L}$ is an $m \times m$ matrix, and $\mathbf{R}'$ an $n \times n$
-matrix. Truncating an SVD removes additional noise in the dataset by ommiting
+matrix. Truncating an SVD removes additional noise in the dataset by omitting
 non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using the rank of the
 matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that $\mathbf{\Sigma}$
 is a square $r \times r$ diagonal matrix (where $r$ is the rank of $\mathbf{A}$)
