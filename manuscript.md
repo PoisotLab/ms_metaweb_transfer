@@ -175,11 +175,11 @@ $\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}$, for which $\mathbf{\Sigma}$
 is an $m \times n$ diagonal matrix and contains only the singular ($\sigma$) values,
 $\mathbf{L}$ is an $m \times m$ matrix, and $\mathbf{R}'$ an $n \times n$
 matrix. Truncating an SVD removes additional noise in the dataset by ommiting
-non-zero and/or smaller $σ$ values from $\mathbf{\Sigma}$ using the rank of the
+non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using the rank of the
 matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that $\mathbf{\Sigma}$
 is a square $r \times r$ diagonal matrix (where $r$ is the rank of $\mathbf{A}$)
-containing only non-zero $σ$ values. Additionally, $\mathbf{L}$ is now an
-$m × r$ semi unitary matrix and $\mathbf{R}'$ an $n × r$ semi-unitary matrix.
+containing only non-zero $\sigma$ values. Additionally, $\mathbf{L}$ is now an
+$m \times r$ semi unitary matrix and $\mathbf{R}'$ an $n \times r$ semi-unitary matrix.
 
 The latent variables used for the RDPG, called the left and right subspaces, are
 defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
