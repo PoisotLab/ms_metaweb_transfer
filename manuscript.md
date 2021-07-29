@@ -34,7 +34,7 @@ Our method is outlined in @fig:concept; where we provide an illustration based
 on learning an embedding of a metaweb of trophic interactions for European
 mammals [known interaction; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
 on phylogenetic relationships between mammals globally [@Upham2019InfMam],
-transfer this representation to the pool of mammals in Canada (no known
+infer this representation for the pool of mammals in Canada (no known
 interactions in this instance).
 
 ![Overview of the phylogenetic transfer learning of species interactions
@@ -49,7 +49,7 @@ list of interactions.](figures/figure-concept.png){#fig:concept}
 
 There are a plurality of measures of species similarities that can be used for
 knowledge transfer [see *e.g.* @Morales-Castilla2015InfBioa]; nevertheless,
-phylogenetic proximity has a number of desirable properties when working at
+phylogenetic proximity has several desirable properties when working at
 large scales. @Gerhold2015PhyPat make the point that phylogenetic signal
 captures diversification of characters (large macro-evolutionary process), but
 not necessarily community assembly (fine ecological process); @Dormann2010EvoCli
@@ -59,10 +59,10 @@ mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and most
 importantly, retain this signal even when it is not detectable at the community
 scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
 at macro-ecological scales seem to respond mostly to macro-evolutionary
-processes [@Price2003MacThe]; this is evidenced by the presence of conserved
+processes [@Price2003MacThe]; which is evidenced by the presence of conserved
 backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
 prey choice [@Stouffer2012EvoCona], and strong phylogenetic signature in food
-web intervality [@Eklof2016PhyCom]. Taken together, these consideration suggest
+web intervality [@Eklof2016PhyCom]. Taken together, these considerations suggest
 that phylogenies can reliably be used to transfer knowledge on species
 interactions.
 
@@ -72,7 +72,7 @@ Add definitions of transfer learning [@Torrey2010TraLea]
 
 # Data used for the case study
 
-We use data on the European metaweb assembled by @Maiorano2020TetEu. We use the
+We use data on the European metaweb assembled by @Maiorano2020TetEu. We use/adopt/consider/apply ('use' seems redondant) the
 definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.* an
 inventory of all possible interactions within species from a spatially delimited
 pool. The metaweb is not a prediction of the food web at any specific locale
@@ -116,7 +116,7 @@ we give a high-level overview of the approach; in the example around which this
 manuscript is built (leveraging detailed knowledge about trophic interactions
 between Mammalia in Europe to predict the less known trophic interactions
 between closely phylogenetically related Mammalia in Canada), we use a series of
-specific steps for network embedding, trait inference, and network prediction
+specific steps for network embedding, trait inference, network prediction
 and thresholding. This being said, the methods at each step may be substituted
 by others when the data support it.
 
@@ -148,7 +148,8 @@ fully annotated copy of the entire code required to run this project; the
 pipeline can be executed on a laptop in a matter of minutes, and therefore does
 not require extensive computational power.
 
-## Learning the origin network representation
+**[if we consider the following steps from figure 1: 1)learn, 2)transfer and infer (*together*), 3)predict]**
+## Step 1: Learning the origin network representation
 
 The first step in transfer learning is to learn the structure of the origin
 dataset. In order to do so, we rely on an approach inspired from
@@ -199,7 +200,7 @@ ratio. Because the European metaweb is almost entirely known, the amount of
 noise is low; this is reflected in @fig:scree (left), where the scree plot shows
 no important drop, and in @fig:scree (right) where the proportion of variance
 explained increases smoothly at higher dimensions. For this reason, we default
-back to an arbitrary threshold that explain 60% of the variance in the
+back to an arbitrary *"dimension?"* threshold that explain 60% of the variance in the
 underlying data, corresponding to 12 dimensions.
 
 ![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
@@ -208,7 +209,7 @@ may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
 each dimensions up to the rank of the European metaweb. The grey lines
 represents cutoff at 40, 60, and 80% of variance explained. For the rest of the
-analysis, we reverted to an arbitrary threshold of 60% of variance explained,
+analysis, we reverted to an arbitrary *"dimension?"* threshold of 60% of variance explained,
 which represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
 
@@ -216,8 +217,8 @@ Because RDPG relies on matrix multiplication, the higher dimensions essentially
 serve to make specific interactions converge towards 0 or 1; therefore, for
 reasonably low ranks, there is no guarantee that the values in the reconstructed
 network will be within the unit range. In order to determine what constitutes an
-appropriate threshold, we performed the RDPG approach on the European metaweb,
-and evaluated the threshold by treating this as a binary classification problem,
+appropriate *"inference?"* threshold, we performed the RDPG approach on the European metaweb,
+and evaluated the *"inference?"* threshold by treating this as a binary classification problem,
 specifically assuming that both 0 and 1 in the European metaweb are all true.
 Given the methodological given in REF, this seems like a reasonable assumption,
 although one that does not hold for all metawebs. We used the thresholding
@@ -225,11 +226,11 @@ approach presented in HAYSTACK, and picked a cutoff that maximized Youden's J
 statistic [@Youden1950IndRat]; the resulting cutoff was 0.22, and gave an
 accuracy above 0.99.
 
-The left and right subspaces for the European metaweb, accompanied by the
+The left and right subspaces for the European metaweb, accompanied by the *"inference?"*
 threshold, represent the knowledge we seek to transfer. In the next section, we
 explain how we rely on phylogenetic similarity to do so.
 
-## Transfer learning through phylogenetic relatedness
+## Step 2: Transfer learning through phylogenetic relatedness
 
 In order to transfer the knowledge from the European metaweb to the Canadian
 species pool, we performed ancestral character estimation using a Brownian
@@ -250,7 +251,7 @@ dimension.
 These objects represent the transferred knowledge, which we can use for
 prediction of the Canadian metaweb.
 
-## Probabilistic prediction of the destination network
+## Step 3: Probabilistic prediction of the destination network
 
 The phylogenetic reconstruction of $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$
 has an associated uncertainty, represented by the breadth of the uniform
@@ -274,7 +275,7 @@ distribution. This results in one instance of the possible left
 metaweb. These can be multiplied, to produced one matrix of real values. Because
 the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
-the threshold $\rho$ estimated for the European metaweb also applies. We use
+the *"inference?"* threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
 \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces].
 
@@ -338,7 +339,7 @@ identical to our Bernoulli-trial based reconstruction of a probabilistic
 network. We performed a full analysis of the effect of various cutoffs, and as
 they either resulted in removing too few interactions, or removing enough
 interactions that species started to be disconnected from the network, we set
-the threshold for a probability equivalent to 0 to the largest possible value
+the *"prediction?"* threshold for a probability equivalent to 0 to the largest possible value
 that still allowed all species to have at least one interaction with a non-zero
 probability.
 
