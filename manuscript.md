@@ -4,8 +4,8 @@ bibliography: [references.bib]
 
 # Introduction
 
-There are two core challenges we are faced with in our understanding of
-ecological networks across space, particularly at macro-ecologically relevant
+There are two core challenges we are faced with in furthering our understanding
+of ecological networks across space, particularly at macro-ecologically relevant
 scales [*e.g.* @Trojelsgaard2016EcoNet]. First, networks within a location are
 difficult to sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta],
 resulting in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
@@ -16,13 +16,14 @@ analyses based on collected data [@Poisot2021GloKno] or metadata
 [@Cameron2019UneGlo] highlight that ecological networks are currently studied in
 a biased subset of space and bioclimates, which impedes our ability to
 generalize any local understanding of network structure. Meaning that although
-the framework to address local incompleteness exists there are still regions for
-which we currently have no feasible means to predict interactions due to a lack
-of *local* data. Having a general solution for the issue of metaweb inference
-[@Morales-Castilla2015InfBioa] that, despite situations where minimal knowledge
-about interactions within a species pool is known, can produce a plausible
-metaweb could be the catalyst for significant breakthroughs in our ability to
-start thinking about species interactions networks over large spatial scales.
+the framework to address *incompleteness* within a network exists there are
+still regions for which we currently have no feasible means to predict
+interactions due to a *lack* of local interaction data. Having a general
+solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa] that,
+despite situations where minimal knowledge about interactions within a species
+pool is known, can produce a plausible metaweb could be the catalyst for
+significant breakthroughs in our ability to start thinking about species
+interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a biologically
@@ -72,8 +73,8 @@ Add definitions of transfer learning [@Torrey2010TraLea]
 
 # Data used for the case study
 
-We use data on the European metaweb assembled by @Maiorano2020TetEu. We use/adopt/consider/apply ('use' seems redondant) the
-definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.* an
+We use data on the European metaweb assembled by @Maiorano2020TetEu, following
+the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.* an
 inventory of all possible interactions within species from a spatially delimited
 pool. The metaweb is not a prediction of the food web at any specific locale
 within the frontiers of the species pool -- in fact, these local food webs are
