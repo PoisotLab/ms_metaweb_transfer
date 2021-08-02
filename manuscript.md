@@ -357,7 +357,7 @@ respectively species being lost, or almost all links being kept -- we settled on
 the value that allowed all species to remain.
 
 ![Top: biological significance of the first dimension. Left: there is a linear
-relatiosnhip between the values on the first dimension of the left subspace and
+relationship between the values on the first dimension of the left subspace and
 the generality, *i.e.* the relative number of preys, *sensu*
 @Schoener1989FooWeb. Species with a value of 0 in this subspace are at the
 bottom-most trophic level. Right: there is, similarly, a linear relationship
