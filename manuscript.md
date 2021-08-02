@@ -123,7 +123,7 @@ and thresholding. This being said, the methods at each step may be substituted
 by others when the data support it.
 
 Specifically, our approach can be summarized as follows: from the known network
-in Europe, we use a truncated Singular Values Decomposition [t-SVD;
+in Europe, we use a truncated Singular Value Decomposition [t-SVD;
 @Halko2011FinStr] to generate latent traits representing a low-dimensional
 embedding of the network; these traits give an unbiased estimate of the node's
 position in the latent feature spaces. Then, we map these latent traits onto a
@@ -131,9 +131,9 @@ reference phylogeny (other distance-based measures of species proximity that
 allow for the inference of features in the latent space can be used, such as for
 example dissimilarity in functional traits). Based on the reconstructed latent
 traits for species in the destination species pool, a Random Dot Product Graph
-[RDPG; @Young2007RanDot] model predicts the interaction between species through a function of the
-nodes' features. Thus, from latent traits and nodes position, we can infer
-interactions.
+[RDPG; @Young2007RanDot] model predicts the interaction between species through
+a function of the nodes' features through matrix multiplication. Thus, from
+latent traits and nodes position, we can infer interactions.
 
 ## Implementation and code availability
 
@@ -187,9 +187,9 @@ $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
 \times r$ semi-unitary matrix.
 
 A RDPG estimates the probability of observing interactions between nodes as a
-function of the nodes of the latent variables (*i.e.* matrix multiplication).
-The latent variables used for the RDPG, called the left and right subspaces, are
-defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
+function of the nodes of the latent variables. The latent variables used for the
+RDPG, called the left and right subspaces, are defined as $\mathcal{L} =
+\mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
 \sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
 $\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank results in
 $\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
