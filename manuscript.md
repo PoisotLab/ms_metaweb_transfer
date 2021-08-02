@@ -131,7 +131,7 @@ reference phylogeny (other distance-based measures of species proximity that
 allow for the inference of features in the latent space can be used, such as for
 example dissimilarity in functional traits). Based on the reconstructed latent
 traits for species in the destination species pool, a Random Dot Product Graph
-(RDPG) model predicts the interaction between species through a function of the
+[RDPG; @Young2007RanDot] model predicts the interaction between species through a function of the
 nodes' features. Thus, from latent traits and nodes position, we can infer
 interactions.
 
@@ -159,13 +159,13 @@ dataset. In order to do so, we rely on an approach inspired from
 representational learning, where we learn a *representation* of the metaweb,
 rather than a list of interactions. This approach is conceptually different from
 other metaweb-scale predictions (*.e.g.* ALBOUY, others?), in that the metaweb
-representation is easily transferable. Specifically, we use Random Dot Product
-Graphs [RDPG; @Young2007RanDot] to create a number of latent variables that can
-be combined into an approximation of the network adjacency matrix. RDPG results
-are known to have strong phylogenetic signal, and to capture the evolutionary
-backbone of food webs [@DallaRiva2016ExpEvo]. In addition, recent advances show
-that the latent variables produced this way can be used to predict *de novo*
-network edges [@Runghen2021ExpNod].
+representation is easily transferable. Specifically, we use RDPG to create a
+number of latent variables that can be combined into an approximation of the
+network adjacency matrix. RDPG results are known to have strong phylogenetic
+signal, and to capture the evolutionary backbone of food webs
+[@DallaRiva2016ExpEvo]. In addition, recent advances show that the latent
+variables produced this way can be used to predict *de novo* network edges
+[@Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
