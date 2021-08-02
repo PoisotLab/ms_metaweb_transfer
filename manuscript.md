@@ -206,7 +206,7 @@ ratio. Because the European metaweb is almost entirely known, the amount of
 noise is low; this is reflected in @fig:scree (left), where the scree plot shows
 no important drop, and in @fig:scree (right) where the proportion of variance
 explained increases smoothly at higher dimensions. For this reason, we default
-back to an arbitrary **TK: dimension/variance/rank** threshold that explains 60% of
+back to an arbitrary threshold that explains 60% of
 the variance in the underlying data, corresponding to 12 dimensions.
 
 ![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
@@ -215,7 +215,7 @@ may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
 each dimensions up to the rank of the European metaweb. The grey lines
 represents cutoff at 40, 60, and 80% of variance explained. For the rest of the
-analysis, we reverted to an arbitrary **TK** threshold of 60% of variance explained,
+analysis, we reverted to an arbitrary threshold of 60% of variance explained,
 which represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
 
@@ -223,8 +223,8 @@ Because RDPG relies on matrix multiplication, the higher dimensions essentially
 serve to make specific interactions converge towards 0 or 1; therefore, for
 reasonably low ranks, there is no guarantee that the values in the reconstructed
 network will be within the unit range. In order to determine what constitutes an
-appropriate **inference/transfer** threshold, we performed the RDPG approach on
-the European metaweb, and evaluated the **TK** threshold by treating this as a
+appropriate threshold for probability, we performed the RDPG approach on the
+European metaweb, and evaluated the probability threshold by treating this as a
 binary classification problem, specifically assuming that both 0 and 1 in the
 European metaweb are all true. Given the methodological given in REF, this seems
 like a reasonable assumption, although one that does not hold for all metawebs.
@@ -232,9 +232,9 @@ We used the thresholding approach presented in HAYSTACK, and picked a cutoff
 that maximized Youden's J statistic [@Youden1950IndRat]; the resulting cutoff
 was 0.22, and gave an accuracy above 0.99.
 
-The left and right subspaces for the European metaweb, accompanied by the **TK**
-threshold, represent the knowledge we seek to transfer. In the next section, we
-explain how we rely on phylogenetic similarity to do so.
+The left and right subspaces for the European metaweb, accompanied by the
+threshold for prediction, represent the knowledge we seek to transfer. In the
+next section, we explain how we rely on phylogenetic similarity to do so.
 
 ## Step 2: Transfer learning through phylogenetic relatedness
 
