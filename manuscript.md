@@ -82,7 +82,7 @@ within the frontiers of the species pool -- in fact, these local food webs are
 expected to have a subset of both the species and the interactions of their
 metaweb [@Poisot2012DisSpea]. This being said, as the metaweb represents the
 total of functional, phylogenetic, and macroecological processes
-[@Morales-Castilla2015InfBioa], it is still worthy of ecological attention. We
+[@Morales-Castilla2015InfBioa], and is still worthy of ecological attention. We
 induced the subgraph corresponding to all mammals by matching species names in
 the original network first to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
@@ -173,16 +173,17 @@ complex, emerging properties [@Strydom2021SvdEnt], and to allow highly accurate
 prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
-thereof) is decomposed into three components, so that
-$\mathbf{A} = \mathbf{L}\mathbf{\Sigma}\mathbf{R}$, for which $\mathbf{\Sigma}$
-is an $m \times n$ diagonal matrix and contains only the singular ($\sigma$) values,
-$\mathbf{L}$ is an $m \times m$ matrix, and $\mathbf{R}'$ an $n \times n$
-matrix. Truncating an SVD removes additional noise in the dataset by omitting
-non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using the rank of the
-matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that $\mathbf{\Sigma}$
-is a square $r \times r$ diagonal matrix (where $r$ is the rank of $\mathbf{A}$)
-containing only non-zero $\sigma$ values. Additionally, $\mathbf{L}$ is now an
-$m \times r$ semi unitary matrix and $\mathbf{R}'$ an $n \times r$ semi-unitary matrix.
+thereof) is decomposed into three components, so that $\mathbf{A} =
+\mathbf{L}\mathbf{\Sigma}\mathbf{R}.$ Where $\mathbf{\Sigma}$ is a $m \times n$
+diagonal matrix and contains only singular ($\sigma$) values along its diagonal,
+$\mathbf{L}$ is a $m \times m$ unitary matrix, and $\mathbf{R}'$ a $n \times n$
+unitary matrix. Truncating the SVD removes additional noise in the dataset by
+omitting non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using
+the rank of the matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that
+$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (where $r$ is the
+rank of $\mathbf{A}$) containing only non-zero $\sigma$ values. Additionally,
+$\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
+\times r$ semi-unitary matrix.
 
 The latent variables used for the RDPG, called the left and right subspaces, are
 defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
@@ -202,7 +203,7 @@ ratio. Because the European metaweb is almost entirely known, the amount of
 noise is low; this is reflected in @fig:scree (left), where the scree plot shows
 no important drop, and in @fig:scree (right) where the proportion of variance
 explained increases smoothly at higher dimensions. For this reason, we default
-back to an arbitrary **TK: dimension/variance** threshold that explain 60% of
+back to an arbitrary **TK: dimension/variance/rank** threshold that explains 60% of
 the variance in the underlying data, corresponding to 12 dimensions.
 
 ![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
@@ -325,7 +326,7 @@ interactions were added to our predicted metaweb with a probability of 1.
 
 ![Left: effect of varying the cutoff for probabilities to be considered non-zero
 on the number of unique links and on $\hat{L}$, the probabilistic estimate of
-the number of links assuming that all interactions are independant. Right:
+the number of links assuming that all interactions are independent. Right:
 effect of varying the cutoff on the number of disconnected species, and on
 network connectance. In both panels, the grey line indicates the cutoff $\rho =
 TK$ that resulted in the first species losing all of its
