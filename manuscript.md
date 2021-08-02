@@ -306,7 +306,7 @@ Canadian web), but ensures that (we?) are directly re-using knowledge from
 Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
-Biotic Interactions (GLOBI) database **REF**, and extracted their known
+Biotic Interactions (GLOBI) database [@Poelen2014GloBio], and extracted their known
 interactions. Because GLOBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
