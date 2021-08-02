@@ -77,14 +77,14 @@ interactions.
 We use data on the European metaweb assembled by @Maiorano2020TetEu, following
 the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.* an
 inventory of all possible interactions within species from a spatially delimited
-pool. The metaweb is not a prediction of the food web at any specific locale
-within the frontiers of the species pool -- in fact, these local food webs are
-expected to have a subset of both the species and the interactions of their
-metaweb [@Poisot2012DisSpea]. This being said, as the metaweb represents the
-total of functional, phylogenetic, and macroecological processes
-[@Morales-Castilla2015InfBioa], and is still worthy of ecological attention. We
-induced the subgraph corresponding to all mammals by matching species names in
-the original network first to the GBIF taxonomic backbone
+pool. Notably the metaweb is not a prediction of the food web at any specific
+locale within the frontiers of the species pool -- in fact, these local food
+webs are expected to have a subset of both the species and the interactions of
+their metaweb [@Poisot2012DisSpea]. This being said, as the metaweb represents
+the total of functional, phylogenetic, and macroecological processes
+[@Morales-Castilla2015InfBioa], and is thus still worthy of ecological
+attention. We induced the subgraph corresponding to all mammals by matching
+species names in the original network first to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
 all nodes had valid matches to GBIF at this step, and so this backbone is used
 for all name reconciliation steps as outlined below.
