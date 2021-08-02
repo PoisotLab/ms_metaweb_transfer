@@ -10,33 +10,35 @@ scales [*e.g.* @Trojelsgaard2016EcoNet]. First, networks within a location are
 difficult to sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta],
 resulting in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
 challenge (local incompleteness) has been in large part addressed by the recent
-multiplication of methods aiming to predict interactions within an *existing*
+multiplication of methods aiming to predict interactions *within* an *existing*
 network, a lot of which are reviewed in @Strydom2021RoaPre. Second, recent
 analyses based on collected data [@Poisot2021GloKno] or metadata
 [@Cameron2019UneGlo] highlight that ecological networks are currently studied in
 a biased subset of space and bioclimates, which impedes our ability to
 generalize any local understanding of network structure. Meaning that although
-the framework to address *incompleteness* within a network exists there are
-still regions for which we currently have no feasible means to predict
-interactions due to a *lack* of local interaction data. Having a general
-solution for the issue of metaweb inference [@Morales-Castilla2015InfBioa] that,
-despite situations where minimal knowledge about interactions within a species
-pool is known, can produce a plausible metaweb could be the catalyst for
+the framework to address incompleteness *within* a network exists there would
+still be still regions that, due to a *lack* of local interaction data, we are
+unable to infer potential species interactions. Having a general solution for
+the issue of metaweb inference [@Morales-Castilla2015InfBioa] that, despite
+situations where minimal knowledge about interactions within a species pool is
+known, are capable of producing a plausible metaweb could be the catalyst for
 significant breakthroughs in our ability to start thinking about species
-interactions networks over large spatial scales.
+interactions networks over large and contiguous spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a biologically
-relevant proxy space. This method allows for the prediction of species
+relevant proxy space. Transfer learning is a machine learning methodology that
+uses the knowledge gained from solving one problem and applying it to a related
+problem [@Torrey2010TraLea]. In this instance; for the prediction of species
 interactions based on knowledge extracted from another species pool for which
 interactions are known. This allows us to construct a *probabilistic* metaweb
-for a community for which we have *no* prior interaction data for that region.
-Our method is outlined in @fig:concept; where we provide an illustration based
-on learning an embedding of a metaweb of trophic interactions for European
+for a community for which we have *no* prior interaction data for that location.
+Our methodology is outlined in @fig:concept; where we provide an illustration
+based on learning an embedding of a metaweb of trophic interactions for European
 mammals [known interaction; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
-on phylogenetic relationships between mammals globally [@Upham2019InfMam],
-infer this representation for the pool of mammals in Canada (no known
-interactions in this instance).
+on phylogenetic relationships between mammals globally [@Upham2019InfMam], infer
+this representation for the pool of mammals in Canada (no known interactions in
+this instance).
 
 ![Overview of the phylogenetic transfer learning of species interactions
 networks. Starting from an initial network, we learn its representation through
@@ -69,7 +71,6 @@ interactions.
 
 **TK** Results/summary type paragraph
 
-Add definitions of transfer learning [@Torrey2010TraLea]
 
 # Data used for the case study
 
