@@ -234,7 +234,7 @@ The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
 next section, we explain how we rely on phylogenetic similarity to do so.
 
-## Step 2: Transfer learning through phylogenetic relatedness
+## Step 2 and 3: Transfer learning through phylogenetic relatedness
 
 In order to transfer the knowledge from the European metaweb to the Canadian
 species pool, we performed ancestral character estimation using a Brownian
@@ -255,7 +255,7 @@ dimension.
 These objects represent the transferred knowledge, which we can use for
 prediction of the Canadian metaweb.
 
-## Step 3: Probabilistic prediction of the destination network
+## Step 4: Probabilistic prediction of the destination network
 
 The phylogenetic reconstruction of $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$
 has an associated uncertainty, represented by the breadth of the uniform
