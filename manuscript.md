@@ -151,6 +151,7 @@ pipeline can be executed on a laptop in a matter of minutes, and therefore does
 not require extensive computational power.
 
 **[if we consider the following steps from figure 1: 1)learn, 2)transfer and infer (*together*), 3)predict]**
+
 ## Step 1: Learning the origin network representation
 
 The first step in transfer learning is to learn the structure of the origin
@@ -185,6 +186,8 @@ rank of $\mathbf{A}$) containing only non-zero $\sigma$ values. Additionally,
 $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
 \times r$ semi-unitary matrix.
 
+A RDPG estimates the probability of observing interactions between nodes as a
+function of the nodes of the latent variables (*i.e.* matrix multiplication).
 The latent variables used for the RDPG, called the left and right subspaces, are
 defined as $\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
 \sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
