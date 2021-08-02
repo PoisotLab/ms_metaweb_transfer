@@ -199,15 +199,13 @@ The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise, expressed at high
 dimensions, and to focus on the signal, expressed at low dimension. In datasets
 with a clear signal/noise demarcation, the scree plot of $\mathbf{\Sigma}$ can
-show a sharp drop at the rank where noise starts. Alternatively, REF showed that
-the profile likelihood (assuming a known distribution of $\mathbf{\Sigma}$, or a
-normal distribution otherwise) peaks at the rank maximizing the signal-to-noise
-ratio. Because the European metaweb is almost entirely known, the amount of
-noise is low; this is reflected in @fig:scree (left), where the scree plot shows
-no important drop, and in @fig:scree (right) where the proportion of variance
-explained increases smoothly at higher dimensions. For this reason, we default
-back to an arbitrary threshold that explains 60% of
-the variance in the underlying data, corresponding to 12 dimensions.
+show a sharp drop at the rank where noise starts [@Zhu2006AutDim]. Because the
+European metaweb is almost entirely known, the amount of noise is low; this is
+reflected in @fig:scree (left), where the scree plot shows no important drop,
+and in @fig:scree (right) where the proportion of variance explained increases
+smoothly at higher dimensions. For this reason, we default back to an arbitrary
+threshold that explains 60% of the variance in the underlying data,
+corresponding to 12 dimensions.
 
 ![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
 European metaweb. The screeplot shows no obvious drop in the eigenvalues that
