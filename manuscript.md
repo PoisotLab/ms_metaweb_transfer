@@ -363,7 +363,7 @@ probability.
 
 # Results and discussion of the case study
 
-**TP** @fig:thresholds -- the cutoffs using maximum curvature of central
+TK @fig:thresholds -- the cutoffs using maximum curvature of central
 difference approximation of the second order partial derivative result in
 respectively species being lost, or almost all links being kept -- we settled on
 the value that allowed all species to remain.
@@ -400,6 +400,34 @@ structuring the mammalian food web.
 
 # Discussion
 
+One important aspect in which Europe and Canada differ (despite their comparable
+bioclimatic conditions) is the legacy of human impacts, which have been much
+longer in Europe. @Nenzen2014Imp850a show that even at small scales (the Iberian
+peninsula), mammal food webs retain the signal of both climate change and human
+activity, even when this human activity was orders of magnitude less important
+than it is now. Similarly, @Yeakel2014ColEco show that changes in human
+occupation over several centuries can lead to food web collapse. Megafauna in
+particular seems to be very sensitive to human arrival [@Pires2015PleMeg]. In
+short, there is well-substantiated support for the idea that human footprint
+affects more than the risk of species extinction [@Marco2018ChaHum], and can
+lead to changes in interaction structure. Yet, interactions being inherently
+more plastic, there have been documented instances of food webs undergoing rapid
+collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
+Embedding a network also, in a sense, embeds its evolutionary history,
+especially as RDPG captures ecological signal [@DallaRiva2016ExpEvo]; at this
+point, it is important to recall that a metaweb is intended as a catalogue of
+all possible interactions, which should then be filtered
+[@Morales-Castilla2015InfBio].
+
+TK @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
+probability: this method might be it
+
+<!-- 
+TK A cautionary tale regarding validation. Interaction can never be a true
+negative. Cannot use a empirical subset of a bigger (predicated) network for
+validation -> because e.g. dietary shifts across range.
+-->
+
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
 interesting problems. The first is the limit of the metaweb to embed and
@@ -413,35 +441,25 @@ expert elicitation. The second problem is to determine which area should be used
 to infer the new metaweb in, as this determines the species pool that must be
 used. In our application, we focused on the mammals of Canada. The upside of
 this approach is that information at the country level are likely to be required
-by policy makers and stakeholders for their biodiversity assessment; the
-downside of this approach is that Canada is a colonial construct with no
-relevance to ecological processes.
+by policy makers and stakeholders for their biodiversity assessment, as each
+country tends to set goals at the national level [@Buxton2021KeyInf] for which
+quantitative instruments are designed [@Turak2017MeaRep], with specific
+stategies often enacted at smaller scales [@Ray2021BioCri]. Yet these national
+divisions, in large parts of the world, reflect nothing except for the legacy of
+settler colonialism, and operating under them must be done under the clear
+realization that they contributed to the ongoing biodiversity crisis
+[@Adam2014EleTre], can re-inforce environmental injustice [@Choudry2013SavBio;
+@Dominguez2020DecCon], and on Turtle Island especially, will have to be replaced
+by Indigenous principles of land management [@Eichhorn2019SteDec;
+@Nokmaq2021AwaSle].
 
-TK One important aspect in which Europe and Canada differ is the legacy of human
-impacts, which have been much longer in Europe. @Nenzen2014Imp850a show that
-even at small scales (the Iberian peninsula), mammal food webs retain the signal
-of both climate change and human activity, even when this human activity was
-orders of magnitude less important than it is now. Similarly, @Yeakel2014ColEco
-show that changes in human occupation over several centuries can lead to food
-web collapse. Megafauna in particular seems to be very sensitive to human
-arrival [@Pires2015PleMeg]. In short, there is well-substantiated support for
-the idea that human footprint affects more than the risk of species extinction
-[@Marco2018ChaHum], and can lead to changes in interaction structure. Yet,
-interactions being inherently more plastic, there have been documented instances
-of food webs undergoing rapid collapse/recovery cycles over short periods of
-time [@Pedersen2017SigCol]. Embedding a network also, in a sense, embeds its
-evolutionary history, especially as RDPG captures ecological signal
-[@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
-is intended as a catalogue of all possible interactions, which should then be
-filtered [@Morales-Castilla2015InfBio].
-
-TK @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
-probability: this method might be it
-
-<!-- 
-TK A cautionary tale regarding validation. Interaction can never be a true
-negative. Cannot use a empirical subset of a bigger (predicated) network for
-validation -> because e.g. dietary shifts across range.
--->
+**Acknowledgements:** We acknowledge that this study was conducted on land
+within the traditional unceded territory of the Saint Lawrence Iroquoian,
+Anishinabewaki, Mohawk, Huron-Wendat, and Omàmiwininiwak nations. TP, TS, DC,
+and LP received funding from the Canadian Institue for Ecology & Evolution. FB
+is funded by the Institut de Valorisation des Données. TS, SB, and TP are funded
+by a donation from the Courtois Foundation. TP acknowledges financial support
+from NSERC through the Discovery Grants and Discovery Accelerator Supplement
+programs.
 
 # References
