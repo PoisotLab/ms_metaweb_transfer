@@ -150,8 +150,6 @@ fully annotated copy of the entire code required to run this project; the
 pipeline can be executed on a laptop in a matter of minutes, and therefore does
 not require extensive computational power.
 
-**[if we consider the following steps from figure 1: 1)learn, 2)transfer and infer (*together*), 3)predict]**
-
 ## Step 1: Learning the origin network representation
 
 The first step in transfer learning is to learn the structure of the origin
