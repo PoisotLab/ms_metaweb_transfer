@@ -53,10 +53,10 @@ list of interactions.](figures/figure-concept.png){#fig:concept}
 
 There are a plurality of measures of species similarities that can be used for
 knowledge transfer [see *e.g.* @Morales-Castilla2015InfBio]; nevertheless,
-phylogenetic proximity has several desirable properties when working at
-large scales. @Gerhold2015PhyPat make the point that phylogenetic signal
-captures diversification of characters (large macro-evolutionary process), but
-not necessarily community assembly (fine ecological process); @Dormann2010EvoCli
+phylogenetic proximity has several desirable properties when working at large
+scales. @Gerhold2015PhyPat make the point that phylogenetic signal captures
+diversification of characters (large macro-evolutionary process), but not
+necessarily community assembly (fine ecological process); @Dormann2010EvoCli
 previously gave very similar conclusions. Interactions tend to conserve
 phylogenetic signal that encompasses a wide range of ecological and evolutionary
 mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and most
@@ -65,8 +65,8 @@ scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
 at macro-ecological scales seem to respond mostly to macro-evolutionary
 processes [@Price2003MacThe]; which is evidenced by the presence of conserved
 backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
-prey choice [@Stouffer2012EvoCona], and strong phylogenetic signature in food
-web intervality [@Eklof2016PhyCom]. Taken together, these considerations suggest
+prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
+intervality [@Eklof2016PhyCom]. Taken together, these considerations suggest
 that phylogenies can reliably be used to transfer knowledge on species
 interactions.
 
@@ -91,7 +91,7 @@ locale within the frontiers of the species pool -- in fact, these local food
 webs are expected to have a subset of both the species and the interactions of
 their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
 the total of functional, phylogenetic, and macroecological processes
-[@Morales-Castilla2015InfBioa], and is thus still worthy of ecological
+[@Morales-Castilla2015InfBio], and is thus still worthy of ecological
 attention. We induced the subgraph corresponding to all mammals by matching
 species names in the original network first to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
