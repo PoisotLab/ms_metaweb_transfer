@@ -23,25 +23,23 @@ the issue of metaweb inference [@Morales-Castilla2015InfBio] that, despite
 situations where minimal knowledge about interactions within a species pool is
 known, are capable of producing a plausible metaweb could be the catalyst for
 significant breakthroughs in our ability to start thinking about species
-interactions networks over large and contiguous spatial scales. The relevance of
-being able to predict networks also transcends a purely network-specific focus
-and is also relevant when it comes to broader ecological concerns such as
-**Thinking disease ecology but maybe there are others?** 
+interactions networks over large and contiguous spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a biologically
 relevant proxy space. Transfer learning is a machine learning methodology that
 uses the knowledge gained from solving one problem and applying it to a related
-problem [@Torrey2010TraLea]. In this instance; for the prediction of species
-interactions based on knowledge extracted from another species pool for which
-interactions are known. This allows us to construct a *probabilistic* metaweb
-for a community for which we have *no* prior interaction data for that location.
-Our methodology is outlined in @fig:concept; where we provide an illustration
-based on learning an embedding of a metaweb of trophic interactions for European
-mammals [known interactions; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
-on phylogenetic relationships between mammals globally [@Upham2019InfMam], infer
-this representation for the pool of mammals in Canada (interactions are treated
-as unknown in this instance).
+problem [@Torrey2010TraLea]. In this instance, we solve the problem of
+predicting trophic interactions between species, based on knowledge extracted
+from another species pool for which interactions are known, using phylogenetic
+structure as a medium for transfer. This allows us to construct a
+*probabilistic* metaweb for a community for which we have *no* prior interaction
+data for that location. Our methodology is outlined in @fig:concept, where we
+provide an illustration based on learning an embedding of a metaweb of trophic
+interactions for European mammals [known interactions; @Maiorano2020TetEu;
+@Maiorano2020DatTet], and based on phylogenetic relationships between mammals
+globally [@Upham2019InfMam], infer this representation for the pool of mammals
+in Canada (interactions are treated as unknown in this instance).
 
 ![Overview of the phylogenetic transfer learning of species interactions
 networks. Starting from an initial network, we learn its representation through
@@ -73,17 +71,15 @@ that phylogenies can reliably be used to transfer knowledge on species
 interactions.
 
 In our use-case we show that phylogenetic transfer learning is indeed an
-effective approach to predict the Canadian mammalian metaweb. Although there is
-a limited species overlap between Europe and Canada (only 17 species of a
-combined XXX are shared) there is still a considerable overlap between taxa as
-well as habitat similarity. This showcases that although the components
-(species) that make up the Canadian and European communities may not be shared,
-if the 'measure' selected in the transfer step is biologically plausible we are
-still able 'learn' effectively and able to predict biologically relevant
-interactions. It should be re-iterated that the framework presented in
-@fig:concept is exactly that, a framework, and the methods at each step may be
-substituted by others when the data support. **Could we add an e.g. here? Maybe
-foraging traits or something similar?**
+effective approach to predict the Canadian mammalian metaweb. This showcases
+that although the components (species) that make up the Canadian and European
+communities may not be shared, if the 'measure' selected in the transfer step is
+biologically plausible we are still able 'learn' effectively and able to predict
+biologically relevant interactions. It should be re-iterated that the framework
+presented in @fig:concept is amenable to changes; notably, the measure of
+similarity may not be phylogeny, and can be replaced by information on foraging
+[@Beckerman2006ForBio], cell-level mechanisms [@Boeckaerts2021PreBac], or
+combination of traits and phylogenetic structure [@Stock2021PaiLea].
 
 # Data used for the case study
 
@@ -289,8 +285,8 @@ distribution. This results in one instance of the possible left
 metaweb. These can be multiplied, to produced one matrix of real values. Because
 the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
-the *"inference?"* threshold $\rho$ estimated for the European metaweb also applies. We use
-this information to produce one random Canadian metaweb, $N =
+the *"inference?"* threshold $\rho$ estimated for the European metaweb also
+applies. We use this information to produce one random Canadian metaweb, $N =
 \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces].
 
 Because the intervals around some trait values can be broad [in fact, probably
