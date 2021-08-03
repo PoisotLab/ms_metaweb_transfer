@@ -7,9 +7,9 @@ bibliography: [references.bib]
 There are two core challenges we are faced with in furthering our understanding
 of ecological networks across space, particularly at macro-ecologically relevant
 scales [*e.g.* @Trojelsgaard2016EcoNet]. First, networks within a location are
-difficult to sample properly [@Jordano2016ChaEco; @Jordano2016SamNet],
-resulting in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
-challenge (local incompleteness) has been in large part addressed by the recent
+difficult to sample properly [@Jordano2016ChaEco; @Jordano2016SamNet], resulting
+in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first challenge
+(local incompleteness) has been in large part addressed by the recent
 multiplication of methods aiming to predict interactions *within* an *existing*
 network, a lot of which are reviewed in @Strydom2021RoaPre. Second, recent
 analyses based on collected data [@Poisot2021GloKno] or metadata
@@ -23,7 +23,10 @@ the issue of metaweb inference [@Morales-Castilla2015InfBio] that, despite
 situations where minimal knowledge about interactions within a species pool is
 known, are capable of producing a plausible metaweb could be the catalyst for
 significant breakthroughs in our ability to start thinking about species
-interactions networks over large and contiguous spatial scales.
+interactions networks over large and contiguous spatial scales. The relevance of
+being able to predict networks also transcends a purely network-specific focus
+and is also relevant when it comes to broader ecological concerns such as
+**Thinking disease ecology but maybe there are others?** 
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a biologically
