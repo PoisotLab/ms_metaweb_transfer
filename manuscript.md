@@ -35,10 +35,10 @@ interactions are known. This allows us to construct a *probabilistic* metaweb
 for a community for which we have *no* prior interaction data for that location.
 Our methodology is outlined in @fig:concept; where we provide an illustration
 based on learning an embedding of a metaweb of trophic interactions for European
-mammals [known interaction; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
+mammals [known interactions; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
 on phylogenetic relationships between mammals globally [@Upham2019InfMam], infer
-this representation for the pool of mammals in Canada (no known interactions in
-this instance).
+this representation for the pool of mammals in Canada (interactions are treated
+as unknown in this instance).
 
 ![Overview of the phylogenetic transfer learning of species interactions
 networks. Starting from an initial network, we learn its representation through
@@ -69,8 +69,18 @@ web intervality [@Eklof2016PhyCom]. Taken together, these considerations suggest
 that phylogenies can reliably be used to transfer knowledge on species
 interactions.
 
-**TK** Results/summary type paragraph
-
+In our use-case we show that phylogenetic transfer learning is indeed an
+effective approach to predict the Canadian mammalian metaweb. Although there is
+a limited species overlap between Europe and Canada (only 17 species of a
+combined XXX are shared) there is still a considerable overlap between taxa as
+well as habitat similarity. This showcases that although the components
+(species) that make up the Canadian and European communities may not be shared,
+if the 'measure' selected in the transfer step is biologically plausible we are
+still able 'learn' effectively and able to predict biologically relevant
+interactions. It should be re-iterated that the framework presented in
+@fig:concept is exactly that, a framework, and the methods at each step may be
+substituted by others when the data support. **Could we add an e.g. here? Maybe
+foraging traits or something similar?**
 
 # Data used for the case study
 
@@ -119,8 +129,7 @@ manuscript is built (leveraging detailed knowledge about trophic interactions
 between Mammalia in Europe to predict the less known trophic interactions
 between closely phylogenetically related Mammalia in Canada), we use a series of
 specific steps for network embedding, trait inference, network prediction
-and thresholding. This being said, the methods at each step may be substituted
-by others when the data support it.
+and thresholding.
 
 Specifically, our approach can be summarized as follows: from the known network
 in Europe, we use a truncated Singular Value Decomposition [t-SVD;
