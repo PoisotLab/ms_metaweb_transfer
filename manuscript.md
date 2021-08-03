@@ -7,7 +7,7 @@ bibliography: [references.bib]
 There are two core challenges we are faced with in furthering our understanding
 of ecological networks across space, particularly at macro-ecologically relevant
 scales [*e.g.* @Trojelsgaard2016EcoNet]. First, networks within a location are
-difficult to sample properly [@Jordano2016ChaEcoa; @Jordano2016SamNeta],
+difficult to sample properly [@Jordano2016ChaEco; @Jordano2016SamNet],
 resulting in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first
 challenge (local incompleteness) has been in large part addressed by the recent
 multiplication of methods aiming to predict interactions *within* an *existing*
@@ -19,7 +19,7 @@ generalize any local understanding of network structure. Meaning that although
 the framework to address incompleteness *within* a network exists there would
 still be still regions that, due to a *lack* of local interaction data, we are
 unable to infer potential species interactions. Having a general solution for
-the issue of metaweb inference [@Morales-Castilla2015InfBioa] that, despite
+the issue of metaweb inference [@Morales-Castilla2015InfBio] that, despite
 situations where minimal knowledge about interactions within a species pool is
 known, are capable of producing a plausible metaweb could be the catalyst for
 significant breakthroughs in our ability to start thinking about species
@@ -51,7 +51,7 @@ assuming a uniform distribution of traits), and threshold it to yield the final
 list of interactions.](figures/figure-concept.png){#fig:concept}
 
 There are a plurality of measures of species similarities that can be used for
-knowledge transfer [see *e.g.* @Morales-Castilla2015InfBioa]; nevertheless,
+knowledge transfer [see *e.g.* @Morales-Castilla2015InfBio]; nevertheless,
 phylogenetic proximity has several desirable properties when working at
 large scales. @Gerhold2015PhyPat make the point that phylogenetic signal
 captures diversification of characters (large macro-evolutionary process), but
@@ -80,7 +80,7 @@ inventory of all possible interactions within species from a spatially delimited
 pool. Notably the metaweb is not a prediction of the food web at any specific
 locale within the frontiers of the species pool -- in fact, these local food
 webs are expected to have a subset of both the species and the interactions of
-their metaweb [@Poisot2012DisSpea]. This being said, as the metaweb represents
+their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
 the total of functional, phylogenetic, and macroecological processes
 [@Morales-Castilla2015InfBioa], and is thus still worthy of ecological
 attention. We induced the subgraph corresponding to all mammals by matching
@@ -317,7 +317,7 @@ be predicted. After performing this check, we set the probability of all
 interactions known to GLOBI (366 in total, 33 of which were not predicted by the
 model, for a success rate of 91%) to 1.
 
-Finally, we downloaded the data from @Strong2014ImpNona, who mined various
+Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
 dataset documented 25 interactions between mammals, only two of which were not
 part of our predictions, resulting in a success rate of 92%. These two
@@ -373,7 +373,7 @@ and predators. Importantly, this implies that a rank 1 approximation represents
 the configuration model [@Park2004StaMec] for the metaweb, or (accounting for
 the probabilistic nature of the degree) the soft configuration model
 [@vanderHoorn2018SpaMax], both of which are maximum entropy graph models
-[@Garlaschelli2018CovStr], with respectively sharp and soft local constraints.
+[@Garlaschelli2018CovStra], with respectively sharp and soft local constraints.
 The configuration model is widely used by ecologists in the context of null
 hypothesis significance testing of network structure [*e.g.*
 @Bascompte2003NesAss], and it is noteworthy that for this metaweb, the relevant
@@ -417,7 +417,7 @@ time [@Pedersen2017SigCol]. Embedding a network also, in a sense, embeds its
 evolutionary history, especially as RDPG captures ecological signal
 [@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
 is intended as a catalogue of all possible interactions, which should then be
-filtered [@Morales-Castilla2015InfBioa].
+filtered [@Morales-Castilla2015InfBio].
 
 TK @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
 probability: this method might be it
