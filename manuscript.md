@@ -357,9 +357,9 @@ identical to our Bernoulli-trial based reconstruction of a probabilistic
 network. We performed a full analysis of the effect of various cutoffs, and as
 they either resulted in removing too few interactions, or removing enough
 interactions that species started to be disconnected from the network, we set
-the *"prediction?"* threshold for a probability equivalent to 0 to the largest possible value
-that still allowed all species to have at least one interaction with a non-zero
-probability.
+the *"prediction?"* threshold for a probability equivalent to 0 to the largest
+possible value that still allowed all species to have at least one interaction
+with a non-zero probability.
 
 # Results and discussion of the case study
 
@@ -389,7 +389,7 @@ and predators. Importantly, this implies that a rank 1 approximation represents
 the configuration model [@Park2004StaMec] for the metaweb, or (accounting for
 the probabilistic nature of the degree) the soft configuration model
 [@vanderHoorn2018SpaMax], both of which are maximum entropy graph models
-[@Garlaschelli2018CovStra], with respectively sharp and soft local constraints.
+[@Garlaschelli2018CovStr], with respectively sharp and soft local constraints.
 The configuration model is widely used by ecologists in the context of null
 hypothesis significance testing of network structure [*e.g.*
 @Bascompte2003NesAss], and it is noteworthy that for this metaweb, the relevant
@@ -402,7 +402,7 @@ structuring the mammalian food web.
 
 One important aspect in which Europe and Canada differ (despite their comparable
 bioclimatic conditions) is the legacy of human impacts, which have been much
-longer in Europe. @Nenzen2014Imp850a show that even at small scales (the Iberian
+longer in Europe. @Nenzen2014Imp850 show that even at small scales (the Iberian
 peninsula), mammal food webs retain the signal of both climate change and human
 activity, even when this human activity was orders of magnitude less important
 than it is now. Similarly, @Yeakel2014ColEco show that changes in human
@@ -419,14 +419,21 @@ point, it is important to recall that a metaweb is intended as a catalogue of
 all possible interactions, which should then be filtered
 [@Morales-Castilla2015InfBio].
 
-TK @Cirtwill2019QuaFra -- we need an informative interaction-level prior on
-probability: this method might be it
-
-<!-- 
-TK A cautionary tale regarding validation. Interaction can never be a true
-negative. Cannot use a empirical subset of a bigger (predicated) network for
-validation -> because e.g. dietary shifts across range.
--->
+@Cirtwill2019QuaFra previously made the point that network inference techniques
+based on Bayesian approaches would perform far better in the presence of an
+interaction-level informative prior; the desirable properties of such a prior
+would be that it is expressed as a probability, preferably representing a
+Bernoulli event, the value of which would be representative of relevant
+biological processes. We argue that the probability returned at the very last
+step of our framework may serve as this informative prior; indeed, the output of
+our analysis can be used in subsequent steps, also possibly involving expert
+elicitation to validate some of the most strongly recommended interactions. One
+important *caveat* to keep in mind when working with interaction inference is
+that interactions can never really be true negatives (in the current state of
+our methodological framework and data collection limitations); this renders the
+task of validating a model through the usual application of binary
+classification statistics very difficult [although see @Strydom2021RoaPre for a
+discussion of alternative suggestions].
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
@@ -443,7 +450,7 @@ used. In our application, we focused on the mammals of Canada. The upside of
 this approach is that information at the country level are likely to be required
 by policy makers and stakeholders for their biodiversity assessment, as each
 country tends to set goals at the national level [@Buxton2021KeyInf] for which
-quantitative instruments are designed [@Turak2017MeaRep], with specific
+quantitative instruments are designed [@Turak2017UsiEss], with specific
 stategies often enacted at smaller scales [@Ray2021BioCri]. Yet these national
 divisions, in large parts of the world, reflect nothing except for the legacy of
 settler colonialism, and operating under them must be done under the clear
