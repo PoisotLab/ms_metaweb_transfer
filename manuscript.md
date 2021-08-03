@@ -112,12 +112,18 @@ from the IUCN checklist, and selected the terrestrial and semi-aquatic species
 in the European metaweb). The IUCN names were, as previously, reconciled against
 GBIF to have an exact match to the taxonomy.
 
-The European metaweb had XXX species, and the Canadian species pool had YYY - of
-these, only 17 were shared, which highlights the need to rely on a knowledge
-transfer approach. In the following sections, we describe the representational
-learning step applied to European data, the transfer step through phylogenetic
-similarity, and the generation of a probabilistic metaweb for the destination
-species pool.
+After taxonomic cleaning and reconciliation as outlined in the following
+sections, the European metaweb had 260 species, and the Canadian species pool
+has 163; of these, 17 (about 4% of the total) are shared, and 89 species from
+Canada (54%) had at least one congeneric species in Europe. The similarity for
+both species pool predictably increases with higher taxonomic order, with 19% of
+shared genera, 47% of shared families, and 75% of shared orders; for the last
+point, Canada and Europe each had a single unique order (*Didelphimorphia* for
+Canada, *Erinaceomorpha* for Europe).
+
+In the following sections, we describe the representational learning step
+applied to European data, the transfer step through phylogenetic similarity, and
+the generation of a probabilistic metaweb for the destination species pool.
 
 # Method description
 
@@ -146,17 +152,19 @@ latent traits and nodes position, we can infer interactions.
 ## Implementation and code availability
 
 The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre], and is
-available under the permissive MIT License at DOI. The taxonomic cleanup steps
+available under the permissive MIT License at
+[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/). The taxonomic cleanup steps
 are done using `GBIF.jl` [@Dansereau2021SimJl]. The network embedding and
 analysis is done using `EcologicalNetworks.jl` [@Banville2021ManJl;
 @Poisot2019EcoJl]. The phylogenetic simulations are done using
 `PhyloNetworks.jl` [@Solis-Lemus2017PhyPac] and `Phylo.jl` [@Reeve2016HowPar]. A
 complete `Project.toml` file specifying the full tree of dependencies is
-available alongside the code, at
-[`https://osf.io/2zwqm/`](https://osf.io/2zwqm/). This material also includes a
-fully annotated copy of the entire code required to run this project; the
-pipeline can be executed on a laptop in a matter of minutes, and therefore does
-not require extensive computational power.
+available alongside the code. This material also includes a fully annotated copy
+of the entire code required to run this project (describing both the intent of
+the code and discussing some technical implementation details), a vignette for
+every step of the process, and a series of Jupyter notebooks with the text and
+code. The pipeline can be executed on a laptop in a matter of minutes, and
+therefore does not require extensive computational power.
 
 ## Step 1: Learning the origin network representation
 
