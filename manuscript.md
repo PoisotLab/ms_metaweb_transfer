@@ -412,14 +412,17 @@ occupation over several centuries can lead to food web collapse. Megafauna in
 particular seems to be very sensitive to human arrival [@Pires2015PleMeg]. In
 short, there is well-substantiated support for the idea that human footprint
 affects more than the risk of species extinction [@Marco2018ChaHum], and can
-lead to changes in interaction structure. Yet, interactions being inherently
-more plastic, there have been documented instances of food webs undergoing rapid
-collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
-Embedding a network also, in a sense, embeds its macro-evolutionary history,
+lead to changes in interaction structure. Yet, owing to the inherit plasticity
+of interactions, there have been documented instances of food webs undergoing
+rapid collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
+The embedding of a network, in a sense, embeds its macro-evolutionary history,
 especially as RDPG captures ecological signal [@DallaRiva2016ExpEvo]; at this
 point, it is important to recall that a metaweb is intended as a catalogue of
 all possible interactions, which should then be filtered
-[@Morales-Castilla2015InfBio]. Deep phylogenetically links.
+[@Morales-Castilla2015InfBio]. In practice (and in this instance) the
+reconstructed metaweb will predict interactions that are plausible based on the
+species' evolutionary history, however some interactions would not be realized
+due to human impact.
 
 @Cirtwill2019QuaFra previously made the point that network inference techniques
 based on Bayesian approaches would perform far better in the presence of an
