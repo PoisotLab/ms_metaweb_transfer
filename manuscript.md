@@ -135,8 +135,8 @@ we give a high-level overview of the approach; in the example around which this
 manuscript is built (leveraging detailed knowledge about trophic interactions
 between Mammalia in Europe to predict the less known trophic interactions
 between closely phylogenetically related Mammalia in Canada), we use a series of
-specific steps for network embedding, trait inference, network prediction
-and thresholding.
+specific steps for network embedding, trait inference, network prediction and
+thresholding.
 
 Specifically, our approach can be summarized as follows: from the known network
 in Europe, we use a truncated Singular Value Decomposition [t-SVD;
@@ -322,8 +322,8 @@ modification of the inferred network (about 0.8% of all species pairs from the
 Canadian web), but ensures that we are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
-Biotic Interactions (GLOBI) database [@Poelen2014GloBio], and extracted their known
-interactions. Because GLOBI aggregates observed interactions, it is not a
+Biotic Interactions (GLOBI) database [@Poelen2014GloBio], and extracted their
+known interactions. Because GLOBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
 This last statement should yet be taken with caution, as some sources in GLOBI
@@ -364,10 +364,10 @@ probability.
 
 # Results and discussion of the case study
 
-TK @fig:thresholds -- the cutoffs using maximum curvature of central
-difference approximation of the second order partial derivative result in
-respectively species being lost, or almost all links being kept -- we settled on
-the value that allowed all species to remain.
+TK @fig:thresholds -- the cutoffs using maximum curvature of central difference
+approximation of the second order partial derivative result in respectively
+species being lost, or almost all links being kept -- we settled on the value
+that allowed all species to remain.
 
 ![Top: biological significance of the first dimension. Left: there is a linear
 relationship between the values on the first dimension of the left subspace and
