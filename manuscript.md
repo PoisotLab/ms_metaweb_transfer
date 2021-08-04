@@ -53,7 +53,7 @@ assuming a uniform distribution of traits), and threshold it to yield the final
 list of interactions.](figures/figure-concept.png){#fig:concept}
 
 There are a plurality of measures of species similarities that can be used for
-knowledge transfer [see *e.g.* @Morales-Castilla2015InfBio]; nevertheless,
+metaweb reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; nevertheless,
 phylogenetic proximity has several desirable properties when working at large
 scales. @Gerhold2015PhyPat make the point that phylogenetic signal captures
 diversification of characters (large macro-evolutionary process), but not
