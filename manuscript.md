@@ -475,8 +475,8 @@ divisions, in large parts of the world, reflect nothing except for the legacy of
 settler colonialism, and operating under them must be done under the clear
 realization that they contributed to the ongoing biodiversity crisis
 [@Adam2014EleTre], can re-inforce environmental injustice [@Choudry2013SavBio;
-@Dominguez2020DecCon], and on Turtle Island especially, will have to be replaced
-by Indigenous principles of land management [@Eichhorn2019SteDec;
+@Dominguez2020DecCon], and on Turtle Island especially, will probably end up
+being replaced by Indigenous principles of land management [@Eichhorn2019SteDec;
 @Nokmaq2021AwaSle].
 
 **Acknowledgements:** We acknowledge that this study was conducted on land
