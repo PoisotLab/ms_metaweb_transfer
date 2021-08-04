@@ -315,7 +315,15 @@ species were predicted to interact in all $2\times 10^5$ random draws, etc..
 Once the probabilistic metaweb for Canada has been produced, we followed a
 number of data inflation steps to finalize it.
 
-![GLOBI comparison REF TK/TP](figures/figure-validation.png){#fig:inflation}
+![Left, comparison of the probabilities of interactions assigned by the model to
+all interactions (grey curve), the subset of interactions found in GLOBI (red),
+and in the @Strong2014ImpNon Newfoundland dataset (blue). The model recovers
+more interaction with a low probability compared to data mining, which can
+suggest that collected datasets are biased towards more common or easy to
+identify interactions. Right, distribution of the in-degree and out-degree of
+the mammals from Canada in the reconstructed metaweb. This figure describes a
+flat, relatively short food web, in which there are few predators but a large
+number of preys.](figures/figure-validation.png){#fig:inflation}
 
 First, we extracted the subgraph corresponding to the 17 species shared between
 the European and Canadian pools, and replaced these interactions with a
@@ -329,12 +337,12 @@ known interactions. Because GLOBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
 This last statement should yet be taken with caution, as some sources in GLOBI
-(*e.g.* **TK**) are produced though text-mining, and therefore do not document
-direct evidence of the interaction. Nevertheless, should the predictive model
-work, we would expect that a majority of interactions known to GLOBI would also
-be predicted. After performing this check, we set the probability of all
-interactions known to GLOBI (366 in total, 33 of which were not predicted by the
-model, for a success rate of 91%) to 1.
+[*e.g.* @Thessen2014KnoExt] are produced though text analysis, and therefore may
+not document direct evidence of the interaction. Nevertheless, should the
+predictive model work, we would expect that a majority of interactions known to
+GLOBI would also be predicted. After performing this check, we set the
+probability of all interactions known to GLOBI (366 in total, 33 of which were
+not predicted by the model, for a success rate of 91%) to 1.
 
 Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
@@ -346,9 +354,9 @@ interactions were added to our predicted metaweb with a probability of 1.
 on the number of unique links and on $\hat{L}$, the probabilistic estimate of
 the number of links assuming that all interactions are independent. Right:
 effect of varying the cutoff on the number of disconnected species, and on
-network connectance. In both panels, the grey line indicates the cutoff $\rho =
-TK$ that resulted in the first species losing all of its
-interactions.](figures/figure-cutoffs.png){#fig:thresholds}
+network connectance. In both panels, the grey line indicates the cutoff
+$P(i\rightarrow j) \approx 0.08$ that resulted in the first species losing all
+of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 Because the confidence intervals on the inferred trait space are probably
 over-estimates, we decided to apply a thresholding step to the interactions
@@ -366,10 +374,15 @@ probability.
 
 # Results and discussion of the case study
 
-TK @fig:thresholds -- the cutoffs using maximum curvature of central difference
-approximation of the second order partial derivative result in respectively
-species being lost, or almost all links being kept -- we settled on the value
-that allowed all species to remain.
+In @fig:thresholds, we examine the effect of varying the cutoff on $P(i
+\rightarrow j)$ on the number of links, species, and connectance. Determinine a
+cutoff using the maximum curvature, or central difference approximation of the
+second order partial derivative, as suggested by *e.g.* @Cirtwill2021BuiFoo,
+results in respectively species being lost, or almost all links being kept -- we
+therefore settled on the value that allowed all species to remain with at least
+one interaction. This result, in and of itself, suggests that additional
+methodological developments for the thresholding of probabilistic networks are
+required.
 
 ![Top: biological significance of the first dimension. Left: there is a linear
 relationship between the values on the first dimension of the left subspace and
