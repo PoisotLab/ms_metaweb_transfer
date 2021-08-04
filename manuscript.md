@@ -212,16 +212,16 @@ $\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
 provides a first-order approximation of the network.
 
 The specific rank at which the SVD ought to be truncated is a difficult
-question. The purpose of SVD is to remove the noise, expressed at high
-dimensions, and to focus on the signal, expressed at low dimension. In datasets
-with a clear signal/noise demarcation, the scree plot of $\mathbf{\Sigma}$ can
-show a sharp drop at the rank where noise starts [@Zhu2006AutDim]. Because the
-European metaweb is almost entirely known, the amount of noise is low; this is
-reflected in @fig:scree (left), where the scree plot shows no important drop,
-and in @fig:scree (right) where the proportion of variance explained increases
-smoothly at higher dimensions. For this reason, we default back to an arbitrary
-threshold that explains 60% of the variance in the underlying data,
-corresponding to 12 dimensions.
+question. The purpose of SVD is to remove the noise (expressed at high
+dimensions) and to focus on the signal, (expressed at low dimensions). In
+datasets with a clear signal/noise demarcation, the scree plot of
+$\mathbf{\Sigma}$ can show a sharp drop at the rank where noise starts
+[@Zhu2006AutDim]. Because the European metaweb is almost entirely known, the
+amount of noise is low; this is reflected in @fig:scree (left), where the scree
+plot shows no important drop, and in @fig:scree (right) where the proportion of
+variance explained increases smoothly at higher dimensions. For this reason, we
+default back to an arbitrary threshold that explains 60% of the variance in the
+underlying data, corresponding to 12 dimensions.
 
 ![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
 European metaweb. The screeplot shows no obvious drop in the eigenvalues that
@@ -240,11 +240,11 @@ network will be within the unit range. In order to determine what constitutes an
 appropriate threshold for probability, we performed the RDPG approach on the
 European metaweb, and evaluated the probability threshold by treating this as a
 binary classification problem, specifically assuming that both 0 and 1 in the
-European metaweb are all true. Given the methodological given in REF, this seems
-like a reasonable assumption, although one that does not hold for all metawebs.
-We used the thresholding approach presented in HAYSTACK, and picked a cutoff
-that maximized Youden's J statistic [@Youden1950IndRat]; the resulting cutoff
-was 0.22, and gave an accuracy above 0.99.
+European metaweb are all true. Given the methodological reasoning given in REF,
+this seems like a reasonable assumption, although one that does not hold for all
+metawebs. We used the thresholding approach presented in HAYSTACK, and picked a
+cutoff that maximized Youden's J statistic [@Youden1950IndRat]; the resulting
+cutoff was 0.22, and gave an accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
@@ -292,11 +292,11 @@ Specifically, we have adopted the following approach. For every entry in
 $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from its
 distribution. This results in one instance of the possible left
 ($\hat{\mathcal{l}}$) and right ($\hat{\mathcal{r}}$) subspaces for the Canadian
-metaweb. These can be multiplied, to produced one matrix of real values. Because
+metaweb. These can be multiplied, to produce one matrix of real values. Because
 the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
-the *"inference?"* threshold $\rho$ estimated for the European metaweb also
-applies. We use this information to produce one random Canadian metaweb, $N =
+the threshold $\rho$ estimated for the European metaweb also applies. We use
+this information to produce one random Canadian metaweb, $N =
 \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces].
 
 Because the intervals around some trait values can be broad [in fact, probably
@@ -319,8 +319,7 @@ First, we extracted the subgraph corresponding to the 17 species shared between
 the European and Canadian pools, and replaced these interactions with a
 probability of 0 (non-interaction) or 1 (interaction). This represents a minute
 modification of the inferred network (about 0.8% of all species pairs from the
-Canadian web), but ensures that (we?) are directly re-using knowledge from
-Europe.
+Canadian web), but ensures that we are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLOBI) database [@Poelen2014GloBio], and extracted their known
@@ -359,9 +358,9 @@ identical to our Bernoulli-trial based reconstruction of a probabilistic
 network. We performed a full analysis of the effect of various cutoffs, and as
 they either resulted in removing too few interactions, or removing enough
 interactions that species started to be disconnected from the network, we set
-the *"prediction?"* threshold for a probability equivalent to 0 to the largest
-possible value that still allowed all species to have at least one interaction
-with a non-zero probability.
+this threshold for a probability equivalent to 0 to the largest possible value
+that still allowed all species to have at least one interaction with a non-zero
+probability.
 
 # Results and discussion of the case study
 
@@ -453,7 +452,7 @@ this approach is that information at the country level are likely to be required
 by policy makers and stakeholders for their biodiversity assessment, as each
 country tends to set goals at the national level [@Buxton2021KeyInf] for which
 quantitative instruments are designed [@Turak2017UsiEss], with specific
-stategies often enacted at smaller scales [@Ray2021BioCri]. Yet these national
+strategies often enacted at smaller scales [@Ray2021BioCri]. Yet these national
 divisions, in large parts of the world, reflect nothing except for the legacy of
 settler colonialism, and operating under them must be done under the clear
 realization that they contributed to the ongoing biodiversity crisis
