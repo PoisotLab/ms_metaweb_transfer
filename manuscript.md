@@ -67,9 +67,10 @@ at macro-ecological scales seem to respond mostly to macro-evolutionary
 processes [@Price2003MacThe]; which is evidenced by the presence of conserved
 backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
 prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
-intervality [@Eklof2016PhyCom]. Taken together, these considerations suggest
-that phylogenies can reliably be used to transfer knowledge on species
-interactions.
+intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
+been used for understanding ancestral plant-insect interaction networks
+[@Braga2021PhyRec]. Taken together, these considerations suggest that
+phylogenies can reliably be used to transfer knowledge on species interactions.
 
 In our use-case we show that phylogenetic transfer learning is indeed an
 effective approach to predict the Canadian mammalian metaweb. This showcases
@@ -414,11 +415,11 @@ affects more than the risk of species extinction [@Marco2018ChaHum], and can
 lead to changes in interaction structure. Yet, interactions being inherently
 more plastic, there have been documented instances of food webs undergoing rapid
 collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
-Embedding a network also, in a sense, embeds its evolutionary history,
+Embedding a network also, in a sense, embeds its macro-evolutionary history,
 especially as RDPG captures ecological signal [@DallaRiva2016ExpEvo]; at this
 point, it is important to recall that a metaweb is intended as a catalogue of
 all possible interactions, which should then be filtered
-[@Morales-Castilla2015InfBio].
+[@Morales-Castilla2015InfBio]. Deep phylogenetically links.
 
 @Cirtwill2019QuaFra previously made the point that network inference techniques
 based on Bayesian approaches would perform far better in the presence of an
