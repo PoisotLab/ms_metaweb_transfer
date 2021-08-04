@@ -238,11 +238,12 @@ network will be within the unit range. In order to determine what constitutes an
 appropriate threshold for probability, we performed the RDPG approach on the
 European metaweb, and evaluated the probability threshold by treating this as a
 binary classification problem, specifically assuming that both 0 and 1 in the
-European metaweb are all true. Given the methodological given in REF, this seems
-like a reasonable assumption, although one that does not hold for all metawebs.
-We used the thresholding approach presented in HAYSTACK, and picked a cutoff
-that maximized Youden's J statistic [@Youden1950IndRat]; the resulting cutoff
-was 0.22, and gave an accuracy above 0.99.
+European metaweb are all true. Given the methodological details given in
+@Maiorano2020TetEu and @OConnor2020UnvFoo, this seems like a reasonable
+assumption, although one that does not hold for all metawebs. We used the
+thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
+maximized Youden's J statistic [@Youden1950IndRat]; the resulting cutoff was
+0.22, and gave an accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
