@@ -74,6 +74,16 @@
             "orcid": "0000-0002-9935-1366"
         },
         {
+          "affiliations": [
+            "Université de Sherbrooke",
+            "Québec Centre for Biodiversity Sciences"
+          ],
+          "familyname": "Mercier",
+          "givennames": "Benjamin",
+          "email": "benjamin.b.mercier@usherbrooke.ca",
+          "orcid": "0000-0002-4104-9463"
+        },
+        {
             "affiliations": [
                 "Department of Biology, McGill University"
             ],
