@@ -53,15 +53,15 @@ assuming a uniform distribution of traits), and threshold it to yield the final
 list of interactions.](figures/figure-concept.png){#fig:concept}
 
 There are a plurality of measures of species similarities that can be used for
-metaweb reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; nevertheless,
+metaweb reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; however,
 phylogenetic proximity has several desirable properties when working at large
 scales. @Gerhold2015PhyPat make the point that phylogenetic signal captures
 diversification of characters (large macro-evolutionary process), but not
 necessarily community assembly (fine ecological process); @Dormann2010EvoCli
 previously gave very similar conclusions. Interactions tend to conserve
-phylogenetic signal that encompasses a wide range of ecological and evolutionary
-mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and most
-importantly, retain this signal even when it is not detectable at the community
+phylogenetic signal that encompass a wide range of ecological and evolutionary
+mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
+importantly - retain this signal even when it is not detectable at the community
 scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
 at macro-ecological scales seem to respond mostly to macro-evolutionary
 processes [@Price2003MacThe]; which is evidenced by the presence of conserved
@@ -72,7 +72,7 @@ been used for understanding ancestral plant-insect interaction networks
 [@Braga2021PhyRec]. Taken together, these considerations suggest that
 phylogenies can reliably be used to transfer knowledge on species interactions.
 
-In our use-case we show that phylogenetic transfer learning is indeed an
+In our case study we show that phylogenetic transfer learning is indeed an
 effective approach to predict the Canadian mammalian metaweb. This showcases
 that although the components (species) that make up the Canadian and European
 communities may not be shared, if the medium selected in the transfer step is
@@ -375,10 +375,10 @@ probability.
 # Results and discussion of the case study
 
 In @fig:thresholds, we examine the effect of varying the cutoff on $P(i
-\rightarrow j)$ on the number of links, species, and connectance. Determinine a
+\rightarrow j)$ on the number of links, species, and connectance. Determinining a
 cutoff using the maximum curvature, or central difference approximation of the
 second order partial derivative, as suggested by *e.g.* @Cirtwill2021BuiFoo,
-results in respectively species being lost, or almost all links being kept -- we
+results in respectively species being lost, or almost all links being kept. We
 therefore settled on the value that allowed all species to remain with at least
 one interaction. This result, in and of itself, suggests that additional
 methodological developments for the thresholding of probabilistic networks are
@@ -426,7 +426,7 @@ occupation over several centuries can lead to food web collapse. Megafauna in
 particular seems to be very sensitive to human arrival [@Pires2015PleMeg]. In
 short, there is well-substantiated support for the idea that human footprint
 affects more than the risk of species extinction [@Marco2018ChaHum], and can
-lead to changes in interaction structure. Yet, owing to the inherit plasticity
+lead to changes in interaction structure. Yet, owing to the inherent plasticity
 of interactions, there have been documented instances of food webs undergoing
 rapid collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
 The embedding of a network, in a sense, embeds its macro-evolutionary history,
