@@ -23,42 +23,45 @@ of metaweb inference [@Morales-Castilla2015InfBio] that, despite situations
 where minimal knowledge about interactions within a species pool is known, are
 capable of producing a plausible metaweb could be the catalyst for significant
 breakthroughs in our ability to start thinking about species interactions
-networks over large and contiguous spatial scales.
+networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
-representations, relying on the similarities of species in a biologically
-relevant proxy space. Transfer learning is a machine learning methodology that
-uses the knowledge gained from solving one problem and applying it to a related
-problem [@Torrey2010TraLea]. In this instance, we solve the problem of
-predicting trophic interactions between species, based on knowledge extracted
-from another species pool for which interactions are known, using phylogenetic
-structure as a medium for transfer. This allows us to construct a
-*probabilistic* metaweb for a community for which we have *no* prior interaction
-data for the desired species pool. Our methodology is outlined in @fig:concept,
-where we provide an illustration based on learning an embedding of a metaweb of
-trophic interactions for European mammals [known interactions;
-@Maiorano2020TetEu; @Maiorano2020DatTet], and based on phylogenetic
-relationships between mammals globally [@Upham2019InfMam], infer this
-representation for the pool of mammals in Canada (interactions are treated as
-unknown in this instance).
+representations, relying on the similarities of species in a
+biologically/ecologically relevant proxy space. Transfer learning is a machine
+learning methodology that uses the knowledge gained from solving one problem and
+applying it to a related (destination) problem [@Torrey2010TraLea]. In this
+instance, we solve the problem of predicting trophic interactions between
+species, based on knowledge extracted from another species pool for which
+interactions are known, using phylogenetic structure as a medium for transfer.
+This allows us to construct a *probabilistic* metaweb for a community for which
+we have *no* prior interaction data for the desired species pool. Our
+methodology is outlined in @fig:concept, where we provide an illustration based
+on learning an embedding of a metaweb of trophic interactions for European
+mammals [known interactions; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
+on phylogenetic relationships between mammals globally [@Upham2019InfMam], infer
+this representation for the pool of mammals in Canada (interactions are treated
+as unknown in this instance).
 
-![Overview of the phylogenetic transfer learning of species interactions
-networks. Starting from an initial network, we learn its representation through
-a graph embedding step (here, a truncated Singular Value Decomposition),
-yielding a series of latent traits; second, for the destination species pool, we
-perform ancestral character estimation using a phylogeny (here, using a Brownian
-model for the latent traits); we then sample from the reconstructed distribution
-of latent traits to generate a probabilistic metaweb at the destination (here,
-assuming a uniform distribution of traits), and threshold it to yield the final
-list of interactions.](figures/figure-concept.png){#fig:concept}
+![Overview of the phylogenetic transfer learning (and prediction) of species
+interactions networks. Starting from an initial, known, network, we learn its
+representation through a graph embedding step (here, a truncated Singular Value
+Decomposition; Step 1), yielding a series of latent traits (vulnerability traits
+representing species at the  lower trophic-level and generality traits species
+at higher trophic-levels; *sensu* @Schoener1989FooWeb); second, for the
+destination species pool, we perform ancestral character estimation using a
+phylogeny (here, using a Brownian model for the latent traits; Step 2); we then
+sample from the reconstructed distribution of latent traits (Step 3) to generate
+a probabilistic metaweb at the destination (here, assuming a uniform
+distribution of traits), and threshold it to yield the final list of
+interactions (Step 4).](figures/figure-concept.png){#fig:concept}
 
-There are a plurality of measures of species similarities that can be used for
+There is a plurality of measures of species similarities that can be used for
 metaweb reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; however,
 phylogenetic proximity has several desirable properties when working at large
-scales. @Gerhold2015PhyPat make the point that phylogenetic signal captures
+scales. @Gerhold2015PhyPat made the point that phylogenetic signal captures
 diversification of characters (large macro-evolutionary process), but not
 necessarily community assembly (fine ecological process); @Dormann2010EvoCli
-previously gave very similar conclusions. Interactions tend to conserve
+previously found very similar conclusions. Interactions tend to conserve
 phylogenetic signal that encompass a wide range of ecological and evolutionary
 mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
 importantly - retain this signal even when it is not detectable at the community
@@ -97,14 +100,14 @@ the total of functional, phylogenetic, and macroecological processes
 [@Morales-Castilla2015InfBio], it is thus still worthy of ecological attention.
 We induced the subgraph corresponding to all mammals by matching species names
 in the original network first to the GBIF taxonomic backbone
-[@GBIFSecretariat2021GbiBac], and retaining all those who matched to mammals;
-all nodes had valid matches to GBIF at this step, and so this backbone is used
-for all name reconciliation steps as outlined below.
+[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals; all
+nodes had valid matches to GBIF at this step, and so this backbone is used for
+all name reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 support for transfer is here represented by the phylogenetic similarity of
 mammals. We used the mammalian consensus supertree by @Upham2019InfMam, for
-which all approx. 6000 names have been similarly matched to their GBIF valid
+which all approximatively 6000 names have been similarly matched to their GBIF valid
 names. This step allows us to place each node of the mammalian European metaweb
 in the phylogeny.
 
@@ -148,13 +151,13 @@ reference phylogeny (other distance-based measures of species proximity that
 allow for the inference of features in the latent space can be used, for example
 the dissimilarity in functional traits). Based on the reconstructed latent
 traits for species in the destination species pool, a Random Dot Product Graph
-[RDPG; @Young2007RanDot] model predicts the interaction between species through
-a function of the nodes' features through matrix multiplication. Thus, from
-latent traits and nodes position, we can infer interactions.
+model [hereafter RDPG; @Young2007RanDot] predicts the interaction between
+species through a function of the nodes' features through matrix multiplication.
+Thus, from latent traits and nodes position, we can infer interactions.
 
 ## Implementation and code availability
 
-The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre], and is
+The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre] and is
 available under the permissive MIT License at
 [`https://osf.io/2zwqm/`](https://osf.io/2zwqm/). The taxonomic cleanup steps
 are done using `GBIF.jl` [@Dansereau2021SimJl]. The network embedding and
@@ -187,12 +190,12 @@ variables produced this way can be used to predict *de novo* network edges
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
 of ecological networks, which has recently been shown to both capture their
-complex, emerging properties [@Strydom2021SvdEnt], and to allow highly accurate
+complex, emerging properties [@Strydom2021SvdEnt] and to allow highly accurate
 prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
-thereof) is decomposed into three components, so that $\mathbf{A} =
-\mathbf{L}\mathbf{\Sigma}\mathbf{R}.$ Where $\mathbf{\Sigma}$ is a $m \times n$
+thereof) is decomposed into three components resulting in $\mathbf{A} =
+\mathbf{L}\mathbf{\Sigma}\mathbf{R}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
 diagonal matrix and contains only singular ($\sigma$) values along its diagonal,
 $\mathbf{L}$ is a $m \times m$ unitary matrix, and $\mathbf{R}'$ a $n \times n$
 unitary matrix. Truncating the SVD removes additional noise in the dataset by
@@ -205,17 +208,17 @@ $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
 
 A RDPG estimates the probability of observing interactions between nodes as a
 function of the nodes of the latent variables. The latent variables used for the
-RDPG, called the left and right subspaces, are defined as $\mathcal{L} =
-\mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
-\sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
-$\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank results in
-$\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
-provides a first-order approximation of the network.
+RDPG, called the left and right subspaces, are defined as
+$\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and
+$\mathcal{R} = \sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of
+$\mathbf{A}$, $\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank
+results in $\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for
+the t-SVD provides a first-order approximation of the network.
 
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
 dimensions) and to focus on the signal, (expressed at low dimensions). In
-datasets with a clear signal/noise demarcation, the scree plot of
+datasets with a clear signal/noise demarcation, a scree plot of
 $\mathbf{\Sigma}$ can show a sharp drop at the rank where noise starts
 [@Zhu2006AutDim]. Because the European metaweb is almost entirely known, the
 amount of noise is low; this is reflected in @fig:scree (left), where the scree
@@ -228,8 +231,8 @@ underlying data, corresponding to 12 dimensions.
 European metaweb. The screeplot shows no obvious drop in the eigenvalues that
 may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
-each dimensions up to the rank of the European metaweb. The grey lines
-represents cutoff at 40, 60, and 80% of variance explained. For the rest of the
+each dimension up to the rank of the European metaweb. The grey lines
+represent cutoffs at 40, 60, and 80% of variance explained. For the rest of the
 analysis, we reverted to an arbitrary threshold of 60% of variance explained,
 which represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
@@ -245,14 +248,14 @@ European metaweb are all true. Given the methodological details given in
 @Maiorano2020TetEu and @OConnor2020UnvFoo, this seems like a reasonable
 assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
-maximized Youden's J statistic [@Youden1950IndRat]; the resulting cutoff was
+maximized Youden's $J$ statistic [@Youden1950IndRat]; the resulting cutoff was
 0.22, and gave an accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
 next section, we explain how we rely on phylogenetic similarity to do so.
 
-## Step 2 and 3: Transfer learning through phylogenetic relatedness
+## Steps 2 and 3: Transfer learning through phylogenetic relatedness
 
 In order to transfer the knowledge from the European metaweb to the Canadian
 species pool, we performed ancestral character estimation using a Brownian
@@ -263,7 +266,7 @@ the left and right subspaces) were independent, which is a reasonable assumption
 as every trait/dimension added to the t-SVD has an *additive* effect to the one
 before it. The Brownian motion algorithm returns the *average* value of the
 trait, and its upper and lower bounds. Because we do not estimate other
-parameters of the traits distributions, we considered that every species trait
+parameters of the traits' distributions, we considered that every species trait
 is represented as a uniform distribution between these bounds. Therefore, the
 inferred left and right sub-spaces for the Canadian species pool
 ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries that are
@@ -326,7 +329,7 @@ flat, relatively short food web, in which there are few predators but a large
 number of preys.](figures/figure-validation.png){#fig:inflation}
 
 First, we extracted the subgraph corresponding to the 17 species shared between
-the European and Canadian pools, and replaced these interactions with a
+the European and Canadian pools and replaced these interactions with a
 probability of 0 (non-interaction) or 1 (interaction). This represents a minute
 modification of the inferred network (about 0.8% of all species pairs from the
 Canadian web), but ensures that we are directly re-using knowledge from Europe.
@@ -360,7 +363,7 @@ of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 Because the confidence intervals on the inferred trait space are probably
 over-estimates, we decided to apply a thresholding step to the interactions
-after the data inflation [@fig:thresholds]. @Cirtwill2021BuiFoo highlight a
+after the data inflation [@fig:thresholds]. @Cirtwill2021BuiFoo proposed a
 number of strategies to threshold probabilistic networks. Their methods assume
 the underlying data to be tag-based sequencing, which represents interactions as
 co-occurrences of predator and prey within the same tags; this is conceptually
@@ -375,7 +378,7 @@ probability.
 # Results and discussion of the case study
 
 In @fig:thresholds, we examine the effect of varying the cutoff on $P(i
-\rightarrow j)$ on the number of links, species, and connectance. Determinining a
+\rightarrow j)$ on the number of links, species, and connectance. Determining a
 cutoff using the maximum curvature, or central difference approximation of the
 second order partial derivative, as suggested by *e.g.* @Cirtwill2021BuiFoo,
 results in respectively species being lost, or almost all links being kept. We
@@ -418,10 +421,10 @@ structuring the mammalian food web.
 
 One important aspect in which Europe and Canada differ (despite their comparable
 bioclimatic conditions) is the legacy of human impacts, which have been much
-longer in Europe. @Nenzen2014Imp850 show that even at small scales (the Iberian
+longer in Europe. @Nenzen2014Imp850 showed that even at small scales (the Iberian
 peninsula), mammal food webs retain the signal of both climate change and human
 activity, even when this human activity was orders of magnitude less important
-than it is now. Similarly, @Yeakel2014ColEco show that changes in human
+than it is now. Similarly, @Yeakel2014ColEco showed that changes in human
 occupation over several centuries can lead to food web collapse. Megafauna in
 particular seems to be very sensitive to human arrival [@Pires2015PleMeg]. In
 short, there is well-substantiated support for the idea that human footprint
@@ -459,14 +462,14 @@ planet-wide problems"; in this regard, our approach must contend with two
 interesting problems. The first is the limit of the metaweb to embed and
 transfer. If the initial metaweb is too narrow in scope, notably from a
 taxonomic point of view, the chances of finding another area with enough related
-species to make a reliable inference decreases. This is notably true if the
+species to make a reliable inference decrease. This is notably true if the
 metaweb is assembled in an area with mostly endemic species. Conversely, the
 metaweb should be reliably filled, which assumes that the $S^2$ interactions in
 a pool of $S$ species have been examined, either through literature surveys or
 expert elicitation. The second problem is to determine which area should be used
 to infer the new metaweb in, as this determines the species pool that must be
 used. In our application, we focused on the mammals of Canada. The upside of
-this approach is that information at the country level are likely to be required
+this approach is that information at the country level is likely to be required
 by policy makers and stakeholders for their biodiversity assessment, as each
 country tends to set goals at the national level [@Buxton2021KeyInf] for which
 quantitative instruments are designed [@Turak2017UsiEss], with specific
@@ -474,7 +477,7 @@ strategies often enacted at smaller scales [@Ray2021BioCri]. Yet these national
 divisions, in large parts of the world, reflect nothing except for the legacy of
 settler colonialism, and operating under them must be done under the clear
 realization that they contributed to the ongoing biodiversity crisis
-[@Adam2014EleTre], can re-inforce environmental injustice [@Choudry2013SavBio;
+[@Adam2014EleTre], can reinforce environmental injustice [@Choudry2013SavBio;
 @Dominguez2020DecCon], and on Turtle Island especially, will probably end up
 being replaced by Indigenous principles of land management [@Eichhorn2019SteDec;
 @Nokmaq2021AwaSle].
