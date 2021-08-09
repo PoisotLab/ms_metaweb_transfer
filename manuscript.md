@@ -20,7 +20,7 @@ the framework to address incompleteness *within* a network exists there would
 still be regions that, due to a *lack* of local interaction data, we are unable
 to infer potential species interactions. Having a general solution for the issue
 of metaweb inference [@Morales-Castilla2015InfBio] that, despite situations
-where minimal knowledge about interactions within a species pool is known, are
+where minimal knowledge about interactions within a species pool is known, is
 capable of producing a plausible metaweb could be the catalyst for significant
 breakthroughs in our ability to start thinking about species interactions
 networks over large spatial scales.
@@ -62,7 +62,7 @@ scales. @Gerhold2015PhyPat made the point that phylogenetic signal captures
 diversification of characters (large macro-evolutionary process), but not
 necessarily community assembly (fine ecological process); @Dormann2010EvoCli
 previously found very similar conclusions. Interactions tend to conserve
-phylogenetic signal that encompass a wide range of ecological and evolutionary
+a phylogenetic signal that encompasses a wide range of ecological and evolutionary
 mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
 importantly - retain this signal even when it is not detectable at the community
 scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
@@ -71,17 +71,17 @@ processes [@Price2003MacThe]; which is evidenced by the presence of conserved
 backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
 prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
 intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
-been used for understanding ancestral plant-insect interaction networks
+been used to understand ancestral plant-insect interaction networks
 [@Braga2021PhyRec]. Taken together, these considerations suggest that
 phylogenies can reliably be used to transfer knowledge on species interactions.
 
-In our case study we show that phylogenetic transfer learning is indeed an
+Our case study shows that phylogenetic transfer learning is indeed an
 effective approach to predict the Canadian mammalian metaweb. This showcases
 that although the components (species) that make up the Canadian and European
 communities may not be shared, if the medium selected in the transfer step is
-biologically plausible we are still able effectively learn from the known
-network and are able to make biologically relevant predictions of interactions.
-It should be re-iterated that the framework presented in @fig:concept is
+biologically plausible, we can still effectively learn from the known
+network and make biologically relevant predictions of interactions.
+It should be reiterated that the framework presented in @fig:concept is
 amenable to changes; notably, the measure of similarity may not be phylogeny,
 and can be replaced by information on foraging [@Beckerman2006ForBio],
 cell-level mechanisms [@Boeckaerts2021PreBac], or a combination of traits and
@@ -104,9 +104,7 @@ in the original network first to the GBIF taxonomic backbone
 nodes had valid matches to GBIF at this step, and so this backbone is used for
 all name reconciliation steps as outlined below.
 
-The European metaweb represents the knowledge we want to learn and transfer; the
-support for transfer is here represented by the phylogenetic similarity of
-mammals. We used the mammalian consensus supertree by @Upham2019InfMam, for
+The European metaweb represents the knowledge we want to learn and transfer; the phylogenetic similarity of mammals here represents the support for transfer. We used the mammalian consensus supertree by @Upham2019InfMam, for
 which all approximatively 6000 names have been similarly matched to their GBIF valid
 names. This step allows us to place each node of the mammalian European metaweb
 in the phylogeny.
@@ -119,7 +117,7 @@ in the European metaweb). The IUCN names were, as previously, reconciled against
 GBIF to have an exact match to the taxonomy.
 
 After taxonomic cleaning and reconciliation as outlined in the following
-sections, the European metaweb had 260 species, and the Canadian species pool
+sections, the mammalian European metaweb had 260 species, and the Canadian species pool
 has 163; of these, 17 (about 4% of the total) are shared, and 89 species from
 Canada (54%) had at least one congeneric species in Europe. The similarity for
 both species pool predictably increases with higher taxonomic order, with 19% of
@@ -174,7 +172,7 @@ therefore does not require extensive computational power.
 
 ## Step 1: Learning the origin network representation
 
-The first step in transfer learning is to learn the structure of the origin
+The first step in transfer learning is to learn the structure of the original
 dataset. In order to do so, we rely on an approach inspired from
 representational learning, where we learn a *representation* of the metaweb,
 rather than a list of interactions. This approach is conceptually different from
