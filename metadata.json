@@ -5,8 +5,8 @@
     "creators": [
         {
             "affiliations": [
-                "Département de Sciences Biologiques, Université de Montréal",
-                "Québec Centre for Biodiversity Sciences"
+                "Département de Sciences Biologiques, Université de Montréal, Montréal, Canada",
+                "Québec Centre for Biodiversity Sciences, Canada"
             ],
             "familyname": "Strydom",
             "givennames": "Tanya",
@@ -16,8 +16,8 @@
         },
         {
             "affiliations": [
-                "Département de Sciences Biologiques, Université de Montréal",
-                "Québec Centre for Biodiversity Sciences"
+                "Département de Sciences Biologiques, Université de Montréal, Montréal, Canada",
+                "Québec Centre for Biodiversity Sciences, Canada"
             ],
             "familyname": "Bouskila",
             "givennames": "Salomé",
@@ -27,9 +27,9 @@
         },
         {
             "affiliations": [
-                "Département de Sciences Biologiques, Université de Montréal",
-                "Université de Sherbrooke",
-                "Québec Centre for Biodiversity Sciences"
+                "Département de Sciences Biologiques, Université de Montréal, Montréal, Canada",
+                "Université de Sherbrooke, Sherbrooke, Canada",
+                "Québec Centre for Biodiversity Sciences, Canada"
             ],
             "familyname": "Banville",
             "givennames": "Francis",
@@ -38,7 +38,7 @@
         },
         {
             "affiliations": [
-                "Department of Forest Resources Management, University of British Columbia"
+                "Department of Forest Resources Management, University of British Columbia, Vancouver, Canada"
             ],
             "familyname": "Barros",
             "givennames": "Cerres",
@@ -47,8 +47,8 @@
         },
         {
             "affiliations": [
-                "McGill University",
-                "Québec Centre for Biodiversity Sciences"
+                "McGill University, Montréal, Canada",
+                "Québec Centre for Biodiversity Sciences, Canada"
             ],
             "familyname": "Caron",
             "givennames": "Dominique",
@@ -57,7 +57,7 @@
         },
         {
             "affiliations": [
-                "Department of Ecology & Evolutionary Biology, University of Toronto"
+                "Department of Ecology & Evolutionary Biology, University of Toronto, Toronto, Canada"
             ],
             "familyname": "Farrell",
             "givennames": "Maxwell J",
@@ -66,7 +66,7 @@
         },
         {
             "affiliations": [
-                "Department of Ecology & Evolutionary Biology, University of Toronto"
+                "Department of Ecology & Evolutionary Biology, University of Toronto, Toronto, Canada"
             ],
             "familyname": "Fortin",
             "givennames": "Marie-Josée",
@@ -75,8 +75,8 @@
         },
         {
           "affiliations": [
-            "Université de Sherbrooke",
-            "Québec Centre for Biodiversity Sciences"
+            "Université de Sherbrooke, Sherbrooke, Canada",
+            "Québec Centre for Biodiversity Sciences, Canada"
           ],
           "familyname": "Mercier",
           "givennames": "Benjamin",
@@ -85,7 +85,7 @@
         },
         {
             "affiliations": [
-                "Department of Biology, McGill University"
+                "Department of Biology, McGill University, Montréal, Canada"
             ],
             "familyname": "Pollock",
             "givennames": "Laura J.",
@@ -94,7 +94,7 @@
         },
         {
           "affiliations": [
-                "Centre for Integrative Ecology, School of Biological Sciences, University of Canterbury"
+                "Centre for Integrative Ecology, School of Biological Sciences, University of Canterbury, Canterbury"
           ],
           "familyname": "Runghen",
           "givennames": "Rogini",
@@ -103,7 +103,7 @@
         },
         {
           "affiliations": [
-                "School of Mathematics and Statistics, University of Canterbury"
+                "School of Mathematics and Statistics, University of Canterbury, Canterbury"
           ],
           "familyname": "Dalla Riva",
           "givennames": "Giulio V.",
@@ -112,8 +112,8 @@
         },
         {
             "affiliations": [
-                "Département de Sciences Biologiques, Université de Montréal",
-                "Québec Centre for Biodiversity Sciences"
+                "Département de Sciences Biologiques, Université de Montréal, Montréal, Canada",
+                "Québec Centre for Biodiversity Sciences, Canada"
             ],
             "familyname": "Poisot",
             "givennames": "Timothée",
