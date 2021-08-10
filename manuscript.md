@@ -134,11 +134,11 @@ the generation of a probabilistic metaweb for the destination species pool.
 The crux of the method is the transfer of knowledge of a known network, in order
 to predict interactions between species from another location. In @fig:concept,
 we give a high-level overview of the approach; in the example around which this
-manuscript is built (leveraging detailed knowledge about trophic interactions
-between Mammalia in Europe to predict the less known trophic interactions
-between closely phylogenetically related Mammalia in Canada), we use a series of
-specific steps for network embedding, trait inference, network prediction and
-thresholding.
+manuscript is built (leveraging detailed knowledge about binary trophic
+interactions between Mammalia in Europe to predict the less known trophic
+interactions between closely phylogenetically related Mammalia in Canada), we
+use a series of specific steps for network embedding, trait inference, network
+prediction and thresholding.
 
 Specifically, our approach can be summarized as follows: from the known network
 in Europe, we use a truncated Singular Value Decomposition [t-SVD;
@@ -230,7 +230,7 @@ European metaweb. The screeplot shows no obvious drop in the eigenvalues that
 may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
 each dimension up to the rank of the European metaweb. The grey lines
-represent cutoffs at 40, 60, and 80% of variance explained. For the rest of the
+represent cutoffs at 50, 60, …90% of variance explained. For the rest of the
 analysis, we reverted to an arbitrary threshold of 60% of variance explained,
 which represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
