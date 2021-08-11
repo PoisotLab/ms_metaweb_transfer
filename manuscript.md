@@ -225,14 +225,14 @@ variance explained increases smoothly at higher dimensions. For this reason, we
 default back to an arbitrary threshold that explains 60% of the variance in the
 underlying data, corresponding to 12 dimensions.
 
-![Left: representation of the screeplot of the eigenvalues from the t-SVD on the
-European metaweb. The screeplot shows no obvious drop in the singularvalues that
-may be leveraged to automatically detect a minimal dimension for embedding,
+![Left: representation of the screeplot of the singular values from the t-SVD on
+the European metaweb. The screeplot shows no obvious drop in the singular values
+that may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
-each dimension up to the rank of the European metaweb. The grey lines
-represent cutoffs at 50, 60… 90% of variance explained. For the rest of the
-analysis, we reverted to an arbitrary threshold of 60% of variance explained,
-which represented a good tradeoff between accuracy and reduced number of
+each dimension up to the rank of the European metaweb. The grey lines represent
+cutoffs at 50, 60… 90% of variance explained. For the rest of the analysis, we
+reverted to an arbitrary threshold of 60% of variance explained, which
+represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
 
 Because RDPG relies on matrix multiplication, the higher dimensions essentially
