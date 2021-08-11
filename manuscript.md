@@ -499,8 +499,9 @@ is funded by the Institut de Valorisation des Données. TS, SB, and TP are funde
 by a donation from the Courtois Foundation. M-JF acknowledges funding from NSERC
 Discovery Grant and NSERC CRC RR is funded by New Zealand’s Biological Heritage
 Ngā Koiora Tuku Iho National Science Challenge, administered by New Zealand
-Ministry of Business, Innovation, and Employment. TP acknowledges financial
-support from NSERC through the Discovery Grants and Discovery Accelerator
-Supplement programs.
+Ministry of Business, Innovation, and Employment. BM is funded by the NSERC
+Alexander Graham Bell Canada Graduate Scholarship and the FRQNT master’s
+scholarshipTP acknowledges financial support from NSERC through the Discovery
+Grants and Discovery Accelerator Supplement programs.
 
 # References
