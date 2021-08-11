@@ -105,8 +105,10 @@ in the original network first to the GBIF taxonomic backbone
 nodes had valid matches to GBIF at this step, and so this backbone is used for
 all name reconciliation steps as outlined below.
 
-The European metaweb represents the knowledge we want to learn and transfer; the phylogenetic similarity of mammals here represents the support for transfer. We used the mammalian consensus supertree by @Upham2019InfMam, for
-which all approximatively 6000 names have been similarly matched to their GBIF valid
+The European metaweb represents the knowledge we want to learn and transfer; the
+phylogenetic similarity of mammals here represents the support for transfer. We
+used the mammalian consensus supertree by @Upham2019InfMam, for which all
+approximatively 6000 names have been similarly matched to their GBIF valid
 names. This step allows us to place each node of the mammalian European metaweb
 in the phylogeny.
 
@@ -205,15 +207,6 @@ rank of $\mathbf{A}$) containing only non-zero $\sigma$ values. Additionally,
 $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
 \times r$ semi-unitary matrix.
 
-A RDPG estimates the probability of observing interactions between nodes as a
-function of the nodes of the latent variables. The latent variables used for the
-RDPG, called the left and right subspaces, are defined as
-$\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and
-$\mathcal{R} = \sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of
-$\mathbf{A}$, $\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank
-results in $\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for
-the t-SVD provides a first-order approximation of the network.
-
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
 dimensions) and to focus on the signal, (expressed at low dimensions). In
@@ -225,6 +218,15 @@ plot shows no important drop, and in @fig:scree (right) where the proportion of
 variance explained increases smoothly at higher dimensions. For this reason, we
 default back to an arbitrary threshold that explains 60% of the variance in the
 underlying data, corresponding to 12 dimensions.
+
+A RDPG estimates the probability of observing interactions between nodes
+(species) as a function of the nodes' latent variables. The latent variables
+used for the RDPG, called the left and right subspaces, are defined as
+$\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
+\sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
+$\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank results in
+$\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
+provides a first-order approximation of the network.
 
 ![Left: representation of the screeplot of the singular values from the t-SVD on
 the European metaweb. The screeplot shows no obvious drop in the singular values
@@ -247,8 +249,9 @@ European metaweb are all true. Given the methodological details given in
 @Maiorano2020TetEu and @OConnor2020UnvFoo, this seems like a reasonable
 assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
-maximized Youden's $J$ statistic [@Youden1950IndRat]; the resulting cutoff was
-0.22, and gave an accuracy above 0.99.
+maximized Youden's $J$ statistic [@Youden1950IndRat; a measure of the
+informedness (trust) of predictions]; the resulting cutoff was 0.22, and gave an
+accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
