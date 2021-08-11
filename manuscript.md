@@ -230,7 +230,7 @@ European metaweb. The screeplot shows no obvious drop in the eigenvalues that
 may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
 each dimension up to the rank of the European metaweb. The grey lines
-represent cutoffs at 50, 60, …90% of variance explained. For the rest of the
+represent cutoffs at 50, 60… 90% of variance explained. For the rest of the
 analysis, we reverted to an arbitrary threshold of 60% of variance explained,
 which represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
@@ -300,7 +300,11 @@ the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
-\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces].
+\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces]. As we can see
+in @fig:scree the European and Canadain metawebs are structurallu similar (as
+would be expected given the biogeographic similarities) and that the two (left
+and right) subspaces are distinct *i.e.* capturing predation (generality) and
+prey (vulnerability) traits.
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
