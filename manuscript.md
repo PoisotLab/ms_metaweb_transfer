@@ -302,7 +302,7 @@ where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
 \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces]. As we can see
-in @fig:scree the European and Canadain metawebs are structurallu similar (as
+in @fig:scree the European and Canadain metawebs are structurally similar (as
 would be expected given the biogeographic similarities) and that the two (left
 and right) subspaces are distinct *i.e.* capturing predation (generality) and
 prey (vulnerability) traits.
