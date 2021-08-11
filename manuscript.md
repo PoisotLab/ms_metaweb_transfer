@@ -261,13 +261,13 @@ species pool, we performed ancestral character estimation using a Brownian
 motion model, which is a conservative approach in the absence of strong
 hypotheses about the nature of phylogenetic signal in the network decomposition
 [@Litsios2012EffPhy]. This uses the estimated feature vectors for the European
-mammals to create a state reconstruction for all species (conceptually, a
-trait-based mammalian phylogeny using generality and vulnerability traits) and
-allows us to impute the missing (latent) trait data for the Canadian species
-that are not already in the European network. We assumed that all traits (*i.e.*
-the feature vectors for the left and right subspaces) were independent, which is
-a reasonable assumption as every trait/dimension added to the t-SVD has an
-*additive* effect to the one before it. The Brownian motion algorithm returns
+mammals to create a state reconstruction for all species (conceptually something
+akin to a trait-based mammalian phylogeny using generality and vulnerability
+traits) and allows us to impute the missing (latent) trait data for the Canadian
+species that are not already in the European network. We assumed that all traits
+(*i.e.* the feature vectors for the left and right subspaces) were independent,
+which is a reasonable assumption as every trait/dimension added to the t-SVD has
+an *additive* effect to the one before it. The Brownian motion algorithm returns
 the *average* value of the trait, and its upper and lower bounds. Because we do
 not estimate other parameters of the traits' distributions, we considered that
 every species trait is represented as a uniform distribution between these
@@ -409,7 +409,6 @@ for the reconstructed network, and the prediction based only on the first
 dimension. Right: distribution of the differences in the left
 panel.](figures/figure-degree.png){#fig:degree}
 
-**TK needs a second set of eyes**
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
