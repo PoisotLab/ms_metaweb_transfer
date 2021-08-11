@@ -175,16 +175,16 @@ therefore does not require extensive computational power.
 
 The first step in transfer learning is to learn the structure of the original
 dataset. In order to do so, we rely on an approach inspired from
-representational learning, where we learn a *representation* of the metaweb,
-rather than a list of interactions. This approach is conceptually different from
-other metaweb-scale predictions [*.e.g.* @Albouy2019MarFis], in that the metaweb
-representation is easily transferable. Specifically, we use RDPG to create a
-number of latent variables that can be combined into an approximation of the
-network adjacency matrix. RDPG results are known to have strong phylogenetic
-signal, and to capture the evolutionary backbone of food webs
-[@DallaRiva2016ExpEvo]. In addition, recent advances show that the latent
-variables produced this way can be used to predict *de novo* network edges
-[@Runghen2021ExpNod].
+representational learning, where we learn a *representation* of the metaweb (in
+the form of the latent subspaces), rather than a list of interactions (species
+*a* eats *b*). This approach is conceptually different from other metaweb-scale
+predictions [*.e.g.* @Albouy2019MarFis], in that the metaweb representation is
+easily transferable. Specifically, we use RDPG to create a number of latent
+variables that can be combined into an approximation of the network adjacency
+matrix. RDPG results are known to have strong phylogenetic signal, and to
+capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]. In
+addition, recent advances show that the latent variables produced this way can
+be used to predict *de novo* network edges [@Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -353,8 +353,9 @@ not predicted by the model, for a success rate of 91%) to 1.
 Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
 dataset documented 25 interactions between mammals, only two of which were not
-part of our predictions, resulting in a success rate of 92%. These two
-interactions were added to our predicted metaweb with a probability of 1.
+part of our (Canada-level) predictions, resulting in a success rate of 92%.
+These two interactions were added to our predicted metaweb with a probability of
+1.
 
 ![Left: effect of varying the cutoff for probabilities to be considered non-zero
 on the number of unique links and on $\hat{L}$, the probabilistic estimate of
@@ -404,21 +405,22 @@ for the reconstructed network, and the prediction based only on the first
 dimension. Right: distribution of the differences in the left
 panel.](figures/figure-degree.png){#fig:degree}
 
+**TK needs a second set of eyes**
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
 and predators. Importantly, this implies that a rank 1 approximation represents
-the configuration model [@Park2004StaMec] for the metaweb, or (accounting for
-the probabilistic nature of the degree) the soft configuration model
-[@vanderHoorn2018SpaMax], both of which are maximum entropy graph models
-[@Garlaschelli2018CovStr], with respectively sharp and soft local constraints.
-The configuration model is widely used by ecologists in the context of null
-hypothesis significance testing of network structure [*e.g.*
-@Bascompte2003NesAss], and it is noteworthy that for this metaweb, the relevant
-information was extracted at the first rank. Because the first rank corresponds
-to the leading eigenvalue of the system, the results of @fig:degree have a
-straightforward interpretation: degree-based processes are the most important in
-structuring the mammalian food web.
+the configuration model [@Park2004StaMec; random networks are generated from a
+given degree sequence] for the metaweb, or (accounting for the probabilistic
+nature of the degree) the soft configuration model [@vanderHoorn2018SpaMax],
+both of which are maximum entropy graph models [@Garlaschelli2018CovStr], with
+sharp and soft local constraints respectively. The configuration model is widely
+used by ecologists in the context of null hypothesis significance testing of
+network structure [*e.g.* @Bascompte2003NesAss], and it is noteworthy that for
+this metaweb, the relevant information was extracted at the first rank. Because
+the first rank corresponds to the leading eigenvalue of the system, the results
+of @fig:degree have a straightforward interpretation: degree-based processes are
+the most important in structuring the mammalian food web.
 
 # Discussion
 
