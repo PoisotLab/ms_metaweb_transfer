@@ -27,20 +27,21 @@ networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a
-biologically/ecologically relevant proxy space. Transfer learning is a machine
-learning methodology that uses the knowledge gained from solving one problem and
-applying it to a related (destination) problem [@Torrey2010TraLea]. In this
-instance, we solve the problem of predicting trophic interactions between
-species, based on knowledge extracted from another species pool for which
-interactions are known, using phylogenetic structure as a medium for transfer.
-This allows us to construct a *probabilistic* metaweb for a community for which
-we have *no* prior interaction data for the desired species pool. Our
-methodology is outlined in @fig:concept, where we provide an illustration based
-on learning an embedding of a metaweb of trophic interactions for European
-mammals [known interactions; @Maiorano2020TetEu; @Maiorano2020DatTet], and based
-on phylogenetic relationships between mammals globally [@Upham2019InfMam], infer
-this representation for the pool of mammals in Canada (interactions are treated
-as unknown in this instance).
+biologically/ecologically relevant proxy space (*e.g.* shared morphology or
+ancestry). Transfer learning is a machine learning methodology that uses the
+knowledge gained from solving one problem and applying it to a related
+(destination) problem [@Torrey2010TraLea]. In this instance, we solve the
+problem of predicting trophic interactions between species, based on knowledge
+extracted from another species pool for which interactions are known, using
+phylogenetic structure as a medium for transfer. This allows us to construct a
+*probabilistic* metaweb for a community for which we have *no* prior interaction
+data for the desired species pool. Our methodology is outlined in @fig:concept,
+where we provide an illustration based on learning an embedding of a metaweb of
+trophic interactions for European mammals [known interactions;
+@Maiorano2020TetEu; @Maiorano2020DatTet], and based on phylogenetic
+relationships between mammals globally [@Upham2019InfMam], infer this
+representation for the pool of mammals in Canada (interactions are treated as
+unknown in this instance).
 
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
@@ -75,17 +76,17 @@ been used to understand ancestral plant-insect interaction networks
 [@Braga2021PhyRec]. Taken together, these considerations suggest that
 phylogenies can reliably be used to transfer knowledge on species interactions.
 
-Our case study shows that phylogenetic transfer learning is indeed an
-effective approach to predict the Canadian mammalian metaweb. This showcases
-that although the components (species) that make up the Canadian and European
-communities may not be shared, if the medium selected in the transfer step is
-biologically plausible, we can still effectively learn from the known
-network and make biologically relevant predictions of interactions.
-It should be reiterated that the framework presented in @fig:concept is
-amenable to changes; notably, the measure of similarity may not be phylogeny,
-and can be replaced by information on foraging [@Beckerman2006ForBio],
-cell-level mechanisms [@Boeckaerts2021PreBac], or a combination of traits and
-phylogenetic structure [@Stock2021PaiLea].
+Our case study shows that phylogenetic transfer learning is indeed an effective
+approach to predict the Canadian mammalian metaweb. This showcases that although
+the components (species) that make up the Canadian and European communities may
+not be *perfectly* shared, if the medium (proxy space) selected in the transfer
+step is biologically plausible, we can still effectively learn from the known
+network and make biologically relevant predictions of interactions. It should be
+reiterated that the framework presented in @fig:concept is amenable to changes;
+notably, the measure of similarity may not be phylogeny, and can be replaced by
+information on foraging [@Beckerman2006ForBio], cell-level mechanisms
+[@Boeckaerts2021PreBac], or a combination of traits and phylogenetic structure
+[@Stock2021PaiLea].
 
 # Data used for the case study
 
