@@ -260,15 +260,19 @@ In order to transfer the knowledge from the European metaweb to the Canadian
 species pool, we performed ancestral character estimation using a Brownian
 motion model, which is a conservative approach in the absence of strong
 hypotheses about the nature of phylogenetic signal in the network decomposition
-[@Litsios2012EffPhy]. We assumed that all traits (*i.e.* the feature vectors for
-the left and right subspaces) were independent, which is a reasonable assumption
-as every trait/dimension added to the t-SVD has an *additive* effect to the one
-before it. The Brownian motion algorithm returns the *average* value of the
-trait, and its upper and lower bounds. Because we do not estimate other
-parameters of the traits' distributions, we considered that every species trait
-is represented as a uniform distribution between these bounds. Therefore, the
-inferred left and right sub-spaces for the Canadian species pool
-($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries that are
+[@Litsios2012EffPhy]. This uses the estimated feature vectors for the European
+mammals to create a state reconstruction for all species (conceptually, a
+trait-based mammalian phylogeny using generality and vulnerability traits) and
+allows us to impute the missing (latent) trait data for the Canadian species
+that are not already in the European network. We assumed that all traits (*i.e.*
+the feature vectors for the left and right subspaces) were independent, which is
+a reasonable assumption as every trait/dimension added to the t-SVD has an
+*additive* effect to the one before it. The Brownian motion algorithm returns
+the *average* value of the trait, and its upper and lower bounds. Because we do
+not estimate other parameters of the traits' distributions, we considered that
+every species trait is represented as a uniform distribution between these
+bounds. Therefore, the inferred left and right sub-spaces for the Canadian
+species pool ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries that are
 distributions, representing the range of values for a given species at a given
 dimension.
 
