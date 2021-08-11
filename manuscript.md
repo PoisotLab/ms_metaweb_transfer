@@ -261,9 +261,10 @@ species pool, we performed ancestral character estimation using a Brownian
 motion model, which is a conservative approach in the absence of strong
 hypotheses about the nature of phylogenetic signal in the network decomposition
 [@Litsios2012EffPhy]. This uses the estimated feature vectors for the European
-mammals to create a state reconstruction for all species (conceptually something
+mammals to create a state reconstruction for all species
+<!---(conceptually something
 akin to a trait-based mammalian phylogeny using generality and vulnerability
-traits) and allows us to impute the missing (latent) trait data for the Canadian
+traits)---> and allows us to impute the missing (latent) trait data for the Canadian
 species that are not already in the European network. We assumed that all traits
 (*i.e.* the feature vectors for the left and right subspaces) were independent,
 which is a reasonable assumption as every trait/dimension added to the t-SVD has
