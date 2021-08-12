@@ -264,21 +264,27 @@ species pool, we performed ancestral character estimation using a Brownian
 motion model, which is a conservative approach in the absence of strong
 hypotheses about the nature of phylogenetic signal in the network decomposition
 [@Litsios2012EffPhy]. This uses the estimated feature vectors for the European
-mammals to create a state reconstruction for all species
-<!---(conceptually something
+mammals to create a state reconstruction for all species (conceptually something
 akin to a trait-based mammalian phylogeny using generality and vulnerability
-traits)---> and allows us to impute the missing (latent) trait data for the Canadian
-species that are not already in the European network. We assumed that all traits
-(*i.e.* the feature vectors for the left and right subspaces) were independent,
-which is a reasonable assumption as every trait/dimension added to the t-SVD has
-an *additive* effect to the one before it. The Brownian motion algorithm returns
-the *average* value of the trait, and its upper and lower bounds. Because we do
-not estimate other parameters of the traits' distributions, we considered that
-every species trait is represented as a uniform distribution between these
-bounds. Therefore, the inferred left and right sub-spaces for the Canadian
-species pool ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries that are
-distributions, representing the range of values for a given species at a given
-dimension.
+traits) and allows us to impute the missing (latent) trait data for the Canadian
+species that are not already in the European network; as we are focused on
+predicting contemporary interactions, we only retained the values for the tips
+of the three. We assumed that all traits (*i.e.* the feature vectors for the
+left and right subspaces) were independent, which is a reasonable assumption as
+every trait/dimension added to the t-SVD has an *additive* effect to the one
+before it. Note that the @Upham2019InfMam tree itself has some uncertainty
+associated to inner nodes of the phylogeny. In this case study, we have decided
+to not propagate this uncertainty, as it would complexify the process. The
+Brownian motion algorithm returns the *average* value of the trait, and its
+upper and lower bounds. Because we do not estimate other parameters of the
+traits' distributions, we considered that every species trait is represented as
+a uniform distribution between these bounds; in a situation where the algorithm
+would return point values for all simulations, one could in theory either
+estimate the parameters of a distribution for each tip, or draw randomly from
+the outputs. In all cases, the inferred left and right sub-spaces for the
+Canadian species pool ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries
+that are distributions, representing the range of values for a given species at
+a given dimension.
 
 These objects represent the transferred knowledge, which we can use for
 prediction of the Canadian metaweb.
@@ -385,7 +391,8 @@ they either resulted in removing too few interactions, or removing enough
 interactions that species started to be disconnected from the network, we set
 this threshold for a probability equivalent to 0 to the largest possible value
 that still allowed all species to have at least one interaction with a non-zero
-probability.
+probability. The need for this slight deviation from the @Cirtwill2021BuiFoo
+method highlights the need for additional development on network thresholding.
 
 # Results and discussion of the case study
 
