@@ -417,15 +417,22 @@ The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
 and predators. Importantly, this implies that a rank 1 approximation represents
-the configuration model for the metaweb, *i.e.* a set of random networks generated from a given degree sequence [@Park2004StaMec]. Accounting for the probabilistic
-nature of the degrees, the rank 1 approximation also represents the *soft* configuration model [@vanderHoorn2018SpaMax]. Both models are maximum entropy graph models [@Garlaschelli2018CovStr], with
-sharp (all network realizations satisfy the specified degree sequence) and soft (network realizations satisfy the degree sequence on average) local constraints, respectively. The (soft) configuration model is an unbiased random graph model widely
-used by ecologists in the context of null hypothesis significance testing of
-network structure [*e.g.* @Bascompte2003NesAss] and can provide informative priors for Bayesian inference of network structure [*e.g.* @Young2021BayInf]. It is noteworthy that for
-this metaweb, the relevant information was extracted at the first rank. Because
-the first rank corresponds to the leading singular value of the system, the results
-of @fig:degree have a straightforward interpretation: degree-based processes are
-the most important in structuring the mammalian food web.
+the configuration model for the metaweb, *i.e.* a set of random networks
+generated from a given degree sequence [@Park2004StaMec]. Accounting for the
+probabilistic nature of the degrees, the rank 1 approximation also represents
+the *soft* configuration model [@vanderHoorn2018SpaMax]. Both models are maximum
+entropy graph models [@Garlaschelli2018CovStr], with sharp (all network
+realizations satisfy the specified degree sequence) and soft (network
+realizations satisfy the degree sequence on average) local constraints,
+respectively. The (soft) configuration model is an unbiased random graph model
+widely used by ecologists in the context of null hypothesis significance testing
+of network structure [*e.g.* @Bascompte2003NesAss] and can provide informative
+priors for Bayesian inference of network structure [*e.g.* @Young2021BayInf]. It
+is noteworthy that for this metaweb, the relevant information was extracted at
+the first rank. Because the first rank corresponds to the leading singular value
+of the system, the results of @fig:degree have a straightforward interpretation:
+degree-based processes are the most important in structuring the mammalian food
+web.
 
 # Discussion
 
