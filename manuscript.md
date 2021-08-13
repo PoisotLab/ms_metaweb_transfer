@@ -39,22 +39,22 @@ data for the desired species pool. Our methodology is outlined in @fig:concept,
 where we provide an illustration based on learning an embedding of a metaweb of
 trophic interactions for European mammals [known interactions;
 @Maiorano2020TetEu; @Maiorano2020DatTet], and based on phylogenetic
-relationships between mammals globally [@Upham2019InfMam], infer this
-representation for the pool of mammals in Canada (interactions are treated as
-unknown in this instance).
+relationships between mammals globally [@Upham2019InfMam], infer a metaweb for
+the Canadian mammalian species pool (interactions are treated as unknown in this
+instance).
 
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
 representation through a graph embedding step (here, a truncated Singular Value
 Decomposition; Step 1), yielding a series of latent traits (vulnerability traits
-representing species at the  lower trophic-level and generality traits species
-at higher trophic-levels; *sensu* @Schoener1989FooWeb); second, for the
-destination species pool, we perform ancestral character estimation using a
-phylogeny (here, using a Brownian model for the latent traits; Step 2); we then
-sample from the reconstructed distribution of latent traits (Step 3) to generate
-a probabilistic metaweb at the destination (here, assuming a uniform
-distribution of traits), and threshold it to yield the final list of
-interactions (Step 4).](figures/figure-concept.png){#fig:concept}
+representing species at the lower trophic-level and generality traits
+representing species at higher trophic-levels; *sensu* @Schoener1989FooWeb);
+second, for the destination species pool, we perform ancestral character
+estimation using a phylogeny (here, using a Brownian model for the latent
+traits; Step 2); we then sample from the reconstructed distribution of latent
+traits (Step 3) to generate a probabilistic metaweb at the destination (here,
+assuming a uniform distribution of traits), and threshold it to yield the final
+list of interactions (Step 4).](figures/figure-concept.png){#fig:concept}
 
 There is a plurality of measures of species similarities that can be used for
 metaweb reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; however,
@@ -315,8 +315,8 @@ the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
-\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$ [@fig:subspaces]. As we can see
-in @fig:scree the European and Canadain metawebs are structurally similar (as
+\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see
+in (@fig:subspaces) the European and Canadain metawebs are structurally similar (as
 would be expected given the biogeographic similarities) and that the two (left
 and right) subspaces are distinct *i.e.* capturing predation (generality) and
 prey (vulnerability) traits.
@@ -381,7 +381,7 @@ of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 Because the confidence intervals on the inferred trait space are probably
 over-estimates, we decided to apply a thresholding step to the interactions
-after the data inflation [@fig:thresholds]. @Cirtwill2021BuiFoo proposed a
+after the data inflation (@fig:thresholds). @Cirtwill2021BuiFoo proposed a
 number of strategies to threshold probabilistic networks. Their methods assume
 the underlying data to be tag-based sequencing, which represents interactions as
 co-occurrences of predator and prey within the same tags; this is conceptually
