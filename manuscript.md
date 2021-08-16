@@ -249,8 +249,8 @@ European metaweb are all true. Given the methodological details given in
 @Maiorano2020TetEu and @OConnor2020UnvFoo, this seems like a reasonable
 assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
-maximized Youden's $J$ statistic [@Youden1950IndRat; a measure of the
-informedness (trust) of predictions]; the resulting cutoff was 0.22, and gave an
+maximized Youden's $J$ statistic (@Youden1950IndRat; a measure of the
+informedness (trust) of predictions); the resulting cutoff was 0.22, and gave an
 accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
@@ -316,7 +316,7 @@ where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
 \hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see
-in (@fig:subspaces) the European and Canadain metawebs are structurally similar (as
+in (@fig:subspaces) the European and Canadian metawebs are structurally similar (as
 would be expected given the biogeographic similarities) and that the two (left
 and right) subspaces are distinct *i.e.* capturing predation (generality) and
 prey (vulnerability) traits.
