@@ -30,14 +30,14 @@ representations, relying on the similarities of species in a
 biologically/ecologically relevant proxy space (*e.g.* shared morphology or
 ancestry). Transfer learning is a machine learning methodology that uses the
 knowledge gained from solving one problem and applying it to a related
-(destination) problem [@Torrey2010TraLea]. In this instance, we solve the
-problem of predicting trophic interactions between species, based on knowledge
-extracted from another species pool for which interactions are known, using
-phylogenetic structure as a medium for transfer. This allows us to construct a
-*probabilistic* metaweb for a community for which we have *no* prior interaction
-data for the desired species pool. Our methodology is outlined in @fig:concept,
-where we provide an illustration based on learning an embedding of a metaweb of
-trophic interactions for European mammals [known interactions;
+(destination) problem [@Torrey2010TraLea; @Pan2010SurTra]. In this instance, we
+solve the problem of predicting trophic interactions between species, based on
+knowledge extracted from another species pool for which interactions are known,
+using phylogenetic structure as a medium for transfer. This allows us to
+construct a *probabilistic* metaweb for a community for which we have *no* prior
+interaction data for the desired species pool. Our methodology is outlined in
+@fig:concept, where we provide an illustration based on learning an embedding of
+a metaweb of trophic interactions for European mammals [known interactions;
 @Maiorano2020TetEu; @Maiorano2020DatTet], and based on phylogenetic
 relationships between mammals globally [@Upham2019InfMam], infer a metaweb for
 the Canadian mammalian species pool (interactions are treated as unknown in this
