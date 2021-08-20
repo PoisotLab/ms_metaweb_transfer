@@ -11,19 +11,19 @@ difficult to sample properly [@Jordano2016ChaEco; @Jordano2016SamNet], resulting
 in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first challenge
 (local incompleteness) has been, in large part, addressed by the recent
 multiplication of methods aiming to predict interactions *within* an *existing*
-network, a lot of which are reviewed in @Strydom2021RoaPre. Second, recent
+network, many of which are reviewed in @Strydom2021RoaPre. Second, recent
 analyses based on collected data [@Poisot2021GloKno] or metadata
 [@Cameron2019UneGlo] highlight that ecological networks are currently studied in
 a biased subset of space and bioclimates, which impedes our ability to
 generalize any local understanding of network structure. Meaning that although
-the framework to address incompleteness *within* a network exists there would
-still be regions that, due to a *lack* of local interaction data, we are unable
-to infer potential species interactions. Having a general solution for the issue
-of metaweb inference [@Morales-Castilla2015InfBio] that, despite situations
-where minimal knowledge about interactions within a species pool is known, is
-capable of producing a plausible metaweb could be the catalyst for significant
-breakthroughs in our ability to start thinking about species interactions
-networks over large spatial scales.
+the framework to address incompleteness *within* a network exists, there would
+still be regions for which, due to a *lack* of local interaction data, we are
+unable to infer potential species interactions. Having a general solution for
+the issue of metaweb inference [@Morales-Castilla2015InfBio] that, despite
+situations where minimal knowledge about interactions within a species pool is
+known, is capable of producing a plausible metaweb could be the catalyst for
+significant breakthroughs in our ability to start thinking about species
+interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a
@@ -79,9 +79,9 @@ phylogenies can reliably be used to transfer knowledge on species interactions.
 Our case study shows that phylogenetic transfer learning is indeed an effective
 approach to predict the Canadian mammalian metaweb. This showcases that although
 the components (species) that make up the Canadian and European communities may
-not be *perfectly* shared, if the medium (proxy space) selected in the transfer
-step is biologically plausible, we can still effectively learn from the known
-network and make biologically relevant predictions of interactions. It should be
+be *minimally* shared, if the medium (proxy space) selected in the transfer step
+is biologically plausible, we can still effectively learn from the known network
+and make biologically relevant predictions of interactions. It should be
 reiterated that the framework presented in @fig:concept is amenable to changes;
 notably, the measure of similarity may not be phylogeny, and can be replaced by
 information on foraging [@Beckerman2006ForBio], cell-level mechanisms
@@ -99,8 +99,8 @@ webs are expected to have a subset of both the species and the interactions of
 their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
 the total of functional, phylogenetic, and macroecological processes
 [@Morales-Castilla2015InfBio], it is thus still worthy of ecological attention.
-We induced the subgraph corresponding to all mammals by matching species names
-in the original network first to the GBIF taxonomic backbone
+We deduced the subgraph corresponding to all mammals by matching species names
+in the original network to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals; all
 nodes had valid matches to GBIF at this step, and so this backbone is used for
 all name reconciliation steps as outlined below.
@@ -120,10 +120,10 @@ in the European metaweb). The IUCN names were, as previously, reconciled against
 GBIF to have an exact match to the taxonomy.
 
 After taxonomic cleaning and reconciliation as outlined in the following
-sections, the mammalian European metaweb had 260 species, and the Canadian species pool
+sections, the mammalian European metaweb has 260 species, and the Canadian species pool
 has 163; of these, 17 (about 4% of the total) are shared, and 89 species from
 Canada (54%) had at least one congeneric species in Europe. The similarity for
-both species pool predictably increases with higher taxonomic order, with 19% of
+both species pools predictably increases with higher taxonomic order, with 19% of
 shared genera, 47% of shared families, and 75% of shared orders; for the last
 point, Canada and Europe each had a single unique order (*Didelphimorphia* for
 Canada, *Erinaceomorpha* for Europe).
@@ -196,7 +196,7 @@ prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
 thereof) is decomposed into three components resulting in $\mathbf{A} =
-\mathbf{L}\mathbf{\Sigma}\mathbf{R}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
+\mathbf{L}\mathbf{\Sigma}\mathbf{R'}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
 diagonal matrix and contains only singular ($\sigma$) values along its diagonal,
 $\mathbf{L}$ is a $m \times m$ unitary matrix, and $\mathbf{R}'$ a $n \times n$
 unitary matrix. Truncating the SVD removes additional noise in the dataset by
@@ -315,11 +315,11 @@ the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
-\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see
-in (@fig:subspaces) the European and Canadian metawebs are structurally similar (as
-would be expected given the biogeographic similarities) and that the two (left
-and right) subspaces are distinct *i.e.* capturing predation (generality) and
-prey (vulnerability) traits.
+\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see in
+(@fig:subspaces) the European and Canadian metawebs are structurally similar (as
+would be expected given the biogeographic similarities) and the two (left and
+right) subspaces are distinct *i.e.* capturing predation (generality) and prey
+(vulnerability) traits.
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
@@ -328,7 +328,7 @@ metaweb $P$, where the probability of an interaction (here conveying our degree
 of trust that it exists given the inferred trait distributions) is given by the
 number of times where it appears across all random draws $N$, divided by the
 number of samples. An interaction with $P_{i,j} = 1$ means that these two
-species were predicted to interact in all $2\times 10^5$ random draws, etc..
+species were predicted to interact in all $2\times 10^5$ random draws.
 
 ## Data cleanup, discovery, validation, and thresholding
 
@@ -347,9 +347,10 @@ number of preys.](figures/figure-validation.png){#fig:inflation}
 
 First, we extracted the subgraph corresponding to the 17 species shared between
 the European and Canadian pools and replaced these interactions with a
-probability of 0 (non-interaction) or 1 (interaction). This represents a minute
-modification of the inferred network (about 0.8% of all species pairs from the
-Canadian web), but ensures that we are directly re-using knowledge from Europe.
+probability of 0 (non-interaction) or 1 (interaction), according to their value
+in the European metaweb. This represents a minute modification of the inferred
+network (about 0.8% of all species pairs from the Canadian web), but ensures
+that we are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLoBI) database [@Poelen2014GloBio], and extracted their
