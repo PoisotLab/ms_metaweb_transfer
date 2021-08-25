@@ -339,7 +339,9 @@ species were predicted to interact in all $2\times 10^5$ random draws.
 ## Data cleanup, discovery, validation, and thresholding
 
 Once the probabilistic metaweb for Canada has been produced, we followed a
-number of data inflation steps to finalize it.
+number of data inflation steps to finalize it. **TK** This step is external to
+the actual transfer learning framework but rather serves as a way to augment and
+validate the predicted metaweb.
 
 ![Left, comparison of the probabilities of interactions assigned by the model to
 all interactions (grey curve), the subset of interactions found in GLOBI (red),
