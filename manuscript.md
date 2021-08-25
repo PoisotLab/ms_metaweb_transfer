@@ -82,7 +82,7 @@ Our case study shows that phylogenetic transfer learning is indeed an effective
 approach to predict the Canadian mammalian metaweb. This showcases that although
 the components (species) that make up the Canadian and European communities may
 be *minimally* shared, if the medium (proxy space) selected in the transfer step
-is biologically plausible (*TK e.g. here*), we can still effectively learn from
+is biologically plausible (**TK e.g. here?**), we can still effectively learn from
 the known network and make biologically relevant predictions of interactions. It
 should be reiterated that the framework presented in @fig:concept is amenable to
 changes; notably, the measure of similarity may not be phylogeny, and can be
