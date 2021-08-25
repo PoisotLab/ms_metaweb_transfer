@@ -191,7 +191,7 @@ variables that can be combined into an approximation of the network adjacency
 matrix. RDPG results are known to have strong phylogenetic signal, and to
 capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]. In
 addition, recent advances show that the latent variables produced this way can
-be used to predict *de novo* network edges [@Runghen2021ExpNod].
+be used to predict *de novo* network edges [*i.e.*; @Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -275,7 +275,7 @@ akin to a trait-based mammalian phylogeny using generality and vulnerability
 traits) and allows us to impute the missing (latent) trait data for the Canadian
 species that are not already in the European network; as we are focused on
 predicting contemporary interactions, we only retained the values for the tips
-of the three. We assumed that all traits (*i.e.* the feature vectors for the
+of the tree. We assumed that all traits (*i.e.* the feature vectors for the
 left and right subspaces) were independent, which is a reasonable assumption as
 every trait/dimension added to the t-SVD has an *additive* effect to the one
 before it. Note that the @Upham2019InfMam tree itself has some uncertainty
@@ -364,7 +364,7 @@ known interactions. Because GLOBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
 This last statement should yet be taken with caution, as some sources in GLOBI
-[*e.g.* @Thessen2014KnoExt] are produced though text analysis, and therefore may
+[*e.g.* @Thessen2014KnoExt] are produced through text analysis, and therefore may
 not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known to
 GLOBI would also be predicted. After performing this check, we set the
