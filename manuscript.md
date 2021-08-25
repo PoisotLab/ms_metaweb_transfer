@@ -207,10 +207,11 @@ $\mathbf{L}$ is a $m \times m$ unitary matrix, and $\mathbf{R}'$ a $n \times n$
 unitary matrix. Truncating the SVD removes additional noise in the dataset by
 omitting non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using
 the rank of the matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that
-$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (where $r$ is the
-rank of $\mathbf{A}$) containing only non-zero $\sigma$ values. Additionally,
-$\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
-\times r$ semi-unitary matrix.
+$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (whith $1 \le r \le
+r_{full}$ where $r_{full}$ is the full rank of $\mathbf{A}$ and $r$ the rank at
+which we truncate the matrix) containing only non-zero $\sigma$ values.
+Additionally, $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and
+$\mathbf{R}'$ a $n \times r$ semi-unitary matrix.
 
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
