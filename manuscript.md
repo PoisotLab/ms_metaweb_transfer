@@ -489,7 +489,17 @@ that interactions can never really be true negatives (in the current state of
 our methodological framework and data collection limitations); this renders the
 task of validating a model through the usual application of binary
 classification statistics very difficult [although see @Strydom2021RoaPre for a
-discussion of alternative suggestions].
+discussion of alternative suggestions]. The other way through which our framework
+can be improved is by substituting the predictors that are used for transfer. For
+example, in the presence of information on species traits that are known to be 
+predictive of species interactions, one might want to rely on functional rather than
+phylogenetic distances -- in food webs, body size (and allometrically related variables)
+has been established as such a variable TK REF; the identification of relevant functional
+traits is facilitated by recent methodological developments [TK REF Nacho]. In this
+case study, we have embedded the original metaweb using t-SVD, because it lends itself 
+to a RDPG reconstruction, which is known to capture the consequences of evolutionary
+processes [TK REF]; this being said, there are others ways to embed graphs [TK REF],
+which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
