@@ -16,15 +16,13 @@ reviewed in @Strydom2021RoaPre. Second, recent analyses based on collected data
 [@Poisot2021GloKno] or metadata [@Cameron2019UneGlo] highlight that ecological
 networks are currently studied in a biased subset of space and bioclimates,
 which impedes our ability to generalize any local understanding of network
-structure. Meaning that although the framework to address incompleteness
+structure. Meaning that, although the framework to address incompleteness
 *within* networks exists, there would still be regions for which, due to a
 *lack* of local interaction data, we are unable to infer potential species
-interactions. Having a general solution for the issue of metaweb inference
-[@Morales-Castilla2015InfBio] that, despite situations where minimal knowledge
-about interactions within a species pool is known, is capable of producing a
-plausible metaweb could be the catalyst for significant breakthroughs in our
-ability to start thinking about species interactions networks over large spatial
-scales.
+interactions. Having a general solution for inferring a *plausible* metaweb
+(despite the unavailability of interaction data) could be the catalyst for
+significant breakthroughs in our ability to start thinking about species
+interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a
@@ -63,19 +61,21 @@ phylogenetic proximity has several desirable properties when working at large
 scales. @Gerhold2015PhyPat made the point that phylogenetic signal captures
 diversification of characters (large macro-evolutionary process), but not
 necessarily community assembly (fine ecological process); @Dormann2010EvoCli
-previously found very similar conclusions. Interactions tend to conserve
-a phylogenetic signal that encompasses a wide range of ecological and evolutionary
-mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
-importantly - retain this signal even when it is not detectable at the community
-scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
-at macro-ecological scales seem to respond mostly to macro-evolutionary
-processes [@Price2003MacThe]; which is evidenced by the presence of conserved
-backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
-prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
-intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
-been used to understand ancestral plant-insect interaction networks
-[@Braga2021PhyRec]. Taken together, these considerations suggest that
-phylogenies can reliably be used to transfer knowledge on species interactions.
+previously found very similar conclusions. Interactions tend reflect a
+phylogenetic signal because they have a conserved pattern of evolutionary
+convergence (niche conservatism) that encompasses a wide range of ecological and
+evolutionary mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and -
+most importantly - retain this signal even when it is not detectable at the
+community scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species
+interactions at macro-ecological scales seem to respond mostly to
+macro-evolutionary processes [@Price2003MacThe]; which is evidenced by the
+presence of conserved backbones in food webs [@DallaRiva2016ExpEvo], strong
+evolutionary signature on prey choice [@Stouffer2012EvoCon], and strong
+phylogenetic signature in food web intervality [@Eklof2016PhyCom]. Phylogenetic
+reconstruction has also previously been used to understand ancestral
+plant-insect interaction networks [@Braga2021PhyRec]. Taken together, these
+considerations suggest that phylogenies can reliably be used to transfer
+knowledge on species interactions.
 
 Our case study shows that phylogenetic transfer learning is indeed an effective
 approach to predict the Canadian mammalian metaweb. This showcases that although
@@ -110,8 +110,8 @@ valid matches to GBIF at this step, and so this backbone is used for all name
 reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
-phylogenetic similarity of mammals here represents the support for transfer. We
-used the mammalian consensus supertree by @Upham2019InfMam, for which all
+phylogenetic similarity of mammals here represents the information for transfer.
+We used the mammalian consensus supertree by @Upham2019InfMam, for which all
 approximatively 6000 names have been similarly matched to their GBIF valid
 names. This step allows us to place each node of the mammalian European metaweb
 in the phylogeny.
@@ -158,7 +158,7 @@ the dissimilarity in functional traits). Based on the reconstructed latent
 traits for species in the destination species pool, a Random Dot Product Graph
 model [hereafter RDPG; @Young2007RanDot] predicts the interaction between
 species through a function of the nodes' features through matrix multiplication.
-Thus, from latent traits and nodes position, we can infer interactions.
+Thus, from latent traits and node position, we can infer interactions.
 
 ## Implementation and code availability
 
@@ -454,23 +454,23 @@ web.
 # Discussion
 
 One important aspect in which Europe and Canada differ (despite their comparable
-bioclimatic conditions) is the legacy of human impacts, which have been much
-longer in Europe. @Nenzen2014Imp850 showed that even at small scales (the Iberian
-peninsula), mammal food webs retain the signal of both climate change and human
-activity, even when this human activity was orders of magnitude less important
-than it is now. Similarly, @Yeakel2014ColEco showed that changes in human
-occupation over several centuries can lead to food web collapse. Megafauna in
-particular seems to be very sensitive to human arrival [@Pires2015PleMeg]. In
-short, there is well-substantiated support for the idea that human footprint
-affects more than the risk of species extinction [@Marco2018ChaHum], and can
-lead to changes in interaction structure. Yet, owing to the inherent plasticity
-of interactions, there have been documented instances of food webs undergoing
-rapid collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
-The embedding of a network, in a sense, embeds its macro-evolutionary history,
-especially as RDPG captures ecological signal [@DallaRiva2016ExpEvo]; at this
-point, it is important to recall that a metaweb is intended as a catalogue of
-all possible interactions, which should then be filtered
-[@Morales-Castilla2015InfBio]. In practice (and in this instance) the
+bioclimatic conditions) is the degree of the legacy of human impacts, which have
+been much longer in Europe. @Nenzen2014Imp850 showed that even at small scales
+(the Iberian peninsula), mammal food webs retain the signal of both climate
+change and human activity, even when this human activity was orders of magnitude
+less important than it is now. Similarly, @Yeakel2014ColEco showed that changes
+in human occupation over several centuries can lead to food web collapse.
+Megafauna in particular seems to be very sensitive to human arrival
+[@Pires2015PleMeg]. In short, there is well-substantiated support for the idea
+that human footprint affects more than the risk of species extinction
+[@Marco2018ChaHum], and can lead to changes in interaction structure. Yet, owing
+to the inherent plasticity of interactions, there have been documented instances
+of food webs undergoing rapid collapse/recovery cycles over short periods of
+time [@Pedersen2017SigCol]. The embedding of a network, in a sense, embeds its
+macro-evolutionary history, especially as RDPG captures ecological signal
+[@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
+is intended as a catalogue of all possible interactions, which should then be
+filtered [@Morales-Castilla2015InfBio]. In practice (and in this instance) the
 reconstructed metaweb will predict interactions that are plausible based on the
 species' evolutionary history, however some interactions would not be realized
 due to human impact.
@@ -480,27 +480,27 @@ based on Bayesian approaches would perform far better in the presence of an
 interaction-level informative prior; the desirable properties of such a prior
 would be that it is expressed as a probability, preferably representing a
 Bernoulli event, the value of which would be representative of relevant
-biological processes. We argue that the probability returned at the very last
-step of our framework may serve as this informative prior; indeed, the output of
-our analysis can be used in subsequent steps, also possibly involving expert
-elicitation to validate some of the most strongly recommended interactions. One
-important *caveat* to keep in mind when working with interaction inference is
-that interactions can never really be true negatives (in the current state of
-our methodological framework and data collection limitations); this renders the
-task of validating a model through the usual application of binary
-classification statistics very difficult [although see @Strydom2021RoaPre for a
-discussion of alternative suggestions]. The other way through which our
-framework can be improved is by substituting the predictors that are used for
-transfer. For example, in the presence of information on species traits that are
-known to be predictive of species interactions, one might want to rely on
-functional rather than phylogenetic distances -- in food webs, body size (and
-allometrically related variables) has been established as such a variable TK
-REF; the identification of relevant functional traits is facilitated by recent
-methodological developments [TK REF Nacho]. In this case study, we have embedded
-the original metaweb using t-SVD, because it lends itself to a RDPG
-reconstruction, which is known to capture the consequences of evolutionary
-processes [TK REF]; this being said, there are others ways to embed graphs [TK
-REF], which can be used as alternatives.
+biological processes (probability of predation in this case). We argue that the
+probability returned at the very last step of our framework may serve as this
+informative prior; indeed, the output of our analysis can be used in subsequent
+steps, also possibly involving expert elicitation to validate some of the most
+strongly recommended interactions. One important *caveat* to keep in mind when
+working with interaction inference is that interactions can never really be true
+negatives (in the current state of our methodological framework and data
+collection limitations); this renders the task of validating a model through the
+usual application of binary classification statistics very difficult [although
+see @Strydom2021RoaPre for a discussion of alternative suggestions]. The other
+way through which our framework can be improved is by substituting the
+predictors that are used for transfer. For example, in the presence of
+information on species traits that are known to be predictive of species
+interactions, one might want to rely on functional rather than phylogenetic
+distances -- in food webs, body size (and allometrically related variables) has
+been established as such a variable TK REF; the identification of relevant
+functional traits is facilitated by recent methodological developments [TK REF
+Nacho]. In this case study, we have embedded the original metaweb using t-SVD,
+because it lends itself to a RDPG reconstruction, which is known to capture the
+consequences of evolutionary processes [TK REF]; this being said, there are
+others ways to embed graphs [TK REF], which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
