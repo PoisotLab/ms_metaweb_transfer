@@ -63,17 +63,17 @@ diversification of characters (large macro-evolutionary process), but not
 necessarily community assembly (fine ecological process); @Dormann2010EvoCli
 previously found very similar conclusions. Interactions tend reflect a
 phylogenetic signal because they have a conserved pattern of evolutionary
-convergence (niche conservatism) that encompasses a wide range of ecological and
-evolutionary mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and -
-most importantly - retain this signal even when it is not detectable at the
-community scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species
-interactions at macro-ecological scales seem to respond mostly to
-macro-evolutionary processes [@Price2003MacThe]; which is evidenced by the
-presence of conserved backbones in food webs [@DallaRiva2016ExpEvo], strong
-evolutionary signature on prey choice [@Stouffer2012EvoCon], and strong
-phylogenetic signature in food web intervality [@Eklof2016PhyCom]. Phylogenetic
-reconstruction has also previously been used to understand ancestral
-plant-insect interaction networks [@Braga2021PhyRec]. Taken together, these
+convergence that encompasses a wide range of ecological and evolutionary
+mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
+importantly - retain this signal even when it is not detectable at the community
+scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
+at macro-ecological scales seem to respond mostly to macro-evolutionary
+processes [@Price2003MacThe]; which is evidenced by the presence of conserved
+backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
+prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
+intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
+been used within the context of ecological networks, namely understanding
+ancestral plant-insect interactions [@Braga2021PhyRec]. Taken together, these
 considerations suggest that phylogenies can reliably be used to transfer
 knowledge on species interactions.
 
