@@ -124,13 +124,13 @@ in the European metaweb). The IUCN names were, as previously, reconciled against
 GBIF to have an exact match to the taxonomy.
 
 After taxonomic cleaning and reconciliation as outlined in the following
-sections, the mammalian European metaweb has 260 species, and the Canadian species pool
-has 163; of these, 17 (about 4% of the total) are shared, and 89 species from
-Canada (54%) had at least one congeneric species in Europe. The similarity for
-both species pools predictably increases with higher taxonomic order, with 19% of
-shared genera, 47% of shared families, and 75% of shared orders; for the last
-point, Canada and Europe each had a single unique order (*Didelphimorphia* for
-Canada, *Erinaceomorpha* for Europe).
+sections, the mammalian European metaweb has 260 species, and the Canadian
+species pool has 163; of these, 17 (about 4% of the total) are shared, and 89
+species from Canada (54%) had at least one congeneric species in Europe. The
+similarity for both species pools predictably increases with higher taxonomic
+order, with 19% of shared genera, 47% of shared families, and 75% of shared
+orders; for the last point, Canada and Europe each had a single unique order
+(*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
 
 In the following sections, we describe the representational learning step
 applied to European data, the transfer step through phylogenetic similarity, and
