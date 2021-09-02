@@ -497,8 +497,8 @@ interactions, one might want to rely on functional rather than phylogenetic
 distances -- in food webs, body size (and allometrically related variables) has
 been established as such a variable [@Brose2006ConRes]; the identification of
 relevant functional traits is facilitated by recent methodological developments
-[TK REF Nacho]. In this case study, we have embedded the original metaweb using
-t-SVD, because it lends itself to a RDPG reconstruction, which is known to
+[@Rosado2013GoiBac]. In this case study, we have embedded the original metaweb
+using t-SVD, because it lends itself to a RDPG reconstruction, which is known to
 capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo]; this
 being said, there are others ways to embed graphs [TK REF], which can be used as
 alternatives.
