@@ -340,9 +340,10 @@ species were predicted to interact in all $2\times 10^5$ random draws.
 ## Data cleanup, discovery, validation, and thresholding
 
 Once the probabilistic metaweb for Canada has been produced, we followed a
-number of data inflation steps to finalize it. **TK** This step is external to
-the actual transfer learning framework but rather serves as a way to augment and
-validate the predicted metaweb.
+number of data inflation steps to finalize it. **TK this next phrase might be
+nice to create the distinction btwn prediction method and 'add ons'** This step
+is external to the actual transfer learning framework but rather serves as a way
+to augment and validate the predicted metaweb.
 
 ![Left, comparison of the probabilities of interactions assigned by the model to
 all interactions (grey curve), the subset of interactions found in GLOBI (red),
@@ -500,8 +501,8 @@ relevant functional traits is facilitated by recent methodological developments
 [@Rosado2013GoiBac]. In this case study, we have embedded the original metaweb
 using t-SVD, because it lends itself to a RDPG reconstruction, which is known to
 capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo]; this
-being said, there are others ways to embed graphs [TK REF], which can be used as
-alternatives.
+being said, there are others ways to embed graphs [TK REF *multiple choices here
+just a standard ML textbook?*], which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
