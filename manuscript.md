@@ -105,9 +105,10 @@ in the original network to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
 **TK do we need this next phrase** This serves a dual purpose 1) to extract only
 mammals from the European network and 2) to match and standardize species names
-when aggregating the different data sources further downstream. All nodes had
-valid matches to GBIF at this step, and so this backbone is used for all name
-reconciliation steps as outlined below.
+when aggregating the different data sources further downstream (which is an
+important consideration when combining datasets @Grenie2021HarTax). All nodes
+had valid matches to GBIF at this step, and so this backbone is used for all
+name reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 phylogenetic similarity of mammals here represents the information for transfer.
