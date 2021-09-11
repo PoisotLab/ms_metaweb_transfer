@@ -12,3 +12,4 @@ affiliations.json
 
 # twitter presentation images
 twitter/
+.assets/*.csl
