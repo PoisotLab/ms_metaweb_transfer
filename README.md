@@ -226,10 +226,10 @@ tradeoff between accuracy and a reduced number of features.
 A RDPG estimates the probability of observing interactions between nodes
 (species) as a function of the nodes' latent variables. The latent variables
 used for the RDPG, called the left and right subspaces, are defined as
-$\mathcal{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathcal{R} =
+$\mathscr{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
 \sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
-$\mathcal{L}\mathcal{R}' = \mathbf{A}$, and using any smaller rank results in
-$\mathcal{L}\mathcal{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
+$\mathscr{L}\mathscr{R}' = \mathbf{A}$, and using any smaller rank results in
+$\mathscr{L}\mathscr{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
 provides a first-order approximation of the network.
 
 ![Left: representation of the screeplot of the singular values from the t-SVD on
@@ -286,7 +286,7 @@ a uniform distribution between these bounds; in a situation where the algorithm
 would return point values for all simulations, one could in theory either
 estimate the parameters of a distribution for each tip, or draw randomly from
 the outputs. In all cases, the inferred left and right sub-spaces for the
-Canadian species pool ($\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$) have entries
+Canadian species pool ($\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$) have entries
 that are distributions, representing the range of values for a given species at
 a given dimension.
 
@@ -295,7 +295,7 @@ prediction of the Canadian metaweb.
 
 ## Step 4: Probabilistic prediction of the destination network
 
-The phylogenetic reconstruction of $\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$
+The phylogenetic reconstruction of $\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$
 has an associated uncertainty, represented by the breadth of the uniform
 distribution associated to each of their entries. Therefore, we can use this
 information to assemble a *probabilistic* metaweb in the sense of
@@ -311,15 +311,15 @@ with a value of 0 in the left subspace are species without any
 prey.](figures/figure-subspaces.png){#fig:subspaces}
 
 Specifically, we have adopted the following approach. For every entry in
-$\hat{\mathcal{L}}$ and $\hat{\mathcal{R}}$, we draw a value from its
+$\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$, we draw a value from its
 distribution. This results in one instance of the possible left
-($\hat{\mathcal{l}}$) and right ($\hat{\mathcal{r}}$) subspaces for the Canadian
+($\hat{\mathscr{l}}$) and right ($\hat{\mathscr{r}}$) subspaces for the Canadian
 metaweb. These can be multiplied, to produce one matrix of real values. Because
-the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
-where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
+the entries in $\hat{\mathscr{l}}$ and $\hat{\mathscr{r}}$ are in the same space
+where $\mathscr{L}$ and $\mathscr{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
-\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see in
+\hat{\mathscr{L}}$$\hat{\mathscr{R}}' \ge \rho$. As we can see in
 (@fig:subspaces) the European and Canadian metawebs are structurally similar (as
 would be expected given the biogeographic similarities) and the two (left and
 right) subspaces are distinct *i.e.* capturing predation (generality) and prey
