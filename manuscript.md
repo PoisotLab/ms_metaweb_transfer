@@ -8,22 +8,21 @@ There are two core challenges we are faced with in furthering our understanding
 of ecological networks across space, particularly at macro-ecologically relevant
 scales [*e.g.* @Trojelsgaard2016EcoNet]. First, networks within a location are
 difficult to sample properly [@Jordano2016ChaEco; @Jordano2016SamNet], resulting
-in a widespread "Eltonian shortfall" [@Hortal2015SevSho]. This first challenge
-(local incompleteness) has been, in large part, addressed by the recent
-multiplication of methods aiming to predict interactions *within* an *existing*
-network, a lot of which are reviewed in @Strydom2021RoaPre. Second, recent
-analyses based on collected data [@Poisot2021GloKno] or metadata
-[@Cameron2019UneGlo] highlight that ecological networks are currently studied in
-a biased subset of space and bioclimates, which impedes our ability to
-generalize any local understanding of network structure. Meaning that although
-the framework to address incompleteness *within* a network exists there would
-still be regions that, due to a *lack* of local interaction data, we are unable
-to infer potential species interactions. Having a general solution for the issue
-of metaweb inference [@Morales-Castilla2015InfBio] that, despite situations
-where minimal knowledge about interactions within a species pool is known, is
-capable of producing a plausible metaweb could be the catalyst for significant
-breakthroughs in our ability to start thinking about species interactions
-networks over large spatial scales.
+in a widespread "Eltonian shortfall" [@Hortal2015SevSho], *i.e.* a lack of
+knowledge about inter and intra specific relationships. This first challenge has
+been, in large part, addressed by the recent emergence of a suite of methods
+aiming to predict interactions within *existing* networks, many of which are
+reviewed in @Strydom2021RoaPre. Second, recent analyses based on collected data
+[@Poisot2021GloKno] or metadata [@Cameron2019UneGlo] highlight that ecological
+networks are currently studied in a biased subset of space and bioclimates,
+which impedes our ability to generalize any local understanding of network
+structure. Meaning that, although the framework to address incompleteness
+*within* networks exists, there would still be regions for which, due to a
+*lack* of local interaction data, we are unable to infer potential species
+interactions. Having a general solution for inferring a *plausible* metaweb
+(despite the unavailability of interaction data) could be the catalyst for
+significant breakthroughs in our ability to start thinking about species
+interactions networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a
@@ -32,16 +31,16 @@ ancestry). Transfer learning is a machine learning methodology that uses the
 knowledge gained from solving one problem and applying it to a related
 (destination) problem [@Torrey2010TraLea; @Pan2010SurTra]. In this instance, we
 solve the problem of predicting trophic interactions between species, based on
-knowledge extracted from another species pool for which interactions are known,
-using phylogenetic structure as a medium for transfer. This allows us to
+knowledge extracted from another species pool for which interactions are known
+by using phylogenetic structure as a medium for transfer. This allows us to
 construct a *probabilistic* metaweb for a community for which we have *no* prior
-interaction data for the desired species pool. Our methodology is outlined in
-@fig:concept, where we provide an illustration based on learning an embedding of
-a metaweb of trophic interactions for European mammals [known interactions;
-@Maiorano2020TetEu; @Maiorano2020DatTet], and based on phylogenetic
-relationships between mammals globally [@Upham2019InfMam], infer a metaweb for
-the Canadian mammalian species pool (interactions are treated as unknown in this
-instance).
+trophic interaction data for the desired species pool. Our methodology is
+outlined in @fig:concept, where we provide an illustration based on learning the
+embedding of a metaweb of trophic interactions for European mammals [known
+interactions; @Maiorano2020TetEu; @Maiorano2020DatTet] and, based on
+phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
+@Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
+(interactions are treated as unknown in this instance).
 
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
@@ -62,8 +61,9 @@ phylogenetic proximity has several desirable properties when working at large
 scales. @Gerhold2015PhyPat made the point that phylogenetic signal captures
 diversification of characters (large macro-evolutionary process), but not
 necessarily community assembly (fine ecological process); @Dormann2010EvoCli
-previously found very similar conclusions. Interactions tend to conserve
-a phylogenetic signal that encompasses a wide range of ecological and evolutionary
+previously found very similar conclusions. Interactions tend reflect a
+phylogenetic signal because they have a conserved pattern of evolutionary
+convergence that encompasses a wide range of ecological and evolutionary
 mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
 importantly - retain this signal even when it is not detectable at the community
 scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
@@ -72,16 +72,17 @@ processes [@Price2003MacThe]; which is evidenced by the presence of conserved
 backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
 prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
 intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
-been used to understand ancestral plant-insect interaction networks
-[@Braga2021PhyRec]. Taken together, these considerations suggest that
-phylogenies can reliably be used to transfer knowledge on species interactions.
+been used within the context of ecological networks, namely understanding
+ancestral plant-insect interactions [@Braga2021PhyRec]. Taken together, these
+considerations suggest that phylogenies can reliably be used to transfer
+knowledge on species interactions.
 
 Our case study shows that phylogenetic transfer learning is indeed an effective
 approach to predict the Canadian mammalian metaweb. This showcases that although
 the components (species) that make up the Canadian and European communities may
-not be *perfectly* shared, if the medium (proxy space) selected in the transfer
-step is biologically plausible, we can still effectively learn from the known
-network and make biologically relevant predictions of interactions. It should be
+be *minimally* shared, if the medium (proxy space) selected in the transfer step
+is biologically plausible, we can still effectively learn from the known network
+and make biologically relevant predictions of interactions. It should be
 reiterated that the framework presented in @fig:concept is amenable to changes;
 notably, the measure of similarity may not be phylogeny, and can be replaced by
 information on foraging [@Beckerman2006ForBio], cell-level mechanisms
@@ -90,7 +91,7 @@ information on foraging [@Beckerman2006ForBio], cell-level mechanisms
 
 # Data used for the case study
 
-We use data on the European metaweb assembled by @Maiorano2020TetEu, following
+We use data from the European metaweb assembled by @Maiorano2020TetEu, following
 the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.* an
 inventory of all possible interactions within species from a spatially delimited
 pool. Notably the metaweb is not a prediction of the food web at any specific
@@ -99,15 +100,19 @@ webs are expected to have a subset of both the species and the interactions of
 their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
 the total of functional, phylogenetic, and macroecological processes
 [@Morales-Castilla2015InfBio], it is thus still worthy of ecological attention.
-We induced the subgraph corresponding to all mammals by matching species names
-in the original network first to the GBIF taxonomic backbone
-[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals; all
-nodes had valid matches to GBIF at this step, and so this backbone is used for
-all name reconciliation steps as outlined below.
+We deduced the subgraph corresponding to all mammals by matching species names
+in the original network to the GBIF taxonomic backbone
+[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
+**TK do we need this next phrase** This serves a dual purpose 1) to extract only
+mammals from the European network and 2) to match and standardize species names
+when aggregating the different data sources further downstream (which is an
+important consideration when combining datasets @Grenie2021HarTax). All nodes
+had valid matches to GBIF at this step, and so this backbone is used for all
+name reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
-phylogenetic similarity of mammals here represents the support for transfer. We
-used the mammalian consensus supertree by @Upham2019InfMam, for which all
+phylogenetic similarity of mammals here represents the information for transfer.
+We used the mammalian consensus supertree by @Upham2019InfMam, for which all
 approximatively 6000 names have been similarly matched to their GBIF valid
 names. This step allows us to place each node of the mammalian European metaweb
 in the phylogeny.
@@ -120,13 +125,13 @@ in the European metaweb). The IUCN names were, as previously, reconciled against
 GBIF to have an exact match to the taxonomy.
 
 After taxonomic cleaning and reconciliation as outlined in the following
-sections, the mammalian European metaweb had 260 species, and the Canadian species pool
-has 163; of these, 17 (about 4% of the total) are shared, and 89 species from
-Canada (54%) had at least one congeneric species in Europe. The similarity for
-both species pool predictably increases with higher taxonomic order, with 19% of
-shared genera, 47% of shared families, and 75% of shared orders; for the last
-point, Canada and Europe each had a single unique order (*Didelphimorphia* for
-Canada, *Erinaceomorpha* for Europe).
+sections, the mammalian European metaweb has 260 species, and the Canadian
+species pool has 163; of these, 17 (about 4% of the total) are shared, and 89
+species from Canada (54%) had at least one congeneric species in Europe. The
+similarity for both species pools predictably increases with higher taxonomic
+order, with 19% of shared genera, 47% of shared families, and 75% of shared
+orders; for the last point, Canada and Europe each had a single unique order
+(*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
 
 In the following sections, we describe the representational learning step
 applied to European data, the transfer step through phylogenetic similarity, and
@@ -154,7 +159,7 @@ the dissimilarity in functional traits). Based on the reconstructed latent
 traits for species in the destination species pool, a Random Dot Product Graph
 model [hereafter RDPG; @Young2007RanDot] predicts the interaction between
 species through a function of the nodes' features through matrix multiplication.
-Thus, from latent traits and nodes position, we can infer interactions.
+Thus, from latent traits and node position, we can infer interactions.
 
 ## Implementation and code availability
 
@@ -180,13 +185,14 @@ dataset. In order to do so, we rely on an approach inspired from
 representational learning, where we learn a *representation* of the metaweb (in
 the form of the latent subspaces), rather than a list of interactions (species
 *a* eats *b*). This approach is conceptually different from other metaweb-scale
-predictions [*.e.g.* @Albouy2019MarFis], in that the metaweb representation is
+predictions [*e.g.* @Albouy2019MarFis], in that the metaweb representation is
 easily transferable. Specifically, we use RDPG to create a number of latent
 variables that can be combined into an approximation of the network adjacency
 matrix. RDPG results are known to have strong phylogenetic signal, and to
 capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]. In
 addition, recent advances show that the latent variables produced this way can
-be used to predict *de novo* network edges [@Runghen2021ExpNod].
+be used to predict *de novo* network edges [*i.e.* interactions;
+@Runghen2021ExpNod].
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -196,16 +202,17 @@ prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
 thereof) is decomposed into three components resulting in $\mathbf{A} =
-\mathbf{L}\mathbf{\Sigma}\mathbf{R}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
+\mathbf{L}\mathbf{\Sigma}\mathbf{R'}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
 diagonal matrix and contains only singular ($\sigma$) values along its diagonal,
 $\mathbf{L}$ is a $m \times m$ unitary matrix, and $\mathbf{R}'$ a $n \times n$
 unitary matrix. Truncating the SVD removes additional noise in the dataset by
 omitting non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using
 the rank of the matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that
-$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (where $r$ is the
-rank of $\mathbf{A}$) containing only non-zero $\sigma$ values. Additionally,
-$\mathbf{L}$ is now a $m \times r$ semi unitary matrix and $\mathbf{R}'$ a $n
-\times r$ semi-unitary matrix.
+$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (whith $1 \le r \le
+r_{full}$ where $r_{full}$ is the full rank of $\mathbf{A}$ and $r$ the rank at
+which we truncate the matrix) containing only non-zero $\sigma$ values.
+Additionally, $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and
+$\mathbf{R}'$ a $n \times r$ semi-unitary matrix.
 
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
@@ -213,11 +220,12 @@ dimensions) and to focus on the signal, (expressed at low dimensions). In
 datasets with a clear signal/noise demarcation, a scree plot of
 $\mathbf{\Sigma}$ can show a sharp drop at the rank where noise starts
 [@Zhu2006AutDim]. Because the European metaweb is almost entirely known, the
-amount of noise is low; this is reflected in @fig:scree (left), where the scree
-plot shows no important drop, and in @fig:scree (right) where the proportion of
-variance explained increases smoothly at higher dimensions. For this reason, we
-default back to an arbitrary threshold that explains 60% of the variance in the
-underlying data, corresponding to 12 dimensions.
+amount of noise (uncertainty) is low; this is reflected in @fig:scree (left),
+where the scree plot shows no important drop, and in @fig:scree (right) where
+the proportion of variance explained increases smoothly at higher dimensions.
+For this reason, we default back to a threshold that explains 60% of the
+variance in the underlying data, corresponding to 12 dimensions - *i.e.* a
+tradeoff between accuracy and a reduced number of features.
 
 A RDPG estimates the probability of observing interactions between nodes
 (species) as a function of the nodes' latent variables. The latent variables
@@ -249,8 +257,8 @@ European metaweb are all true. Given the methodological details given in
 @Maiorano2020TetEu and @OConnor2020UnvFoo, this seems like a reasonable
 assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
-maximized Youden's $J$ statistic (@Youden1950IndRat; a measure of the
-informedness (trust) of predictions); the resulting cutoff was 0.22, and gave an
+maximized Youden's $J$ statistic (a measure of the informedness (trust) of
+predictions; @Youden1950IndRat); the resulting cutoff was 0.22, and gave an
 accuracy above 0.99.
 
 The left and right subspaces for the European metaweb, accompanied by the
@@ -269,7 +277,7 @@ akin to a trait-based mammalian phylogeny using generality and vulnerability
 traits) and allows us to impute the missing (latent) trait data for the Canadian
 species that are not already in the European network; as we are focused on
 predicting contemporary interactions, we only retained the values for the tips
-of the three. We assumed that all traits (*i.e.* the feature vectors for the
+of the tree. We assumed that all traits (*i.e.* the feature vectors for the
 left and right subspaces) were independent, which is a reasonable assumption as
 every trait/dimension added to the t-SVD has an *additive* effect to the one
 before it. Note that the @Upham2019InfMam tree itself has some uncertainty
@@ -315,11 +323,11 @@ the entries in $\hat{\mathcal{l}}$ and $\hat{\mathcal{r}}$ are in the same space
 where $\mathcal{L}$ and $\mathcal{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
-\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see
-in (@fig:subspaces) the European and Canadian metawebs are structurally similar (as
-would be expected given the biogeographic similarities) and that the two (left
-and right) subspaces are distinct *i.e.* capturing predation (generality) and
-prey (vulnerability) traits.
+\hat{\mathcal{L}}$$\hat{\mathcal{R}}' \ge \rho$. As we can see in
+(@fig:subspaces) the European and Canadian metawebs are structurally similar (as
+would be expected given the biogeographic similarities) and the two (left and
+right) subspaces are distinct *i.e.* capturing predation (generality) and prey
+(vulnerability) traits.
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
@@ -328,12 +336,15 @@ metaweb $P$, where the probability of an interaction (here conveying our degree
 of trust that it exists given the inferred trait distributions) is given by the
 number of times where it appears across all random draws $N$, divided by the
 number of samples. An interaction with $P_{i,j} = 1$ means that these two
-species were predicted to interact in all $2\times 10^5$ random draws, etc..
+species were predicted to interact in all $2\times 10^5$ random draws.
 
 ## Data cleanup, discovery, validation, and thresholding
 
 Once the probabilistic metaweb for Canada has been produced, we followed a
-number of data inflation steps to finalize it.
+number of data inflation steps to finalize it. **TK this next phrase might be
+nice to create the distinction btwn prediction method and 'add ons'** This step
+is external to the actual transfer learning framework but rather serves as a way
+to augment and validate the predicted metaweb.
 
 ![Left, comparison of the probabilities of interactions assigned by the model to
 all interactions (grey curve), the subset of interactions found in GLOBI (red),
@@ -347,9 +358,10 @@ number of preys.](figures/figure-validation.png){#fig:inflation}
 
 First, we extracted the subgraph corresponding to the 17 species shared between
 the European and Canadian pools and replaced these interactions with a
-probability of 0 (non-interaction) or 1 (interaction). This represents a minute
-modification of the inferred network (about 0.8% of all species pairs from the
-Canadian web), but ensures that we are directly re-using knowledge from Europe.
+probability of 0 (non-interaction) or 1 (interaction), according to their value
+in the European metaweb. This represents a minute modification of the inferred
+network (about 0.8% of all species pairs from the Canadian web), but ensures
+that we are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLoBI) database [@Poelen2014GloBio], and extracted their
@@ -357,7 +369,7 @@ known interactions. Because GLOBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
 This last statement should yet be taken with caution, as some sources in GLOBI
-[*e.g.* @Thessen2014KnoExt] are produced though text analysis, and therefore may
+[*e.g.* @Thessen2014KnoExt] are produced through text analysis, and therefore may
 not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known to
 GLOBI would also be predicted. After performing this check, we set the
@@ -400,9 +412,9 @@ In @fig:thresholds, we examine the effect of varying the cutoff on $P(i
 \rightarrow j)$ on the number of links, species, and connectance. Determining a
 cutoff using the maximum curvature, or central difference approximation of the
 second order partial derivative, as suggested by *e.g.* @Cirtwill2021BuiFoo,
-results in respectively species being lost, or almost all links being kept. We
-therefore settled on the value that allowed all species to remain with at least
-one interaction. This result, in and of itself, suggests that additional
+results in species being lost, or almost all links being kept. We therefore
+settled on the value that allowed all species to remain with at least one
+interaction. This result, in and of itself, suggests that additional
 methodological developments for the thresholding of probabilistic networks are
 required.
 
@@ -444,23 +456,23 @@ web.
 # Discussion
 
 One important aspect in which Europe and Canada differ (despite their comparable
-bioclimatic conditions) is the legacy of human impacts, which have been much
-longer in Europe. @Nenzen2014Imp850 showed that even at small scales (the Iberian
-peninsula), mammal food webs retain the signal of both climate change and human
-activity, even when this human activity was orders of magnitude less important
-than it is now. Similarly, @Yeakel2014ColEco showed that changes in human
-occupation over several centuries can lead to food web collapse. Megafauna in
-particular seems to be very sensitive to human arrival [@Pires2015PleMeg]. In
-short, there is well-substantiated support for the idea that human footprint
-affects more than the risk of species extinction [@Marco2018ChaHum], and can
-lead to changes in interaction structure. Yet, owing to the inherent plasticity
-of interactions, there have been documented instances of food webs undergoing
-rapid collapse/recovery cycles over short periods of time [@Pedersen2017SigCol].
-The embedding of a network, in a sense, embeds its macro-evolutionary history,
-especially as RDPG captures ecological signal [@DallaRiva2016ExpEvo]; at this
-point, it is important to recall that a metaweb is intended as a catalogue of
-all possible interactions, which should then be filtered
-[@Morales-Castilla2015InfBio]. In practice (and in this instance) the
+bioclimatic conditions) is the degree of the legacy of human impacts, which have
+been much longer in Europe. @Nenzen2014Imp850 showed that even at small scales
+(the Iberian peninsula), mammal food webs retain the signal of both climate
+change and human activity, even when this human activity was orders of magnitude
+less important than it is now. Similarly, @Yeakel2014ColEco showed that changes
+in human occupation over several centuries can lead to food web collapse.
+Megafauna in particular seems to be very sensitive to human arrival
+[@Pires2015PleMeg]. In short, there is well-substantiated support for the idea
+that human footprint affects more than the risk of species extinction
+[@Marco2018ChaHum], and can lead to changes in interaction structure. Yet, owing
+to the inherent plasticity of interactions, there have been documented instances
+of food webs undergoing rapid collapse/recovery cycles over short periods of
+time [@Pedersen2017SigCol]. The embedding of a network, in a sense, embeds its
+macro-evolutionary history, especially as RDPG captures ecological signal
+[@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
+is intended as a catalogue of all possible interactions, which should then be
+filtered [@Morales-Castilla2015InfBio]. In practice (and in this instance) the
 reconstructed metaweb will predict interactions that are plausible based on the
 species' evolutionary history, however some interactions would not be realized
 due to human impact.
@@ -470,16 +482,28 @@ based on Bayesian approaches would perform far better in the presence of an
 interaction-level informative prior; the desirable properties of such a prior
 would be that it is expressed as a probability, preferably representing a
 Bernoulli event, the value of which would be representative of relevant
-biological processes. We argue that the probability returned at the very last
-step of our framework may serve as this informative prior; indeed, the output of
-our analysis can be used in subsequent steps, also possibly involving expert
-elicitation to validate some of the most strongly recommended interactions. One
-important *caveat* to keep in mind when working with interaction inference is
-that interactions can never really be true negatives (in the current state of
-our methodological framework and data collection limitations); this renders the
-task of validating a model through the usual application of binary
-classification statistics very difficult [although see @Strydom2021RoaPre for a
-discussion of alternative suggestions].
+biological processes (probability of predation in this case). We argue that the
+probability returned at the very last step of our framework may serve as this
+informative prior; indeed, the output of our analysis can be used in subsequent
+steps, also possibly involving expert elicitation to validate some of the most
+strongly recommended interactions. One important *caveat* to keep in mind when
+working with interaction inference is that interactions can never really be true
+negatives (in the current state of our methodological framework and data
+collection limitations); this renders the task of validating a model through the
+usual application of binary classification statistics very difficult [although
+see @Strydom2021RoaPre for a discussion of alternative suggestions]. The other
+way through which our framework can be improved is by substituting the
+predictors that are used for transfer. For example, in the presence of
+information on species traits that are known to be predictive of species
+interactions, one might want to rely on functional rather than phylogenetic
+distances -- in food webs, body size (and allometrically related variables) has
+been established as such a variable [@Brose2006ConRes]; the identification of
+relevant functional traits is facilitated by recent methodological developments
+[@Rosado2013GoiBac]. In this case study, we have embedded the original metaweb
+using t-SVD, because it lends itself to a RDPG reconstruction, which is known to
+capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo]; this
+being said, there are others ways to embed graphs [TK REF *multiple choices here
+just a standard ML textbook?*], which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
@@ -514,12 +538,13 @@ is funded by the Institut de Valorisation des Données. TS, SB, and TP are funde
 by a donation from the Courtois Foundation. CB was awarded a Mitacs Elevate
 Fellowship no. IT12391, in partnership with fRI Research, and also acknowledges
 funding from Alberta Innovates and the Forest Resources Improvement Association
-of Alberta. M-JF acknowledges funding from NSERC Discovery Grant and NSERC CRC
+of Alberta. M-JF acknowledges funding from NSERC Discovery Grant and NSERC CRC.
 RR is funded by New Zealand’s Biological Heritage Ngā Koiora Tuku Iho National
 Science Challenge, administered by New Zealand Ministry of Business, Innovation,
 and Employment. BM is funded by the NSERC Alexander Graham Bell Canada Graduate
-Scholarship and the FRQNT master’s scholarshipTP acknowledges financial support
-from NSERC through the Discovery Grants and Discovery Accelerator Supplement
-programs.
+Scholarship and the FRQNT master’s scholarship. LP acknowledges funding from
+NSERC Discovery Grant (NSERC RGPIN-2019-05771). TP acknowledges financial
+support from NSERC through the Discovery Grants and Discovery Accelerator
+Supplement programs.
 
 # References
