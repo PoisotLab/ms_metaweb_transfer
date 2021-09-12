@@ -186,6 +186,30 @@
         "volume": "9"
     },
     {
+        "URL": "http://arxiv.org/abs/1911.11726",
+        "author": [
+            {
+                "family": "Arsov",
+                "given": "Nino"
+            },
+            {
+                "family": "Mirceva",
+                "given": "Georgina"
+            }
+        ],
+        "container-title": "arXiv:1911.11726 [cs, stat]",
+        "id": "Arsov2019NetEmb",
+        "issued": {
+            "date-parts": [
+                [
+                    2019
+                ]
+            ]
+        },
+        "title": "Network Embedding: An Overview",
+        "type": "article-journal"
+    },
+    {
         "DOI": "10.21105/joss.02721",
         "author": [
             {
@@ -737,6 +761,34 @@
         "volume": "256"
     },
     {
+        "URL": "http://arxiv.org/abs/1709.07604",
+        "author": [
+            {
+                "family": "Cai",
+                "given": "Hongyun"
+            },
+            {
+                "family": "Zheng",
+                "given": "Vincent W."
+            },
+            {
+                "family": "Chang",
+                "given": "Kevin Chen-Chuan"
+            }
+        ],
+        "container-title": "arXiv preprint arXiv:1709.07604",
+        "id": "Cai2017ComSur",
+        "issued": {
+            "date-parts": [
+                [
+                    2017
+                ]
+            ]
+        },
+        "title": "A Comprehensive Survey of Graph Embedding: Problems, Techniques and Applications",
+        "type": "article-journal"
+    },
+    {
         "DOI": "10.1002/ecs2.2645",
         "author": [
             {
@@ -786,6 +838,37 @@
         "title": "Uneven global distribution of food web studies under climate change",
         "type": "article-journal",
         "volume": "10"
+    },
+    {
+        "DOI": "10.1063/1.5120724",
+        "author": [
+            {
+                "family": "Cao",
+                "given": "Ren-Meng"
+            },
+            {
+                "family": "Liu",
+                "given": "Si-Yuan"
+            },
+            {
+                "family": "Xu",
+                "given": "Xiao-Ke"
+            }
+        ],
+        "container-title": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
+        "id": "Cao2019NetEmb",
+        "issue": "10",
+        "issued": {
+            "date-parts": [
+                [
+                    2019
+                ]
+            ]
+        },
+        "page": "103102",
+        "title": "Network embedding for link prediction: The pitfall and improvement",
+        "type": "article-journal",
+        "volume": "29"
     },
     {
         "DOI": "10.1111/j.1461-0248.2009.01314.x",
@@ -2025,6 +2108,47 @@
         "title": "Ecophylogenetics: Advances and perspectives",
         "type": "article-journal",
         "volume": "87"
+    },
+    {
+        "DOI": "10.3389/fgene.2019.00381",
+        "author": [
+            {
+                "family": "Nelson",
+                "given": "Walter"
+            },
+            {
+                "family": "Zitnik",
+                "given": "Marinka"
+            },
+            {
+                "family": "Wang",
+                "given": "Bo"
+            },
+            {
+                "family": "Leskovec",
+                "given": "Jure"
+            },
+            {
+                "family": "Goldenberg",
+                "given": "Anna"
+            },
+            {
+                "family": "Sharan",
+                "given": "Roded"
+            }
+        ],
+        "container-title": "Frontiers in Genetics",
+        "id": "Nelson2019EmbNot",
+        "issued": {
+            "date-parts": [
+                [
+                    2019
+                ]
+            ]
+        },
+        "title": "To Embed or Not: Network Embedding as a Paradigm in Computational Biology",
+        "type": "article-journal",
+        "volume": "10"
     },
     {
         "DOI": "10.1371/journal.pone.0106651",
@@ -3316,6 +3440,32 @@
         "title": "Sparse Maximum-Entropy Random Graphs with a Given Power-Law Degree Distribution",
         "type": "article-journal",
         "volume": "173"
+    },
+    {
+        "DOI": "10.1016/j.gecco.2021.e01805",
+        "author": [
+            {
+                "family": "Xing",
+                "given": "Shuang"
+            },
+            {
+                "family": "Fayle",
+                "given": "Tom M."
+            }
+        ],
+        "container-title": "Global Ecology and Conservation",
+        "id": "Xing2021RisEco",
+        "issued": {
+            "date-parts": [
+                [
+                    2021
+                ]
+            ]
+        },
+        "page": "e01805",
+        "title": "The rise of ecological network meta-analyses: Problems and prospects",
+        "type": "article-journal",
+        "volume": "30"
     },
     {
         "URL": "http://arxiv.org/abs/2012.08019",

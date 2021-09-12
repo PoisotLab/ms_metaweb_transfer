@@ -26,7 +26,7 @@ yield the final list of interactions (Step 4).}\label{fig:concept}
 \caption{Left: representation of the screeplot of the singular values
 from the t-SVD on the European metaweb. The screeplot shows no obvious
 drop in the singular values that may be leveraged to automatically
-detect a minimal dimension for embedding, after \emph{e.g.} Zhu and
+detect a minimal dimension for embedding, after \emph{e.g.} Zhu \&
 Ghodsi (2006). Right: cumulative fraction of variance explained by each
 dimension up to the rank of the European metaweb. The grey lines
 represent cutoffs at 50, 60\ldots{} 90\% of variance explained. For the
@@ -58,7 +58,7 @@ subspace are species without any prey.}\label{fig:subspaces}
 \includegraphics{figures/figure-validation.png}
 \caption{Left, comparison of the probabilities of interactions assigned
 by the model to all interactions (grey curve), the subset of
-interactions found in GLOBI (red), and in the Strong and Leroux (2014)
+interactions found in GLOBI (red), and in the Strong \& Leroux (2014)
 Newfoundland dataset (blue). The model recovers more interaction with a
 low probability compared to data mining, which can suggest that
 collected datasets are biased towards more common or easy to identify
