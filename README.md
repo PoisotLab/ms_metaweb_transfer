@@ -99,12 +99,12 @@ the total of functional, phylogenetic, and macroecological processes
 We deduced the subgraph corresponding to all mammals by matching species names
 in the original network to the GBIF taxonomic backbone
 [@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
-**TK do we need this next phrase** This serves a dual purpose 1) to extract only
-mammals from the European network and 2) to match and standardize species names
-when aggregating the different data sources further downstream (which is an
-important consideration when combining datasets @Grenie2021HarTax). All nodes
-had valid matches to GBIF at this step, and so this backbone is used for all
-name reconciliation steps as outlined below.
+This serves a dual purpose 1) to extract only mammals from the European network
+and 2) to match and standardize species names when aggregating the different
+data sources further downstream (which is an important consideration when
+combining datasets @Grenie2021HarTax). All nodes had valid matches to GBIF at
+this step, and so this backbone is used for all name reconciliation steps as
+outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 phylogenetic similarity of mammals here represents the information for transfer.
@@ -337,10 +337,9 @@ species were predicted to interact in all $2\times 10^5$ random draws.
 ## Data cleanup, discovery, validation, and thresholding
 
 Once the probabilistic metaweb for Canada has been produced, we followed a
-number of data inflation steps to finalize it. **TK this next phrase might be
-nice to create the distinction btwn prediction method and 'add ons'** This step
-is external to the actual transfer learning framework but rather serves as a way
-to augment and validate the predicted metaweb.
+number of data inflation steps to finalize it. This step is external to the
+actual transfer learning framework but rather serves as a way to augment and
+validate the predicted metaweb.
 
 ![Left, comparison of the probabilities of interactions assigned by the model to
 all interactions (grey curve), the subset of interactions found in GLOBI (red),
@@ -495,11 +494,13 @@ interactions, one might want to rely on functional rather than phylogenetic
 distances -- in food webs, body size (and allometrically related variables) has
 been established as such a variable [@Brose2006ConRes]; the identification of
 relevant functional traits is facilitated by recent methodological developments
-[@Rosado2013GoiBac]. In this case study, we have embedded the original metaweb
+[@Rosado2013GoiBac]. It should be noted that @Xing2021RisEco highlight
+phylogenetic relatedness as one of the core components of network comparison at
+the global scale. In this case study, we have embedded the original metaweb
 using t-SVD, because it lends itself to a RDPG reconstruction, which is known to
 capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo]; this
-being said, there are others ways to embed graphs [TK REF *multiple choices here
-just a standard ML textbook?*], which can be used as alternatives.
+being said, there are others ways to embed graphs [@Arsov2019NetEmb;
+@Cai2017ComSur; @Cao2019NetEmb], which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
 planet-wide problems"; in this regard, our approach must contend with two
