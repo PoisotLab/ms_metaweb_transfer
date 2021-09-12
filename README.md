@@ -102,7 +102,7 @@ in the original network to the GBIF taxonomic backbone
 This serves a dual purpose 1) to extract only mammals from the European network
 and 2) to match and standardize species names when aggregating the different
 data sources further downstream (which is an important consideration when
-combining datasets @Grenie2021HarTax). All nodes had valid matches to GBIF at
+combining datasets [@Grenie2021HarTax]). All nodes had valid matches to GBIF at
 this step, and so this backbone is used for all name reconciliation steps as
 outlined below.
 
