@@ -22,12 +22,12 @@ and allows us to *learn* the network representation of a known network and
 *transfer* this to the target (interactions unknown) species pool. The framework
 itself is flexible and can be altered to better suit the specific learning
 problem. We breakdown and present this framework using the European metaweb to
-infer and construct the metaweb for Canadian terrestrial mammals using the
-mammalian phylogenetic structure as a medium for transfer. The manuscript is
-complemented by a series of online and annotated notebooks that aid in
-explanation and provide readers with a starting point for implementation in
-their own work. Of note is that entire workflow can be implemented and run on a
-laptop in a matter of minutes making this an accessible workflow to implement.
+infer and construct the metaweb for Canadian terrestrial mammals using
+phylogenetic structure as a medium for transfer. The manuscript is complemented
+by a series of online and annotated notebooks that aid in explanation and
+provide readers with a starting point for implementation in their own work. Of
+note is that entire workflow can be implemented and run on a laptop in a matter
+of minutes making this an accessible workflow to implement.
 <!-- or something like this -->
 
 The flexibility and low computational cost of this transfer learning framework
