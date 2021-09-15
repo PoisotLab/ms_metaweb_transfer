@@ -375,8 +375,9 @@ Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
 dataset documented 25 interactions between mammals, only two of which were not
 part of our (Canada-level) predictions, resulting in a success rate of 92%.
-These two interactions were added to our predicted metaweb with a probability of
-1.
+These two interactions were added to our predicted metaweb with a probability of 1.
+A table listing all interactions in the predicted Canadian metaweb can be found
+in the supplementary material.
 
 ![Left: effect of varying the cutoff for probabilities to be considered non-zero
 on the number of unique links and on $\hat{L}$, the probabilistic estimate of
