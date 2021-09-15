@@ -18,7 +18,7 @@ structure. Meaning that, although the framework to address incompleteness
 interactions. Having a general solution for inferring a *plausible* metaweb
 (despite the unavailability of interaction data) could be the catalyst for
 significant breakthroughs in our ability to start thinking about species
-interactions networks over large spatial scales.
+interaction networks over large spatial scales.
 
 Here, we present a general method for the transfer learning of network
 representations, relying on the similarities of species in a
