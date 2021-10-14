@@ -12,7 +12,7 @@ networks across large spatial scales. The challenge of sampling interactions
 also makes data collection often non-viable and has led to the development of a
 suite of methods that focus on addressing *incompleteness* within *known*
 networks. However, these methods are limited in their capacity to begin address
-existing *gaps*, *i.e.* unkown interactions in unsampled places. In this
+existing *gaps*, *i.e.* unknown interactions in unsampled places. In this
 manuscript we present a methodological framework that will allow us to move
 forward and begin filling these gaps.
 
