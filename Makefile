@@ -1,0 +1,13 @@
+JRNL := 01_ELE
+RVRND := 01
+
+ALL: response_to_reviewers.pdf suppmat/01_svd_overfit.pdf suppmat/02_normal_overpredicts.pdf
+
+response_to_reviewers.pdf: reviews/$(JRNL)/$(RVRND).md
+	pandoc $< -o $@
+
+suppmat/01_svd_overfit.pdf: suppmat/01_svd_overfit.md
+	pandoc $< -o $@
+
+suppmat/02_normal_overpredicts.pdf: suppmat/02_normal_overpredicts.md
+	pandoc $< -o $@
