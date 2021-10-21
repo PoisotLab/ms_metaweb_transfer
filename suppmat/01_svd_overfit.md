@@ -25,6 +25,10 @@ able to correctly recover 80% of these interactions:
 
 ![](./figures/supplementary/sensibility_recovery.png)
 
+The stochasticity in the proportion of recovered interactions is larger when a
+small number of interactions are withheld, which makes sense as the *number* of
+interactions is far smaller (compared to the overall network size).
+
 It is interesting to note that the threshold "adapts" to the amount of missing
 information - the dashed line corresponds to the threshold we used in the
 manuscript.
