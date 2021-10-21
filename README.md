@@ -51,11 +51,11 @@ when it is not detectable at the community scale [@Poisot2018IntRet;
 @Hutchinson2017CopSig]. Finally, species interactions at macro-ecological scales
 seem to respond mostly to macro-evolutionary processes [@Price2003MacThe]; which
 is evidenced by the presence of conserved backbones in food webs
-[@DallaRiva2016ExpEvo], strong evolutionary signature on prey choice
-[@Stouffer2012EvoCon], and strong phylogenetic signature in food web intervality
-[@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously been used
-within the context of ecological networks, namely understanding ancestral
-plant-insect interactions [@Braga2021PhyRec]. Taken together, these
+[@Mora2018IdeCom; @DallaRiva2016ExpEvo], strong evolutionary signature on prey
+choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
+intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
+been used within the context of ecological networks, namely understanding
+ancestral plant-insect interactions [@Braga2021PhyRec]. Taken together, these
 considerations suggest that phylogenies can reliably be used to transfer
 knowledge on species interactions.
 
@@ -233,7 +233,7 @@ addition, recent advances show that the latent variables produced this way can
 be used to predict *de novo* network edges. Interstingly, the latent variables
 do not need to be prouced by decomposing the network itself; in a recent
 contribution, @Runghen2021ExpNod show that deep artificial neural networks are
-able to reconstruct the left and right subspaces of a RDPG, in order to predict
+able to reconstruct the left and right subspaces of an RDPG, in order to predict
 human movement networks from individual/location metadata. This is an exciting
 opportunity, as it opens up the possibility of using additional predictors.
 
@@ -270,7 +270,7 @@ For this reason, we default back to a threshold that explains 60% of the
 variance in the underlying data, corresponding to 12 dimensions - *i.e.* a
 tradeoff between accuracy and a reduced number of features.
 
-A RDPG estimates the probability of observing interactions between nodes
+An RDPG estimates the probability of observing interactions between nodes
 (species) as a function of the nodes' latent variables. The latent variables
 used for the RDPG, called the left and right subspaces, are defined as
 $\mathscr{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
@@ -387,6 +387,16 @@ of trust that it exists given the inferred trait distributions) is given by the
 number of times where it appears across all random draws $N$, divided by the
 number of samples. An interaction with $P_{i,j} = 1$ means that these two
 species were predicted to interact in all $2\times 10^5$ random draws.
+
+It must be noted that despite bringing in a large amount of information from the
+European species pool and interactions, the Canadian metaweb has distinct
+structural properties. Following an approach similar to @Vermaat2009MajDim, we
+show in Supp. Mat. 3 that not only can we observed differences in a multivariate
+space between the European and Canadian metaweb, we can also observe differences
+in the same space between random subgraphs from these networks. These results
+line up with the studies spatializing metawebs that have been discussed in the
+introduction: changes in the species pool are driving local structural changes
+in the networks.
 
 ## Data cleanup, discovery, validation, and thresholding
 
@@ -546,12 +556,16 @@ increase exponentially. Recent proposals suggest that machine learning
 algorithms, in these situations, can act as data generators
 [@Hoffmann2019MacLea]: in this perspective, high quality observational data can
 be supplemented with synthetic data coming from predictive models, which
-increases the volume of information available for inference.
+increases the volume of information available for inference. Indeed,
+@Strydom2021RoaPre suggest that knowing the metaweb may render the prediction of
+local networks easier, because it fixes an "upper bound" on which interactions
+can exist; indeed, with a probabilistic metaweb, we can consider that the
+metaweb represents an aggregation of informative priors on the interactions.
 
-@Cirtwill2019QuaFra previously made the point that network inference techniques
-based on Bayesian approaches would perform far better in the presence of an
-interaction-level informative prior; the desirable properties of such a prior
-would be that it is expressed as a probability, preferably representing a
+Related to the last point, @Cirtwill2019QuaFra show that network inference
+techniques based on Bayesian approaches would perform far better in the presence
+of an interaction-level informative prior; the desirable properties of such a
+prior would be that it is expressed as a probability, preferably representing a
 Bernoulli event, the value of which would be representative of relevant
 biological processes (probability of predation in this case). We argue that the
 probability returned at the very last step of our framework may serve as this
@@ -573,9 +587,9 @@ relevant functional traits is facilitated by recent methodological developments
 [@Rosado2013GoiBac]. It should be noted that @Xing2021RisEco highlight
 phylogenetic relatedness as one of the core components of network comparison at
 the global scale. In this case study, we have embedded the original metaweb
-using t-SVD, because it lends itself to a RDPG reconstruction, which is known to
-capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo]; this
-being said, there are others ways to embed graphs [@Arsov2019NetEmb;
+using t-SVD, because it lends itself to an RDPG reconstruction, which is known
+to capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo];
+this being said, there are others ways to embed graphs [@Arsov2019NetEmb;
 @Cai2017ComSur; @Cao2019NetEmb], which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
