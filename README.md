@@ -122,15 +122,19 @@ combination of traits and phylogenetic structure [@Stock2021PaiLea].
 
 # Data used for the case study
 
-We use data from the European metaweb assembled by @Maiorano2020TetEu. We
-induced the subgraph corresponding to all mammals by matching species names in
-the original network to the GBIF taxonomic backbone [@GBIFSecretariat2021GbiBac]
-and retaining all those who matched to mammals. This serves a dual purpose 1) to
-extract only mammals from the European network and 2) to match and standardize
-species names when aggregating the different data sources further downstream
-(which is an important consideration when combining datasets
-[@Grenie2021HarTax]). All nodes had valid matches to GBIF at this step, and so
-this backbone is used for all name reconciliation steps as outlined below.
+We use data from the European metaweb assembled by @Maiorano2020TetEu.
+
+**TANYA TODO** description of the data
+
+We induced the subgraph corresponding to all mammals by matching species names
+in the original network to the GBIF taxonomic backbone
+[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
+This serves a dual purpose 1) to extract only mammals from the European network
+and 2) to match and standardize species names when aggregating the different
+data sources further downstream (which is an important consideration when
+combining datasets [@Grenie2021HarTax]). All nodes had valid matches to GBIF at
+this step, and so this backbone is used for all name reconciliation steps as
+outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 phylogenetic similarity of mammals here represents the information for transfer.
@@ -316,22 +320,29 @@ akin to a trait-based mammalian phylogeny using generality and vulnerability
 traits) and allows us to impute the missing (latent) trait data for the Canadian
 species that are not already in the European network; as we are focused on
 predicting contemporary interactions, we only retained the values for the tips
-of the tree. We assumed that all traits (*i.e.* the feature vectors for the
-left and right subspaces) were independent, which is a reasonable assumption as
-every trait/dimension added to the t-SVD has an *additive* effect to the one
-before it. Note that the @Upham2019InfMam tree itself has some uncertainty
-associated to inner nodes of the phylogeny. In this case study, we have decided
-to not propagate this uncertainty, as it would complexify the process. The
-Brownian motion algorithm returns the *average* value of the trait, and its
-upper and lower bounds. Because we do not estimate other parameters of the
-traits' distributions, we considered that every species trait is represented as
-a uniform distribution between these bounds; in a situation where the algorithm
-would return point values for all simulations, one could in theory either
-estimate the parameters of a distribution for each tip, or draw randomly from
-the outputs. In all cases, the inferred left and right sub-spaces for the
-Canadian species pool ($\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$) have entries
-that are distributions, representing the range of values for a given species at
-a given dimension.
+of the tree. We assumed that all traits (*i.e.* the feature vectors for the left
+and right subspaces) were independent, which is a reasonable assumption as every
+trait/dimension added to the t-SVD has an *additive* effect to the one before
+it. Note that the @Upham2019InfMam tree itself has some uncertainty associated
+to inner nodes of the phylogeny. In this case study, we have decided to not
+propagate this uncertainty, as it would complexify the process. The Brownian
+motion algorithm returns the *average* value of the trait, and its upper and
+lower bounds. Because we do not estimate other parameters of the traits'
+distributions, we considered that every species trait is represented as a
+uniform distribution between these bounds. The choice of the uniform
+distribution was made because the algorithm returns a minimum and maximum point
+estimate for the value, and given this information, the uniform distribution is
+the one with maximum entropy. Had all mean parameters estimates been positive,
+the exponential distribution would have been an alternative, but this is not the
+case for the subspaces of an RDPG. In order to examine the consequences of the
+choice of distribution, we estimated the variance per latent variable per node
+to use a normal distribution; as we show in Supp. Mat. 2, this decision results
+in dramatically over-estimating the number and probability of interactions, and
+therefore we keep the discussions in the main text to the uniform case. The
+inferred left and right sub-spaces for the Canadian species pool
+($\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$) have entries that are
+distributions, representing the range of values for a given species at a given
+dimension.
 
 These objects represent the transferred knowledge, which we can use for
 prediction of the Canadian metaweb.
