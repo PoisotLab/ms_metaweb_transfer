@@ -74,7 +74,7 @@ list of interactions (Step 4).](figures/figure-concept.png){#fig:concept}
 
 Our methodology is outlined in @fig:concept, where we provide an illustration
 based on learning the embedding of a metaweb of trophic interactions for
-European mammals [known interactions; @Maiorano2020TetEu; @Maiorano2020DatTet]
+European mammals [known interactions; @Maiorano2020Tet10; @Maiorano2020DatTet]
 and, based on phylogenetic relationships between mammals globally [*i.e.*,
 phylogenetic tree @Upham2019InfMam], infer a metaweb for the Canadian mammalian
 species pool (interactions are treated as unknown in this instance). Following
@@ -122,7 +122,7 @@ combination of traits and phylogenetic structure [@Stock2021PaiLea].
 
 # Data used for the case study
 
-We use data from the European metaweb assembled by @Maiorano2020TetEu.
+We use data from the European metaweb assembled by @Maiorano2020Tet10.
 
 **TANYA TODO** description of the data
 
@@ -146,7 +146,7 @@ in the phylogeny.
 The destination problem to which we want to transfer knowledge is the trophic
 interactions between mammals in Canada. We obtained the list of extant species
 from the IUCN checklist, and selected the terrestrial and semi-aquatic species
-(this corresponds to the same selection that was applied by @Maiorano2020TetEu
+(this corresponds to the same selection that was applied by @Maiorano2020Tet10
 in the European metaweb). The IUCN names were, as previously, reconciled against
 GBIF to have an exact match to the taxonomy.
 
@@ -297,7 +297,7 @@ appropriate threshold for probability, we performed the RDPG approach on the
 European metaweb, and evaluated the probability threshold by treating this as a
 binary classification problem, specifically assuming that both 0 and 1 in the
 European metaweb are all true. Given the methodological details given in
-@Maiorano2020TetEu and @OConnor2020UnvFoo, this seems like a reasonable
+@Maiorano2020Tet10 and @OConnor2020UnvFoo, this seems like a reasonable
 assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
 maximized Youden's $J$ statistic (a measure of the informedness (trust) of
