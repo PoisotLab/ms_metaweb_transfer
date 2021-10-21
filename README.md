@@ -183,6 +183,19 @@ model [hereafter RDPG; @Young2007RanDot] predicts the interaction between
 species through a function of the nodes' features through matrix multiplication.
 Thus, from latent traits and node position, we can infer interactions.
 
+The method we develop is, ecologically speaking, a "black box", *i.e.* an
+algorithm that can be understood mathematically, but whose component parts are
+not always directly tied to ecological processes. There is a growing realization
+in machine learning that (unintentional) black box algorithms are not
+necessarily a bad thing @Holm2019DefBla, as long as their constituent parts can
+be examined (which is the case with our method). But more importantly, data hold
+more information that we may thought; as such, even algorithms that are
+disconnected from the model can make correct guesses most of the time
+[@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting of
+spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
+information from the data) outperformed model-informed ones
+[@Perretti2013ModFor].
+
 ## Implementation and code availability
 
 The entire pipeline is implemented in *Julia* 1.6 [@Bezanson2017JulFre] and is
@@ -213,8 +226,12 @@ variables that can be combined into an approximation of the network adjacency
 matrix. RDPG results are known to have strong phylogenetic signal, and to
 capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]. In
 addition, recent advances show that the latent variables produced this way can
-be used to predict *de novo* network edges [*i.e.* interactions;
-@Runghen2021ExpNod].
+be used to predict *de novo* network edges. Interstingly, the latent variables
+do not need to be prouced by decomposing the network itself; in a recent
+contribution, @Runghen2021ExpNod show that deep artificial neural networks are
+able to reconstruct the left and right subspaces of a RDPG, in order to predict
+human movement networks from individual/location metadata. This is an exciting
+opportunity, as it opens up the possibility of using additional predictors.
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -499,19 +516,26 @@ reconstructed metaweb will predict interactions that are plausible based on the
 species' evolutionary history, however some interactions would not be realized
 due to human impact.
 
-@Dallas2017PreCry made the point that most links in ecological networks may be
-cryptic, *i.e.* uncommon or otherwise hard to observe. This argument essentially
-echoes @Jordano2016SamNet: the sampling of ecological interactions is difficult
-because it requires first the joint observation of two species, and then the
-observation of their interaction. In addition, it is generally expected that
-weak or rare links would be more common in networks [@Csermely2004StrLin],
-compared to strong, persistent links; this is notably the case in food chains,
-wherein many weaker links are key to the stability of a system
-[@Neutel2002StaRea]. In the light of these observations, the results in
-@fig:inflation are not particularly surprising: we expect to see a surge in
-these low-probability interactions under a model that has a good predictive
-accuracy. Because the predictions we generate are by design probabilistic, then
-one can weigh these rare links appropriately.
+@Dallas2017PreCry suggest that most links in ecological networks may be cryptic,
+*i.e.* uncommon or otherwise hard to observe. This argument essentially echoes
+@Jordano2016SamNet: the sampling of ecological interactions is difficult because
+it requires first the joint observation of two species, and then the observation
+of their interaction. In addition, it is generally expected that weak or rare
+links would be more common in networks [@Csermely2004StrLin], compared to
+strong, persistent links; this is notably the case in food chains, wherein many
+weaker links are key to the stability of a system [@Neutel2002StaRea]. In the
+light of these observations, the results in @fig:inflation are not particularly
+surprising: we expect to see a surge in these low-probability interactions under
+a model that has a good predictive accuracy. Because the predictions we generate
+are by design probabilistic, then one can weigh these rare links appropriately.
+In a sense, that most ecological interactions are elusive can call for a
+slightly different approach to sampling: once the common interactions are
+documented, the effort required in documenting each rare interaction may
+increase exponentially. Recent proposals suggest that machine learning
+algorithms, in these situations, can act as data generators
+[@Hoffmann2019MacLea]: in this perspective, high quality observational data can
+be supplemented with synthetic data coming from predictive models, which
+increases the volume of information available for inference.
 
 @Cirtwill2019QuaFra previously made the point that network inference techniques
 based on Bayesian approaches would perform far better in the presence of an
@@ -561,12 +585,14 @@ country tends to set goals at the national level [@Buxton2021KeyInf] for which
 quantitative instruments are designed [@Turak2017UsiEss], with specific
 strategies often enacted at smaller scales [@Ray2021BioCri]. Yet these national
 divisions, in large parts of the world, reflect nothing except for the legacy of
-settler colonialism, and operating under them must be done under the clear
-realization that they contributed to the ongoing biodiversity crisis
-[@Adam2014EleTre], can reinforce environmental injustice [@Choudry2013SavBio;
-@Dominguez2020DecCon], and on Turtle Island especially, will probably end up
-being replaced by Indigenous principles of land management [@Eichhorn2019SteDec;
-@Nokmaq2021AwaSle].
+settler colonialism; indeed, the use of ecological data is not an apolitical act
+[@Nost2021PolEco]. Operating under the framework of national boundaries, and
+relying on data infrastructures designed to answer questions within them, must
+be done under the clear realization that this logic contributed to the ongoing
+biodiversity crisis [@Adam2014EleTre], can reinforce environmental injustice
+[@Choudry2013SavBio; @Dominguez2020DecCon], and on Turtle Island especially,
+will probably end up being replaced by Indigenous principles of land management
+[@Eichhorn2019SteDec; @Nokmaq2021AwaSle].
 
 **Acknowledgements:** We acknowledge that this study was conducted on land
 within the traditional unceded territory of the Saint Lawrence Iroquoian,
