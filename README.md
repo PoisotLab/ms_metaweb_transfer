@@ -15,28 +15,49 @@ which impedes our ability to generalize any local understanding of network
 structure. Meaning that, although the framework to address incompleteness
 *within* networks exists, there would still be regions for which, due to a
 *lack* of local interaction data, we are unable to infer potential species
-interactions. Having a general solution for inferring a *plausible* metaweb
+interactions. Having a general solution for inferring *plausible* interactions
 (despite the unavailability of interaction data) could be the catalyst for
 significant breakthroughs in our ability to start thinking about species
-interaction networks over large spatial scales.
+interaction networks over large spatial scales. In a recent overview of the
+field of ecological network prediction, @Strydom2021RoaPre identified two
+challenges of interest to the prediction of interactions at large scales. First,
+there is a relative scarcity of relevant data in most places globally --
+paradoxically, this restricts our ability to infer interactions to locations
+where inference is perhaps the least required; second, accurate predictions
+often demand accurate predictors, and the lack of methods that can leverage
+small amount of data is a serious impediment to our predictive ability globally.
 
-Here, we present a general method for the transfer learning of network
-representations, relying on the similarities of species in a
-biologically/ecologically relevant proxy space (*e.g.* shared morphology or
-ancestry). Transfer learning is a machine learning methodology that uses the
-knowledge gained from solving one problem and applying it to a related
-(destination) problem [@Torrey2010TraLea; @Pan2010SurTra]. In this instance, we
-solve the problem of predicting trophic interactions between species, based on
-knowledge extracted from another species pool for which interactions are known
-by using phylogenetic structure as a medium for transfer. This allows us to
-construct a *probabilistic* metaweb for a community for which we have *no* prior
-trophic interaction data for the desired species pool. Our methodology is
-outlined in @fig:concept, where we provide an illustration based on learning the
-embedding of a metaweb of trophic interactions for European mammals [known
-interactions; @Maiorano2020TetEu; @Maiorano2020DatTet] and, based on
-phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
-@Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
-(interactions are treated as unknown in this instance).
+Here, we present a general method to recommend possible trophic interactions,
+relying on the transfer learning of network representations, specifically by
+using similarities of species in a biologically/ecologically relevant proxy
+space (*e.g.* shared morphology or ancestry). Transfer learning is a machine
+learning methodology that uses the knowledge gained from solving one problem and
+applying it to a related (destination) problem [@Torrey2010TraLea;
+@Pan2010SurTra]. In this instance, we solve the problem of predicting trophic
+interactions between species, based on knowledge extracted from another species
+pool for which interactions are known by using phylogenetic structure as a
+medium for transfer. There is a plurality of measures of species similarities
+that can be used for metaweb reconstruction [see *e.g.*
+@Morales-Castilla2015InfBio]; however, phylogenetic proximity has several
+desirable properties when working at large scales. @Gerhold2015PhyPat made the
+point that phylogenetic signal captures diversification of characters (large
+macro-evolutionary process), but not necessarily community assembly (fine
+ecological process); @Dormann2010EvoCli previously found very similar
+conclusions. Interactions tend reflect a phylogenetic signal because they have a
+conserved pattern of evolutionary convergence that encompasses a wide range of
+ecological and evolutionary mechanisms [@Mouquet2012EcoAdv;
+@Cavender-Bares2009MerCom], and - most importantly - retain this signal even
+when it is not detectable at the community scale [@Poisot2018IntRet;
+@Hutchinson2017CopSig]. Finally, species interactions at macro-ecological scales
+seem to respond mostly to macro-evolutionary processes [@Price2003MacThe]; which
+is evidenced by the presence of conserved backbones in food webs
+[@DallaRiva2016ExpEvo], strong evolutionary signature on prey choice
+[@Stouffer2012EvoCon], and strong phylogenetic signature in food web intervality
+[@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously been used
+within the context of ecological networks, namely understanding ancestral
+plant-insect interactions [@Braga2021PhyRec]. Taken together, these
+considerations suggest that phylogenies can reliably be used to transfer
+knowledge on species interactions.
 
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
@@ -51,60 +72,65 @@ traits (Step 3) to generate a probabilistic metaweb at the destination (here,
 assuming a uniform distribution of traits), and threshold it to yield the final
 list of interactions (Step 4).](figures/figure-concept.png){#fig:concept}
 
-There is a plurality of measures of species similarities that can be used for
-metaweb reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; however,
-phylogenetic proximity has several desirable properties when working at large
-scales. @Gerhold2015PhyPat made the point that phylogenetic signal captures
-diversification of characters (large macro-evolutionary process), but not
-necessarily community assembly (fine ecological process); @Dormann2010EvoCli
-previously found very similar conclusions. Interactions tend reflect a
-phylogenetic signal because they have a conserved pattern of evolutionary
-convergence that encompasses a wide range of ecological and evolutionary
-mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
-importantly - retain this signal even when it is not detectable at the community
-scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
-at macro-ecological scales seem to respond mostly to macro-evolutionary
-processes [@Price2003MacThe]; which is evidenced by the presence of conserved
-backbones in food webs [@DallaRiva2016ExpEvo], strong evolutionary signature on
-prey choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
-intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
-been used within the context of ecological networks, namely understanding
-ancestral plant-insect interactions [@Braga2021PhyRec]. Taken together, these
-considerations suggest that phylogenies can reliably be used to transfer
-knowledge on species interactions.
+Our methodology is outlined in @fig:concept, where we provide an illustration
+based on learning the embedding of a metaweb of trophic interactions for
+European mammals [known interactions; @Maiorano2020TetEu; @Maiorano2020DatTet]
+and, based on phylogenetic relationships between mammals globally [*i.e.*,
+phylogenetic tree @Upham2019InfMam], infer a metaweb for the Canadian mammalian
+species pool (interactions are treated as unknown in this instance). Following
+the definition of @Dunne2006NetStr, a metaweb is a network analogue to the
+concept of a regional species pool. Specifically, a metaweb is an inventory of
+all *possible* interactions within species likely to occurr within a spatially
+delimited area (the network $\gamma$-diversity, in a sense). The metaweb is,
+therefore, *not* a prediction of the food web at any specific locale within the
+frontiers of the spatial area it recovers, and will in fact have a different
+structure [notably by having a larger connectance; see *e.g.* @Wood2015EffSpa].
+These local food webs are expected to be a subset of both the species and the
+interactions of their metaweb, and have been called "metaweb realizations"
+[@Poisot2015SpeWhy]. The difference between a food web at a specific location
+and the metaweb has to do with a variety of mechanisms, including species
+co-occurrence, local environmental conditions, and local distribution of
+functional traits. Nevertheless, the metaweb represents the total of functional,
+phylogenetic, and macroecological processes [@Morales-Castilla2015InfBio], and
+therefore still holds valuable ecological information. Because the metaweb can
+be down-sampled given appropriate knowledge of local species composition (the
+network $\alpha$-diversity, in a sense), it is possible to infer what may drive
+the structure of food webs at finer spatial scales. This has been done for
+example for tree-gallers-parasitoid systems [@Gravel2018BriElt], fish trophic
+interactions [@Albouy2019MarFis], tetrapods trophic interactions
+[@OConnor2020UnvFoo], and crop-pests networks [@Grunig2020CroFor]. Whereas the
+original metaweb definition was based on presence/absence, we focus on
+*probabilistic* metawebs; not only does our method recommed interactions that
+may exist, it gives each interaction a score that is mathematically equivalent
+to the chance of success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro],
+which allows properly weigh interactions as a function of how likely they are.
 
-Our case study shows that phylogenetic transfer learning is indeed an effective
-approach to predict the Canadian mammalian metaweb. This showcases that although
-the components (species) that make up the Canadian and European communities may
-be *minimally* shared, if the medium (proxy space) selected in the transfer step
-is biologically plausible, we can still effectively learn from the known network
-and make biologically relevant predictions of interactions. It should be
-reiterated that the framework presented in @fig:concept is amenable to changes;
-notably, the measure of similarity may not be phylogeny, and can be replaced by
-information on foraging [@Beckerman2006ForBio], cell-level mechanisms
-[@Boeckaerts2021PreBac], or a combination of traits and phylogenetic structure
-[@Stock2021PaiLea].
+Our case study shows that phylogenetic transfer learning is an effective
+approach to the generation of probabilistic metawebs. This showcases that
+although the components (species) that make up the Canadian and European
+communities may be *minimally* shared (the overall species overlap is less than
+4%), if the medium (proxy space) selected in the transfer step is biologically
+plausible, we can still effectively learn from the known network and make
+biologically relevant predictions of interactions. Indeed, as we detail in the
+result, when validated against known but fracational data of trophic
+interactions between Canadian mammals, our model achieves a predictive accuracy
+of approx. 91%. It should be reiterated that the framework presented in
+@fig:concept is amenable to changes; notably, the measure of similarity may not
+be phylogeny, and can be replaced by information on foraging
+[@Beckerman2006ForBio], cell-level mechanisms [@Boeckaerts2021PreBac], or a
+combination of traits and phylogenetic structure [@Stock2021PaiLea].
 
 # Data used for the case study
 
-We use data from the European metaweb assembled by @Maiorano2020TetEu, following
-the definition of the metaweb first introduced by @Dunne2006NetStr, *i.e.* an
-inventory of all possible interactions within species from a spatially delimited
-pool. Notably the metaweb is not a prediction of the food web at any specific
-locale within the frontiers of the species pool -- in fact, these local food
-webs are expected to have a subset of both the species and the interactions of
-their metaweb [@Poisot2012DisSpe]. This being said, as the metaweb represents
-the total of functional, phylogenetic, and macroecological processes
-[@Morales-Castilla2015InfBio], it is thus still worthy of ecological attention.
-We deduced the subgraph corresponding to all mammals by matching species names
-in the original network to the GBIF taxonomic backbone
-[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
-This serves a dual purpose 1) to extract only mammals from the European network
-and 2) to match and standardize species names when aggregating the different
-data sources further downstream (which is an important consideration when
-combining datasets [@Grenie2021HarTax]). All nodes had valid matches to GBIF at
-this step, and so this backbone is used for all name reconciliation steps as
-outlined below.
+We use data from the European metaweb assembled by @Maiorano2020TetEu. We
+induced the subgraph corresponding to all mammals by matching species names in
+the original network to the GBIF taxonomic backbone [@GBIFSecretariat2021GbiBac]
+and retaining all those who matched to mammals. This serves a dual purpose 1) to
+extract only mammals from the European network and 2) to match and standardize
+species names when aggregating the different data sources further downstream
+(which is an important consideration when combining datasets
+[@Grenie2021HarTax]). All nodes had valid matches to GBIF at this step, and so
+this backbone is used for all name reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 phylogenetic similarity of mammals here represents the information for transfer.
@@ -472,6 +498,20 @@ filtered [@Morales-Castilla2015InfBio]. In practice (and in this instance) the
 reconstructed metaweb will predict interactions that are plausible based on the
 species' evolutionary history, however some interactions would not be realized
 due to human impact.
+
+@Dallas2017PreCry made the point that most links in ecological networks may be
+cryptic, *i.e.* uncommon or otherwise hard to observe. This argument essentially
+echoes @Jordano2016SamNet: the sampling of ecological interactions is difficult
+because it requires first the joint observation of two species, and then the
+observation of their interaction. In addition, it is generally expected that
+weak or rare links would be more common in networks [@Csermely2004StrLin],
+compared to strong, persistent links; this is notably the case in food chains,
+wherein many weaker links are key to the stability of a system
+[@Neutel2002StaRea]. In the light of these observations, the results in
+@fig:inflation are not particularly surprising: we expect to see a surge in
+these low-probability interactions under a model that has a good predictive
+accuracy. Because the predictions we generate are by design probabilistic, then
+one can weigh these rare links appropriately.
 
 @Cirtwill2019QuaFra previously made the point that network inference techniques
 based on Bayesian approaches would perform far better in the presence of an
