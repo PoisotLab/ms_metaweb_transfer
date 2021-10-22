@@ -62,15 +62,16 @@ knowledge on species interactions.
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
 representation through a graph embedding step (here, a truncated Singular Value
-Decomposition; Step 1), yielding a series of latent traits (vulnerability traits
-representing species at the lower trophic-level and generality traits
-representing species at higher trophic-levels; *sensu* @Schoener1989FooWeb);
-second, for the destination species pool, we perform ancestral character
-estimation using a phylogeny (here, using a Brownian model for the latent
-traits; Step 2); we then sample from the reconstructed distribution of latent
-traits (Step 3) to generate a probabilistic metaweb at the destination (here,
-assuming a uniform distribution of traits), and threshold it to yield the final
-list of interactions (Step 4).](figures/figure-concept.png){#fig:concept}
+Decomposition; Step 1), yielding a series of latent traits (latent vulnerability
+traits representing species at the lower trophic-level and latent generality
+traits representing species at higher trophic-levels; *sensu*
+@Schoener1989FooWeb); second, for the destination species pool, we perform
+ancestral character estimation using a phylogeny (here, using a Brownian model
+for the latent traits; Step 2); we then sample from the reconstructed
+distribution of latent traits (Step 3) to generate a probabilistic metaweb at
+the destination (here, assuming a uniform distribution of traits), and threshold
+it to yield the final list of interactions (Step
+4).](figures/figure-concept.png){#fig:concept}
 
 Our methodology is outlined in @fig:concept, where we provide an illustration
 based on learning the embedding of a metaweb of trophic interactions for
@@ -343,20 +344,20 @@ motion model, which is a conservative approach in the absence of strong
 hypotheses about the nature of phylogenetic signal in the network decomposition
 [@Litsios2012EffPhy]. This uses the estimated feature vectors for the European
 mammals to create a state reconstruction for all species (conceptually something
-akin to a trait-based mammalian phylogeny using generality and vulnerability
-traits) and allows us to impute the missing (latent) trait data for the Canadian
-species that are not already in the European network; as we are focused on
-predicting contemporary interactions, we only retained the values for the tips
-of the tree. We assumed that all traits (*i.e.* the feature vectors for the left
-and right subspaces) were independent, which is a reasonable assumption as every
-trait/dimension added to the t-SVD has an *additive* effect to the one before
-it. Note that the @Upham2019InfMam tree itself has some uncertainty associated
-to inner nodes of the phylogeny. In this case study, we have decided to not
-propagate this uncertainty, as it would complexify the process. The Brownian
-motion algorithm returns the *average* value of the trait, and its upper and
-lower bounds. Because we do not estimate other parameters of the traits'
-distributions, we considered that every species trait is represented as a
-uniform distribution between these bounds. The choice of the uniform
+akin to a trait-based mammalian phylogeny using latent generality and
+vulnerability traits) and allows us to impute the missing (latent) trait data
+for the Canadian species that are not already in the European network; as we are
+focused on predicting contemporary interactions, we only retained the values for
+the tips of the tree. We assumed that all traits (*i.e.* the feature vectors for
+the left and right subspaces) were independent, which is a reasonable assumption
+as every trait/dimension added to the t-SVD has an *additive* effect to the one
+before it. Note that the @Upham2019InfMam tree itself has some uncertainty
+associated to inner nodes of the phylogeny. In this case study, we have decided
+to not propagate this uncertainty, as it would complexify the process. The
+Brownian motion algorithm returns the *average* value of the trait, and its
+upper and lower bounds. Because we do not estimate other parameters of the
+traits' distributions, we considered that every species trait is represented as
+a uniform distribution between these bounds. The choice of the uniform
 distribution was made because the algorithm returns a minimum and maximum point
 estimate for the value, and given this information, the uniform distribution is
 the one with maximum entropy. Had all mean parameters estimates been positive,
@@ -404,7 +405,7 @@ this information to produce one random Canadian metaweb, $N =
 (@fig:subspaces) the European and Canadian metawebs are structurally similar (as
 would be expected given the biogeographic similarities) and the two (left and
 right) subspaces are distinct *i.e.* capturing predation (generality) and prey
-(vulnerability) traits.
+(vulnerability) latent traits.
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
