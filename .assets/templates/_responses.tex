@@ -1,0 +1,31 @@
+%!TEX TS-program = xelatex
+\documentclass[11pt]{article}
+
+${ _common() }
+${ _pandoc() }
+
+
+\renewenvironment{quote}{%
+  \list{}{%
+    \leftmargin1.5cm   % this is the adjusting screw
+    \rightmargin0cm
+  }
+  \item\relax
+  \small\color{blue}\sffamily{\bfseries Response:\,}
+}
+{\endlist}
+
+\geometry{includemp,
+            letterpaper,
+            top=1.0in,
+            bottom=2.510cm,
+            left=0.35in,
+            right=0.35in,
+            marginparwidth=2.0in,
+            marginparsep=0.35in}
+
+\begin{document}
+
+${ body }
+
+\end{document}

@@ -7,7 +7,7 @@ suppmat/suppmat.pdf: suppmat/01_svd_overfit.pdf suppmat/02_normal_overpredicts.p
 	pdfunite $^ $@
 
 response_to_reviewers.pdf: reviews/$(JRNL)/$(RVRND).md
-	pandoc $< -o $@
+	pandoc $< -o $@ --template=.assets/templates/_responses.tex
 
 suppmat/01_svd_overfit.pdf: suppmat/01_svd_overfit.md
 	pandoc $< -o $@
