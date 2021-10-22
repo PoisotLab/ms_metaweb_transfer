@@ -80,12 +80,12 @@ phylogenetic tree @Upham2019InfMam], infer a metaweb for the Canadian mammalian
 species pool (interactions are treated as unknown in this instance). Following
 the definition of @Dunne2006NetStr, a metaweb is a network analogue to the
 concept of a regional species pool. Specifically, a metaweb is an inventory of
-all *possible* interactions within species likely to occurr within a spatially
+all *possible* interactions within species likely to occur within a spatially
 delimited area (the network $\gamma$-diversity, in a sense). The metaweb is,
-therefore, *not* a prediction of the food web at any specific locale within the
-frontiers of the spatial area it recovers, and will in fact have a different
-structure [notably by having a larger connectance; see *e.g.* @Wood2015EffSpa].
-These local food webs are expected to be a subset of both the species and the
+therefore, *not* a prediction of the food web at a specific locale within the
+frontiers of the spatial area it covers, and will have a different structure
+[notably by having a larger connectance; see *e.g.* @Wood2015EffSpa]. These
+local food webs are expected to be a subset of both the species and the
 interactions of their metaweb, and have been called "metaweb realizations"
 [@Poisot2015SpeWhy]. The difference between a food web at a specific location
 and the metaweb has to do with a variety of mechanisms, including species
@@ -100,7 +100,7 @@ example for tree-gallers-parasitoid systems [@Gravel2018BriElt], fish trophic
 interactions [@Albouy2019MarFis], tetrapods trophic interactions
 [@OConnor2020UnvFoo], and crop-pests networks [@Grunig2020CroFor]. Whereas the
 original metaweb definition was based on presence/absence, we focus on
-*probabilistic* metawebs; not only does our method recommed interactions that
+*probabilistic* metawebs; not only does our method recommend interactions that
 may exist, it gives each interaction a score that is mathematically equivalent
 to the chance of success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro],
 which allows properly weigh interactions as a function of how likely they are.
@@ -112,7 +112,7 @@ communities may be *minimally* shared (the overall species overlap is less than
 4%), if the medium (proxy space) selected in the transfer step is biologically
 plausible, we can still effectively learn from the known network and make
 biologically relevant predictions of interactions. Indeed, as we detail in the
-result, when validated against known but fracational data of trophic
+results, when validated against known but fractional data of trophic
 interactions between Canadian mammals, our model achieves a predictive accuracy
 of approx. 91%. It should be reiterated that the framework presented in
 @fig:concept is amenable to changes; notably, the measure of similarity may not
@@ -133,7 +133,7 @@ includes all terrestrial tetrapods (mammals, breeding birds, reptiles and
 amphibians) occurring on the European sub-continent (and Turkey) - with the
 caveat that only species introduced in historical times and currently
 naturalized being included. This metaweb itself is a network of binary (*i.e.*
-presence-absence), potential 2-way interactions between species.
+presence-absence), potential two-way interactions between species.
 
 We induced the subgraph corresponding to all mammals by matching species names
 in the original network to the GBIF taxonomic backbone
@@ -201,9 +201,9 @@ The method we develop is, ecologically speaking, a "black box", *i.e.* an
 algorithm that can be understood mathematically, but whose component parts are
 not always directly tied to ecological processes. There is a growing realization
 in machine learning that (unintentional) black box algorithms are not
-necessarily a bad thing @Holm2019DefBla, as long as their constituent parts can
-be examined (which is the case with our method). But more importantly, data hold
-more information that we may thought; as such, even algorithms that are
+necessarily a bad thing [@Holm2019DefBla], as long as their constituent parts
+can be examined (which is the case with our method). But more importantly, data
+hold more information that we may thought; as such, even algorithms that are
 disconnected from the model can make correct guesses most of the time
 [@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting of
 spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
@@ -242,8 +242,8 @@ capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]; in other
 words, the latent variables of an RDPG can be mapped onto a phylogenetic tree,
 and phylogenetically close predators should share phylogenetically close preys.
 In addition, recent advances show that the latent variables produced this way
-can be used to predict *de novo* network edges. Interstingly, the latent
-variables do not need to be prouced by decomposing the network itself; in a
+can be used to predict *de novo* network edges. Interestingly, the latent
+variables do not need to be produced by decomposing the network itself; in a
 recent contribution, @Runghen2021ExpNod show that deep artificial neural
 networks are able to reconstruct the left and right subspaces of an RDPG, in
 order to predict human movement networks from individual/location metadata. This
@@ -327,9 +327,9 @@ accuracy above 0.99. In Supp. Mat. 1, we provide several lines of evidence that
 using the entire network to estimate the threshold does not lead to overfitting;
 that using a subset of species would yield the same threshold; that decreasing
 the quality of the original data by adding of removing interactions would
-minimally affect the predicive accuracy of RDPG applied to the European metaweb;
-and that the networks reconstructed from artifically modified data are
-reconstructured with the correct ecological properties.
+minimally affect the predictive accuracy of RDPG applied to the European
+metaweb; and that the networks reconstructed from artificially modified data are
+reconstructed with the correct ecological properties.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
@@ -451,17 +451,17 @@ that we are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
 Biotic Interactions (GLoBI) database [@Poelen2014GloBio], and extracted their
-known interactions. Because GLOBI aggregates observed interactions, it is not a
+known interactions. Because GLoBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
-This last statement should yet be taken with caution, as some sources in GLOBI
+This last statement should yet be taken with caution, as some sources in GLoBI
 [*e.g.* @Thessen2014KnoExt] are produced through text analysis, and therefore
 may not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known to
-GLOBI would also be predicted. We retrieved 366 interactions between mammals
-from the Canadian species pool from GLOBI, 33 of which were not predicted by the
+GLoBI would also be predicted. We retrieved 366 interactions between mammals
+from the Canadian species pool from GLoBI, 33 of which were not predicted by the
 model; this results in a success rate of 91%. After performing this check, we
-set the probability of all interactions known to GLOBI to 1.
+set the probability of all interactions known to GLoBI to 1.
 
 Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
@@ -640,7 +640,7 @@ prioritized. Although RDPG was able to maintain very high predictive power when
 interactions where missing, the addition of false positive interactions was
 immediately detected; this suggests that it may be appropriate to err on the
 side of "too many" interactions when constructing the initial metaweb to be
-transfered. The second series of problems are related to determining which area
+transferred. The second series of problems are related to determining which area
 should be used to infer the new metaweb in, as this determines the species pool
 that must be used. In our application, we focused on the mammals of Canada. The
 upside of this approach is that information at the country level is likely to be
@@ -649,10 +649,10 @@ each country tends to set goals at the national level [@Buxton2021KeyInf] for
 which quantitative instruments are designed [@Turak2017UsiEss], with specific
 strategies often enacted at smaller scales [@Ray2021BioCri]. And yet, we do not
 really have a satisfying answer to the question of "where does a food web
-stops?"; the current most satisfying solutions involve examining the spatial
+stop?"; the current most satisfying solutions involve examining the spatial
 consistency of network area relationships [see *e.g.* @Galiana2018SpaSca;
 @Galiana2019GeoVar; @Galiana2021SpaSca], which is of course impossible in the
-absence of enough information about the network itse;f. This suggests that an *a
+absence of enough information about the network itself. This suggests that an *a
 posteriori* refinement of the results may be required, based on a downscaling of
 the metaweb. The final family of problems relates less to the availability of
 data or quantitative tools, and more to the praxis of spatial ecology. Operating
