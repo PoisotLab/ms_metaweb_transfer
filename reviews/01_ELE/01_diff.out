@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section*.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section*.2}{Data used for the case study}{}% 2
+\BOOKMARK [1][-]{section*.3}{Method description}{}% 3
+\BOOKMARK [2][-]{section*.4}{Implementation and code availability}{section*.3}% 4
+\BOOKMARK [2][-]{section*.5}{Step 1: Learning the origin network representation}{section*.3}% 5
+\BOOKMARK [2][-]{section*.6}{Steps 2 and 3: Transfer learning through phylogenetic relatedness}{section*.3}% 6
+\BOOKMARK [2][-]{section*.7}{Step 4: Probabilistic prediction of the destination network}{section*.3}% 7
+\BOOKMARK [2][-]{section*.8}{Data cleanup, discovery, validation, and thresholding}{section*.3}% 8
+\BOOKMARK [1][-]{section*.9}{Results and discussion of the case study}{}% 9
+\BOOKMARK [1][-]{section*.10}{Discussion}{}% 10
+\BOOKMARK [1][-]{section*.11}{References}{}% 11
