@@ -118,7 +118,11 @@ of approx. 91%. It should be reiterated that the framework presented in
 @fig:concept is amenable to changes; notably, the measure of similarity may not
 be phylogeny, and can be replaced by information on foraging
 [@Beckerman2006ForBio], cell-level mechanisms [@Boeckaerts2021PreBac], or a
-combination of traits and phylogenetic structure [@Stock2021PaiLea].
+combination of traits and phylogenetic structure [@Stock2021PaiLea]. Most
+importantly, although we focus on a trophic system, it is an established fact
+that different types of interactions do themselves interact [see *e.g.*
+@Kawatsu2021AreNet; @Kefi2012MorMea]. Future development of metaweb inference
+techniques should cover the prediction of multiple interaction types.
 
 # Data used for the case study
 
@@ -165,14 +169,15 @@ the generation of a probabilistic metaweb for the destination species pool.
 
 # Method description
 
-The crux of the method is the transfer of knowledge of a known network, in order
-to predict interactions between species from another location. In @fig:concept,
-we give a high-level overview of the approach; in the example around which this
-manuscript is built (leveraging detailed knowledge about binary trophic
-interactions between Mammalia in Europe to predict the less known trophic
-interactions between closely phylogenetically related Mammalia in Canada), we
-use a series of specific steps for network embedding, trait inference, network
-prediction and thresholding.
+The core point of our method is the transfer of knowledge of a known ecological
+network, in order to predict interactions between species from another location
+at which the network is unknown (or partially known). In @fig:concept, we give a
+high-level overview of the approach; in the example around which this manuscript
+is built (leveraging detailed knowledge about binary trophic interactions
+between Mammalia in Europe to predict the less known trophic interactions
+between closely phylogenetically related Mammalia in Canada), we use a series of
+specific steps for network embedding, trait inference, network prediction and
+thresholding.
 
 Specifically, our approach can be summarized as follows: from the known network
 in Europe, we use a truncated Singular Value Decomposition [t-SVD;
@@ -228,14 +233,17 @@ predictions [*e.g.* @Albouy2019MarFis], in that the metaweb representation is
 easily transferable. Specifically, we use RDPG to create a number of latent
 variables that can be combined into an approximation of the network adjacency
 matrix. RDPG results are known to have strong phylogenetic signal, and to
-capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]. In
-addition, recent advances show that the latent variables produced this way can
-be used to predict *de novo* network edges. Interstingly, the latent variables
-do not need to be prouced by decomposing the network itself; in a recent
-contribution, @Runghen2021ExpNod show that deep artificial neural networks are
-able to reconstruct the left and right subspaces of an RDPG, in order to predict
-human movement networks from individual/location metadata. This is an exciting
-opportunity, as it opens up the possibility of using additional predictors.
+capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]; in other
+words, the latent variables of an RDPG can be mapped onto a phylogenetic tree,
+and phylogenetically close predators should share phylogenetically close preys.
+In addition, recent advances show that the latent variables produced this way
+can be used to predict *de novo* network edges. Interstingly, the latent
+variables do not need to be prouced by decomposing the network itself; in a
+recent contribution, @Runghen2021ExpNod show that deep artificial neural
+networks are able to reconstruct the left and right subspaces of an RDPG, in
+order to predict human movement networks from individual/location metadata. This
+is an exciting opportunity, as it opens up the possibility of using additional
+predictors.
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -245,17 +253,20 @@ prediction of the interactions within a single network [@Poisot2021ImpMam].
 Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
 thereof) is decomposed into three components resulting in $\mathbf{A} =
-\mathbf{L}\mathbf{\Sigma}\mathbf{R'}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
+\mathbf{U}\mathbf{\Sigma}\mathbf{V'}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
 diagonal matrix and contains only singular ($\sigma$) values along its diagonal,
-$\mathbf{L}$ is a $m \times m$ unitary matrix, and $\mathbf{R}'$ a $n \times n$
+$\mathbf{U}$ is a $m \times m$ unitary matrix, and $\mathbf{V}'$ a $n \times n$
 unitary matrix. Truncating the SVD removes additional noise in the dataset by
 omitting non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using
 the rank of the matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that
 $\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (whith $1 \le r \le
 r_{full}$ where $r_{full}$ is the full rank of $\mathbf{A}$ and $r$ the rank at
 which we truncate the matrix) containing only non-zero $\sigma$ values.
-Additionally, $\mathbf{L}$ is now a $m \times r$ semi unitary matrix and
-$\mathbf{R}'$ a $n \times r$ semi-unitary matrix.
+Additionally, $\mathbf{U}$ is now a $m \times r$ semi unitary matrix and
+$\mathbf{V}'$ a $n \times r$ semi-unitary matrix. As an aside, most ecologists
+are indirectly familiar with SVD: Principal Component Analysis is a special case
+of SVD, which is more sensitive to numerical instabilities [see notably
+@Shlens2014TutPri].
 
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
@@ -271,13 +282,18 @@ variance in the underlying data, corresponding to 12 dimensions - *i.e.* a
 tradeoff between accuracy and a reduced number of features.
 
 An RDPG estimates the probability of observing interactions between nodes
-(species) as a function of the nodes' latent variables. The latent variables
-used for the RDPG, called the left and right subspaces, are defined as
-$\mathscr{L} = \mathbf{L}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
-\sqrt{\mathbf{\Sigma}}\mathbf{R}$ -- using the full rank of $\mathbf{A}$,
-$\mathscr{L}\mathscr{R}' = \mathbf{A}$, and using any smaller rank results in
-$\mathscr{L}\mathscr{R}' \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
-provides a first-order approximation of the network.
+(species) as a function of the nodes' latent variables, and is a way to turn a
+SVD (which decompose a matrix intro three) into two matrices that can be
+multiplied to provide an approximation of the network. The latent variables used
+for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
+\mathbf{U}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
+\sqrt{\mathbf{\Sigma}}\mathbf{V}'$ -- using the full rank of $\mathbf{A}$,
+$\mathscr{L}\mathscr{R} = \mathbf{A}$, and using any smaller rank results in
+$\mathscr{L}\mathscr{R} \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
+provides a first-order approximation of the network. One advantage of using a
+RDPG rather than a SVD is that the number of components to estimate decreases;
+notably, one does not have to estimate the eigenvalues of the SVD. Furthermore,
+the two subspaces can be directly multiplied to yield a network.
 
 ![Left: representation of the screeplot of the singular values from the t-SVD on
 the European metaweb. The screeplot shows no obvious drop in the singular values
@@ -302,7 +318,13 @@ assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
 maximized Youden's $J$ statistic (a measure of the informedness (trust) of
 predictions; @Youden1950IndRat); the resulting cutoff was 0.22, and gave an
-accuracy above 0.99.
+accuracy above 0.99. In Supp. Mat. 1, we provide several lines of evidence that
+using the entire network to estimate the threshold does not lead to overfitting;
+that using a subset of species would yield the same threshold; that decreasing
+the quality of the original data by adding of removing interactions would
+minimally affect the predicive accuracy of RDPG applied to the European metaweb;
+and that the networks reconstructed from artifically modified data are
+reconstructured with the correct ecological properties.
 
 The left and right subspaces for the European metaweb, accompanied by the
 threshold for prediction, represent the knowledge we seek to transfer. In the
@@ -428,12 +450,13 @@ known interactions. Because GLOBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
 This last statement should yet be taken with caution, as some sources in GLOBI
-[*e.g.* @Thessen2014KnoExt] are produced through text analysis, and therefore may
-not document direct evidence of the interaction. Nevertheless, should the
+[*e.g.* @Thessen2014KnoExt] are produced through text analysis, and therefore
+may not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known to
-GLOBI would also be predicted. After performing this check, we set the
-probability of all interactions known to GLOBI (366 in total, 33 of which were
-not predicted by the model, for a success rate of 91%) to 1.
+GLOBI would also be predicted. We retrieved 366 interactions between mammals
+from the Canadian species pool from GLOBI, 33 of which were not predicted by the
+model; this results in a success rate of 91%. After performing this check, we
+set the probability of all interactions known to GLOBI to 1.
 
 Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
