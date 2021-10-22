@@ -126,9 +126,14 @@ techniques should cover the prediction of multiple interaction types.
 
 # Data used for the case study
 
-We use data from the European metaweb assembled by @Maiorano2020Tet10.
-
-**TANYA TODO** description of the data
+We use data from the European metaweb assembled by @Maiorano2020Tet10. This
+metaweb was assembled using data extracted from scientific literature (including
+published papers, books, and grey literature) from the last 50 years and
+includes all terrestrial tetrapods (mammals, breeding birds, reptiles and
+amphibians) occurring on the European sub-continent (and Turkey) - with the
+caveat that only species introduced in historical times and currently
+naturalized being included. This metaweb itself is a network of binary (*i.e.*
+presence-absence), potential 2-way interactions between species.
 
 We induced the subgraph corresponding to all mammals by matching species names
 in the original network to the GBIF taxonomic backbone
