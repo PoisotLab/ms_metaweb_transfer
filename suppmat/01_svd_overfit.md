@@ -17,7 +17,7 @@ randomly removed, randomly added, or both. We then define $\mathcal{l}$ and
 $\mathcal{r}$ as the left and right subspaces coming from the rank-12 RDPG
 applied to this network, and compare the original network $M$ to the one that
 was reconstructed after thresholding $\mathcal{l}\mathcal{r}$ by picking the
-cutoff that maximizes Youden's J measure.
+cutoff that maximizes Youden's *J* measure [@Youden1950IndRat].
 
 This last experiment allows measuring the response of various measures of fit of
 the binary classifier to incomplete sampling. We are specifically interested in
@@ -68,7 +68,7 @@ The stochasticity in the proportion of recovered interactions is larger when a
 small number of interactions are withheld, which makes sense as the *number* of
 interactions is far smaller (compared to the overall network size).
 
-Next , it is interesting to note that the threshold "adapts" to the amount of
+Next, it is interesting to note that the threshold "adapts" to the amount of
 missing information - the dashed line corresponds to the threshold we used in
 the manuscript. Adding interactions specifically did not result in an increase
 in the threshold, further suggesting that RDPG is extremely good at removing
