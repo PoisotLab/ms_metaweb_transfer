@@ -41,23 +41,11 @@ correct.
 
 ![](./figures/supplementary/sensibility_threshold_species.png)
 
-*Here relative richness can be viewed as the proportion of European species used
-to train the model. The shaded region represent the $\textbf{TK}$*
-
 More strikingly, looking at the rates of true/false positive/negative, as
 illustrated below, it is clear that RDPG can be thresholded in a way that yields
 an almost perfect classifier:
 
 ![](./figures/supplementary/sensibility_species.png)
-
-*True positives (TP) and negatives (TN) indicate when the model correctly
-predicts an interaction being present (TP) or absent (FP)whereas the opposite is
-true for false positives (FP) and negatives (FN) where the model predicts and
-interaction where the is none (FP) or misses an existing interaction (FN). Here
-we can see that even at low relative richness (% of species used for training)
-values we have a consistently high rate of true positives. We do however see a
-drop in the true negative rate as we go below ~60% of species retained - this is
-also reflected is the false positive rate*
 
 These results may be surprising, given that ecological models usually do not
 reach this degree of accuracy. That being said, we use the first 12 ranks of the
@@ -78,7 +66,6 @@ adding and removing interactions is in between the two scenarios.
 
 ![](./figures/supplementary/sensibility_recovery.png)
 
-**TODO**
 
 The stochasticity in the proportion of recovered interactions is larger when a
 small number of interactions are withheld, which makes sense as the *number* of
@@ -91,8 +78,6 @@ in the threshold, further suggesting that RDPG is extremely good at removing
 spurious interactions.
 
 ![](./figures/supplementary/sensibility_threshold.png)
-
-**TODO**
 
 The important consequence of this result is that training the RDPG on a
 sub-sample of the network (*i.e.* one missing interactions) would result in a
@@ -111,14 +96,10 @@ both adding and removing interactions.
 
 ![](./figures/supplementary/sensibility_rocauc.png)
 
-**TODO**
-
 The overall agreement between a classifier and the actual data can be measured
 by Cohen's $\kappa$, which gives a similar result.
 
 ![](./figures/supplementary/sensibility_kappa.png)
-
-**TODO**
 
 These two diagnostic figures reveal that, although we used a probably exhaustive
 list of interactions to do the initial RDPG, there are chances that the approach
@@ -133,8 +114,6 @@ broad relevant to food web structure) first:
 
 ![](./figures/supplementary/sensibility_connectance.png)
 
-**TODO**
-
 Connectance increases slightly when initial information is incomplete, but
 saturates at a value of around 0.12 -- this is still within the bounds of
 connectances expected for food webs.
@@ -144,8 +123,6 @@ and apparent competition ($(a,b) \rightarrow c$) motifs, as motifs are known to
 be conserved blocks in food webs:
 
 ![](./figures/supplementary/sensibility_motifs.png)
-
-**TODO**
 
 This ratio remains close to the real one up until 75% of initial interactions
 are modified.
