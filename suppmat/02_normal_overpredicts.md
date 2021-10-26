@@ -12,6 +12,9 @@ essentially rules out:
 
 ![](./figures/supplementary/comparison_models.png)
 
+*Probability of interaction estimates of the Normal model (N($\mu,\theta$))
+shown on the y-axis and Uniform model (U(m,M)) on the x-axis*
+
 This can lead to severe over-estimation of the number of interactions. In fact,
 the consequences of using a Normal model are obvious from looking at the
 adjacency matrices below: most of the interactions are predicted between species
@@ -19,30 +22,39 @@ that occupy the lower trophic level, and are ecologically unrealistic.
 
 ![](./figures/adjacencymatrices.png)
 
+**TODO?**
+
 This can be further revealed by looking at the connectance of the networks under
 different thresholds:
 
 ![](./figures/supplementary/comparison_connectance.png)
 
+**TODO**
+
 Although the Uniform model predicts a lot of interactions with extremely low
 probability, that are removed at a low threshold, the distribution of
-probabilities under the Normal model leads to extremely (abnormaly) high
-connectances even for threshdolds that are over twice as large as the optimal
+probabilities under the Normal model leads to extremely (abnormally) high
+connectances even for thresholds that are over twice as large as the optimal
 threshold determined in main text and Supp. Mat. 1.
 
 This has consequences for the overall network *structure*: specifically, the
-Normal model predicts a lot more top predators than we expect uner the uniform
+Normal model predicts a lot more top predators than we expect under the uniform
 model; rather than there being a progressive change in top-intermediate-bottom
-proportions as the threshold changes, there is ab abrupt shift at a threshold of
+proportions as the threshold changes, there is an abrupt shift at a threshold of
 about 0.6, which suggests that the Normal model is biased towards
 over-predicting most interactions with probabilities in the range $[0,0.6]$.
 
 ![](./figures/supplementary/comparison_tib.png)
 
+*Proportion of species at different trophic levels as a function of threshold
+values.*
+
 The same "jump" can be observed when looking at the distribution of food chain
 lengths:
 
 ![](./figures/supplementary/comparison_rophicchain.png)
+
+*Food chain lengths as a function of threshold values.*
 
 For these reasons, we only use predictions from the Uniform model in the main
 text.
