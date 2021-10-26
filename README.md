@@ -80,33 +80,26 @@ European mammals [known interactions; @Maiorano2020Tet10; @Maiorano2020DatTet]
 and, based on phylogenetic relationships between mammals globally [*i.e.*,
 phylogenetic tree @Upham2019InfMam], infer a metaweb for the Canadian mammalian
 species pool (interactions are treated as unknown in this instance). Following
-the definition of @Dunne2006NetStr, a metaweb is a network analogue to the
-concept of a regional species pool. Specifically, a metaweb is an inventory of
-all *possible* interactions within species likely to occur within a spatially
+the definition of @Dunne2006NetStr, a metaweb is a network analogue to the regional species pool; specifically, it is an inventory of
+all *possible* interactions between species from a spatially
 delimited area (and so captures the $\gamma$ diversity of interactions). The
 metaweb is, therefore, *not* a prediction of the food web at a specific locale
-within the frontiers of the spatial area it covers, and will have a different
+within the spatial area it covers, and will have a different
 structure [notably by having a larger connectance; see *e.g.* @Wood2015EffSpa].
-These local food webs are expected to be a subset of both the species and the
-interactions of their metaweb, and have been called "metaweb realizations"
-[@Poisot2015SpeWhy]. The difference between a food web at a specific location
-and the metaweb has to do with a variety of mechanisms, including species
+These local food webs (which captures the $\alpha$ diversity of interactions) are a subset of the metaweb's species and interactions, and have been called "metaweb realizations"
+[@Poisot2015SpeWhy]. Differences between local food web and their metaweb are due to chance, species
 co-occurrence, local environmental conditions, and local distribution of
-functional traits. Nevertheless, the metaweb represents the total of functional,
-phylogenetic, and macroecological processes [@Morales-Castilla2015InfBio], and
-therefore still holds valuable ecological information. Because the metaweb can
-be down-sampled given appropriate knowledge of local species composition
-(equivalent to the $\alpha$ diversity of interactions), it is possible
-to infer what may drive the structure of food webs at finer spatial scales. This
+functional traits, among others.
+
+Because the metaweb represents the joint effect of functional,
+phylogenetic, and macroecological processes [@Morales-Castilla2015InfBio], it holds valuable ecological information. Specifically, it is the "upper bounds" on what the composition of the local networks can be. These local networks, in turn, can be reconstructed given appropriate knowledge of local species composition, providing information on structure of food webs at finer spatial scales. This
 has been done for example for tree-gallers-parasitoid systems
-[@Gravel2018BriElt], fish trophic interactions [@Albouy2019MarFis], tetrapods
+[@Gravel2018BriElt], fishes trophic interactions [@Albouy2019MarFis], tetrapods
 trophic interactions [@OConnor2020UnvFoo], and crop-pests networks
-[@Grunig2020CroFor]. Whereas the original metaweb definition was based on
-presence/absence, we focus on *probabilistic* metawebs; not only does our method
-recommend interactions that may exist, it gives each interaction a score that is
-mathematically equivalent to the chance of success of a Bernoulli trial [see
-*e.g.* @Poisot2016StrPro], which allows properly weigh interactions as a
-function of how likely they are.
+[@Grunig2020CroFor]. Whereas the original metaweb definition, and indeed most past uses of metawebs, was based on
+presence/absence of interactions, we focus on *probabilistic* metawebs where interactions are represented as the chance of success of a Bernoulli trial [see
+*e.g.* @Poisot2016StrPro]; therefore, not only does our method
+recommend interactions that may exist, it gives each interaction a score, allowing to properly weigh them.
 
 Our case study shows that phylogenetic transfer learning is an effective
 approach to the generation of probabilistic metawebs. This showcases that
