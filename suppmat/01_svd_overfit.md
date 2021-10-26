@@ -12,12 +12,12 @@ information contained in the first 12 ranks of the network.
 Second, we extracted $\mathcal{L}$ and $\mathcal{R}$, the left and right
 subspace of the entire network, at rank 12. Then, for every number $n$ of
 interactions between 10 and $\text{links}(M)-1$ (where $M$ is the European
-metaweb), we define $m$ as a network in which $n$ interactions have been either
+metaweb), we define $m$ as a network in which $n$ interactions have either been
 randomly removed, randomly added, or both. We then define $\mathcal{l}$ and
 $\mathcal{r}$ as the left and right subspaces coming from the rank-12 RDPG
 applied to this network, and compare the original network $M$ to the one that
 was reconstructed after thresholding $\mathcal{l}\mathcal{r}$ by picking the
-cutoff that maximizes Youden's *J* measure [@Youden1950IndRat].
+cutoff that maximizes Youden's *J* measure (Youden, 1950).
 
 This last experiment allows measuring the response of various measures of fit of
 the binary classifier to incomplete sampling. We are specifically interested in
@@ -41,7 +41,8 @@ correct.
 
 ![](./figures/supplementary/sensibility_threshold_species.png)
 
-**TODO**
+*Here relative richness can be viewed as the proportion of European species used
+to train the model. The shaded region represent the $\textbf{TK}$*
 
 More strikingly, looking at the rates of true/false positive/negative, as
 illustrated below, it is clear that RDPG can be thresholded in a way that yields
@@ -66,12 +67,14 @@ attributed to leftover noise in the original dataset.
 
 ## RDPG recovers withheld interactions
 
-RDPG is able to correct almost all *added* interactions, which is very strong
-evidence that the metaweb produced using it are not going to contain too much
-spurious interactions. When *removing* interactions, even when half are missing,
-RDPG was able to accurately reconstruct about 75 to 80% of them. Predictably,
-the performance when both adding and removing interactions is in between the two
-scenarios.
+RDPG is able to correct almost all *added* interactions (*i.e.* they do not
+exist in the original European metaweb and could be viewed as false positives,
+in a sense), which is very strong evidence that the metaweb produced using it
+are not going to contain too much spurious interactions. When *removing*
+interactions (this could be viewed as interactions *not* observed in the field
+*i.e.* false negatives), even when half are missing, RDPG was able to accurately
+reconstruct about 75 to 80% of them. Predictably, the performance when both
+adding and removing interactions is in between the two scenarios.
 
 ![](./figures/supplementary/sensibility_recovery.png)
 
