@@ -55,17 +55,16 @@ attributed to leftover noise in the original dataset.
 
 ## RDPG recovers withheld interactions
 
-RDPG is able to correct almost all *added* interactions (here added interactions
-do not exist in the original European metaweb *i.e.* false positives), which is
-very strong evidence that the metaweb produced using it are not going to contain
-too much spurious interactions. When *removing* interactions (from a data stand
-point this could be viewed as interactions *not* observed in the field *i.e.*
-false negatives), even when half are missing, RDPG was able to accurately
+RDPG is able to correct almost all *added* interactions (added interactions were
+*not* originally present in the European metaweb and could be seen as
+introducing false positives to the data), which is very strong evidence that the
+metaweb produced using it are not going to contain too much spurious
+interactions. When *removing* interactions (*i.e.* introducing false negatives
+to the data), even when half are missing, RDPG was able to accurately
 reconstruct about 75 to 80% of them. Predictably, the performance when both
 adding and removing interactions is in between the two scenarios.
 
 ![](./figures/supplementary/sensibility_recovery.png)
-
 
 The stochasticity in the proportion of recovered interactions is larger when a
 small number of interactions are withheld, which makes sense as the *number* of
