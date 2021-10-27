@@ -106,7 +106,7 @@ trophic interactions [@OConnor2020UnvFoo], and crop-pest networks
 past uses of metawebs, was based on the presence/absence of interactions, we
 focus on *probabilistic* metawebs where interactions are represented as the
 chance of success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro];
-therefore, not only does our method recommend interactions that may exist, it
+therefore, not only does our method recommends interactions that may exist, it
 gives each interaction a score, allowing us to properly weigh them.
 
 Our case study shows that phylogenetic transfer learning is an effective
@@ -293,7 +293,7 @@ tradeoff between accuracy and a reduced number of features.
 
 An RDPG estimates the probability of observing interactions between nodes
 (species) as a function of the nodes' latent variables, and is a way to turn a
-SVD (which decompose a matrix intro three) into two matrices that can be
+SVD (which decomposes a matrix intro three) into two matrices that can be
 multiplied to provide an approximation of the network. The latent variables used
 for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
 \mathbf{U}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
@@ -302,15 +302,15 @@ $\mathscr{L}\mathscr{R} = \mathbf{A}$, and using any smaller rank results in
 $\mathscr{L}\mathscr{R} \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
 provides a first-order approximation of the network. One advantage of using a
 RDPG rather than a SVD is that the number of components to estimate decreases;
-notably, one does not have to estimate the eigenvalues of the SVD. Furthermore,
+notably, one does not have to estimate the singular values of the SVD. Furthermore,
 the two subspaces can be directly multiplied to yield a network.
 
-![Left: representation of the screeplot of the singular values from the t-SVD on
-the European metaweb. The screeplot shows no obvious drop in the singular values
+![Left: representation of the scree plot of the singular values from the t-SVD on
+the European metaweb. The scree plot shows no obvious drop in the singular values
 that may be leveraged to automatically detect a minimal dimension for embedding,
 after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
 each dimension up to the rank of the European metaweb. The grey lines represent
-cutoffs at 50, 60… 90% of variance explained. For the rest of the analysis, we
+cutoffs at 50, 60, …, 90% of variance explained. For the rest of the analysis, we
 reverted to an arbitrary threshold of 60% of variance explained, which
 represented a good tradeoff between accuracy and reduced number of
 features.](figures/figure-screeplot.png){#fig:scree}
@@ -371,7 +371,7 @@ choice of distribution, we estimated the variance per latent variable per node
 to use a Normal distribution; as we show in Supp. Mat. 2, this decision results
 in dramatically over-estimating the number and probability of interactions, and
 therefore we keep the discussions in the main text to the uniform case. The
-inferred left and right sub-spaces for the Canadian species pool
+inferred left and right subspaces for the Canadian species pool
 ($\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$) have entries that are
 distributions, representing the range of values for a given species at a given
 dimension.
@@ -392,7 +392,7 @@ independent, Bernoulli event of probability $p$.
 subspaces, alongside the adjacency matrix of the food web they encode
 (greyscale). The European metaweb is on the left, and the imputed Canadian
 metaweb (before data inflation) on the right. This figure illustrates how much
-structure the left sub-space captures. As we show in @fig:degree, the species
+structure the left subspace captures. As we show in @fig:degree, the species
 with a value of 0 in the left subspace are species without any
 prey.](figures/figure-subspaces.png){#fig:subspaces}
 
@@ -405,8 +405,8 @@ the entries in $\hat{\mathscr{l}}$ and $\hat{\mathscr{r}}$ are in the same space
 where $\mathscr{L}$ and $\mathscr{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
-\hat{\mathscr{L}}$$\hat{\mathscr{R}}' \ge \rho$. As we can see in
-(@fig:subspaces) the European and Canadian metawebs are structurally similar (as
+\hat{\mathscr{L}}\hat{\mathscr{R}}' \ge \rho$. As we can see in
+(@fig:subspaces), the European and Canadian metawebs are structurally similar (as
 would be expected given the biogeographic similarities) and the two (left and
 right) subspaces are distinct *i.e.* capturing predation (generality) and prey
 (vulnerability) latent traits.
@@ -423,8 +423,8 @@ species were predicted to interact in all $2\times 10^5$ random draws.
 It must be noted that despite bringing in a large amount of information from the
 European species pool and interactions, the Canadian metaweb has distinct
 structural properties. Following an approach similar to @Vermaat2009MajDim, we
-show in Supp. Mat. 3 that not only can we observed differences in a multivariate
-space between the European and Canadian metaweb, we can also observe differences
+show in Supp. Mat. 3 that not only can we observe differences in a multivariate
+space between the European and Canadian metawebs, we can also observe differences
 in the same space between random subgraphs from these networks. These results
 line up with the studies spatializing metawebs that have been discussed in the
 introduction: changes in the species pool are driving local structural changes
@@ -440,7 +440,7 @@ validate the predicted metaweb.
 ![Left, comparison of the probabilities of interactions assigned by the model to
 all interactions (grey curve), the subset of interactions found in GLOBI (red),
 and in the @Strong2014ImpNon Newfoundland dataset (blue). The model recovers
-more interaction with a low probability compared to data mining, which can
+more interactions with a low probability compared to data mining, which can
 suggest that collected datasets are biased towards more common or easy to
 identify interactions. Right, distribution of the in-degree and out-degree of
 the mammals from Canada in the reconstructed metaweb. This figure describes a
@@ -528,7 +528,7 @@ panel.](figures/figure-degree.png){#fig:degree}
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
-and predators. Importantly, this implies that a rank 1 approximation represents
+and predators for each species. Importantly, this implies that a rank 1 approximation represents
 the configuration model for the metaweb, *i.e.* a set of random networks
 generated from a given degree sequence [@Park2004StaMec]. Accounting for the
 probabilistic nature of the degrees, the rank 1 approximation also represents
@@ -623,7 +623,7 @@ phylogenetic relatedness as one of the core components of network comparison at
 the global scale. In this case study, we have embedded the original metaweb
 using t-SVD, because it lends itself to an RDPG reconstruction, which is known
 to capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo];
-this being said, there are others ways to embed graphs [@Arsov2019NetEmb;
+this being said, there are other ways to embed graphs [@Arsov2019NetEmb;
 @Cai2017ComSur; @Cao2019NetEmb], which can be used as alternatives.
 
 As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
@@ -643,7 +643,7 @@ which assumes that the $S^2$ interactions in a pool of $S$ species have been
 examined, either through literature surveys or expert elicitation. Supp. Mat. 1
 provides some guidance as to the type of sampling effort that should be
 prioritized. Although RDPG was able to maintain very high predictive power when
-interactions where missing, the addition of false positive interactions was
+interactions were missing, the addition of false positive interactions was
 immediately detected; this suggests that it may be appropriate to err on the
 side of "too many" interactions when constructing the initial metaweb to be
 transferred. The second series of problems are related to determining which area
@@ -685,7 +685,7 @@ can have.
 within the traditional unceded territory of the Saint Lawrence Iroquoian,
 Anishinabewaki, Mohawk, Huron-Wendat, and Omàmiwininiwak nations. TP, TS, DC,
 and LP received funding from the Canadian Institue for Ecology & Evolution. FB
-is funded by the Institut de Valorisation des Données. TS, SB, and TP are funded
+is funded by the Institute for Data Valorization (IVADO). TS, SB, and TP are funded
 by a donation from the Courtois Foundation. CB was awarded a Mitacs Elevate
 Fellowship no. IT12391, in partnership with fRI Research, and also acknowledges
 funding from Alberta Innovates and the Forest Resources Improvement Association
