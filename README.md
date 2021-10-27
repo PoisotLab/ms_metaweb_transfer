@@ -44,9 +44,9 @@ desirable properties when working at large scales. @Gerhold2015PhyPat made the
 point that phylogenetic signal captures diversification of characters (large
 macro-evolutionary process), but not necessarily community assembly (fine
 ecological process); @Dormann2010EvoCli previously found very similar
-conclusions. Interactions tend reflect a phylogenetic signal because they have a
-conserved pattern of evolutionary convergence that encompasses a wide range of
-ecological and evolutionary mechanisms [@Mouquet2012EcoAdv;
+conclusions. Interactions tend to reflect a phylogenetic signal because they
+have a conserved pattern of evolutionary convergence that encompasses a wide
+range of ecological and evolutionary mechanisms [@Mouquet2012EcoAdv;
 @Cavender-Bares2009MerCom], and - most importantly - retain this signal even
 when it is not detectable at the community scale [@Poisot2018IntRet;
 @Hutchinson2017CopSig]. Finally, species interactions at macro-ecological scales
@@ -113,14 +113,14 @@ Our case study shows that phylogenetic transfer learning is an effective
 approach to the generation of probabilistic metawebs. This showcases that
 although the components (species) that make up the Canadian and European
 communities may be *minimally* shared (the overall species overlap is less than
-4% *TK* *ref this result*), if the medium (proxy space) selected in the transfer
-step is biologically plausible, we can still effectively learn from the known
-network and make biologically relevant predictions of interactions. Indeed, as
-we detail in the results, when validated against known but fractional data of
-trophic interactions between Canadian mammals, our model achieves a predictive
-accuracy of approximately 91%. It should be reiterated that the framework
-presented in @fig:concept is amenable to changes; notably, the measure of
-similarity may not be phylogeny, and can be replaced by information on foraging
+4%), if the medium (proxy space) selected in the transfer step is biologically
+plausible, we can still effectively learn from the known network and make
+biologically relevant predictions of interactions. Indeed, as we detail in the
+results, when validated against known but fractional data of trophic
+interactions between Canadian mammals, our model achieves a predictive accuracy
+of approximately 91%. It should be reiterated that the framework presented in
+@fig:concept is amenable to changes; notably, the measure of similarity may not
+be phylogeny, and can be replaced by information on foraging
 [@Beckerman2006ForBio], cell-level mechanisms [@Boeckaerts2021PreBac], or a
 combination of traits and phylogenetic structure [@Stock2021PaiLea]. Most
 importantly, although we focus on a trophic system, it is an established fact
@@ -140,14 +140,14 @@ naturalized being included. This metaweb itself is a network of binary (*i.e.*
 presence-absence), potential two-way interactions between species.
 
 We induced the subgraph corresponding to all mammals by matching species names
-in the original network to the GBIF taxonomic backbone
-[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
-This serves a dual purpose 1) to extract only mammals from the European network
-and 2) to match and standardize species names when aggregating the different
-data sources further downstream (which is an important consideration when
-combining datasets [@Grenie2021HarTax]). All nodes had valid matches to GBIF at
-this step, and so this backbone is used for all name reconciliation steps as
-outlined below.
+in the original network to the Global Biodiversity Information Facility (GBIF)
+taxonomic backbone [@GBIFSecretariat2021GbiBac] and retaining all those who
+matched to mammals. This serves a dual purpose 1) to extract only mammals from
+the European network and 2) to match and standardize species names when
+aggregating the different data sources further downstream (which is an important
+consideration when combining datasets [@Grenie2021HarTax]). All nodes had valid
+matches to GBIF at this step, and so this backbone is used for all name
+reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 phylogenetic similarity of mammals here represents the information for transfer.
@@ -158,10 +158,11 @@ in the phylogeny.
 
 The destination problem to which we want to transfer knowledge is the trophic
 interactions between mammals in Canada. We obtained the list of extant species
-from the IUCN checklist, and selected the terrestrial and semi-aquatic species
-(this corresponds to the same selection that was applied by @Maiorano2020Tet10
-in the European metaweb). The IUCN names were, as previously, reconciled against
-GBIF to have an exact match to the taxonomy.
+from the International Union for Conservation of Nature (IUCN) checklist, and
+selected the terrestrial and semi-aquatic species (this corresponds to the same
+selection that was applied by @Maiorano2020Tet10 in the European metaweb). The
+IUCN names were, as previously, reconciled against GBIF to have an exact match
+to the taxonomy.
 
 After taxonomic cleaning and reconciliation as outlined in the following
 sections, the mammalian European metaweb has 260 species, and the Canadian
