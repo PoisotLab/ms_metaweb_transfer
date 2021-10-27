@@ -81,7 +81,7 @@ and, based on phylogenetic relationships between mammals globally [*i.e.*,
 phylogenetic tree @Upham2019InfMam], infer a metaweb for the Canadian mammalian
 species pool (interactions are treated as unknown in this instance). Following
 the definition of @Dunne2006NetStr, a metaweb is a network analogue to the
-regional species pool; specifically, it is an inventory of all *possible*
+regional species pool; specifically, it is an inventory of all *potential*
 interactions between species from a spatially delimited area (and so captures
 the $\gamma$ diversity of interactions). The metaweb is, therefore, *not* a
 prediction of the food web at a specific locale within the spatial area it
@@ -103,11 +103,11 @@ has been done for example for tree-galler-parasitoid systems
 [@Gravel2018BriElt], fish trophic interactions [@Albouy2019MarFis], tetrapod
 trophic interactions [@OConnor2020UnvFoo], and crop-pest networks
 [@Grunig2020CroFor]. Whereas the original metaweb definition, and indeed most
-past uses of metawebs, was based on presence/absence of interactions, we focus
-on *probabilistic* metawebs where interactions are represented as the chance of
-success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro]; therefore, not only
-does our method recommend interactions that may exist, it gives each interaction
-a score, allowing to properly weigh them.
+past uses of metawebs, was based on the presence/absence of interactions, we
+focus on *probabilistic* metawebs where interactions are represented as the
+chance of success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro];
+therefore, not only does our method recommend interactions that may exist, it
+gives each interaction a score, allowing us to properly weigh them.
 
 Our case study shows that phylogenetic transfer learning is an effective
 approach to the generation of probabilistic metawebs. This showcases that
@@ -130,24 +130,24 @@ techniques should cover the prediction of multiple interaction types.
 
 # Data used for the case study
 
-We use data from the European metaweb assembled by @Maiorano2020Tet10. This
-metaweb was assembled using data extracted from scientific literature (including
-published papers, books, and grey literature) from the last 50 years and
-includes all terrestrial tetrapods (mammals, breeding birds, reptiles and
-amphibians) occurring on the European sub-continent (and Turkey) - with the
-caveat that only species introduced in historical times and currently
-naturalized being included. This metaweb itself is a network of binary (*i.e.*
-presence-absence), potential two-way interactions between species.
+We use data from the European metaweb assembled by @Maiorano2020Tet10. This was
+assembled using data extracted from scientific literature (including published
+papers, books, and grey literature) from the last 50 years and includes all
+terrestrial tetrapods (mammals, breeding birds, reptiles and amphibians)
+occurring on the European sub-continent (and Turkey) - with the caveat that only
+species introduced in historical times and currently naturalized being included.
+This metaweb itself is a network of binary (*i.e.* presence/absence), potential
+two-way interactions between species pairs.
 
-We induced the subgraph corresponding to all mammals by matching species names
-in the original network to the Global Biodiversity Information Facility (GBIF)
-taxonomic backbone [@GBIFSecretariat2021GbiBac] and retaining all those who
-matched to mammals. This serves a dual purpose 1) to extract only mammals from
-the European network and 2) to match and standardize species names when
-aggregating the different data sources further downstream (which is an important
-consideration when combining datasets [@Grenie2021HarTax]). All nodes had valid
-matches to GBIF at this step, and so this backbone is used for all name
-reconciliation steps as outlined below.
+We induced the subgraph of the European metaweb corresponding to all mammals by
+matching species names in the original network to the Global Biodiversity
+Information Facility (GBIF) taxonomic backbone [@GBIFSecretariat2021GbiBac] and
+retaining all those who matched to mammals. This serves a dual purpose 1) to
+extract only mammals from the European network and 2) to match and standardize
+species names when aggregating the different data sources further downstream
+(which is an important consideration when combining datasets
+[@Grenie2021HarTax]). All nodes had valid matches to GBIF at this step, and so
+this backbone is used for all name reconciliation steps as outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
 phylogenetic similarity of mammals here represents the information for transfer.
