@@ -194,15 +194,18 @@ thresholding.
 Specifically, our approach can be summarized as follows: from the known network
 in Europe, we use a truncated Singular Value Decomposition [t-SVD;
 @Halko2011FinStr] to generate latent traits representing a low-dimensional
-embedding of the network; these traits give an unbiased estimate of the node's
-position in the latent feature spaces. Then, we map these latent traits onto a
-reference phylogeny (other distance-based measures of species proximity that
-allow for the inference of features in the latent space can be used, for example
-the dissimilarity in functional traits). Based on the reconstructed latent
-traits for species in the destination species pool, a Random Dot Product Graph
-model [hereafter RDPG; @Young2007RanDot] predicts the interaction between
-species through a function of the nodes' features through matrix multiplication.
-Thus, from latent traits and node position, we can infer interactions.
+embedding of the network. As an aside, most ecologists are indirectly familiar
+with SVD: Principal Component Analysis is a special case of SVD, which is more
+sensitive to numerical instabilities [see notably @Shlens2014TutPri]. The latnet
+traits give an unbiased estimate of the node's position in the latent feature
+spaces and can be mapped onto a reference phylogeny (other distance-based
+measures of species proximity that allow for the inference of features in the
+latent space can be used, for example the dissimilarity in functional traits).
+Based on the reconstructed latent traits for species in the destination species
+pool, a Random Dot Product Graph model [hereafter RDPG; @Young2007RanDot]
+predicts the interaction between species through a function of the nodes'
+features through matrix multiplication. Thus, from latent traits and node
+position, we can infer interactions.
 
 The method we develop is, ecologically speaking, a "black box", *i.e.* an
 algorithm that can be understood mathematically, but whose component parts are
@@ -275,10 +278,7 @@ $\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (whith $1 \le r \le
 r_{full}$ where $r_{full}$ is the full rank of $\mathbf{A}$ and $r$ the rank at
 which we truncate the matrix) containing only non-zero $\sigma$ values.
 Additionally, $\mathbf{U}$ is now a $m \times r$ semi unitary matrix and
-$\mathbf{V}'$ a $n \times r$ semi-unitary matrix. As an aside, most ecologists
-are indirectly familiar with SVD: Principal Component Analysis is a special case
-of SVD, which is more sensitive to numerical instabilities [see notably
-@Shlens2014TutPri].
+$\mathbf{V}'$ a $n \times r$ semi-unitary matrix.
 
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
