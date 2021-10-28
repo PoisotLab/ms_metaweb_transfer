@@ -196,7 +196,7 @@ in Europe, we use a truncated Singular Value Decomposition [t-SVD;
 @Halko2011FinStr] to generate latent traits representing a low-dimensional
 embedding of the network. As an aside, most ecologists are indirectly familiar
 with SVD: Principal Component Analysis is a special case of SVD, which is more
-sensitive to numerical instabilities [see notably @Shlens2014TutPri]. The latnet
+sensitive to numerical instabilities [see notably @Shlens2014TutPri]. The latent
 traits give an unbiased estimate of the node's position in the latent feature
 spaces and can be mapped onto a reference phylogeny (other distance-based
 measures of species proximity that allow for the inference of features in the
