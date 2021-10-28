@@ -35,7 +35,7 @@
         },
         {
             "affiliations": [
-                "Department of Forest Resources Management, University of British Columbia, Vancouver, Canada"
+                "Department of Forest Resources Management, University of British Columbia, Vancouver, B.C., Canada"
             ],
             "familyname": "Barros",
             "givennames": "Ceres",
@@ -129,7 +129,7 @@
             "status": ["corresponding"]
         }
     ],
-    "abstract": "Despite their importance in many ecological processes, collecting data and information on ecological interactions is an exceedingly challenging task. For this reason, large parts of the world have a data deficit when it comes to species interactions, and how the resulting networks are structured. As data collection alone is unlikely to be sufficient, community ecologists must adopt predictive methods. Here, we develop such a method relying on graph embedding and transfer learning to assemble a predicted list of trophic interactions between Canadian mammals. This interaction list is derived from the European food web, despite sharing only 5% of common species with Canada. The results of the predictive model are compared against databases of recorded pairwise interactions, showing that we correctly recover over 95% of known interactions. We provide guidance on how this method can be adapted by substituting some approaches or predictors in order to make it more generally applicable.",    
+    "abstract": "Despite their importance in many ecological processes, collecting data and information on ecological interactions is an exceedingly challenging task. For this reason, large parts of the world have a data deficit when it comes to species interactions, and how the resulting networks are structured. As data collection alone is unlikely to be sufficient, community ecologists must adopt predictive methods. Here, we develop such a method relying on graph embedding and transfer learning to assemble a predicted list of trophic interactions between Canadian mammals. This interaction list is derived from the European food web, despite sharing 4% of common species with Canada. The results of the predictive model are compared against databases of recorded pairwise interactions, showing that we correctly recover 91% of known interactions. We provide guidance on how this method can be adapted by substituting some approaches or predictors in order to make it more generally applicable.",    
     "keywords": [
         "ecological networks",
         "network embedding",
