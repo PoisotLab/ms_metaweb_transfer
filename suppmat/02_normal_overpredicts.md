@@ -26,14 +26,14 @@ different thresholds:
 
 Although the Uniform model predicts a lot of interactions with extremely low
 probability, that are removed at a low threshold, the distribution of
-probabilities under the Normal model leads to extremely (abnormaly) high
-connectances even for threshdolds that are over twice as large as the optimal
+probabilities under the Normal model leads to extremely (abnormally) high
+connectances even for thresholds that are over twice as large as the optimal
 threshold determined in main text and Supp. Mat. 1.
 
 This has consequences for the overall network *structure*: specifically, the
-Normal model predicts a lot more top predators than we expect uner the uniform
+Normal model predicts a lot more top predators than we expect under the uniform
 model; rather than there being a progressive change in top-intermediate-bottom
-proportions as the threshold changes, there is ab abrupt shift at a threshold of
+proportions as the threshold changes, there is an abrupt shift at a threshold of
 about 0.6, which suggests that the Normal model is biased towards
 over-predicting most interactions with probabilities in the range $[0,0.6]$.
 

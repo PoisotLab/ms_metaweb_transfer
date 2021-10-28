@@ -12,12 +12,12 @@ information contained in the first 12 ranks of the network.
 Second, we extracted $\mathcal{L}$ and $\mathcal{R}$, the left and right
 subspace of the entire network, at rank 12. Then, for every number $n$ of
 interactions between 10 and $\text{links}(M)-1$ (where $M$ is the European
-metaweb), we define $m$ as a network in which $n$ interactions have been either
+metaweb), we define $m$ as a network in which $n$ interactions have either been
 randomly removed, randomly added, or both. We then define $\mathcal{l}$ and
 $\mathcal{r}$ as the left and right subspaces coming from the rank-12 RDPG
 applied to this network, and compare the original network $M$ to the one that
 was reconstructed after thresholding $\mathcal{l}\mathcal{r}$ by picking the
-cutoff that maximizes Youden's J measure.
+cutoff that maximizes Youden's *J* measure (Youden, 1950).
 
 This last experiment allows measuring the response of various measures of fit of
 the binary classifier to incomplete sampling. We are specifically interested in
@@ -28,7 +28,7 @@ realistic data when interactions are withheld.
 
 ## Threshold estimation is robust to species sub-sampling
 
-In the initial experiment, we witheld an increasing number of species from the
+In the initial experiment, we withheld an increasing number of species from the
 European metaweb, ranging from 20% for training and 80% for validation, to 90%
 for training and 10% for validation. Surprisingly, the estimation of the
 threshold, here presented as the mean and standard deviation of 50 folds for
@@ -55,12 +55,14 @@ attributed to leftover noise in the original dataset.
 
 ## RDPG recovers withheld interactions
 
-RDPG is able to correct almost all *added* interactions, which is very strong
-evidence that the metaweb produced using it are not going to contain too much
-spurious interactions. When *removing* interactions, even when half are missing,
-RDPG was able to accurately reconstruct about 75 to 80% of them. Predictibly,
-the performance when both adding and removing interactions is in between the two
-scenarios.
+RDPG is able to correct almost all *added* interactions (added interactions were
+*not* originally present in the European metaweb and could be seen as
+introducing false positives to the data), which is very strong evidence that the
+metaweb produced using it are not going to contain too much spurious
+interactions. When *removing* interactions (*i.e.* introducing false negatives
+to the data), even when half are missing, RDPG was able to accurately
+reconstruct about 75 to 80% of them. Predictably, the performance when both
+adding and removing interactions is in between the two scenarios.
 
 ![](./figures/supplementary/sensibility_recovery.png)
 
@@ -68,7 +70,7 @@ The stochasticity in the proportion of recovered interactions is larger when a
 small number of interactions are withheld, which makes sense as the *number* of
 interactions is far smaller (compared to the overall network size).
 
-Next , it is interesting to note that the threshold "adapts" to the amount of
+Next, it is interesting to note that the threshold "adapts" to the amount of
 missing information - the dashed line corresponds to the threshold we used in
 the manuscript. Adding interactions specifically did not result in an increase
 in the threshold, further suggesting that RDPG is extremely good at removing
@@ -93,7 +95,8 @@ both adding and removing interactions.
 
 ![](./figures/supplementary/sensibility_rocauc.png)
 
-The overall agreement between a classifier and the actual data can be measured by Cohen's $\kappa$, which gives a similar result.
+The overall agreement between a classifier and the actual data can be measured
+by Cohen's $\kappa$, which gives a similar result.
 
 ![](./figures/supplementary/sensibility_kappa.png)
 
@@ -103,7 +106,10 @@ would work on less complete datasets.
 
 ## RDPG recreates ecologically realistic networks
 
-In this section, we present the relationship between the empirical measure of the network structure (dashed line) and the reconstructed estimate based on RDPG after the optimal threshold has been applied. We focus on connectance (for its broad relevant to food web structure) first:
+In this section, we present the relationship between the empirical measure of
+the network structure (dashed line) and the reconstructed estimate based on RDPG
+after the optimal threshold has been applied. We focus on connectance (for its
+broad relevant to food web structure) first:
 
 ![](./figures/supplementary/sensibility_connectance.png)
 
@@ -112,7 +118,8 @@ saturates at a value of around 0.12 -- this is still within the bounds of
 connectances expected for food webs.
 
 Next, we look at the ratio between direct competition ($a \rightarrow (b,c)$)
-and apparent competition ($(a,b) \rightarrow c$) motifs, as motifs are known to be conserved blocks in food webs:
+and apparent competition ($(a,b) \rightarrow c$) motifs, as motifs are known to
+be conserved blocks in food webs:
 
 ![](./figures/supplementary/sensibility_motifs.png)
 
