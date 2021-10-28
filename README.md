@@ -16,7 +16,7 @@ generalize any local understanding of network structure. Meaning that, although
 the framework to address incompleteness *within* networks exists, there would
 still be regions for which, due to a *lack* of local interaction data, we are
 unable to infer potential species interactions. Having a general solution for
-inferring *plausible* interactions (despite the unavailability of interaction
+inferring *potential* interactions (despite the unavailability of interaction
 data) could be the catalyst for significant breakthroughs in our ability to
 start thinking about species interaction networks over large spatial scales. In
 a recent overview of the field of ecological network prediction,
@@ -25,10 +25,10 @@ interactions at large scales. First, there is a relative scarcity of relevant
 data in most places globally -- paradoxically, this restricts our ability to
 infer interactions to locations where inference is perhaps the least required;
 second, accurate predictions often demand accurate predictors, and the lack of
-methods that can leverage small amount of data **TK** *exact quantification on
-exactly how small?* is a serious impediment to our predictive ability globally.
+methods that can leverage small amount of data is a serious impediment to our
+predictive ability globally.
 
-Here, we present a general method to recommend possible trophic interactions,
+Here, we present a general method to recommend potential trophic interactions,
 relying on the transfer learning of network representations, specifically by
 using similarities of species in a biologically/ecologically relevant proxy
 space (*e.g.* shared morphology or ancestry). Transfer learning is a machine
@@ -90,8 +90,8 @@ connectance; see *e.g.* @Wood2015EffSpa]. These local food webs (which captures
 the $\alpha$ diversity of interactions) are a subset of the metaweb's species
 and interactions, and have been called "metaweb realizations"
 [@Poisot2015SpeWhy]. Differences between local food web and their metaweb are
-due to chance, species co-occurrence, local environmental conditions, and local
-distribution of functional traits, among others.
+due to chance, species abundance and co-occurrence, local environmental
+conditions, and local distribution of functional traits, among others.
 
 Because the metaweb represents the joint effect of functional, phylogenetic, and
 macroecological processes [@Morales-Castilla2015InfBio], it holds valuable
@@ -124,9 +124,10 @@ be phylogeny, and can be replaced by information on foraging
 [@Beckerman2006ForBio], cell-level mechanisms [@Boeckaerts2021PreBac], or a
 combination of traits and phylogenetic structure [@Stock2021PaiLea]. Most
 importantly, although we focus on a trophic system, it is an established fact
-that different types of interactions do themselves interact [see *e.g.*
-@Kawatsu2021AreNet; @Kefi2012MorMea]. Future development of metaweb inference
-techniques should cover the prediction of multiple interaction types.
+that different (non-trophic) interactions do themselves interact with and
+influence the outcome of trophic interactions [see *e.g.* @Kawatsu2021AreNet;
+@Kefi2012MorMea]. Future development of metaweb inference techniques should
+cover the prediction of multiple interaction types.
 
 # Data used for the case study
 
@@ -139,22 +140,23 @@ species introduced in historical times and currently naturalized being included.
 This metaweb itself is a network of binary (*i.e.* presence/absence), potential
 two-way interactions between species pairs.
 
-We induced the subgraph of the European metaweb corresponding to all mammals by
-matching species names in the original network to the Global Biodiversity
-Information Facility (GBIF) taxonomic backbone [@GBIFSecretariat2021GbiBac] and
-retaining all those who matched to mammals. This serves a dual purpose 1) to
-extract only mammals from the European network and 2) to match and standardize
-species names when aggregating the different data sources further downstream
-(which is an important consideration when combining datasets
-[@Grenie2021HarTax]). All nodes had valid matches to GBIF at this step, and so
-this backbone is used for all name reconciliation steps as outlined below.
+We filtered down the European metaweb to create a subgraph corresponding to all
+mammals by matching species names in the original network to the Global
+Biodiversity Information Facility (GBIF) taxonomic backbone
+[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
+This serves a dual purpose 1) to extract only mammals from the European network
+and 2) to match and standardize species names when aggregating the different
+data sources further downstream (which is an important consideration when
+combining datasets [@Grenie2021HarTax]). All nodes had valid matches to GBIF at
+this step, and so this backbone is used for all name reconciliation steps as
+outlined below.
 
 The European metaweb represents the knowledge we want to learn and transfer; the
-phylogenetic similarity of mammals here represents the information for transfer.
-We used the mammalian consensus supertree by @Upham2019InfMam, for which all
-approximatively 6000 names have been similarly matched to their GBIF valid
-names. This step allows us to place each node of the mammalian European metaweb
-in the phylogeny.
+phylogenetic similarity of mammals here represents the information for transfer
+(*i.e.* the transfer medium). We used the mammalian consensus supertree by
+@Upham2019InfMam, for which all approximatively 6000 names have been similarly
+matched to their GBIF valid names. This step allows us to place each node of the
+mammalian European metaweb in the phylogeny.
 
 The destination problem to which we want to transfer knowledge is the trophic
 interactions between mammals in Canada. We obtained the list of extant species
@@ -208,7 +210,7 @@ not always directly tied to ecological processes. There is a growing realization
 in machine learning that (unintentional) black box algorithms are not
 necessarily a bad thing [@Holm2019DefBla], as long as their constituent parts
 can be examined (which is the case with our method). But more importantly, data
-hold more information that we may thought; as such, even algorithms that are
+hold more information than we might think; as such, even algorithms that are
 disconnected from the model can make correct guesses most of the time
 [@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting of
 spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
@@ -245,15 +247,15 @@ variables that can be combined into an approximation of the network adjacency
 matrix. RDPG results are known to have strong phylogenetic signal, and to
 capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]; in other
 words, the latent variables of an RDPG can be mapped onto a phylogenetic tree,
-and phylogenetically close predators should share phylogenetically close preys.
-In addition, recent advances show that the latent variables produced this way
-can be used to predict *de novo* network edges. Interestingly, the latent
+and phylogenetically similar predators should share phylogenetically similar
+preys. In addition, recent advances show that the latent variables produced this
+way can be used to predict *de novo* network edges. Interestingly, the latent
 variables do not need to be produced by decomposing the network itself; in a
 recent contribution, @Runghen2021ExpNod showed that deep artificial neural
 networks are able to reconstruct the left and right subspaces of an RDPG, in
 order to predict human movement networks from individual/location metadata. This
 is an exciting opportunity, as it opens up the possibility of using additional
-predictors.
+metadata as predictors.
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -293,7 +295,7 @@ tradeoff between accuracy and a reduced number of features.
 
 An RDPG estimates the probability of observing interactions between nodes
 (species) as a function of the nodes' latent variables, and is a way to turn a
-SVD (which decompose a matrix intro three) into two matrices that can be
+SVD (which decompose one matrix into three) into two matrices that can be
 multiplied to provide an approximation of the network. The latent variables used
 for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
 \mathbf{U}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
@@ -304,6 +306,7 @@ provides a first-order approximation of the network. One advantage of using a
 RDPG rather than a SVD is that the number of components to estimate decreases;
 notably, one does not have to estimate the singular values of the SVD. Furthermore,
 the two subspaces can be directly multiplied to yield a network.
+
 
 ![Left: representation of the scree plot of the singular values from the t-SVD on
 the European metaweb. The scree plot shows no obvious drop in the singular values
@@ -567,8 +570,8 @@ macro-evolutionary history, especially as RDPG captures ecological signal
 is intended as a catalogue of all possible interactions, which should then be
 filtered [@Morales-Castilla2015InfBio]. In practice (and in this instance) the
 reconstructed metaweb will predict interactions that are plausible based on the
-species' evolutionary history, however some interactions would not be realized
-due to human impact.
+species' evolutionary history, however some interactions would/would not be
+realized due to human impact.
 
 @Dallas2017PreCry suggested that most links in ecological networks may be
 cryptic, *i.e.* uncommon or otherwise hard to observe. This argument essentially
@@ -634,7 +637,7 @@ and transfer. If the initial metaweb is too narrow in scope, notably from a
 taxonomic point of view, the chances of finding another area with enough related
 species to make a reliable inference decreases; this would likely be indicated
 by large confidence intervals during ancestral character estimation, but the
-lack of well documented metawebs is currently preventing from developing more
+lack of well documented metawebs is currently preventing the development of more
 concrete guidelines. The question of phylogenetic relatedness and dispersal is
 notably true if the metaweb is assembled in an area with mostly endemic species,
 and as with every predictive algorithm, there is room for the application of our
