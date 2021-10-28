@@ -64,11 +64,11 @@ knowledge on species interactions.
 interactions networks. Starting from an initial, known, network, we learn its
 representation through a graph embedding step (here, a truncated Singular Value
 Decomposition; Step 1), yielding a series of latent traits (latent vulnerability
-traits representing species at the lower trophic-level and latent generality
-traits representing species at higher trophic-levels; *sensu*
-@Schoener1989FooWeb); second, for the destination species pool, we perform
-ancestral character estimation using a phylogeny (here, using a Brownian model
-for the latent traits; Step 2); we then sample from the reconstructed
+traits are more representative of species at the lower trophic-level and latent
+generality traits are more representative of species at higher trophic-levels;
+*sensu* @Schoener1989FooWeb); second, for the destination species pool, we
+perform ancestral character estimation using a phylogeny (here, using a Brownian
+model for the latent traits; Step 2); we then sample from the reconstructed
 distribution of latent traits (Step 3) to generate a probabilistic metaweb at
 the destination (here, assuming a uniform distribution of traits), and threshold
 it to yield the final list of interactions (Step
