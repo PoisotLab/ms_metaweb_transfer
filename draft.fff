@@ -6,9 +6,10 @@
 of species interactions networks. Starting from an initial, known,
 network, we learn its representation through a graph embedding step
 (here, a truncated Singular Value Decomposition; Step 1), yielding a
-series of latent traits (vulnerability traits representing species at
-the lower trophic-level and generality traits representing species at
-higher trophic-levels; \emph{sensu} Schoener (1989)); second, for the
+series of latent traits (latent vulnerability traits are more
+representative of species at the lower trophic-level and latent
+generality traits are more representative of species at higher
+trophic-levels; \emph{sensu} Schoener (1989)); second, for the
 destination species pool, we perform ancestral character estimation
 using a phylogeny (here, using a Brownian model for the latent traits;
 Step 2); we then sample from the reconstructed distribution of latent
@@ -23,13 +24,13 @@ yield the final list of interactions (Step 4).}\label{fig:concept}
 \hypertarget{fig:scree}{%
 \centering
 \includegraphics{figures/figure-screeplot.png}
-\caption{Left: representation of the screeplot of the singular values
-from the t-SVD on the European metaweb. The screeplot shows no obvious
+\caption{Left: representation of the scree plot of the singular values
+from the t-SVD on the European metaweb. The scree plot shows no obvious
 drop in the singular values that may be leveraged to automatically
 detect a minimal dimension for embedding, after \emph{e.g.} Zhu \&
 Ghodsi (2006). Right: cumulative fraction of variance explained by each
 dimension up to the rank of the European metaweb. The grey lines
-represent cutoffs at 50, 60\ldots{} 90\% of variance explained. For the
+represent cutoffs at 50, 60, \ldots, 90\% of variance explained. For the
 rest of the analysis, we reverted to an arbitrary threshold of 60\% of
 variance explained, which represented a good tradeoff between accuracy
 and reduced number of features.}\label{fig:scree}
@@ -45,7 +46,7 @@ and reduced number of features.}\label{fig:scree}
 (green/brown) subspaces, alongside the adjacency matrix of the food web
 they encode (greyscale). The European metaweb is on the left, and the
 imputed Canadian metaweb (before data inflation) on the right. This
-figure illustrates how much structure the left sub-space captures. As we
+figure illustrates how much structure the left subspace captures. As we
 show in fig.~\ref{fig:degree}, the species with a value of 0 in the left
 subspace are species without any prey.}\label{fig:subspaces}
 }
@@ -59,7 +60,7 @@ subspace are species without any prey.}\label{fig:subspaces}
 \caption{Left, comparison of the probabilities of interactions assigned
 by the model to all interactions (grey curve), the subset of
 interactions found in GLOBI (red), and in the Strong \& Leroux (2014)
-Newfoundland dataset (blue). The model recovers more interaction with a
+Newfoundland dataset (blue). The model recovers more interactions with a
 low probability compared to data mining, which can suggest that
 collected datasets are biased towards more common or easy to identify
 interactions. Right, distribution of the in-degree and out-degree of the
