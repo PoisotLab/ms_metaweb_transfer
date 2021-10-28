@@ -38,27 +38,27 @@ applying it to a related (destination) problem [@Torrey2010TraLea;
 interactions between species, based on knowledge extracted from another species
 pool for which interactions are known by using phylogenetic structure as a
 medium for transfer. There is a plurality of measures of species similarities
-that can be used for metaweb reconstruction [see *e.g.*
-@Morales-Castilla2015InfBio]; however, phylogenetic proximity has several
-desirable properties when working at large scales. @Gerhold2015PhyPat made the
-point that phylogenetic signal captures diversification of characters (large
-macro-evolutionary process), but not necessarily community assembly (fine
-ecological process); @Dormann2010EvoCli previously found very similar
-conclusions. Interactions tend to reflect a phylogenetic signal because they
-have a conserved pattern of evolutionary convergence that encompasses a wide
-range of ecological and evolutionary mechanisms [@Mouquet2012EcoAdv;
-@Cavender-Bares2009MerCom], and - most importantly - retain this signal even
-when it is not detectable at the community scale [@Poisot2018IntRet;
-@Hutchinson2017CopSig]. Finally, species interactions at macro-ecological scales
-seem to respond mostly to macro-evolutionary processes [@Price2003MacThe]; which
-is evidenced by the presence of conserved backbones in food webs
-[@Mora2018IdeCom; @DallaRiva2016ExpEvo], strong evolutionary signature on prey
-choice [@Stouffer2012EvoCon], and strong phylogenetic signature in food web
-intervality [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously
-been used within the context of ecological networks, namely understanding
-ancestral plant-insect interactions [@Braga2021PhyRec]. Taken together, these
-considerations suggest that phylogenies can reliably be used to transfer
-knowledge on species interactions.
+that can be used for inferring *potential* species interactions *i.e.* metaweb
+reconstruction [see *e.g.* @Morales-Castilla2015InfBio]; however, phylogenetic
+proximity has several desirable properties when working at large scales.
+@Gerhold2015PhyPat made the point that phylogenetic signal captures
+diversification of characters (large macro-evolutionary process), but not
+necessarily community assembly (fine ecological process); @Dormann2010EvoCli
+previously found very similar conclusions. Interactions tend to reflect a
+phylogenetic signal because they have a conserved pattern of evolutionary
+convergence that encompasses a wide range of ecological and evolutionary
+mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
+importantly - retain this signal even when it is not detectable at the community
+scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
+at macro-ecological scales seem to respond mostly to macro-evolutionary
+processes [@Price2003MacThe]; which is evidenced by the presence of conserved
+backbones in food webs [@Mora2018IdeCom; @DallaRiva2016ExpEvo], strong
+evolutionary signature on prey choice [@Stouffer2012EvoCon], and strong
+phylogenetic signature in food web intervality [@Eklof2016PhyCom]. Phylogenetic
+reconstruction has also previously been used within the context of ecological
+networks, namely understanding ancestral plant-insect interactions
+[@Braga2021PhyRec]. Taken together, these considerations suggest that
+phylogenies can reliably be used to transfer knowledge on species interactions.
 
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
@@ -86,9 +86,9 @@ interactions between species from a spatially delimited area (and so captures
 the $\gamma$ diversity of interactions). The metaweb is, therefore, *not* a
 prediction of the food web at a specific locale within the spatial area it
 covers, and will have a different structure [notably by having a larger
-connectance; see *e.g.* @Wood2015EffSpa; @McLeod2021SamAsy]. These local food
-webs (which captures the $\alpha$ diversity of interactions) are a subset of the
-metaweb's species and interactions, and have been called "metaweb realizations"
+connectance; see *e.g.* @Wood2015EffSpa]. These local food webs (which captures
+the $\alpha$ diversity of interactions) are a subset of the metaweb's species
+and interactions, and have been called "metaweb realizations"
 [@Poisot2015SpeWhy]. Differences between local food web and their metaweb are
 due to chance, species abundance and co-occurrence, local environmental
 conditions, and local distribution of functional traits, among others.
@@ -96,12 +96,12 @@ conditions, and local distribution of functional traits, among others.
 Because the metaweb represents the joint effect of functional, phylogenetic, and
 macroecological processes [@Morales-Castilla2015InfBio], it holds valuable
 ecological information. Specifically, it is the "upper bounds" on what the
-composition of the local networks can be. These local networks, in turn, can be
-reconstructed given appropriate knowledge of local species composition,
-providing information on structure of food webs at finer spatial scales. This
-has been done for example for tree-galler-parasitoid systems
-[@Gravel2018BriElt], fish trophic interactions [@Albouy2019MarFis], tetrapod
-trophic interactions [@OConnor2020UnvFoo], and crop-pest networks
+composition of the local networks can be [see *e.g.* @McLeod2021SamAsy]. These
+local networks, in turn, can be reconstructed given appropriate knowledge of
+local species composition, providing information on structure of food webs at
+finer spatial scales. This has been done for example for tree-galler-parasitoid
+systems [@Gravel2018BriElt], fish trophic interactions [@Albouy2019MarFis],
+tetrapod trophic interactions [@OConnor2020UnvFoo], and crop-pest networks
 [@Grunig2020CroFor]. Whereas the original metaweb definition, and indeed most
 past uses of metawebs, was based on the presence/absence of interactions, we
 focus on *probabilistic* metawebs where interactions are represented as the
