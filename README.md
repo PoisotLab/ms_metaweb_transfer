@@ -106,7 +106,7 @@ trophic interactions [@OConnor2020UnvFoo], and crop-pest networks
 past uses of metawebs, was based on the presence/absence of interactions, we
 focus on *probabilistic* metawebs where interactions are represented as the
 chance of success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro];
-therefore, not only does our method recommends interactions that may exist, it
+therefore, not only does our method recommend interactions that may exist, it
 gives each interaction a score, allowing us to properly weigh them.
 
 Our case study shows that phylogenetic transfer learning is an effective
@@ -293,7 +293,7 @@ tradeoff between accuracy and a reduced number of features.
 
 An RDPG estimates the probability of observing interactions between nodes
 (species) as a function of the nodes' latent variables, and is a way to turn a
-SVD (which decomposes a matrix intro three) into two matrices that can be
+SVD (which decompose a matrix intro three) into two matrices that can be
 multiplied to provide an approximation of the network. The latent variables used
 for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
 \mathbf{U}\sqrt{\mathbf{\Sigma}}$, and $\mathscr{R} =
@@ -424,7 +424,7 @@ It must be noted that despite bringing in a large amount of information from the
 European species pool and interactions, the Canadian metaweb has distinct
 structural properties. Following an approach similar to @Vermaat2009MajDim, we
 show in Supp. Mat. 3 that not only can we observe differences in a multivariate
-space between the European and Canadian metawebs, we can also observe differences
+space between the European and Canadian metaweb, we can also observe differences
 in the same space between random subgraphs from these networks. These results
 line up with the studies spatializing metawebs that have been discussed in the
 introduction: changes in the species pool are driving local structural changes
@@ -528,14 +528,14 @@ panel.](figures/figure-degree.png){#fig:degree}
 The t-SVD embedding is able to learn relevant ecological features for the
 network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
-and predators for each species. Importantly, this implies that a rank 1 approximation represents
-the configuration model for the metaweb, *i.e.* a set of random networks
-generated from a given degree sequence [@Park2004StaMec]. Accounting for the
-probabilistic nature of the degrees, the rank 1 approximation also represents
-the *soft* configuration model [@vanderHoorn2018SpaMax]. Both models are maximum
-entropy graph models [@Garlaschelli2018CovStr], with sharp (all network
-realizations satisfy the specified degree sequence) and soft (network
-realizations satisfy the degree sequence on average) local constraints,
+and predators for each species. Importantly, this implies that a rank 1
+approximation represents the configuration model for the metaweb, *i.e.* a set
+of random networks generated from a given degree sequence [@Park2004StaMec].
+Accounting for the probabilistic nature of the degrees, the rank 1 approximation
+also represents the *soft* configuration model [@vanderHoorn2018SpaMax]. Both
+models are maximum entropy graph models [@Garlaschelli2018CovStr], with sharp
+(all network realizations satisfy the specified degree sequence) and soft
+(network realizations satisfy the degree sequence on average) local constraints,
 respectively. The (soft) configuration model is an unbiased random graph model
 widely used by ecologists in the context of null hypothesis significance testing
 of network structure [*e.g.* @Bascompte2003NesAss] and can provide informative
