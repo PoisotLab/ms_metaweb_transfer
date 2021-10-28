@@ -567,7 +567,7 @@ of food webs undergoing rapid collapse/recovery cycles over short periods of
 time [@Pedersen2017SigCol]. The embedding of a network, in a sense, embeds its
 macro-evolutionary history, especially as RDPG captures ecological signal
 [@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
-is intended as a catalogue of all possible interactions, which should then be
+is intended as a catalogue of all potential interactions, which should then be
 filtered [@Morales-Castilla2015InfBio]. In practice (and in this instance) the
 reconstructed metaweb will predict interactions that are plausible based on the
 species' evolutionary history, however some interactions would/would not be
