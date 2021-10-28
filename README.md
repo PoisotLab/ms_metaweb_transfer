@@ -86,9 +86,9 @@ interactions between species from a spatially delimited area (and so captures
 the $\gamma$ diversity of interactions). The metaweb is, therefore, *not* a
 prediction of the food web at a specific locale within the spatial area it
 covers, and will have a different structure [notably by having a larger
-connectance; see *e.g.* @Wood2015EffSpa]. These local food webs (which captures
-the $\alpha$ diversity of interactions) are a subset of the metaweb's species
-and interactions, and have been called "metaweb realizations"
+connectance; see *e.g.* @Wood2015EffSpa; @McLeod2021SamAsy]. These local food
+webs (which captures the $\alpha$ diversity of interactions) are a subset of the
+metaweb's species and interactions, and have been called "metaweb realizations"
 [@Poisot2015SpeWhy]. Differences between local food web and their metaweb are
 due to chance, species abundance and co-occurrence, local environmental
 conditions, and local distribution of functional traits, among others.
