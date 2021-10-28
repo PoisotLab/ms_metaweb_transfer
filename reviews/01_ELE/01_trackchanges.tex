@@ -1,7 +1,7 @@
 %!TEX TS-program = xelatex
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL reviews/01_ELE/01_draft.tex           Tue Oct 19 13:08:06 2021
-%DIF ADD reviews/01_ELE/01_draft_revised.tex   Thu Oct 28 19:43:56 2021
+%DIF DEL reviews/01_ELE/01_draft.tex           Thu Oct 28 19:00:33 2021
+%DIF ADD reviews/01_ELE/01_draft_revised.tex   Thu Oct 28 19:00:32 2021
 \documentclass[11pt]{article}
 
 \usepackage[english]{babel}
@@ -402,27 +402,6 @@ mammals globally (\emph{i.e.}, phylogenetic tree Upham \emph{et al.}
 (interactions are treated as unknown in this instance).
 }%DIFDELCMD < 
 
-%DIFDELCMD < \begin{figure}
-%DIFDELCMD < \hypertarget{fig:concept}{%
-%DIFDELCMD < \centering
-%DIFDELCMD < \includegraphics{figures/figure-concept.png}
-%DIFDELCMD < \caption{Overview of the phylogenetic transfer learning (and prediction)
-%DIFDELCMD < of species interactions networks. Starting from an initial, known,
-%DIFDELCMD < network, we learn its representation through a graph embedding step
-%DIFDELCMD < (here, a truncated Singular Value Decomposition; Step 1), yielding a
-%DIFDELCMD < series of latent traits (vulnerability traits representing species at
-%DIFDELCMD < the lower trophic-level and generality traits representing species at
-%DIFDELCMD < higher trophic-levels; \emph{sensu} Schoener (1989)); second, for the
-%DIFDELCMD < destination species pool, we perform ancestral character estimation
-%DIFDELCMD < using a phylogeny (here, using a Brownian model for the latent traits;
-%DIFDELCMD < Step 2); we then sample from the reconstructed distribution of latent
-%DIFDELCMD < traits (Step 3) to generate a probabilistic metaweb at the destination
-%DIFDELCMD < (here, assuming a uniform distribution of traits), and threshold it to
-%DIFDELCMD < yield the final list of interactions (Step 4).}\label{fig:concept}
-%DIFDELCMD < }
-%DIFDELCMD < \end{figure}
-%DIFDELCMD < 
-
 %DIFDELCMD < %%%
 \DIFdelend There is a plurality of
 measures of species similarities that can be used for \DIFaddbegin \DIFadd{inferring
@@ -451,30 +430,7 @@ plant-insect interactions (Braga \emph{et al.} 2021). Taken together,
 these considerations suggest that phylogenies can reliably be used to
 transfer knowledge on species interactions.
 
-\DIFaddbegin 
-\begin{figure}
-\hypertarget{fig:concept}{%
-\centering
-\includegraphics{figures/figure-concept.png}
-\caption{Overview of the phylogenetic transfer learning (and prediction)
-of species interactions networks. Starting from an initial, known,
-network, we learn its representation through a graph embedding step
-(here, a truncated Singular Value Decomposition; Step 1), yielding a
-series of latent traits (latent vulnerability traits are more
-representative of species at the lower trophic-level and latent
-generality traits are more representative of species at higher
-trophic-levels; \emph{sensu} Schoener (1989)); second, for the
-destination species pool, we perform ancestral character estimation
-using a phylogeny (here, using a Brownian model for the latent traits;
-Step 2); we then sample from the reconstructed distribution of latent
-traits (Step 3) to generate a probabilistic metaweb at the destination
-(here, assuming a uniform distribution of traits), and threshold it to
-yield the final list of interactions (Step 4).}\label{fig:concept}
-}
-
-\end{figure}
-
-\DIFadd{Our methodology is outlined in fig.~\ref{fig:concept}, where we provide
+Our \DIFaddbegin \DIFadd{methodology is outlined in fig.~\ref{fig:concept}, where we provide
 an illustration based on learning the embedding of a metaweb of trophic
 interactions for European mammals (known interactions; Maiorano \emph{et
 al.} 2020b, a) and, based on phylogenetic relationships between mammals
@@ -517,7 +473,7 @@ does our method recommend interactions that may exist, it gives each
 interaction a score, allowing us to properly weigh them.
 }
 
-\DIFaddend Our case study shows that phylogenetic transfer learning is \DIFdelbegin \DIFdel{indeed }\DIFdelend an effective
+\DIFadd{Our }\DIFaddend case study shows that phylogenetic transfer learning is \DIFdelbegin \DIFdel{indeed }\DIFdelend an effective
 approach to \DIFdelbegin \DIFdel{predict the Canadian mammalian metaweb}\DIFdelend \DIFaddbegin \DIFadd{the generation of probabilistic metawebs}\DIFaddend . This showcases
 that although the components (species) that make up the Canadian and
 European communities may be \emph{minimally} shared \DIFaddbegin \DIFadd{(the overall species
@@ -765,39 +721,6 @@ values of the SVD. Furthermore, the two subspaces can be directly
 multiplied to yield a network.
 }\DIFaddend 
 
-\begin{figure}
-\DIFdelbeginFL %DIFDELCMD < \hypertarget{fig:scree}{%
-%DIFDELCMD < \centering
-%DIFDELCMD < \includegraphics{figures/figure-screeplot.png}
-%DIFDELCMD < \caption{Left: representation of the screeplot of the singular values
-%DIFDELCMD < from the t-SVD on the European metaweb. The screeplot shows no obvious
-%DIFDELCMD < drop in the singular values that may be leveraged to automatically
-%DIFDELCMD < detect a minimal dimension for embedding, after \emph{e.g.} Zhu \&
-%DIFDELCMD < Ghodsi (2006). Right: cumulative fraction of variance explained by each
-%DIFDELCMD < dimension up to the rank of the European metaweb. The grey lines
-%DIFDELCMD < represent cutoffs at 50, 60\ldots{} 90\% of variance explained. For the
-%DIFDELCMD < rest of the analysis, we reverted to an arbitrary threshold of 60\% of
-%DIFDELCMD < variance explained, which represented a good tradeoff between accuracy
-%DIFDELCMD < and reduced number of features.}\label{fig:scree}
-%DIFDELCMD < }
-%DIFDELCMD < %%%
-\DIFdelendFL \DIFaddbeginFL \hypertarget{fig:scree}{%
-\centering
-\includegraphics{figures/figure-screeplot.png}
-\caption{Left: representation of the scree plot of the singular values
-from the t-SVD on the European metaweb. The scree plot shows no obvious
-drop in the singular values that may be leveraged to automatically
-detect a minimal dimension for embedding, after \emph{e.g.} Zhu \&
-Ghodsi (2006). Right: cumulative fraction of variance explained by each
-dimension up to the rank of the European metaweb. The grey lines
-represent cutoffs at 50, 60, \ldots, 90\% of variance explained. For the
-rest of the analysis, we reverted to an arbitrary threshold of 60\% of
-variance explained, which represented a good tradeoff between accuracy
-and reduced number of features.}\label{fig:scree}
-}
-\DIFaddendFL 
-\end{figure}
-
 Because RDPG relies on matrix multiplication, the higher dimensions
 essentially serve to make specific interactions converge towards 0 or 1;
 therefore, for reasonably low ranks, there is no guarantee that the
@@ -854,12 +777,13 @@ would complexify the process. The Brownian motion algorithm returns the
 \emph{average} value of the trait, and its upper and lower bounds.
 Because we do not estimate other parameters of the traits'
 distributions, we considered that every species trait is represented as
-a uniform distribution between these bounds\DIFdelbegin \DIFdel{; in a situation where the algorithm would return point values for all simulations, one could in theory either estimate the parameters of a
+a uniform distribution between these bounds\DIFdelbegin \DIFdel{; in a situation where the algorithm would return point values for all simulations, one could in theory either estimate the
+parameters of a
 distribution for each tip, or draw randomly from the outputs. In all
-cases, the }\DIFdelend \DIFaddbegin \DIFadd{. The choice of the uniform
+cases, }\DIFdelend \DIFaddbegin \DIFadd{. The choice of the uniform
 distribution was made because the algorithm returns a minimum and
-maximum point estimate for the value, and given this information, the
-uniform distribution is the one with maximum entropy. Had all mean
+maximum point estimate for the value, and given this information, }\DIFaddend the
+\DIFaddbegin \DIFadd{uniform distribution is the one with maximum entropy. Had all mean
 parameters estimates been positive, the exponential distribution would
 have been an alternative, but this is not the case for the subspaces of
 an RDPG. In order to examine the consequences of the choice of
@@ -886,33 +810,6 @@ Therefore, we can use this information to assemble a
 \emph{probabilistic} metaweb in the sense of Poisot \emph{et al.}
 (2016), \emph{i.e.} in which every interaction is represented as a
 single, independent, Bernoulli event of probability \(p\).
-
-\begin{figure}
-\DIFdelbeginFL %DIFDELCMD < \hypertarget{fig:subspaces}{%
-%DIFDELCMD < \centering
-%DIFDELCMD < \includegraphics{figures/figure-subspaces.png}
-%DIFDELCMD < \caption{Visual representation of the left (green/purple) and right
-%DIFDELCMD < (green/brown) subspaces, alongside the adjacency matrix of the food web
-%DIFDELCMD < they encode (greyscale). The European metaweb is on the left, and the
-%DIFDELCMD < imputed Canadian metaweb (before data inflation) on the right. This
-%DIFDELCMD < figure illustrates how much structure the left sub-space captures. As we
-%DIFDELCMD < show in fig.~\ref{fig:degree}, the species with a value of 0 in the left
-%DIFDELCMD < subspace are species without any prey.}\label{fig:subspaces}
-%DIFDELCMD < }
-%DIFDELCMD < %%%
-\DIFdelendFL \DIFaddbeginFL \hypertarget{fig:subspaces}{%
-\centering
-\includegraphics{figures/figure-subspaces.png}
-\caption{Visual representation of the left (green/purple) and right
-(green/brown) subspaces, alongside the adjacency matrix of the food web
-they encode (greyscale). The European metaweb is on the left, and the
-imputed Canadian metaweb (before data inflation) on the right. This
-figure illustrates how much structure the left subspace captures. As we
-show in fig.~\ref{fig:degree}, the species with a value of 0 in the left
-subspace are species without any prey.}\label{fig:subspaces}
-}
-\DIFaddendFL 
-\end{figure}
 
 Specifically, we have adopted the following approach. For every entry in
 \(\hat{\mathscr{L}}\) and \(\hat{\mathscr{R}}\), we draw a value from
@@ -963,38 +860,6 @@ a number of data inflation steps to finalize it. This step is external
 to the actual transfer learning framework but rather serves as a way to
 augment and validate the predicted metaweb.
 
-\begin{figure}
-\DIFdelbeginFL %DIFDELCMD < \hypertarget{fig:inflation}{%
-%DIFDELCMD < \centering
-%DIFDELCMD < \includegraphics{figures/figure-validation.png}
-%DIFDELCMD < \caption{Left, comparison of the probabilities of interactions assigned
-%DIFDELCMD < by the model to all interactions (grey curve), the subset of
-%DIFDELCMD < interactions found in GLOBI (red), and in the Strong \& Leroux (2014)
-%DIFDELCMD < Newfoundland dataset (blue). The model recovers more interaction with a
-%DIFDELCMD < low probability compared to data mining, which can suggest that
-%DIFDELCMD < collected datasets are biased towards more common or easy to identify
-%DIFDELCMD < interactions. Right, distribution of the in-degree and out-degree of the
-%DIFDELCMD < mammals from Canada in the reconstructed metaweb. This figure describes
-%DIFDELCMD < a flat, relatively short food web, in which there are few predators but
-%DIFDELCMD < a large number of preys.}\label{fig:inflation}
-%DIFDELCMD < }
-%DIFDELCMD < %%%
-\DIFdelendFL \DIFaddbeginFL \hypertarget{fig:inflation}{%
-\centering
-\includegraphics{figures/figure-validation.png}
-\caption{Left, comparison of the probabilities of interactions assigned
-by the model to all interactions (grey curve), the subset of
-interactions found in GLOBI (red), and in the Strong \& Leroux (2014)
-Newfoundland dataset (blue). The model recovers more interactions with a
-low probability compared to data mining, which can suggest that
-collected datasets are biased towards more common or easy to identify
-interactions. Right, distribution of the in-degree and out-degree of the
-mammals from Canada in the reconstructed metaweb. This figure describes
-a flat, relatively short food web, in which there are few predators but
-a large number of preys.}\label{fig:inflation}
-}
-\DIFaddendFL \end{figure}
-
 First, we extracted the subgraph corresponding to the 17 species shared
 between the European and Canadian pools and replaced these interactions
 with a probability of 0 (non-interaction) or 1 (interaction), according
@@ -1032,22 +897,6 @@ to our predicted metaweb with a probability of 1. A table listing all
 interactions in the predicted Canadian metaweb can be found in the
 supplementary material.
 
-\begin{figure}
-\hypertarget{fig:thresholds}{%
-\centering
-\includegraphics{figures/figure-cutoffs.png}
-\caption{Left: effect of varying the cutoff for probabilities to be
-considered non-zero on the number of unique links and on \(\hat{L}\),
-the probabilistic estimate of the number of links assuming that all
-interactions are independent. Right: effect of varying the cutoff on the
-number of disconnected species, and on network connectance. In both
-panels, the grey line indicates the cutoff
-\(P(i\rightarrow j) \approx 0.08\) that resulted in the first species
-losing all of its interactions.}\label{fig:thresholds}
-}
-
-\end{figure}
-
 Because the confidence intervals on the inferred trait space are
 probably over-estimates, we decided to apply a thresholding step to the
 interactions after the data inflation (fig.~\ref{fig:thresholds}).
@@ -1080,27 +929,6 @@ interaction. This result, in and of itself, suggests that additional
 methodological developments for the thresholding of probabilistic
 networks are required.
 
-\begin{figure}
-\hypertarget{fig:degree}{%
-\centering
-\includegraphics{figures/figure-degree.png}
-\caption{Top: biological significance of the first dimension. Left:
-there is a linear relationship between the values on the first dimension
-of the left subspace and the generality, \emph{i.e.} the relative number
-of preys, \emph{sensu} Schoener (1989). Species with a value of 0 in
-this subspace are at the bottom-most trophic level. Right: there is,
-similarly, a linear relationship between the position of a species on
-the first dimension of the right subspace and its vulnerability,
-\emph{i.e.} the relative number of predators. Taken together, these two
-figures show that the first-order representation of this network would
-capture its degree distribution. Bottom: topological consequences of the
-first dimension. Left: differences in the \(z\)-score of the actual
-configuration model for the reconstructed network, and the prediction
-based only on the first dimension. Right: distribution of the
-differences in the left panel.}\label{fig:degree}
-}
-
-\end{figure}
 
 The t-SVD embedding is able to learn relevant ecological features for
 the network. fig.~\ref{fig:degree} shows that the first rank correlates
