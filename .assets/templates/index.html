@@ -29,6 +29,17 @@
             });
         });
     </script>
+
+    <!-- wordcount -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countable/3.0.1/Countable.min.js"
+        integrity="sha512-ssL9tXYOtj4MLNTZnD6+lcAos+GHlnyCO0x7ctQXqzrmO48pFfNc/qAo+jIckEFGUHYr0RCtbVMbxiGgJCvmxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const article = document.getElementsByTagName('article');
+        const figures = document.getElementsByTagName('figure');
+        Countable.off(figures);
+        Countable.count(article, counter => console.log(counter));
+    </script>
 </head>
 
 <body>
