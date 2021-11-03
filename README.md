@@ -688,17 +688,28 @@ can have.
 within the traditional unceded territory of the Saint Lawrence Iroquoian,
 Anishinabewaki, Mohawk, Huron-Wendat, and Omàmiwininiwak nations. TP, TS, DC,
 and LP received funding from the Canadian Institue for Ecology & Evolution. FB
-is funded by the Institute for Data Valorization (IVADO). TS, SB, and TP are funded
-by a donation from the Courtois Foundation. CB was awarded a Mitacs Elevate
-Fellowship no. IT12391, in partnership with fRI Research, and also acknowledges
-funding from Alberta Innovates and the Forest Resources Improvement Association
-of Alberta. M-JF acknowledges funding from NSERC Discovery Grant and NSERC CRC.
-RR is funded by New Zealand’s Biological Heritage Ngā Koiora Tuku Iho National
-Science Challenge, administered by New Zealand Ministry of Business, Innovation,
-and Employment. BM is funded by the NSERC Alexander Graham Bell Canada Graduate
-Scholarship and the FRQNT master’s scholarship. LP acknowledges funding from
-NSERC Discovery Grant (NSERC RGPIN-2019-05771). TP acknowledges financial
-support from NSERC through the Discovery Grants and Discovery Accelerator
-Supplement programs.
+is funded by the Institute for Data Valorization (IVADO). TS, SB, and TP are
+funded by a donation from the Courtois Foundation. CB was awarded a Mitacs
+Elevate Fellowship no. IT12391, in partnership with fRI Research, and also
+acknowledges funding from Alberta Innovates and the Forest Resources Improvement
+Association of Alberta. M-JF acknowledges funding from NSERC Discovery Grant and
+NSERC CRC. RR is funded by New Zealand’s Biological Heritage Ngā Koiora Tuku Iho
+National Science Challenge, administered by New Zealand Ministry of Business,
+Innovation, and Employment. BM is funded by the NSERC Alexander Graham Bell
+Canada Graduate Scholarship and the FRQNT master’s scholarship. LP acknowledges
+funding from NSERC Discovery Grant (NSERC RGPIN-2019-05771). TP acknowledges
+financial support from NSERC through the Discovery Grants and Discovery
+Accelerator Supplement programs. 
+
+**Conflict of interest:** The authors have no conflict interests to disclose
+
+**Authors' contributions:** TS, SB, and TP designed the study and performed the
+analysis; GVDR, MF, and RR provided additional feedback on the analyses. DC, BM,
+and FB helped with data collection. All editors contributed to writing and
+editing the manuscript.
+
+**Data availability:** All code and data used in this manuscript is publicly
+available and archived on OSF [https://osf.io/2zwqm/](https://osf.io/2zwqm/) and
+is currently referenced in the manuscript.
 
 # References
