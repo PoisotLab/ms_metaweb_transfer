@@ -35,8 +35,8 @@ how species in the target location might interact. We discuss this framework by
 inferring and constructing the metaweb for Canadian terrestrial mammals using
 the European metaweb as the knowledge source - despite the fact that these two
 regions share only 4% of species. Additional analyses/scrutiny suggests that the
-framework itself is robust both when the original network is incomplete or contains
-spurious interactions.
+framework itself is robust both when the original network is incomplete or
+contains spurious interactions.
 
 The flexibility, robustness, and low computational cost of this transfer
 learning framework makes it of interest and applicability to a wide range of
