@@ -1,0 +1,1 @@
+pandoc README.md -o _wc.docx --variable suppress-bibliography=true  --citeproc --bibliography=references.bib
