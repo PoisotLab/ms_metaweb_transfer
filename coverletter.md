@@ -43,14 +43,8 @@ implementation in their own work. Of note is that entire workflow can be run on
 a laptop in a matter of minutes making this an accessible option for a broad
 range of end users.
 
-This manuscript builds on previous works of the authors. Namely, we present a
-concrete application of novel approaches to network prediction outlined in
-Strydom et al. (2021), use the European metaweb developed by Maiorano et al.
-(2020), and draw on works that highlight the applicability of singular value
-decomposition within network ecology (Strydom, Dalla Riva and Poisot 2021) and
-network prediction (Poisot et al. 2021; Runghen, Stouffer and Dalla Riva 2021).
-
-**TK** a short history/backstory on the manuscript
+**TK** a short history/backstory on the manuscript that bleeds into the next
+paragraph
 
 The work described here has not been published elsewhere. All authors agree with
 the the manuscript content and its submission to the journal. No part of this
