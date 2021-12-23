@@ -48,17 +48,18 @@ previously found very similar conclusions. Interactions tend to reflect a
 phylogenetic signal because they have a conserved pattern of evolutionary
 convergence that encompasses a wide range of ecological and evolutionary
 mechanisms [@Mouquet2012EcoAdv; @Cavender-Bares2009MerCom], and - most
-importantly - retain this signal even when it is not detectable at the community
-scale [@Poisot2018IntRet; @Hutchinson2017CopSig]. Finally, species interactions
-at macro-ecological scales seem to respond mostly to macro-evolutionary
-processes [@Price2003MacThe]; which is evidenced by the presence of conserved
-backbones in food webs [@Mora2018IdeCom; @DallaRiva2016ExpEvo], strong
-evolutionary signature on prey choice [@Stouffer2012EvoCon], and strong
-phylogenetic signature in food web intervality [@Eklof2016PhyCom]. Phylogenetic
-reconstruction has also previously been used within the context of ecological
-networks, namely understanding ancestral plant-insect interactions
-[@Braga2021PhyRec]. Taken together, these considerations suggest that
-phylogenies can reliably be used to transfer knowledge on species interactions.
+importantly - retain this signal even if it is obscured at the community scale
+due to *e.g.* local conditions [@Poisot2018IntRet; @Hutchinson2017CopSig].
+Finally, species interactions at macro-ecological scales seem to respond mostly
+to macro-evolutionary processes [@Price2003MacThe]; which is evidenced by the
+presence of conserved backbones in food webs [@Mora2018IdeCom;
+@DallaRiva2016ExpEvo], strong evolutionary signature on prey choice
+[@Stouffer2012EvoCon], and strong phylogenetic signature in food web intervality
+[@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously been used
+within the context of ecological networks, namely understanding ancestral
+plant-insect interactions [@Braga2021PhyRec]. Taken together, these
+considerations suggest that phylogenies can reliably be used to transfer
+knowledge on species interactions.
 
 ![Overview of the phylogenetic transfer learning (and prediction) of species
 interactions networks. Starting from an initial, known, network, we learn its
@@ -214,7 +215,7 @@ in machine learning that (unintentional) black box algorithms are not
 necessarily a bad thing [@Holm2019DefBla], as long as their constituent parts
 can be examined (which is the case with our method). But more importantly, data
 hold more information than we might think; as such, even algorithms that are
-disconnected from the model can make correct guesses most of the time
+disconnected from a model can make correct guesses most of the time
 [@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting of
 spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
 information from the data) outperformed model-informed ones
@@ -247,18 +248,18 @@ the form of the latent subspaces), rather than a list of interactions (species
 predictions [*e.g.* @Albouy2019MarFis], in that the metaweb representation is
 easily transferable. Specifically, we use RDPG to create a number of latent
 variables that can be combined into an approximation of the network adjacency
-matrix. RDPG results are known to have strong phylogenetic signal, and to
-capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo]; in other
-words, the latent variables of an RDPG can be mapped onto a phylogenetic tree,
-and phylogenetically similar predators should share phylogenetically similar
-preys. In addition, recent advances show that the latent variables produced this
-way can be used to predict *de novo* network edges. Interestingly, the latent
-variables do not need to be produced by decomposing the network itself; in a
-recent contribution, @Runghen2021ExpNod showed that deep artificial neural
-networks are able to reconstruct the left and right subspaces of an RDPG, in
-order to predict human movement networks from individual/location metadata. This
-is an exciting opportunity, as it opens up the possibility of using additional
-metadata as predictors.
+matrix. RDPG is known to capture the evolutionary backbone of food webs
+[@DallaRiva2016ExpEvo], resulting in strong phylogenetic signal in RDPG results;
+in other words, the latent variables of an RDPG can be mapped onto a
+phylogenetic tree, and phylogenetically similar predators should share
+phylogenetically similar preys. In addition, recent advances show that the
+latent variables produced this way can be used to predict *de novo* network
+edges. Interestingly, the latent variables do not need to be produced by
+decomposing the network itself; in a recent contribution, @Runghen2021ExpNod
+showed that deep artificial neural networks are able to reconstruct the left and
+right subspaces of an RDPG, in order to predict human movement networks from
+individual/location metadata. This is an exciting opportunity, as it opens up
+the possibility of using additional metadata as predictors.
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
@@ -274,7 +275,7 @@ $\mathbf{U}$ is a $m \times m$ unitary matrix, and $\mathbf{V}'$ a $n \times n$
 unitary matrix. Truncating the SVD removes additional noise in the dataset by
 omitting non-zero and/or smaller $\sigma$ values from $\mathbf{\Sigma}$ using
 the rank of the matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that
-$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (whith $1 \le r \le
+$\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (with $1 \le r \le
 r_{full}$ where $r_{full}$ is the full rank of $\mathbf{A}$ and $r$ the rank at
 which we truncate the matrix) containing only non-zero $\sigma$ values.
 Additionally, $\mathbf{U}$ is now a $m \times r$ semi unitary matrix and
@@ -307,7 +308,6 @@ RDPG rather than an SVD is that the number of components to estimate decreases;
 notably, one does not have to estimate the singular values of the SVD.
 Furthermore, the two subspaces can be directly multiplied to yield a network.
 
-
 ![Left: representation of the scree plot of the singular values from the t-SVD on
 the European metaweb. The scree plot shows no obvious drop in the singular values
 that may be leveraged to automatically detect a minimal dimension for embedding,
@@ -334,7 +334,7 @@ predictions; @Youden1950IndRat); the resulting cutoff was 0.22, and gave an
 accuracy above 0.99. In Supp. Mat. 1, we provide several lines of evidence that
 using the entire network to estimate the threshold does not lead to overfitting;
 that using a subset of species would yield the same threshold; that decreasing
-the quality of the original data by adding of removing interactions would
+the quality of the original data by adding or removing interactions would
 minimally affect the predictive accuracy of RDPG applied to the European
 metaweb; and that the networks reconstructed from artificially modified data are
 reconstructed with the correct ecological properties.
@@ -554,7 +554,7 @@ web.
 One important aspect in which Europe and Canada differ (despite their comparable
 bioclimatic conditions) is the degree of the legacy of human impacts, which have
 been much longer in Europe. @Nenzen2014Imp850 showed that even at small scales
-(the Iberian peninsula), mammal food webs retain the signal of both climate
+(the Iberian peninsula), mammal food webs retain the signal of both past climate
 change and human activity, even when this human activity was orders of magnitude
 less important than it is now. Similarly, @Yeakel2014ColEco showed that changes
 in human occupation over several centuries can lead to food web collapse.
@@ -645,7 +645,7 @@ best ecological judgement. Conversely, the metaweb should be reliably filled,
 which assumes that the $S^2$ interactions in a pool of $S$ species have been
 examined, either through literature surveys or expert elicitation. Supp. Mat. 1
 provides some guidance as to the type of sampling effort that should be
-prioritized. Although RDPG was able to maintain very high predictive power when
+prioritized. While RDPG was able to maintain very high predictive power when
 interactions were missing, the addition of false positive interactions was
 immediately detected; this suggests that it may be appropriate to err on the
 side of "too many" interactions when constructing the initial metaweb to be
@@ -705,7 +705,7 @@ Accelerator Supplement programs.
 
 **Authors' contributions:** TS, SB, and TP designed the study and performed the
 analysis; GVDR, MF, and RR provided additional feedback on the analyses. DC, BM,
-and FB helped with data collection. All editors contributed to writing and
+and FB helped with data collection. All authors contributed to writing and
 editing the manuscript.
 
 **Data availability:** All code and data used in this manuscript is publicly
