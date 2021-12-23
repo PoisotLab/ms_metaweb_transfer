@@ -28,7 +28,7 @@ second, accurate predictions often demand accurate predictors, and the lack of
 methods that can leverage small amount of data is a serious impediment to our
 predictive ability globally.
 
-Here, we present a general method to recommend potential trophic interactions,
+Here, we present a general method to infer potential trophic interactions,
 relying on the transfer learning of network representations, specifically by
 using similarities of species in a biologically/ecologically relevant proxy
 space (*e.g.* shared morphology or ancestry). Transfer learning is a machine
