@@ -294,7 +294,7 @@ variance in the underlying data, corresponding to 12 dimensions - *i.e.* a
 tradeoff between accuracy and a reduced number of features.
 
 An RDPG estimates the probability of observing interactions between nodes
-(species) as a function of the nodes' latent variables, and is a way to turn a
+(species) as a function of the nodes' latent variables, and is a way to turn an
 SVD (which decompose one matrix into three) into two matrices that can be
 multiplied to provide an approximation of the network. The latent variables used
 for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
@@ -302,10 +302,10 @@ for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
 \sqrt{\mathbf{\Sigma}}\mathbf{V}'$ -- using the full rank of $\mathbf{A}$,
 $\mathscr{L}\mathscr{R} = \mathbf{A}$, and using any smaller rank results in
 $\mathscr{L}\mathscr{R} \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
-provides a first-order approximation of the network. One advantage of using a
-RDPG rather than a SVD is that the number of components to estimate decreases;
-notably, one does not have to estimate the singular values of the SVD. Furthermore,
-the two subspaces can be directly multiplied to yield a network.
+provides a first-order approximation of the network. One advantage of using an
+RDPG rather than an SVD is that the number of components to estimate decreases;
+notably, one does not have to estimate the singular values of the SVD.
+Furthermore, the two subspaces can be directly multiplied to yield a network.
 
 
 ![Left: representation of the scree plot of the singular values from the t-SVD on
