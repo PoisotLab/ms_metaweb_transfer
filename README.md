@@ -199,14 +199,15 @@ embedding of the network. As an aside, most ecologists are indirectly familiar
 with SVD: Principal Component Analysis is a special case of SVD, which is more
 sensitive to numerical instabilities [see notably @Shlens2014TutPri]. The latent
 traits give an unbiased estimate of the node's position in the latent feature
-spaces and can be mapped onto a reference phylogeny (other distance-based
-measures of species proximity that allow for the inference of features in the
-latent space can be used, for example the dissimilarity in functional traits).
-Based on the reconstructed latent traits for species in the destination species
-pool, a Random Dot Product Graph model [hereafter RDPG; @Young2007RanDot]
-predicts the interaction between species through a function of the nodes'
-features through matrix multiplication. Thus, from latent traits and node
-position, we can infer interactions.
+spaces and can be mapped onto a reference phylogeny (**TK** it is possible to
+use distinct trees if working with different clades, *e.g.* bipartite networks
+or to use other distance-based measures of species proximity that allow for the
+inference of features in the latent space can be used, *e.g.* the dissimilarity
+in functional traits). Based on the reconstructed latent traits for species in
+the destination species pool, a Random Dot Product Graph model [hereafter RDPG;
+@Young2007RanDot] predicts the interaction between species through a function of
+the nodes' features through matrix multiplication. Thus, from latent traits and
+node position, we can infer interactions.
 
 The method we develop is, ecologically speaking, a "black box", *i.e.* an
 algorithm that can be understood mathematically, but whose component parts are
