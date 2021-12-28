@@ -505,16 +505,6 @@ method highlights the need for additional development on network thresholding.
 
 # Results and discussion of the case study
 
-In @fig:thresholds, we examine the effect of varying the cutoff on $P(i
-\rightarrow j)$ on the number of links, species, and connectance. Determining a
-cutoff using the maximum curvature, or central difference approximation of the
-second order partial derivative, as suggested by *e.g.* @Cirtwill2021BuiFoo,
-results in species being lost, or almost all links being kept. We therefore
-settled on the value that allowed all species to remain with at least one
-interaction. This result, in and of itself, suggests that additional
-methodological developments for the thresholding of probabilistic networks are
-required.
-
 ![Top: biological significance of the first dimension. Left: there is a linear
 relationship between the values on the first dimension of the left subspace and
 the generality, *i.e.* the relative number of preys, *sensu*
