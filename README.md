@@ -309,15 +309,15 @@ RDPG rather than an SVD is that the number of components to estimate decreases;
 notably, one does not have to estimate the singular values of the SVD.
 Furthermore, the two subspaces can be directly multiplied to yield a network.
 
-![Left: representation of the scree plot of the singular values from the t-SVD on
-the European metaweb. The scree plot shows no obvious drop in the singular values
-that may be leveraged to automatically detect a minimal dimension for embedding,
-after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance explained by
-each dimension up to the rank of the European metaweb. The grey lines represent
-cutoffs at 50, 60, …, 90% of variance explained. For the rest of the analysis, we
-reverted to an arbitrary threshold of 60% of variance explained, which
-represented a good tradeoff between accuracy and reduced number of
-features.](figures/figure-screeplot.png){#fig:scree}
+![Left: representation of the scree plot of the singular values from the t-SVD
+on the European metaweb. The scree plot shows no obvious drop in the singular
+values that may be leveraged to automatically detect a minimal dimension for
+embedding, after *e.g.* @Zhu2006AutDim. Right: cumulative fraction of variance
+explained by each dimension up to the rank of the European metaweb. The grey
+lines represent cutoffs at 50, 60, …, 90% of variance explained. For the rest of
+the analysis, we reverted to an arbitrary threshold of 60% of variance
+explained, which represented a good tradeoff between accuracy and reduced number
+of features.](figures/figure-screeplot.png){#fig:scree}
 
 Because RDPG relies on matrix multiplication, the higher dimensions essentially
 serve to make specific interactions converge towards 0 or 1; therefore, for
@@ -410,10 +410,10 @@ where $\mathscr{L}$ and $\mathscr{R}$ were originally predicted, it follows that
 the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
 \hat{\mathscr{L}}\hat{\mathscr{R}}' \ge \rho$. As we can see in
-(@fig:subspaces), the European and Canadian metawebs are structurally similar (as
-would be expected given the biogeographic similarities) and the two (left and
-right) subspaces are distinct *i.e.* capturing predation (generality) and prey
-(vulnerability) latent traits.
+(@fig:subspaces), the European and Canadian metawebs are structurally similar
+(as would be expected given the biogeographic similarities) and the two (left
+and right) subspaces are distinct *i.e.* capturing predation (generality) and
+prey (vulnerability) latent traits.
 
 Because the intervals around some trait values can be broad [in fact, probably
 broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
