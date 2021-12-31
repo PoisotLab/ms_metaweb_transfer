@@ -490,9 +490,10 @@ of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 Because the confidence intervals on the inferred trait space are probably
 over-estimates, we decided to apply a thresholding step to the interactions
-after the data inflation (@fig:thresholds). @Cirtwill2021BuiFoo proposed a
-number of strategies to threshold probabilistic networks. Their methods assume
-the underlying data to be tag-based sequencing, which represents interactions as
+after the data inflation (see @fig:thresholds showing the effect of varying the
+cutoff on $P(i \rightarrow j)$). @Cirtwill2021BuiFoo proposed a number of
+strategies to threshold probabilistic networks. Their methods assume the
+underlying data to be tag-based sequencing, which represents interactions as
 co-occurrences of predator and prey within the same tags; this is conceptually
 identical to our Bernoulli-trial based reconstruction of a probabilistic
 network. We performed a full analysis of the effect of various cutoffs, and as
@@ -504,16 +505,6 @@ probability. The need for this slight deviation from the @Cirtwill2021BuiFoo
 method highlights the need for additional development on network thresholding.
 
 # Results and discussion of the case study
-
-In @fig:thresholds, we examine the effect of varying the cutoff on $P(i
-\rightarrow j)$ on the number of links, species, and connectance. Determining a
-cutoff using the maximum curvature, or central difference approximation of the
-second order partial derivative, as suggested by *e.g.* @Cirtwill2021BuiFoo,
-results in species being lost, or almost all links being kept. We therefore
-settled on the value that allowed all species to remain with at least one
-interaction. This result, in and of itself, suggests that additional
-methodological developments for the thresholding of probabilistic networks are
-required.
 
 ![Top: biological significance of the first dimension. Left: there is a linear
 relationship between the values on the first dimension of the left subspace and
