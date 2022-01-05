@@ -73,7 +73,7 @@ model for the latent traits; Step 2); we then sample from the reconstructed
 distribution of latent traits (Step 3) to generate a probabilistic metaweb at
 the destination (here, assuming a uniform distribution of traits), and threshold
 it to yield the final list of interactions (Step
-4).](figures/figure-concept.png){#fig:concept}
+4).](figures/figure-concept_v2.png){#fig:concept}
 
 Our methodology is outlined in @fig:concept, where we provide an illustration
 based on learning the embedding of a metaweb of trophic interactions for
@@ -120,15 +120,16 @@ biologically relevant predictions of interactions. Indeed, as we detail in the
 results, when validated against known but fractional data of trophic
 interactions between Canadian mammals, our model achieves a predictive accuracy
 of approximately 91%. It should be reiterated that the framework presented in
-@fig:concept is amenable to changes; notably, the measure of similarity may not
-be phylogeny, and can be replaced by information on foraging
-[@Beckerman2006ForBio], cell-level mechanisms [@Boeckaerts2021PreBac], or a
-combination of traits and phylogenetic structure [@Stock2021PaiLea]. Most
-importantly, although we focus on a trophic system, it is an established fact
-that different (non-trophic) interactions do themselves interact with and
-influence the outcome of trophic interactions [see *e.g.* @Kawatsu2021AreNet;
-@Kefi2012MorMea]. Future development of metaweb inference techniques should
-cover the prediction of multiple interaction types.
+@fig:concept is amenable to changes *e.g.* it is possible to use distinct trees
+if working with different clades (such as pollination networks) or,
+alternatively, the measure of similarity may not be phylogeny, and can be
+replaced by information on foraging [@Beckerman2006ForBio], cell-level
+mechanisms [@Boeckaerts2021PreBac], or a combination of traits and phylogenetic
+structure [@Stock2021PaiLea]. Most importantly, although we focus on a trophic
+system, it is an established fact that different (non-trophic) interactions do
+themselves interact with and influence the outcome of trophic interactions [see
+*e.g.* @Kawatsu2021AreNet; @Kefi2012MorMea]. Future development of metaweb
+inference techniques should cover the prediction of multiple interaction types.
 
 # Data used for the case study
 
@@ -147,8 +148,7 @@ Biodiversity Information Facility (GBIF) taxonomic backbone
 [@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
 This serves a dual purpose 1) to extract only mammals from the European network
 and 2) to match and standardize species names when aggregating the different
-data sources further downstream (which is an important consideration when
-combining datasets [@Grenie2021HarTax]). All nodes had valid matches to GBIF at
+data sources further downstream. All nodes had valid matches to GBIF at
 this step, and so this backbone is used for all name reconciliation steps as
 outlined below.
 
@@ -192,23 +192,6 @@ between closely phylogenetically related Mammalia in Canada), we use a series of
 specific steps for network embedding, trait inference, network prediction and
 thresholding.
 
-Specifically, our approach can be summarized as follows: from the known network
-in Europe, we use a truncated Singular Value Decomposition [t-SVD;
-@Halko2011FinStr] to generate latent traits representing a low-dimensional
-embedding of the network. As an aside, most ecologists are indirectly familiar
-with SVD: Principal Component Analysis is a special case of SVD, which is more
-sensitive to numerical instabilities [see notably @Shlens2014TutPri]. The latent
-traits give an unbiased estimate of the node's position in the latent feature
-spaces and can be mapped onto a reference phylogeny (**TK** it is possible to
-use distinct trees if working with different clades, *e.g.* bipartite networks
-or to use other distance-based measures of species proximity that allow for the
-inference of features in the latent space can be used, *e.g.* the dissimilarity
-in functional traits). Based on the reconstructed latent traits for species in
-the destination species pool, a Random Dot Product Graph model [hereafter RDPG;
-@Young2007RanDot] predicts the interaction between species through a function of
-the nodes' features through matrix multiplication. Thus, from latent traits and
-node position, we can infer interactions.
-
 The method we develop is, ecologically speaking, a "black box", *i.e.* an
 algorithm that can be understood mathematically, but whose component parts are
 not always directly tied to ecological processes. There is a growing realization
@@ -247,27 +230,28 @@ representational learning, where we learn a *representation* of the metaweb (in
 the form of the latent subspaces), rather than a list of interactions (species
 *a* eats *b*). This approach is conceptually different from other metaweb-scale
 predictions [*e.g.* @Albouy2019MarFis], in that the metaweb representation is
-easily transferable. Specifically, we use RDPG to create a number of latent
-variables that can be combined into an approximation of the network adjacency
-matrix. RDPG is known to capture the evolutionary backbone of food webs
-[@DallaRiva2016ExpEvo], resulting in strong phylogenetic signal in RDPG results;
-in other words, the latent variables of an RDPG can be mapped onto a
-phylogenetic tree, and phylogenetically similar predators should share
-phylogenetically similar preys. In addition, recent advances show that the
-latent variables produced this way can be used to predict *de novo* network
-edges. Interestingly, the latent variables do not need to be produced by
-decomposing the network itself; in a recent contribution, @Runghen2021ExpNod
-showed that deep artificial neural networks are able to reconstruct the left and
-right subspaces of an RDPG, in order to predict human movement networks from
-individual/location metadata. This is an exciting opportunity, as it opens up
-the possibility of using additional metadata as predictors.
+easily transferable. Specifically, we use Random Dot Product Graph model
+[hereafter RDPG; @Young2007RanDot] to create a number of latent variables that
+can be combined into an approximation of the network adjacency matrix. RDPG is
+known to capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo],
+resulting in strong phylogenetic signal in RDPG results; in other words, the
+latent variables of an RDPG can be mapped onto a phylogenetic tree, and
+phylogenetically similar predators should share phylogenetically similar preys.
+In addition, recent advances show that the latent variables produced this way
+can be used to predict *de novo* network edges. Interestingly, the latent
+variables do not need to be produced by decomposing the network itself; in a
+recent contribution, @Runghen2021ExpNod showed that deep artificial neural
+networks are able to reconstruct the left and right subspaces of an RDPG, in
+order to predict human movement networks from individual/location metadata. This
+is an exciting opportunity, as it opens up the possibility of using additional
+metadata as predictors.
 
 The latent variables are created by performing a truncated Singular Value
-Decomposition (t-SVD) on the adjacency matrix. SVD is an appropriate embedding
-of ecological networks, which has recently been shown to both capture their
-complex, emerging properties [@Strydom2021SvdEnt] and to allow highly accurate
-prediction of the interactions within a single network [@Poisot2021ImpMam].
-Under SVD, an adjacency matrix $\mathbf{A}$ (where
+Decomposition [t-SVD; @Halko2011FinStr] on the adjacency matrix. SVD is an
+appropriate embedding of ecological networks, which has recently been shown to
+both capture their complex, emerging properties [@Strydom2021SvdEnt] and to
+allow highly accurate prediction of the interactions within a single network
+[@Poisot2021ImpMam]. Under SVD, an adjacency matrix $\mathbf{A}$ (where
 $\mathbf{A}_{m,n}\in\mathbb{B}$ where 1 indicates predation and 0 an absence
 thereof) is decomposed into three components resulting in $\mathbf{A} =
 \mathbf{U}\mathbf{\Sigma}\mathbf{V'}.$ Here, $\mathbf{\Sigma}$ is a $m \times n$
@@ -691,7 +675,7 @@ Innovation, and Employment. BM is funded by the NSERC Alexander Graham Bell
 Canada Graduate Scholarship and the FRQNT master’s scholarship. LP acknowledges
 funding from NSERC Discovery Grant (NSERC RGPIN-2019-05771). TP acknowledges
 financial support from NSERC through the Discovery Grants and Discovery
-Accelerator Supplement programs. 
+Accelerator Supplement programs.
 
 **Conflict of interest:** The authors have no conflict interests to disclose
 
