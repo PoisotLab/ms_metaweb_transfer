@@ -139,46 +139,23 @@ papers, books, and grey literature) from the last 50 years and includes all
 terrestrial tetrapods (mammals, breeding birds, reptiles and amphibians)
 occurring on the European sub-continent (and Turkey) - with the caveat that only
 species introduced in historical times and currently naturalized being included.
-This metaweb itself is a network of binary (*i.e.* presence/absence), potential
-two-way interactions between species pairs.
+The European metaweb was filtered using the Global Biodiversity Information
+Facility (GBIF) taxonomic backbone [@GBIFSecretariat2021GbiBac] so as to contain
+only terrestrial and semi-aquatic mammals. As all species had valid matches to
+the GBIF taxonomy it was used as the backbone for the remaining reconciliation
+steps namely, the mammalian consensus supertree by @Upham2019InfMam (which is
+used for the knowledge transfer step) and for the Canadian species list---which
+was extracted from the International Union for Conservation of Nature (IUCN)
+checklist, and corresponds to the same selection criteria that was applied by
+@Maiorano2020Tet10 in the European metaweb.
 
-We filtered down the European metaweb to create a subgraph corresponding to all
-mammals by matching species names in the original network to the Global
-Biodiversity Information Facility (GBIF) taxonomic backbone
-[@GBIFSecretariat2021GbiBac] and retaining all those who matched to mammals.
-This serves a dual purpose 1) to extract only mammals from the European network
-and 2) to match and standardize species names when aggregating the different
-data sources further downstream. All nodes had valid matches to GBIF at
-this step, and so this backbone is used for all name reconciliation steps as
-outlined below.
-
-The European metaweb represents the knowledge we want to learn and transfer; the
-phylogenetic similarity of mammals here represents the information for transfer
-(*i.e.* the transfer medium). We used the mammalian consensus supertree by
-@Upham2019InfMam, for which all approximatively 6000 names have been similarly
-matched to their GBIF valid names. This step allows us to place each node of the
-mammalian European metaweb in the phylogeny.
-
-The destination problem to which we want to transfer knowledge is the trophic
-interactions between mammals in Canada. We obtained the list of extant species
-from the International Union for Conservation of Nature (IUCN) checklist, and
-selected the terrestrial and semi-aquatic species (this corresponds to the same
-selection that was applied by @Maiorano2020Tet10 in the European metaweb). The
-IUCN names were, as previously, reconciled against GBIF to have an exact match
-to the taxonomy.
-
-After taxonomic cleaning and reconciliation as outlined in the following
-sections, the mammalian European metaweb has 260 species, and the Canadian
-species pool has 163; of these, 17 (about 4% of the total) are shared, and 89
-species from Canada (54%) had at least one congeneric species in Europe. The
-similarity for both species pools predictably increases with higher taxonomic
-order, with 19% of shared genera, 47% of shared families, and 75% of shared
-orders; for the last point, Canada and Europe each had a single unique order
-(*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
-
-In the following sections, we describe the representational learning step
-applied to European data, the transfer step through phylogenetic similarity, and
-the generation of a probabilistic metaweb for the destination species pool.
+After taxonomic cleaning and reconciliation the mammalian European metaweb has
+260 species, and the Canadian species pool 163; of these, 17 (about 4% of the
+total) are shared, and 89 species from Canada (54%) had at least one congeneric
+species in Europe. The similarity for both species pools predictably increases
+with higher taxonomic order, with 19% of shared genera, 47% of shared families,
+and 75% of shared orders; for the last point, Canada and Europe each had a
+single unique order (*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
 
 # Method description
 
@@ -186,11 +163,9 @@ The core point of our method is the transfer of knowledge of a known ecological
 network, in order to predict interactions between species from another location
 at which the network is unknown (or partially known). In @fig:concept, we give a
 high-level overview of the approach; in the example around which this manuscript
-is built (leveraging detailed knowledge about binary trophic interactions
-between Mammalia in Europe to predict the less known trophic interactions
-between closely phylogenetically related Mammalia in Canada), we use a series of
-specific steps for network embedding, trait inference, network prediction and
-thresholding.
+is built---leveraging detailed knowledge about binary trophic interactions
+between Mammalia in Europe to predict the *unknown* trophic interactions
+between closely phylogenetically related Mammalia in Canada.
 
 The method we develop is, ecologically speaking, a "black box", *i.e.* an
 algorithm that can be understood mathematically, but whose component parts are
