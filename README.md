@@ -75,24 +75,24 @@ the destination (here, assuming a uniform distribution of traits), and threshold
 it to yield the final list of interactions (Step
 4).](figures/figure-concept_v2.png){#fig:concept}
 
-Our methodology is outlined in @fig:concept, where we provide an illustration
-based on learning the embedding of a metaweb of trophic interactions for
-European mammals [known interactions; @Maiorano2020Tet10; @Maiorano2020DatTet]
-and, based on phylogenetic relationships between mammals globally [*i.e.*,
-phylogenetic tree @Upham2019InfMam], infer a metaweb for the Canadian mammalian
-species pool (interactions are treated as unknown in this instance). Following
-the definition of @Dunne2006NetStr, a metaweb is a network analogue to the
-regional species pool; specifically, it is an inventory of all *potential*
-interactions between species from a spatially delimited area (and so captures
-the $\gamma$ diversity of interactions). The metaweb is, therefore, *not* a
-prediction of the food web at a specific locale within the spatial area it
-covers, and will have a different structure [notably by having a larger
-connectance; see *e.g.* @Wood2015EffSpa]. These local food webs (which captures
-the $\alpha$ diversity of interactions) are a subset of the metaweb's species
-and interactions, and have been called "metaweb realizations"
-[@Poisot2015SpeWhy]. Differences between local food web and their metaweb are
-due to chance, species abundance and co-occurrence, local environmental
-conditions, and local distribution of functional traits, among others.
+In @fig:concept, where we provide a methodological overview based on learning
+the embedding of a metaweb of trophic interactions for European mammals [known
+interactions; @Maiorano2020Tet10; @Maiorano2020DatTet] and, based on
+phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
+@Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
+(interactions are treated as unknown in this instance). Following the definition
+of @Dunne2006NetStr, a metaweb is a network analogue to the regional species
+pool; specifically, it is an inventory of all *potential* interactions between
+species from a spatially delimited area (and so captures the $\gamma$ diversity
+of interactions). The metaweb is, therefore, *not* a prediction of the food web
+at a specific locale within the spatial area it covers, and will have a
+different structure [notably by having a larger connectance; see *e.g.*
+@Wood2015EffSpa]. These local food webs (which captures the $\alpha$ diversity
+of interactions) are a subset of the metaweb's species and interactions, and
+have been called "metaweb realizations" [@Poisot2015SpeWhy]. Differences between
+local food web and their metaweb are due to chance, species abundance and
+co-occurrence, local environmental conditions, and local distribution of
+functional traits, among others.
 
 Because the metaweb represents the joint effect of functional, phylogenetic, and
 macroecological processes [@Morales-Castilla2015InfBio], it holds valuable
@@ -121,7 +121,7 @@ results, when validated against known but fractional data of trophic
 interactions between Canadian mammals, our model achieves a predictive accuracy
 of approximately 91%. It should be reiterated that the framework presented in
 @fig:concept is amenable to changes *e.g.* it is possible to use distinct trees
-if working with different clades (such as pollination networks) or,
+if working with distinct clades (such as pollination networks) or,
 alternatively, the measure of similarity may not be phylogeny, and can be
 replaced by information on foraging [@Beckerman2006ForBio], cell-level
 mechanisms [@Boeckaerts2021PreBac], or a combination of traits and phylogenetic
@@ -161,22 +161,18 @@ single unique order (*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
 
 The core point of our method is the transfer of knowledge of a known ecological
 network, in order to predict interactions between species from another location
-at which the network is unknown (or partially known). In @fig:concept, we give a
-high-level overview of the approach; in the example around which this manuscript
-is built---leveraging detailed knowledge about binary trophic interactions
-between Mammalia in Europe to predict the *unknown* trophic interactions
-between closely phylogenetically related Mammalia in Canada.
-
-The method we develop is, ecologically speaking, a "black box", *i.e.* an
-algorithm that can be understood mathematically, but whose component parts are
-not always directly tied to ecological processes. There is a growing realization
-in machine learning that (unintentional) black box algorithms are not
-necessarily a bad thing [@Holm2019DefBla], as long as their constituent parts
-can be examined (which is the case with our method). But more importantly, data
-hold more information than we might think; as such, even algorithms that are
-disconnected from a model can make correct guesses most of the time
-[@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting of
-spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
+for which the network is unknown (or partially known). In @fig:concept the grey
+text boxes give a high-level overview of the approach; in the example around
+which this manuscript is built The method we develop is, ecologically speaking,
+a "black box", *i.e.* an algorithm that can be understood mathematically, but
+whose component parts are not always directly tied to ecological processes.
+There is a growing realization in machine learning that (unintentional) black
+box algorithms are not necessarily a bad thing [@Holm2019DefBla], as long as
+their constituent parts can be examined (which is the case with our method). But
+more importantly, data hold more information than we might think; as such, even
+algorithms that are disconnected from a model can make correct guesses most of
+the time [@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting
+of spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
 information from the data) outperformed model-informed ones
 [@Perretti2013ModFor].
 
@@ -213,13 +209,12 @@ resulting in strong phylogenetic signal in RDPG results; in other words, the
 latent variables of an RDPG can be mapped onto a phylogenetic tree, and
 phylogenetically similar predators should share phylogenetically similar preys.
 In addition, recent advances show that the latent variables produced this way
-can be used to predict *de novo* network edges. Interestingly, the latent
+can be used to predict *de novo* interactions. Interestingly, the latent
 variables do not need to be produced by decomposing the network itself; in a
 recent contribution, @Runghen2021ExpNod showed that deep artificial neural
 networks are able to reconstruct the left and right subspaces of an RDPG, in
-order to predict human movement networks from individual/location metadata. This
-is an exciting opportunity, as it opens up the possibility of using additional
-metadata as predictors.
+order to predict human movement networks from individual/location metadata and
+opens up the possibility of using additional metadata as predictors.
 
 The latent variables are created by performing a truncated Singular Value
 Decomposition [t-SVD; @Halko2011FinStr] on the adjacency matrix. SVD is an
