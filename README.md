@@ -80,19 +80,19 @@ the embedding of a metaweb of trophic interactions for European mammals [known
 interactions; @Maiorano2020Tet10; @Maiorano2020DatTet] and, based on
 phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
 @Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
-(interactions are treated as unknown in this instance). Following the definition
-of @Dunne2006NetStr, a metaweb is a network analogue to the regional species
-pool; specifically, it is an inventory of all *potential* interactions between
-species from a spatially delimited area (and so captures the $\gamma$ diversity
-of interactions). The metaweb is, therefore, *not* a prediction of the food web
-at a specific locale within the spatial area it covers, and will have a
-different structure [notably by having a larger connectance; see *e.g.*
-@Wood2015EffSpa]. These local food webs (which captures the $\alpha$ diversity
-of interactions) are a subset of the metaweb's species and interactions, and
-have been called "metaweb realizations" [@Poisot2015SpeWhy]. Differences between
-local food web and their metaweb are due to chance, species abundance and
-co-occurrence, local environmental conditions, and local distribution of
-functional traits, among others.
+(using only a species list *i.e.* interactions are 'unknown' in this instance).
+Following the definition of @Dunne2006NetStr, a metaweb is a network analogue to
+the regional species pool; specifically, it is an inventory of all *potential*
+interactions between species from a spatially delimited area (and so captures
+the $\gamma$ diversity of interactions). The metaweb is, therefore, *not* a
+prediction of the food web at a specific locale within the spatial area it
+covers, and will have a different structure [notably by having a larger
+connectance; see *e.g.* @Wood2015EffSpa]. These local food webs (which captures
+the $\alpha$ diversity of interactions) are a subset of the metaweb's species
+and interactions, and have been called "metaweb realizations"
+[@Poisot2015SpeWhy]. Differences between local food web and their metaweb are
+due to chance, species abundance and co-occurrence, local environmental
+conditions, and local distribution of functional traits, among others.
 
 Because the metaweb represents the joint effect of functional, phylogenetic, and
 macroecological processes [@Morales-Castilla2015InfBio], it holds valuable
