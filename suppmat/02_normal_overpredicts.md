@@ -2,7 +2,7 @@
 
 In this appendix, we compare the raw predictions made by the Normal and Uniform
 models of latent variable evolution. The Normal model was created by (i) getting
-the averag $\mu$ of the simulated values for each species/variable combination,
+the average $\mu$ of the simulated values for each species/variable combination,
 and (ii) estimating the standard deviation as $(\mu+c - \mu-c)/3.92$, where $c$
 is one half of the 95% confidence interval around $\mu$.
 

@@ -3,7 +3,7 @@
 In this appendix, we check that the networks reconstructed from the RDPG do
 keep a variety of structural components, especially when selecting small species
 pools from within them. In order to do so, we induced 400 random subgraphs
-containing within 30 and 70 species, both from the Canadian and European
+containing between 30 and 70 species, both from the Canadian and European
 metawebs. For each of these subgraphs, we measured eight variables: the mean and
 standard deviation of trophic levels, the standard deviation of degree (total,
 in, and out), and the proportion of top, intermediate, and basal species. We
