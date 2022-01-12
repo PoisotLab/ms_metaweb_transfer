@@ -1,7 +1,7 @@
 \begin{figure}
 \hypertarget{fig:concept}{%
 \centering
-\includegraphics{figures/figure-concept.png}
+\includegraphics{figures/figure-concept_v2.png}
 \caption{Overview of the phylogenetic transfer learning (and prediction)
 of species interactions networks. Starting from an initial, known,
 network, we learn its representation through a graph embedding step
