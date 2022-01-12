@@ -64,47 +64,35 @@ the destination (here, assuming a uniform distribution of traits), and threshold
 it to yield the final list of interactions (Step
 4).](figures/figure-concept_v2.png){#fig:concept}
 
-In @fig:concept, where we provide a methodological overview based on learning
-the embedding of a metaweb of trophic interactions for European mammals [known
+In @fig:concept, we provide a methodological overview based on learning the
+embedding of a metaweb of trophic interactions for European mammals [known
 interactions; @Maiorano2020Tet10; @Maiorano2020DatTet] and, based on
 phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
 @Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
-(using only a species list *i.e.* interactions are 'unknown' in this instance).
-
-Our case study shows that phylogenetic transfer learning is an effective
-approach to the generation of probabilistic metawebs. This showcases that
-although the components (species) that make up the Canadian and European
+(using only a species list *i.e.* interactions are treated as unknown in this
+instance). Our case study shows that phylogenetic transfer learning is an
+effective approach to the generation of probabilistic metawebs. This showcases
+that although the components (species) that make up the Canadian and European
 communities may be *minimally* shared (the overall species overlap is less than
 4%), if the medium (proxy space) selected in the transfer step is biologically
 plausible, we can still effectively learn from the known network and make
 biologically relevant predictions of interactions. Indeed, as we detail in the
 results, when validated against known but fractional data of trophic
 interactions between Canadian mammals, our model achieves a predictive accuracy
-of approximately 91%. It should be reiterated that the framework presented in
-@fig:concept is amenable to changes *e.g.* it is possible to use distinct trees
-if working with distinct clades (such as pollination networks) or,
-alternatively, the measure of similarity may not be phylogeny, and can be
-replaced by information on foraging [@Beckerman2006ForBio], cell-level
-mechanisms [@Boeckaerts2021PreBac], or a combination of traits and phylogenetic
-structure [@Stock2021PaiLea]. Most importantly, although we focus on a trophic
-system, it is an established fact that different (non-trophic) interactions do
-themselves interact with and influence the outcome of trophic interactions [see
-*e.g.* @Kawatsu2021AreNet; @Kefi2012MorMea]. Future development of metaweb
-inference techniques should cover the prediction of multiple interaction types.
+of approximately 91%.
 
 # Method description
 
 The core point of our method is the transfer of knowledge of a known ecological
-network, in order to predict interactions between species from another location
-for which the network is unknown (or partially known). In @fig:concept the grey
-text boxes give a high-level overview of the approach; in the example around
-which this manuscript is built The method we develop is, ecologically speaking,
-a "black box", *i.e.* an algorithm that can be understood mathematically, but
-whose component parts are not always directly tied to ecological processes.
-There is a growing realization in machine learning that (unintentional) black
-box algorithms are not necessarily a bad thing [@Holm2019DefBla], as long as
-their constituent parts can be examined (which is the case with our method). But
-more importantly, data hold more information than we might think; as such, even
+network to predict interactions between species for another location for which
+the network is unknown (or partially known) and is summarized in the grey text
+boxes in @fig:concept. The method we develop is, ecologically speaking, a "black
+box", *i.e.* an algorithm that can be understood mathematically, but whose
+component parts are not always directly tied to ecological processes. There is a
+growing realization in machine learning that (unintentional) black box
+algorithms are not necessarily a bad thing [@Holm2019DefBla], as long as their
+constituent parts can be examined (which is the case with our method). But more
+importantly, data hold more information than we might think; as such, even
 algorithms that are disconnected from a model can make correct guesses most of
 the time [@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting
 of spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
@@ -127,13 +115,14 @@ steps namely, the mammalian consensus supertree by @Upham2019InfMam (which is
 used for the knowledge transfer step) and for the Canadian species list---which
 was extracted from the International Union for Conservation of Nature (IUCN)
 checklist, and corresponds to the same selection criteria that was applied by
-@Maiorano2020Tet10 in the European metaweb. After taxonomic cleaning and reconciliation the mammalian European metaweb has
-260 species, and the Canadian species pool 163; of these, 17 (about 4% of the
-total) are shared, and 89 species from Canada (54%) had at least one congeneric
-species in Europe. The similarity for both species pools predictably increases
-with higher taxonomic order, with 19% of shared genera, 47% of shared families,
-and 75% of shared orders; for the last point, Canada and Europe each had a
-single unique order (*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
+@Maiorano2020Tet10 in the European metaweb. After taxonomic cleaning and
+reconciliation the European metaweb has 260 species, and the Canadian species
+pool 163; of these, 17 (about 4% of the total) are shared, and 89 species from
+Canada (54%) had at least one congeneric species in Europe. The similarity for
+both species pools predictably increases with higher taxonomic order, with 19%
+of shared genera, 47% of shared families, and 75% of shared orders; for the last
+point, Canada and Europe each had a single unique order (*Didelphimorphia* for
+Canada, *Erinaceomorpha* for Europe).
 
 ## Implementation and code availability
 
@@ -160,7 +149,7 @@ representational learning, where we learn a *representation* of the metaweb (in
 the form of the latent subspaces), rather than a list of interactions (species
 *a* eats *b*). This approach is conceptually different from other metaweb-scale
 predictions [*e.g.* @Albouy2019MarFis], in that the metaweb representation is
-easily transferable. Specifically, we use Random Dot Product Graph model
+easily transferable. Specifically, we use a Random Dot Product Graph model
 [hereafter RDPG; @Young2007RanDot] to create a number of latent variables that
 can be combined into an approximation of the network adjacency matrix. RDPG is
 known to capture the evolutionary backbone of food webs [@DallaRiva2016ExpEvo],
@@ -273,8 +262,8 @@ the tips of the tree. We assumed that all traits (*i.e.* the feature vectors for
 the left and right subspaces) were independent, which is a reasonable assumption
 as every trait/dimension added to the t-SVD has an *additive* effect to the one
 before it. Note that the @Upham2019InfMam tree itself has some uncertainty
-associated to inner nodes of the phylogeny. In this case study, we have decided
-to not propagate this uncertainty, as it would complexify the process. The
+associated to inner nodes of the phylogeny. In this case study we have decided
+to not propagate this uncertainty as it would complexify the process. The
 Brownian motion algorithm returns the *average* value of the trait, and its
 upper and lower bounds. Because we do not estimate other parameters of the
 traits' distributions, we considered that every species trait is represented as
@@ -362,7 +351,7 @@ the mammals from Canada in the reconstructed metaweb. This figure describes a
 flat, relatively short food web, in which there are few predators but a large
 number of preys.](figures/figure-validation.png){#fig:inflation}
 
-First, we extracted the subgraph corresponding to the 17 species shared between
+First, we extracted the network corresponding to the 17 species shared between
 the European and Canadian pools and replaced these interactions with a
 probability of 0 (non-interaction) or 1 (interaction), according to their value
 in the European metaweb. This represents a minute modification of the inferred
@@ -389,7 +378,11 @@ dataset documented 25 interactions between mammals, only two of which were not
 part of our (Canada-level) predictions, resulting in a success rate of 92%.
 These two interactions were added to our predicted metaweb with a probability of 1.
 A table listing all interactions in the predicted Canadian metaweb can be found
-in the supplementary material.
+in the supplementary material. A metaweb is as an inventory of *potential*
+interactions for a species pool [@Dunne2006NetStr] and setting known
+interactions to 1 is within the bounds of this definition (if an interaction has
+been recorded then the potential of said interaction occurring in the context of
+a metaweb would be 1).
 
 ![Left: effect of varying the cutoff for probabilities to be considered non-zero
 on the number of unique links and on $\hat{L}$, the probabilistic estimate of
@@ -401,7 +394,7 @@ of its interactions.](figures/figure-cutoffs.png){#fig:thresholds}
 
 Because the confidence intervals on the inferred trait space are probably
 over-estimates, we decided to apply a thresholding step to the interactions
-after the data inflation (see @fig:thresholds showing the effect of varying the
+after data inflation (see @fig:thresholds showing the effect of varying the
 cutoff on $P(i \rightarrow j)$). @Cirtwill2021BuiFoo proposed a number of
 strategies to threshold probabilistic networks. Their methods assume the
 underlying data to be tag-based sequencing, which represents interactions as
@@ -466,35 +459,45 @@ Megafauna in particular seems to be very sensitive to human arrival
 that human footprint affects more than the risk of species extinction
 [@Marco2018ChaHum], and can lead to changes in interaction structure.
 
-Related to the last point, @Cirtwill2019QuaFra showed that network inference
-techniques based on Bayesian approaches would perform far better in the presence
-of an interaction-level informative prior; the desirable properties of such a
-prior would be that it is expressed as a probability, preferably representing a
-Bernoulli event, the value of which would be representative of relevant
-biological processes (probability of predation in this case). We argue that the
-probability returned at the very last step of our framework may serve as this
-informative prior; indeed, the output of our analysis can be used in subsequent
-steps, also possibly involving expert elicitation to validate some of the most
-strongly recommended interactions. One important *caveat* to keep in mind when
-working with interaction inference is that interactions can never really be true
-negatives (in the current state of our methodological framework and data
-collection limitations); this renders the task of validating a model through the
-usual application of binary classification statistics very difficult [although
-see @Strydom2021RoaPre for a discussion of alternative suggestions]. The other
-way through which our framework can be improved is by substituting the
-predictors that are used for transfer. For example, in the presence of
-information on species traits that are known to be predictive of species
-interactions, one might want to rely on functional rather than phylogenetic
-distances -- in food webs, body size (and allometrically related variables) has
-been established as such a variable [@Brose2006ConRes]; the identification of
-relevant functional traits is facilitated by recent methodological developments
-[@Rosado2013GoiBac]. It should be noted that @Xing2021RisEco highlight
-phylogenetic relatedness as one of the core components of network comparison at
-the global scale. In this case study, we have embedded the original metaweb
-using t-SVD, because it lends itself to an RDPG reconstruction, which is known
-to capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo];
-this being said, there are other ways to embed graphs [@Arsov2019NetEmb;
-@Cai2017ComSur; @Cao2019NetEmb], which can be used as alternatives.
+@Cirtwill2019QuaFra showed that network inference techniques based on Bayesian
+approaches would perform far better in the presence of an interaction-level
+informative prior; the desirable properties of such a prior would be that it is
+expressed as a probability, preferably representing a Bernoulli event, the value
+of which would be representative of relevant biological processes (probability
+of predation in this case). We argue that the probability returned at the very
+last step of our framework may serve as this informative prior; indeed, the
+output of our analysis can be used in subsequent steps, also possibly involving
+expert elicitation to validate some of the most strongly recommended
+interactions. One important *caveat* to keep in mind when working with
+interaction inference is that interactions can never really be true negatives
+(in the current state of our methodological framework and data collection
+limitations); this renders the task of validating a model through the usual
+application of binary classification statistics very difficult [although see
+@Strydom2021RoaPre for a discussion of alternative suggestions]. The other way
+through which our framework can be improved is by substituting the predictors
+that are used for transfer. For example, in the presence of information on
+species traits that are known to be predictive of species interactions, one
+might want to rely on functional rather than phylogenetic distances -- in food
+webs, body size (and allometrically related variables) has been established as
+such a variable [@Brose2006ConRes]; the identification of relevant functional
+traits is facilitated by recent methodological developments [@Rosado2013GoiBac].
+
+Finally, it should be noted that the framework we have presented is amenable to
+changes lending to applicability to a broad range of potential scenarios. For
+example in this case study we have embedded the original metaweb using t-SVD,
+because it lends itself to an RDPG reconstruction, which is known to capture the
+consequences of evolutionary processes [@DallaRiva2016ExpEvo]; this being said,
+there are other ways to embed graphs [@Arsov2019NetEmb; @Cai2017ComSur;
+@Cao2019NetEmb], which can be used as alternatives. Regarding the transfer step
+it is possible to use distinct trees if working with distinct clades (such as
+pollination networks) or an alternative measure of similarity (transfer medium)
+such as information on foraging [@Beckerman2006ForBio], cell-level mechanisms
+[@Boeckaerts2021PreBac], or a combination of traits and phylogenetic structure
+[@Stock2021PaiLea]. Most importantly, although we focus on a trophic system, it
+is an established fact that different (non-trophic) interactions do themselves
+interact with and influence the outcome of trophic interactions [see *e.g.*
+@Kawatsu2021AreNet; @Kefi2012MorMea]. Future development of metaweb inference
+techniques should cover the prediction of multiple interaction types.
 
 **Acknowledgements:** We acknowledge that this study was conducted on land
 within the traditional unceded territory of the Saint Lawrence Iroquoian,
