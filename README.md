@@ -131,32 +131,6 @@ themselves interact with and influence the outcome of trophic interactions [see
 *e.g.* @Kawatsu2021AreNet; @Kefi2012MorMea]. Future development of metaweb
 inference techniques should cover the prediction of multiple interaction types.
 
-# Data used for the case study
-
-We use data from the European metaweb assembled by @Maiorano2020Tet10. This was
-assembled using data extracted from scientific literature (including published
-papers, books, and grey literature) from the last 50 years and includes all
-terrestrial tetrapods (mammals, breeding birds, reptiles and amphibians)
-occurring on the European sub-continent (and Turkey) - with the caveat that only
-species introduced in historical times and currently naturalized being included.
-The European metaweb was filtered using the Global Biodiversity Information
-Facility (GBIF) taxonomic backbone [@GBIFSecretariat2021GbiBac] so as to contain
-only terrestrial and semi-aquatic mammals. As all species had valid matches to
-the GBIF taxonomy it was used as the backbone for the remaining reconciliation
-steps namely, the mammalian consensus supertree by @Upham2019InfMam (which is
-used for the knowledge transfer step) and for the Canadian species list---which
-was extracted from the International Union for Conservation of Nature (IUCN)
-checklist, and corresponds to the same selection criteria that was applied by
-@Maiorano2020Tet10 in the European metaweb.
-
-After taxonomic cleaning and reconciliation the mammalian European metaweb has
-260 species, and the Canadian species pool 163; of these, 17 (about 4% of the
-total) are shared, and 89 species from Canada (54%) had at least one congeneric
-species in Europe. The similarity for both species pools predictably increases
-with higher taxonomic order, with 19% of shared genera, 47% of shared families,
-and 75% of shared orders; for the last point, Canada and Europe each had a
-single unique order (*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
-
 # Method description
 
 The core point of our method is the transfer of knowledge of a known ecological
@@ -175,6 +149,30 @@ the time [@Halevy2009UnrEff]; in fact, in an instance of ecological forecasting
 of spatio-temporal systems, model-free approaches (*i.e.* drawing all of their
 information from the data) outperformed model-informed ones
 [@Perretti2013ModFor].
+
+## Data used for the case study
+
+We use data from the European metaweb assembled by @Maiorano2020Tet10. This was
+assembled using data extracted from scientific literature (including published
+papers, books, and grey literature) from the last 50 years and includes all
+terrestrial tetrapods (mammals, breeding birds, reptiles and amphibians)
+occurring on the European sub-continent (and Turkey) - with the caveat that only
+species introduced in historical times and currently naturalized being included.
+The European metaweb was filtered using the Global Biodiversity Information
+Facility (GBIF) taxonomic backbone [@GBIFSecretariat2021GbiBac] so as to contain
+only terrestrial and semi-aquatic mammals. As all species had valid matches to
+the GBIF taxonomy it was used as the backbone for the remaining reconciliation
+steps namely, the mammalian consensus supertree by @Upham2019InfMam (which is
+used for the knowledge transfer step) and for the Canadian species list---which
+was extracted from the International Union for Conservation of Nature (IUCN)
+checklist, and corresponds to the same selection criteria that was applied by
+@Maiorano2020Tet10 in the European metaweb. After taxonomic cleaning and reconciliation the mammalian European metaweb has
+260 species, and the Canadian species pool 163; of these, 17 (about 4% of the
+total) are shared, and 89 species from Canada (54%) had at least one congeneric
+species in Europe. The similarity for both species pools predictably increases
+with higher taxonomic order, with 19% of shared genera, 47% of shared families,
+and 75% of shared orders; for the last point, Canada and Europe each had a
+single unique order (*Didelphimorphia* for Canada, *Erinaceomorpha* for Europe).
 
 ## Implementation and code availability
 
@@ -332,9 +330,7 @@ therefore we keep the discussions in the main text to the uniform case. The
 inferred left and right subspaces for the Canadian species pool
 ($\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$) have entries that are
 distributions, representing the range of values for a given species at a given
-dimension.
-
-These objects represent the transferred knowledge, which we can use for
+dimension. These objects represent the transferred knowledge, which we can use for
 prediction of the Canadian metaweb.
 
 ## Step 4: Probabilistic prediction of the destination network
