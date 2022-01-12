@@ -15,18 +15,7 @@ a biased subset of space and bioclimates, which impedes our ability to
 generalize any local understanding of network structure. Meaning that, although
 the framework to address incompleteness *within* networks exists, there would
 still be regions for which, due to a *lack* of local interaction data, we are
-unable to infer potential species interactions. Having a general solution for
-inferring *potential* interactions (despite the unavailability of interaction
-data) could be the catalyst for significant breakthroughs in our ability to
-start thinking about species interaction networks over large spatial scales. In
-a recent overview of the field of ecological network prediction,
-@Strydom2021RoaPre identified two challenges of interest to the prediction of
-interactions at large scales. First, there is a relative scarcity of relevant
-data in most places globally -- paradoxically, this restricts our ability to
-infer interactions to locations where inference is perhaps the least required;
-second, accurate predictions often demand accurate predictors, and the lack of
-methods that can leverage small amount of data is a serious impediment to our
-predictive ability globally.
+unable to infer potential species interactions.
 
 Here, we present a general method to infer potential trophic interactions,
 relying on the transfer learning of network representations, specifically by
@@ -81,34 +70,6 @@ interactions; @Maiorano2020Tet10; @Maiorano2020DatTet] and, based on
 phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
 @Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
 (using only a species list *i.e.* interactions are 'unknown' in this instance).
-Following the definition of @Dunne2006NetStr, a metaweb is a network analogue to
-the regional species pool; specifically, it is an inventory of all *potential*
-interactions between species from a spatially delimited area (and so captures
-the $\gamma$ diversity of interactions). The metaweb is, therefore, *not* a
-prediction of the food web at a specific locale within the spatial area it
-covers, and will have a different structure [notably by having a larger
-connectance; see *e.g.* @Wood2015EffSpa]. These local food webs (which captures
-the $\alpha$ diversity of interactions) are a subset of the metaweb's species
-and interactions, and have been called "metaweb realizations"
-[@Poisot2015SpeWhy]. Differences between local food web and their metaweb are
-due to chance, species abundance and co-occurrence, local environmental
-conditions, and local distribution of functional traits, among others.
-
-Because the metaweb represents the joint effect of functional, phylogenetic, and
-macroecological processes [@Morales-Castilla2015InfBio], it holds valuable
-ecological information. Specifically, it is the "upper bounds" on what the
-composition of the local networks can be [see *e.g.* @McLeod2021SamAsy]. These
-local networks, in turn, can be reconstructed given appropriate knowledge of
-local species composition, providing information on structure of food webs at
-finer spatial scales. This has been done for example for tree-galler-parasitoid
-systems [@Gravel2018BriElt], fish trophic interactions [@Albouy2019MarFis],
-tetrapod trophic interactions [@OConnor2020UnvFoo], and crop-pest networks
-[@Grunig2020CroFor]. Whereas the original metaweb definition, and indeed most
-past uses of metawebs, was based on the presence/absence of interactions, we
-focus on *probabilistic* metawebs where interactions are represented as the
-chance of success of a Bernoulli trial [see *e.g.* @Poisot2016StrPro];
-therefore, not only does our method recommend interactions that may exist, it
-gives each interaction a score, allowing us to properly weigh them.
 
 Our case study shows that phylogenetic transfer learning is an effective
 approach to the generation of probabilistic metawebs. This showcases that
@@ -503,43 +464,7 @@ in human occupation over several centuries can lead to food web collapse.
 Megafauna in particular seems to be very sensitive to human arrival
 [@Pires2015PleMeg]. In short, there is well-substantiated support for the idea
 that human footprint affects more than the risk of species extinction
-[@Marco2018ChaHum], and can lead to changes in interaction structure. Yet, owing
-to the inherent plasticity of interactions, there have been documented instances
-of food webs undergoing rapid collapse/recovery cycles over short periods of
-time [@Pedersen2017SigCol]. The embedding of a network, in a sense, embeds its
-macro-evolutionary history, especially as RDPG captures ecological signal
-[@DallaRiva2016ExpEvo]; at this point, it is important to recall that a metaweb
-is intended as a catalogue of all potential interactions, which should then be
-filtered [@Morales-Castilla2015InfBio]. In practice (and in this instance) the
-reconstructed metaweb will predict interactions that are plausible based on the
-species' evolutionary history, however some interactions would/would not be
-realized due to human impact.
-
-@Dallas2017PreCry suggested that most links in ecological networks may be
-cryptic, *i.e.* uncommon or otherwise hard to observe. This argument essentially
-echoes @Jordano2016SamNet: the sampling of ecological interactions is difficult
-because it requires first the joint observation of two species, and then the
-observation of their interaction. In addition, it is generally expected that
-weak or rare links would be more common in networks [@Csermely2004StrLin],
-compared to strong, persistent links; this is notably the case in food chains,
-wherein many weaker links are key to the stability of a system
-[@Neutel2002StaRea]. In the light of these observations, the results in
-@fig:inflation are not particularly surprising: we expect to see a surge in
-these low-probability interactions under a model that has a good predictive
-accuracy. Because the predictions we generate are by design probabilistic, then
-one can weigh these rare links appropriately. In a sense, that most ecological
-interactions are elusive can call for a slightly different approach to sampling:
-once the common interactions are documented, the effort required in documenting
-each rare interaction may increase exponentially. Recent proposals suggest that
-machine learning algorithms, in these situations, can act as data generators
-[@Hoffmann2019MacLea]: in this perspective, high quality observational data can
-be supplemented with synthetic data coming from predictive models, which
-increases the volume of information available for inference. Indeed,
-@Strydom2021RoaPre suggested that knowing the metaweb may render the prediction
-of local networks easier, because it fixes an "upper bound" on which
-interactions can exist; indeed, with a probabilistic metaweb, we can consider
-that the metaweb represents an aggregation of informative priors on the
-interactions.
+[@Marco2018ChaHum], and can lead to changes in interaction structure.
 
 Related to the last point, @Cirtwill2019QuaFra showed that network inference
 techniques based on Bayesian approaches would perform far better in the presence
@@ -570,61 +495,6 @@ using t-SVD, because it lends itself to an RDPG reconstruction, which is known
 to capture the consequences of evolutionary processes [@DallaRiva2016ExpEvo];
 this being said, there are other ways to embed graphs [@Arsov2019NetEmb;
 @Cai2017ComSur; @Cao2019NetEmb], which can be used as alternatives.
-
-As @Herbert1965Dun rightfully pointed out, "[y]ou can't draw neat lines around
-planet-wide problems"; in this regard, our approach (and indeed, any inference
-of a metaweb at large scales) must contend with several interesting and
-interwoven families of problems. The first is the limit of the metaweb to embed
-and transfer. If the initial metaweb is too narrow in scope, notably from a
-taxonomic point of view, the chances of finding another area with enough related
-species to make a reliable inference decreases; this would likely be indicated
-by large confidence intervals during ancestral character estimation, but the
-lack of well documented metawebs is currently preventing the development of more
-concrete guidelines. The question of phylogenetic relatedness and dispersal is
-notably true if the metaweb is assembled in an area with mostly endemic species,
-and as with every predictive algorithm, there is room for the application of our
-best ecological judgement. Conversely, the metaweb should be reliably filled,
-which assumes that the $S^2$ interactions in a pool of $S$ species have been
-examined, either through literature surveys or expert elicitation. Supp. Mat. 1
-provides some guidance as to the type of sampling effort that should be
-prioritized. While RDPG was able to maintain very high predictive power when
-interactions were missing, the addition of false positive interactions was
-immediately detected; this suggests that it may be appropriate to err on the
-side of "too many" interactions when constructing the initial metaweb to be
-transferred. The second series of problems are related to determining which area
-should be used to infer the new metaweb in, as this determines the species pool
-that must be used. In our application, we focused on the mammals of Canada. The
-upside of this approach is that information at the country level is likely to be
-required by policy makers and stakeholders for their biodiversity assessment, as
-each country tends to set goals at the national level [@Buxton2021KeyInf] for
-which quantitative instruments are designed [@Turak2017UsiEss], with specific
-strategies often enacted at smaller scales [@Ray2021BioCri]. And yet, we do not
-really have a satisfying answer to the question of "where does a food web
-stop?"; the current most satisfying solutions involve examining the spatial
-consistency of network area relationships [see *e.g.* @Galiana2018SpaSca;
-@Galiana2019GeoVar; @Galiana2021SpaSca; @Fortin2021NetEco], which is of course
-impossible in the absence of enough information about the network itself. This
-suggests that an *a posteriori* refinement of the results may be required, based
-on a downscaling of the metaweb. The final family of problems relates less to
-the availability of data or quantitative tools, and more to the praxis of
-spatial ecology. Operating under the context of national divisions, in large
-parts of the world, reflects nothing more than the legacy of settler
-colonialism. Indeed, the use of ecological data is not an apolitical act
-[@Nost2021PolEco], as data infrastructures tend to be designed to answer
-questions within national boundaries, and their use both draws upon and
-reinforces territorial statecraft; as per @Machen2021ThiAlg, this is
-particularly true when the output of "algorithmic thinking" (*e.g.* relying on
-machine learning to generate knowledge) can be re-used for governance (*e.g.*
-enacting conservation decisions at the national scale). We therefore recognize
-that methods such as we propose operate under the framework that contributed to
-the ongoing biodiversity crisis [@Adam2014EleTre], reinforced environmental
-injustice [@Choudry2013SavBio; @Dominguez2020DecCon], and on Turtle Island
-especially, should be replaced by Indigenous principles of land management
-[@Eichhorn2019SteDec; @Nokmaq2021AwaSle]. As we see AI/ML being increasingly
-mobilized to generate knowledge that is lacking for conservation decisions
-[*e.g.* @Lamba2019DeeLea; @MoseboFernandes2020MacLea], our discussion of these
-tools need to go beyond the technical, and into the governance consequences they
-can have.
 
 **Acknowledgements:** We acknowledge that this study was conducted on land
 within the traditional unceded territory of the Saint Lawrence Iroquoian,
