@@ -404,7 +404,7 @@ that still allowed all species to have at least one interaction with a non-zero
 probability. The need for this slight deviation from the @Cirtwill2021BuiFoo
 method highlights the need for additional development on network thresholding.
 
-# Results and discussion of the case study
+# Results and discussion
 
 ![Top: biological significance of the first dimension. Left: there is a linear
 relationship between the values on the first dimension of the left subspace and
@@ -443,8 +443,6 @@ the first rank. Because the first rank corresponds to the leading singular value
 of the system, the results of @fig:degree have a straightforward interpretation:
 degree-based processes are the most important in structuring the mammalian food
 web.
-
-# Discussion
 
 One important aspect in which Europe and Canada differ (despite their comparable
 bioclimatic conditions) is the degree of the legacy of human impacts, which have
