@@ -421,19 +421,19 @@ dimension. Right: distribution of the differences in the left
 panel.](figures/figure-degree.png){#fig:degree}
 
 Using a transfer learning framework we were able to construct a probabilistic
-metaweb and [as as per @Dunne2006NetStr] it is a list of potential interactions
-and does not mean that they will exist wherever the two species co-occur. The
-t-SVD embedding is able to learn relevant ecological features for the network.
-@fig:degree shows that the first rank correlates linearly with generality and
-vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys and predators
-for each species. Importantly, this implies that a rank 1 approximation
-represents the configuration model for the metaweb, *i.e.* a set of random
-networks generated from a given degree sequence [@Park2004StaMec]. Accounting
-for the probabilistic nature of the degrees, the rank 1 approximation also
-represents the *soft* configuration model [@vanderHoorn2018SpaMax]. Both models
-are maximum entropy graph models [@Garlaschelli2018CovStr], with sharp (all
-network realizations satisfy the specified degree sequence) and soft (network
-realizations satisfy the degree sequence on average) local constraints,
+metaweb and [as per @Dunne2006NetStr] is a list of potential interactions,
+meaning that they will not necessarily exist wherever the two species co-occur.
+The t-SVD embedding is able to learn relevant ecological features for the
+network. @fig:degree shows that the first rank correlates linearly with
+generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
+and predators for each species. Importantly, this implies that a rank 1
+approximation represents the configuration model for the metaweb, *i.e.* a set
+of random networks generated from a given degree sequence [@Park2004StaMec].
+Accounting for the probabilistic nature of the degrees, the rank 1 approximation
+also represents the *soft* configuration model [@vanderHoorn2018SpaMax]. Both
+models are maximum entropy graph models [@Garlaschelli2018CovStr], with sharp
+(all network realizations satisfy the specified degree sequence) and soft
+(network realizations satisfy the degree sequence on average) local constraints,
 respectively. The (soft) configuration model is an unbiased random graph model
 widely used by ecologists in the context of null hypothesis significance testing
 of network structure [*e.g.* @Bascompte2003NesAss] and can provide informative
