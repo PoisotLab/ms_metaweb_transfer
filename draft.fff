@@ -57,13 +57,13 @@ subspace are species without any prey.}\label{fig:subspaces}
 \hypertarget{fig:inflation}{%
 \centering
 \includegraphics{figures/figure-validation.png}
-\caption{Left, comparison of the probabilities of interactions assigned
+\caption{Left: comparison of the probabilities of interactions assigned
 by the model to all interactions (grey curve), the subset of
-interactions found in GLOBI (red), and in the Strong \& Leroux (2014)
+interactions found in GloBI (red), and in the Strong \& Leroux (2014)
 Newfoundland dataset (blue). The model recovers more interactions with a
 low probability compared to data mining, which can suggest that
 collected datasets are biased towards more common or easy to identify
-interactions. Right, distribution of the in-degree and out-degree of the
+interactions. Right: distribution of the in-degree and out-degree of the
 mammals from Canada in the reconstructed metaweb. This figure describes
 a flat, relatively short food web, in which there are few predators but
 a large number of preys.}\label{fig:inflation}
