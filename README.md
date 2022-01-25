@@ -181,12 +181,12 @@ the rank of the matrix. Under a t-SVD $\mathbf{A}_{m,n}$ is decomposed so that
 $\mathbf{\Sigma}$ is a square $r \times r$ diagonal matrix (with $1 \le r \le
 r_{full}$ where $r_{full}$ is the full rank of $\mathbf{A}$ and $r$ the rank at
 which we truncate the matrix) containing only non-zero $\sigma$ values.
-Additionally, $\mathbf{U}$ is now a $m \times r$ semi unitary matrix and
-$\mathbf{V}'$ a $n \times r$ semi-unitary matrix.
+Additionally, $\mathbf{U}$ is now an $m \times r$ semi unitary matrix and
+$\mathbf{V}'$ an $r \times n$ semi-unitary matrix.
 
 The specific rank at which the SVD ought to be truncated is a difficult
 question. The purpose of SVD is to remove the noise (expressed at high
-dimensions) and to focus on the signal, (expressed at low dimensions). In
+dimensions) and to focus on the signal (expressed at low dimensions). In
 datasets with a clear signal/noise demarcation, a scree plot of
 $\mathbf{\Sigma}$ can show a sharp drop at the rank where noise starts
 [@Zhu2006AutDim]. Because the European metaweb is almost entirely known, the
@@ -207,9 +207,10 @@ for the RDPG, called the left and right subspaces, are defined as $\mathscr{L} =
 $\mathscr{L}\mathscr{R} = \mathbf{A}$, and using any smaller rank results in
 $\mathscr{L}\mathscr{R} \approx \mathbf{A}$. Using a rank of 1 for the t-SVD
 provides a first-order approximation of the network. One advantage of using an
-RDPG rather than an SVD is that the number of components to estimate decreases;
-notably, one does not have to estimate the singular values of the SVD.
-Furthermore, the two subspaces can be directly multiplied to yield a network.
+RDPG for the network reconstruction rather than an SVD is that the number of
+components to estimate decreases; notably, one does not have to estimate the
+singular values of the SVD. Furthermore, the two subspaces can be directly
+multiplied to yield a network.
 
 ![Left: representation of the scree plot of the singular values from the t-SVD
 on the European metaweb. The scree plot shows no obvious drop in the singular
@@ -327,12 +328,12 @@ species were predicted to interact in all $2\times 10^5$ random draws.
 It must be noted that despite bringing in a large amount of information from the
 European species pool and interactions, the Canadian metaweb has distinct
 structural properties. Following an approach similar to @Vermaat2009MajDim, we
-show in Supp. Mat. 3 that not only can we observe differences in a multivariate
-space between the European and Canadian metaweb, we can also observe differences
-in the same space between random subgraphs from these networks. These results
-line up with the studies spatializing metawebs that have been discussed in the
-introduction: changes in the species pool are driving local structural changes
-in the networks.
+show in Supp. Mat. 3 that not only can we observe differences in the
+multivariate space between the European and Canadian metawebs, we can also
+observe differences in the same space between random subgraphs from these
+networks. These results line up with the studies spatializing metawebs that have
+been discussed in the introduction: changes in the species pool are driving
+local structural changes in the networks.
 
 ## Data cleanup, discovery, validation, and thresholding
 
@@ -341,12 +342,12 @@ number of data inflation steps to finalize it. This step is external to the
 actual transfer learning framework but rather serves as a way to augment and
 validate the predicted metaweb.
 
-![Left, comparison of the probabilities of interactions assigned by the model to
-all interactions (grey curve), the subset of interactions found in GLOBI (red),
+![Left: comparison of the probabilities of interactions assigned by the model to
+all interactions (grey curve), the subset of interactions found in GloBI (red),
 and in the @Strong2014ImpNon Newfoundland dataset (blue). The model recovers
 more interactions with a low probability compared to data mining, which can
 suggest that collected datasets are biased towards more common or easy to
-identify interactions. Right, distribution of the in-degree and out-degree of
+identify interactions. Right: distribution of the in-degree and out-degree of
 the mammals from Canada in the reconstructed metaweb. This figure describes a
 flat, relatively short food web, in which there are few predators but a large
 number of preys.](figures/figure-validation.png){#fig:inflation}
@@ -359,26 +360,27 @@ network (about 0.8% of all species pairs from the Canadian web), but ensures
 that we are directly re-using knowledge from Europe.
 
 Second, we looked for all species in the Canadian pool known to the Global
-Biotic Interactions (GLoBI) database [@Poelen2014GloBio], and extracted their
-known interactions. Because GLoBI aggregates observed interactions, it is not a
+Biotic Interactions (GloBI) database [@Poelen2014GloBio], and extracted their
+known interactions. Because GloBI aggregates observed interactions, it is not a
 *networks* data source, and therefore the only information we can reliably
 extract from it is that a species pair *was reported to interact at least once*.
-This last statement should yet be taken with caution, as some sources in GLoBI
+This last statement should yet be taken with caution, as some sources in GloBI
 [*e.g.* @Thessen2014KnoExt] are produced through text analysis, and therefore
 may not document direct evidence of the interaction. Nevertheless, should the
 predictive model work, we would expect that a majority of interactions known to
-GLoBI would also be predicted. We retrieved 366 interactions between mammals
-from the Canadian species pool from GLoBI, 33 of which were not predicted by the
+GloBI would also be predicted. We retrieved 366 interactions between mammals
+from the Canadian species pool from GloBI, 33 of which were not predicted by the
 model; this results in a success rate of 91%. After performing this check, we
-set the probability of all interactions known to GLoBI to 1.
+set the probability of all interactions known to GloBI to 1.
 
 Finally, we downloaded the data from @Strong2014ImpNon, who mined various
 literature sources to identify trophic interactions in Newfoundland. This
 dataset documented 25 interactions between mammals, only two of which were not
 part of our (Canada-level) predictions, resulting in a success rate of 92%.
 These two interactions were added to our predicted metaweb with a probability of 1.
-A table listing all interactions in the predicted Canadian metaweb can be found
-in the supplementary material.
+A comparison of interaction densities for the inferred metaweb, and the Globi
+and Newfoundland is shown in @fig:inflation and a table listing all interactions
+in the predicted Canadian metaweb can be found in the supplementary material.
 
 ![Left: effect of varying the cutoff for probabilities to be considered non-zero
 on the number of unique links and on $\hat{L}$, the probabilistic estimate of
@@ -392,7 +394,7 @@ Because the confidence intervals on the inferred trait space are probably
 over-estimates, we decided to apply a thresholding step to the interactions
 after data inflation (see @fig:thresholds showing the effect of varying the
 cutoff on $P(i \rightarrow j)$). @Cirtwill2021BuiFoo proposed a number of
-strategies to threshold probabilistic networks. Their methods assume the
+strategies to threshold probabilistic networks. Their methodology assumes the
 underlying data to be tag-based sequencing, which represents interactions as
 co-occurrences of predator and prey within the same tags; this is conceptually
 identical to our Bernoulli-trial based reconstruction of a probabilistic
@@ -402,7 +404,8 @@ interactions that species started to be disconnected from the network, we set
 this threshold for a probability equivalent to 0 to the largest possible value
 that still allowed all species to have at least one interaction with a non-zero
 probability. The need for this slight deviation from the @Cirtwill2021BuiFoo
-method highlights the need for additional development on network thresholding.
+methodology highlights the need for additional development on network
+thresholding.
 
 # Results and discussion
 
@@ -422,9 +425,9 @@ panel.](figures/figure-degree.png){#fig:degree}
 
 Using a transfer learning framework we were able to construct a probabilistic
 metaweb and [as per @Dunne2006NetStr] is a list of potential interactions,
-meaning that they will not necessarily exist wherever the two species co-occur.
-The t-SVD embedding is able to learn relevant ecological features for the
-network. @fig:degree shows that the first rank correlates linearly with
+meaning that they will not necessarily be realized wherever the two species
+co-occur. The t-SVD embedding is able to learn relevant ecological features for
+the network. @fig:degree shows that the first rank correlates linearly with
 generality and vulnerability [@Schoener1989FooWeb], *i.e.* the number of preys
 and predators for each species. Importantly, this implies that a rank 1
 approximation represents the configuration model for the metaweb, *i.e.* a set
