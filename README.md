@@ -77,9 +77,9 @@ communities may be *minimally* shared (the overall species overlap is less than
 4%), if the medium (proxy space) selected in the transfer step is biologically
 plausible, we can still effectively learn from the known network and make
 biologically relevant predictions of interactions. Indeed, as we detail in the
-results, when validated against known but fractional data of trophic
-interactions between Canadian mammals, our model achieves a predictive accuracy
-of approximately 91%.
+results, when validated against the known (but fractional) data of trophic
+interactions present between Canadian mammals, our model achieves a predictive
+accuracy of approximately 91%.
 
 # Method description
 
