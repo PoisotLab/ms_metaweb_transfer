@@ -42,13 +42,14 @@ and reduced number of features.}\label{fig:scree}
 \hypertarget{fig:subspaces}{%
 \centering
 \includegraphics{figures/figure-subspaces.png}
-\caption{Visual representation of the left (green/purple) and right
-(green/brown) subspaces, alongside the adjacency matrix of the food web
-they encode (greyscale). The European metaweb is on the left, and the
-imputed Canadian metaweb (before data inflation) on the right. This
-figure illustrates how much structure the left subspace captures. As we
-show in fig.~\ref{fig:degree}, the species with a value of 0 in the left
-subspace are species without any prey.}\label{fig:subspaces}
+\caption{Visual representation of the left (green/purple; left side
+matrix) and right (green/brown; top matrix) subspaces, alongside the
+adjacency matrix of the food web they encode (greyscale). The European
+metaweb is on the left, and the imputed Canadian metaweb (before data
+inflation) on the right. This figure illustrates how much structure the
+left subspace captures. As we show in fig.~\ref{fig:degree}, the species
+with a value of 0 in the left subspace are species without any
+prey.}\label{fig:subspaces}
 }
 \end{figure}
 \efloatseparator
