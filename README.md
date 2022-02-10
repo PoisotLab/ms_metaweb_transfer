@@ -293,7 +293,7 @@ information to assemble a *probabilistic* metaweb in the sense of
 @Poisot2016StrPro, *i.e.* in which every interaction is represented as a single,
 independent, Bernoulli event of probability $p$.
 
-![Visual representation of the left (green/purple; left side matrix) and right
+![Visual representation of the left (green/purple; left-side matrix) and right
 (green/brown; top matrix) subspaces, alongside the adjacency matrix of the food
 web they encode (greyscale). The European metaweb is on the left, and the
 imputed Canadian metaweb (before data inflation) on the right. This figure
@@ -418,7 +418,7 @@ between the position of a species on the first dimension of the right subspace
 and its vulnerability, *i.e.* the relative number of predators. Taken together,
 these two figures show that the first-order representation of this network would
 capture its degree distribution. Bottom: topological consequences of the first
-dimension. Left: differences in the $z$-score of the actual configuration model
+dimension. Left: differences in the $z$-scores of the actual configuration model
 for the reconstructed network, and the prediction based only on the first
 dimension. Right: distribution of the differences in the left
 panel.](figures/figure-degree.png){#fig:degree}
