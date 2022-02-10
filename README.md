@@ -293,13 +293,13 @@ information to assemble a *probabilistic* metaweb in the sense of
 @Poisot2016StrPro, *i.e.* in which every interaction is represented as a single,
 independent, Bernoulli event of probability $p$.
 
-![Visual representation of the left (green/purple) and right (green/brown)
-subspaces, alongside the adjacency matrix of the food web they encode
-(greyscale). The European metaweb is on the left, and the imputed Canadian
-metaweb (before data inflation) on the right. This figure illustrates how much
-structure the left subspace captures. As we show in @fig:degree, the species
-with a value of 0 in the left subspace are species without any
-prey.](figures/figure-subspaces.png){#fig:subspaces}
+![Visual representation of the left (green/purple; left side matrix) and right
+(green/brown; top matrix) subspaces, alongside the adjacency matrix of the food
+web they encode (greyscale). The European metaweb is on the left, and the
+imputed Canadian metaweb (before data inflation) on the right. This figure
+illustrates how much structure the left subspace captures. As we show in
+@fig:degree, the species with a value of 0 in the left subspace are species
+without any prey.](figures/figure-subspaces.png){#fig:subspaces}
 
 Specifically, we have adopted the following approach. For every entry in
 $\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$, we draw a value from its
