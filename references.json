@@ -438,6 +438,47 @@
         "volume": "n/a"
     },
     {
+        "DOI": "10.1038/s41467-018-05056-0",
+        "author": [
+            {
+                "family": "Bramon Mora",
+                "given": "Bernat"
+            },
+            {
+                "family": "Gravel",
+                "given": "Dominique"
+            },
+            {
+                "family": "Gilarranz",
+                "given": "Luis J."
+            },
+            {
+                "family": "Poisot",
+                "given": "Timoth\u00e9e"
+            },
+            {
+                "family": "Stouffer",
+                "given": "Daniel B."
+            }
+        ],
+        "container-title": "Nature Communications",
+        "id": "BramonMora2018IdeCom",
+        "issue": "1",
+        "issued": {
+            "date-parts": [
+                [
+                    2018,
+                    7,
+                    4
+                ]
+            ]
+        },
+        "page": "2603",
+        "title": "Identifying a common backbone of interactions underlying food webs from different ecosystems",
+        "type": "article-journal",
+        "volume": "9"
+    },
+    {
         "DOI": "10.1890/0012-9658(2006)87[2411:CBRINF]2.0.CO;2",
         "author": [
             {
@@ -2552,7 +2593,7 @@
             }
         ],
         "container-title": "Global Ecology and Biogeography",
-        "id": "Maiorano2020Tet10",
+        "id": "Maiorano2020TetSpe",
         "issue": "9",
         "issued": {
             "date-parts": [
@@ -2682,47 +2723,6 @@
         "title": "Sampling and asymptotic network properties of spatial multi-trophic networks",
         "type": "article-journal",
         "volume": "n/a"
-    },
-    {
-        "DOI": "10.1038/s41467-018-05056-0",
-        "author": [
-            {
-                "family": "Mora",
-                "given": "Bernat Bramon"
-            },
-            {
-                "family": "Gravel",
-                "given": "Dominique"
-            },
-            {
-                "family": "Gilarranz",
-                "given": "Luis J."
-            },
-            {
-                "family": "Poisot",
-                "given": "Timoth\u00e9e"
-            },
-            {
-                "family": "Stouffer",
-                "given": "Daniel B."
-            }
-        ],
-        "container-title": "Nature Communications",
-        "id": "Mora2018IdeCom",
-        "issue": "1",
-        "issued": {
-            "date-parts": [
-                [
-                    2018,
-                    7,
-                    4
-                ]
-            ]
-        },
-        "page": "2603",
-        "title": "Identifying a common backbone of interactions underlying food webs from different ecosystems",
-        "type": "article-journal",
-        "volume": "9"
     },
     {
         "DOI": "10.1016/j.tree.2015.03.014",
@@ -4316,7 +4316,7 @@
                 "given": "Kristen"
             }
         ],
-        "collection-title": "SI:measures of biodiversity",
+        "collection-title": "SI:Measures of biodiversity",
         "container-title": "Biological Conservation",
         "id": "Turak2017UsiEss",
         "issued": {
