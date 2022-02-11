@@ -41,7 +41,7 @@ importantly - retain this signal even if it is obscured at the community scale
 due to *e.g.* local conditions [@Poisot2018IntRet; @Hutchinson2017CopSig].
 Finally, species interactions at macro-ecological scales seem to respond mostly
 to macro-evolutionary processes [@Price2003MacThe]; which is evidenced by the
-presence of conserved backbones in food webs [@Mora2018IdeCom;
+presence of conserved backbones in food webs [@BramonMora2018IdeCom;
 @DallaRiva2016ExpEvo], strong evolutionary signature on prey choice
 [@Stouffer2012EvoCon], and strong phylogenetic signature in food web intervality
 [@Eklof2016PhyCom]. Phylogenetic reconstruction has also previously been used
@@ -66,7 +66,7 @@ it to yield the final list of interactions (Step
 
 In @fig:concept, we provide a methodological overview based on learning the
 embedding of a metaweb of trophic interactions for European mammals [known
-interactions; @Maiorano2020Tet10; @Maiorano2020DatTet] and, based on
+interactions; @Maiorano2020TetSpe; @Maiorano2020DatTet] and, based on
 phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
 @Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
 (using only a species list *i.e.* interactions are treated as unknown in this
@@ -101,7 +101,7 @@ information from the data) outperformed model-informed ones
 
 ## Data used for the case study
 
-We use data from the European metaweb assembled by @Maiorano2020Tet10. This was
+We use data from the European metaweb assembled by @Maiorano2020TetSpe. This was
 assembled using data extracted from scientific literature (including published
 papers, books, and grey literature) from the last 50 years and includes all
 terrestrial tetrapods (mammals, breeding birds, reptiles and amphibians)
@@ -115,7 +115,7 @@ steps namely, the mammalian consensus supertree by @Upham2019InfMam (which is
 used for the knowledge transfer step) and for the Canadian species list---which
 was extracted from the International Union for Conservation of Nature (IUCN)
 checklist, and corresponds to the same selection criteria that was applied by
-@Maiorano2020Tet10 in the European metaweb. After taxonomic cleaning and
+@Maiorano2020TetSpe in the European metaweb. After taxonomic cleaning and
 reconciliation the European metaweb has 260 species, and the Canadian species
 pool 163; of these, 17 (about 4% of the total) are shared, and 89 species from
 Canada (54%) had at least one congeneric species in Europe. The similarity for
@@ -230,7 +230,7 @@ appropriate threshold for probability, we performed the RDPG approach on the
 European metaweb, and evaluated the probability threshold by treating this as a
 binary classification problem, specifically assuming that both 0 and 1 in the
 European metaweb are all true. Given the methodological details given in
-@Maiorano2020Tet10 and @OConnor2020UnvFoo, this seems like a reasonable
+@Maiorano2020TetSpe and @OConnor2020UnvFoo, this seems like a reasonable
 assumption, although one that does not hold for all metawebs. We used the
 thresholding approach presented in @Poisot2021ImpMam, and picked a cutoff that
 maximized Youden's $J$ statistic (a measure of the informedness (trust) of
