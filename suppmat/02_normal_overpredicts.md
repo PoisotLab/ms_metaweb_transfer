@@ -4,13 +4,14 @@ In this appendix, we compare the raw predictions made by the Normal and Uniform
 models of latent variable evolution. The Normal model was created by (i) getting
 the average $\mu$ of the simulated values for each species/variable combination,
 and (ii) estimating the standard deviation as $(\mu+c - \mu-c)/3.92$, where $c$
-is one half of the 95% confidence interval around $\mu$.
+is one half of the 95% confidence interval around $\mu$ divided by 3.92
 
 As can be seen on the following figure, the Normal model tends to assign high
 probabilities (up to $p \approx 0.4$) for interactions that the Uniform model
 essentially rules out:
 
-![](./figures/supplementary/comparison_models.png)
+![Here the color scale shows the number of interactions for each bin (where a
+bin is the combination of the uniform and normal score)](./figures/supplementary/comparison_models.png)
 
 This can lead to severe over-estimation of the number of interactions. In fact,
 the consequences of using a Normal model are obvious from looking at the

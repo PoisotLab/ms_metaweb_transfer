@@ -1,7 +1,7 @@
 # S.M.3 - RDPG reconstructed networks have diverse structures
 
 In this appendix, we check that the networks reconstructed from the RDPG do
-keep a variety of structural components, especially when selecting small species
+keep a variety of structural components, especially when selecting a small species
 pools from within them. In order to do so, we induced 400 random subgraphs
 containing between 30 and 70 species, both from the Canadian and European
 metawebs. For each of these subgraphs, we measured eight variables: the mean and

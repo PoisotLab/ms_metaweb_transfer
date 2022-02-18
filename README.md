@@ -69,17 +69,17 @@ embedding of a metaweb of trophic interactions for European mammals [known
 interactions; @Maiorano2020TetSpe; @Maiorano2020DatTet] and, based on
 phylogenetic relationships between mammals globally [*i.e.*, phylogenetic tree
 @Upham2019InfMam], infer a metaweb for the Canadian mammalian species pool
-(using only a species list *i.e.* interactions are treated as unknown in this
-instance). Our case study shows that phylogenetic transfer learning is an
-effective approach to the generation of probabilistic metawebs. This showcases
-that although the components (species) that make up the Canadian and European
-communities may be *minimally* shared (the overall species overlap is less than
-4%), if the medium (proxy space) selected in the transfer step is biologically
-plausible, we can still effectively learn from the known network and make
-biologically relevant predictions of interactions. Indeed, as we detail in the
-results, when validated against the known (but fractional) data of trophic
-interactions present between Canadian mammals, our model achieves a predictive
-accuracy of approximately 91%.
+(using only a species list *i.e.* we have no prior data on species interaction
+data for Canada in this instance). Our case study shows that phylogenetic
+transfer learning is an effective approach to the generation of probabilistic
+metawebs. This showcases that although the components (species) that make up the
+Canadian and European communities may be *minimally* shared (the overall species
+overlap is less than 4%), if the medium (proxy space) selected in the transfer
+step is biologically plausible, we can still effectively learn from the known
+network and make biologically relevant predictions of interactions. Indeed, as
+we detail in the results, when validated against the known (but fractional) data
+of trophic interactions present between Canadian mammals, our model achieves a
+predictive accuracy of approximately 91%.
 
 # Method description
 
@@ -295,11 +295,12 @@ independent, Bernoulli event of probability $p$.
 
 ![Visual representation of the left (green/purple; left-side matrix) and right
 (green/brown; top matrix) subspaces, alongside the adjacency matrix of the food
-web they encode (greyscale). The European metaweb is on the left, and the
-imputed Canadian metaweb (before data inflation) on the right. This figure
-illustrates how much structure the left subspace captures. As we show in
-@fig:degree, the species with a value of 0 in the left subspace are species
-without any prey.](figures/figure-subspaces.png){#fig:subspaces}
+web they encode (greyscale). Where the color saturation is the magnitude of the
+latent trait value. The European metaweb is on the left, and the imputed
+Canadian metaweb (before data inflation) on the right. This figure illustrates
+how much structure the left subspace captures. As we show in @fig:degree, the
+species with a value of 0 in the left subspace are species without any
+prey.](figures/figure-subspaces.png){#fig:subspaces}
 
 Specifically, we have adopted the following approach. For every entry in
 $\hat{\mathscr{L}}$ and $\hat{\mathscr{R}}$, we draw a value from its
@@ -348,9 +349,11 @@ and in the @Strong2014ImpNon Newfoundland dataset (blue). The model recovers
 more interactions with a low probability compared to data mining, which can
 suggest that collected datasets are biased towards more common or easy to
 identify interactions. Right: distribution of the in-degree and out-degree of
-the mammals from Canada in the reconstructed metaweb. This figure describes a
-flat, relatively short food web, in which there are few predators but a large
-number of preys.](figures/figure-validation.png){#fig:inflation}
+the mammals from Canada in the reconstructed metaweb, where the rank is the
+maximal number of linearly independent columns (interactions) in the metaweb.
+This figure describes a flat, relatively short food web, in which there are few
+predators but a large number of
+preys.](figures/figure-validation.png){#fig:inflation}
 
 First, we extracted the network corresponding to the 17 species shared between
 the European and Canadian pools and replaced these interactions with a
@@ -419,8 +422,9 @@ and its vulnerability, *i.e.* the relative number of predators. Taken together,
 these two figures show that the first-order representation of this network would
 capture its degree distribution. Bottom: topological consequences of the first
 dimension. Left: differences in the $z$-scores of the actual configuration model
-for the reconstructed network, and the prediction based only on the first
-dimension. Right: distribution of the differences in the left
+for the reconstructed network and the prediction based only on the first
+dimension (with a deeper saturation indicating a bigger difference in scores).
+Right: distribution of the differences in the left
 panel.](figures/figure-degree.png){#fig:degree}
 
 Using a transfer learning framework we were able to construct a probabilistic
