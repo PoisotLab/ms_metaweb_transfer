@@ -1,0 +1,110 @@
+\begin{figure}
+\hypertarget{fig:concept}{%
+\centering
+\includegraphics{figures/figure-concept_v2.png}
+\caption{Overview of the phylogenetic transfer learning (and prediction)
+of species interactions networks. Starting from an initial, known,
+network, we learn its representation through a graph embedding step
+(here, a truncated Singular Value Decomposition; Step 1), yielding a
+series of latent traits (latent vulnerability traits are more
+representative of species at the lower trophic-level and latent
+generality traits are more representative of species at higher
+trophic-levels; \emph{sensu} Schoener (1989)); second, for the
+destination species pool, we perform ancestral character estimation
+using a phylogeny (here, using a Brownian model for the latent traits;
+Step 2); we then sample from the reconstructed distribution of latent
+traits (Step 3) to generate a probabilistic metaweb at the destination
+(here, assuming a uniform distribution of traits), and threshold it to
+yield the final list of interactions (Step 4).}\label{fig:concept}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:scree}{%
+\centering
+\includegraphics{figures/figure-screeplot.png}
+\caption{Left: representation of the scree plot of the singular values
+from the t-SVD on the European metaweb. The scree plot shows no obvious
+drop in the singular values that may be leveraged to automatically
+detect a minimal dimension for embedding, after \emph{e.g.} Zhu \&
+Ghodsi (2006). Right: cumulative fraction of variance explained by each
+dimension up to the rank of the European metaweb. The grey lines
+represent cutoffs at 50, 60, \ldots, 90\% of variance explained. For the
+rest of the analysis, we reverted to an arbitrary threshold of 60\% of
+variance explained, which represented a good tradeoff between accuracy
+and reduced number of features.}\label{fig:scree}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:subspaces}{%
+\centering
+\includegraphics{figures/figure-subspaces.png}
+\caption{Visual representation of the left (green/purple; left-side
+matrix) and right (green/brown; top matrix) subspaces, alongside the
+adjacency matrix of the food web they encode (greyscale). The European
+metaweb is on the left, and the imputed Canadian metaweb (before data
+inflation) on the right. This figure illustrates how much structure the
+left subspace captures. As we show in fig.~\ref{fig:degree}, the species
+with a value of 0 in the left subspace are species without any
+prey.}\label{fig:subspaces}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:inflation}{%
+\centering
+\includegraphics{figures/figure-validation.png}
+\caption{Left: comparison of the probabilities of interactions assigned
+by the model to all interactions (grey curve), the subset of
+interactions found in GloBI (red), and in the Strong \& Leroux (2014)
+Newfoundland dataset (blue). The model recovers more interactions with a
+low probability compared to data mining, which can suggest that
+collected datasets are biased towards more common or easy to identify
+interactions. Right: distribution of the in-degree and out-degree of the
+mammals from Canada in the reconstructed metaweb. This figure describes
+a flat, relatively short food web, in which there are few predators but
+a large number of preys.}\label{fig:inflation}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:thresholds}{%
+\centering
+\includegraphics{figures/figure-cutoffs.png}
+\caption{Left: effect of varying the cutoff for probabilities to be
+considered non-zero on the number of unique links and on \(\hat{L}\),
+the probabilistic estimate of the number of links assuming that all
+interactions are independent. Right: effect of varying the cutoff on the
+number of disconnected species, and on network connectance. In both
+panels, the grey line indicates the cutoff
+\(P(i\rightarrow j) \approx 0.08\) that resulted in the first species
+losing all of its interactions.}\label{fig:thresholds}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:degree}{%
+\centering
+\includegraphics{figures/figure-degree.png}
+\caption{Top: biological significance of the first dimension. Left:
+there is a linear relationship between the values on the first dimension
+of the left subspace and the generality, \emph{i.e.} the relative number
+of preys, \emph{sensu} Schoener (1989). Species with a value of 0 in
+this subspace are at the bottom-most trophic level. Right: there is,
+similarly, a linear relationship between the position of a species on
+the first dimension of the right subspace and its vulnerability,
+\emph{i.e.} the relative number of predators. Taken together, these two
+figures show that the first-order representation of this network would
+capture its degree distribution. Bottom: topological consequences of the
+first dimension. Left: differences in the \(z\)-scores of the actual
+configuration model for the reconstructed network, and the prediction
+based only on the first dimension. Right: distribution of the
+differences in the left panel.}\label{fig:degree}
+}
+\end{figure}
