@@ -3,7 +3,7 @@ Dear members of the Methods in Ecology and Evolution editorial board,
 On behalf of my co-authors, I am pleased to submit our manuscript entitled “Food
 web reconstruction through phylogenetic transfer of low-rank network
 representation” for consideration as a Research Article in Methods in Ecology
-and Evolution. Prior to submission, we discussed this manuscript with Dr.
+and Evolution. Prior to submission, we discussed this manuscript with Prof.
 Nicolas Lecomte, who agreed to handle it. We originally submitted this
 manuscript to Ecology Letters, where after a round of review, the changes made
 in response to the reviewers brought us over the size limit. We have attached
