@@ -44,12 +44,13 @@ and reduced number of features.}\label{fig:scree}
 \includegraphics{figures/figure-subspaces.png}
 \caption{Visual representation of the left (green/purple; left-side
 matrix) and right (green/brown; top matrix) subspaces, alongside the
-adjacency matrix of the food web they encode (greyscale). The European
-metaweb is on the left, and the imputed Canadian metaweb (before data
-inflation) on the right. This figure illustrates how much structure the
-left subspace captures. As we show in fig.~\ref{fig:degree}, the species
-with a value of 0 in the left subspace are species without any
-prey.}\label{fig:subspaces}
+adjacency matrix of the food web they encode (greyscale). Where the
+color saturation is the magnitude of the latent trait value. The
+European metaweb is on the left, and the imputed Canadian metaweb
+(before data inflation) on the right. This figure illustrates how much
+structure the left subspace captures. As we show in
+fig.~\ref{fig:degree}, the species with a value of 0 in the left
+subspace are species without any prey.}\label{fig:subspaces}
 }
 \end{figure}
 \efloatseparator
@@ -65,9 +66,11 @@ Newfoundland dataset (blue). The model recovers more interactions with a
 low probability compared to data mining, which can suggest that
 collected datasets are biased towards more common or easy to identify
 interactions. Right: distribution of the in-degree and out-degree of the
-mammals from Canada in the reconstructed metaweb. This figure describes
-a flat, relatively short food web, in which there are few predators but
-a large number of preys.}\label{fig:inflation}
+mammals from Canada in the reconstructed metaweb, where the rank is the
+maximal number of linearly independent columns (interactions) in the
+metaweb. This figure describes a flat, relatively short food web, in
+which there are few predators but a large number of
+preys.}\label{fig:inflation}
 }
 \end{figure}
 \efloatseparator
@@ -103,8 +106,9 @@ the first dimension of the right subspace and its vulnerability,
 figures show that the first-order representation of this network would
 capture its degree distribution. Bottom: topological consequences of the
 first dimension. Left: differences in the \(z\)-scores of the actual
-configuration model for the reconstructed network, and the prediction
-based only on the first dimension. Right: distribution of the
-differences in the left panel.}\label{fig:degree}
+configuration model for the reconstructed network and the prediction
+based only on the first dimension (with a deeper saturation indicating a
+bigger difference in scores). Right: distribution of the differences in
+the left panel.}\label{fig:degree}
 }
 \end{figure}

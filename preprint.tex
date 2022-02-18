@@ -413,15 +413,15 @@ learning the embedding of a metaweb of trophic interactions for European
 mammals (known interactions; Maiorano et al., 2020a, 2020b) and, based
 on phylogenetic relationships between mammals globally (\emph{i.e.},
 phylogenetic tree Upham et al., 2019), infer a metaweb for the Canadian
-mammalian species pool (using only a species list \emph{i.e.}
-interactions are treated as unknown in this instance). Our case study
-shows that phylogenetic transfer learning is an effective approach to
-the generation of probabilistic metawebs. This showcases that although
-the components (species) that make up the Canadian and European
-communities may be \emph{minimally} shared (the overall species overlap
-is less than 4\%), if the medium (proxy space) selected in the transfer
-step is biologically plausible, we can still effectively learn from the
-known network and make biologically relevant predictions of
+mammalian species pool (using only a species list \emph{i.e.} we have no
+prior data on species interaction data for Canada in this instance). Our
+case study shows that phylogenetic transfer learning is an effective
+approach to the generation of probabilistic metawebs. This showcases
+that although the components (species) that make up the Canadian and
+European communities may be \emph{minimally} shared (the overall species
+overlap is less than 4\%), if the medium (proxy space) selected in the
+transfer step is biologically plausible, we can still effectively learn
+from the known network and make biologically relevant predictions of
 interactions. Indeed, as we detail in the results, when validated
 against the known (but fractional) data of trophic interactions present
 between Canadian mammals, our model achieves a predictive accuracy of
@@ -691,12 +691,13 @@ independent, Bernoulli event of probability \(p\).
 \includegraphics{figures/figure-subspaces.png}
 \caption{Visual representation of the left (green/purple; left-side
 matrix) and right (green/brown; top matrix) subspaces, alongside the
-adjacency matrix of the food web they encode (greyscale). The European
-metaweb is on the left, and the imputed Canadian metaweb (before data
-inflation) on the right. This figure illustrates how much structure the
-left subspace captures. As we show in fig.~\ref{fig:degree}, the species
-with a value of 0 in the left subspace are species without any
-prey.}\label{fig:subspaces}
+adjacency matrix of the food web they encode (greyscale). Where the
+color saturation is the magnitude of the latent trait value. The
+European metaweb is on the left, and the imputed Canadian metaweb
+(before data inflation) on the right. This figure illustrates how much
+structure the left subspace captures. As we show in
+fig.~\ref{fig:degree}, the species with a value of 0 in the left
+subspace are species without any prey.}\label{fig:subspaces}
 }
 \end{figure}
 
@@ -759,9 +760,11 @@ Newfoundland dataset (blue). The model recovers more interactions with a
 low probability compared to data mining, which can suggest that
 collected datasets are biased towards more common or easy to identify
 interactions. Right: distribution of the in-degree and out-degree of the
-mammals from Canada in the reconstructed metaweb. This figure describes
-a flat, relatively short food web, in which there are few predators but
-a large number of preys.}\label{fig:inflation}
+mammals from Canada in the reconstructed metaweb, where the rank is the
+maximal number of linearly independent columns (interactions) in the
+metaweb. This figure describes a flat, relatively short food web, in
+which there are few predators but a large number of
+preys.}\label{fig:inflation}
 }
 \end{figure}
 
@@ -851,9 +854,10 @@ the first dimension of the right subspace and its vulnerability,
 figures show that the first-order representation of this network would
 capture its degree distribution. Bottom: topological consequences of the
 first dimension. Left: differences in the \(z\)-scores of the actual
-configuration model for the reconstructed network, and the prediction
-based only on the first dimension. Right: distribution of the
-differences in the left panel.}\label{fig:degree}
+configuration model for the reconstructed network and the prediction
+based only on the first dimension (with a deeper saturation indicating a
+bigger difference in scores). Right: distribution of the differences in
+the left panel.}\label{fig:degree}
 }
 \end{figure}
 
