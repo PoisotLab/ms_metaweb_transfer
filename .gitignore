@@ -13,5 +13,15 @@ affiliations.json
 
 # twitter presentation images
 twitter/
+
+# word docs
 _wc.docx
+final.docx
 ~$_wc.docx
+~$final.docx
+
+# Renamed figures (for submission)
+figures/Figure_*
+# Tex File to doc (for submission)
+draft.tex
+scripts/word_doc.sh
